@@ -1,11 +1,11 @@
-«IMPORT org::applause::applausedsl::applauseDsl»
+Â«IMPORT org::applause::applausedsl::applauseDslÂ»
 
-«EXTENSION templates::android::GeneratorExtensions»
-«EXTENSION templates::android::ProviderExtension»
+Â«EXTENSION templates::android::GeneratorExtensionsÂ»
+Â«EXTENSION templates::android::ProviderExtensionÂ»
 
-«DEFINE main FOR Application»
-«FILE applicationActivityFileName()»
-package «packageName()»;
+Â«DEFINE main FOR ApplicationÂ»
+Â«FILE applicationActivityFileName()Â»
+package Â«packageName()Â»;
 
 import android.app.TabActivity;
 import android.content.Intent;
@@ -20,21 +20,21 @@ public class ApplicationActivity extends TabActivity {
         super.onCreate(savedInstanceState);
         
         final TabHost tabHost = getTabHost();
-        «FOREACH this.buttons AS tab ITERATOR iter»
-        	«LET "tab" + iter.counter1 AS tabName»
-		        TabSpec «tabName» = tabHost.newTabSpec("«tabName»");
-	    	    «tabName».setIndicator(«tab.title.expression("")»);
+        Â«FOREACH this.buttons AS tab ITERATOR iterÂ»
+        	Â«LET "tab" + iter.counter1 AS tabNameÂ»
+		        TabSpec Â«tabNameÂ» = tabHost.newTabSpec("Â«tabNameÂ»");
+	    	    Â«tabNameÂ».setIndicator(Â«tab.title.expression("")Â»);
 	    	    
-	        	Intent «tabName»Intent = new Intent(this, «tab.view.view.name».class);
-	        	«tab.view.provider.providerClassName()» «tabName»IntentProvider = «providerFactoryClassName()».«tab.view.provider.providerClassName().getterName()»(); 
-	        	«tabName»Intent.putExtra("provider", «tabName»IntentProvider);
-				«tabName».setContent(«tabName»Intent);
+	        	Intent Â«tabNameÂ»Intent = new Intent(this, Â«tab.view.view.nameÂ».class);
+	        	Â«tab.view.provider.providerClassName()Â» Â«tabNameÂ»IntentProvider = Â«providerFactoryClassName()Â».Â«tab.view.provider.providerClassName().getterName()Â»(); 
+	        	Â«tabNameÂ»Intent.putExtra("provider", Â«tabNameÂ»IntentProvider);
+				Â«tabNameÂ».setContent(Â«tabNameÂ»Intent);
 				
-				tabHost.addTab(«tabName»);
-        	«ENDLET»
-        «ENDFOREACH»
+				tabHost.addTab(Â«tabNameÂ»);
+        	Â«ENDLETÂ»
+        Â«ENDFOREACHÂ»
     }
 
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»

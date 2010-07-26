@@ -1,6 +1,6 @@
-«IMPORT org::applause::applausedsl::applauseDsl»
+Â«IMPORT org::applause::applausedsl::applauseDslÂ»
 
-«DEFINE main FOR Application»
-«EXPAND android::Main::main FOR this»
-«EXPAND iphone::Main::main FOR this»
-«ENDDEFINE»
+Â«DEFINE main FOR ApplicationÂ»
+Â«EXPAND android::Main::main FOR thisÂ»
+Â«EXPAND iphone::Main::main FOR thisÂ»
+Â«ENDDEFINEÂ»

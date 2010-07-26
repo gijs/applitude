@@ -1,13 +1,13 @@
-«IMPORT org::applause::applausedsl::applauseDsl»
+Â«IMPORT org::applause::applausedsl::applauseDslÂ»
 
-«EXTENSION templates::iphone::Extensions»
+Â«EXTENSION templates::iphone::ExtensionsÂ»
 
-«DEFINE main FOR Object-»
-«ENDDEFINE»
+Â«DEFINE main FOR Object-Â»
+Â«ENDDEFINEÂ»
 
 
-«DEFINE main FOR Application-»
-«EXPAND View::main»
-«EXPAND Provider::main»
-«EXPAND Application::main»
-«ENDDEFINE»
+Â«DEFINE main FOR Application-Â»
+Â«EXPAND View::mainÂ»
+Â«EXPAND Provider::mainÂ»
+Â«EXPAND Application::mainÂ»
+Â«ENDDEFINEÂ»
