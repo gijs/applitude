@@ -4,7 +4,7 @@
 «EXTENSION templates::android::ProviderExtension»
 
 «DEFINE main FOR Application»
-«FILE applicationActivityFileName()»
+«FILE applicationActivityFileName() ANDROID»
 package «packageName()»;
 
 import android.app.TabActivity;

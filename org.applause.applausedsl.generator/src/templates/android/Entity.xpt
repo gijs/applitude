@@ -10,7 +10,7 @@
 «ENDDEFINE»
 
 «DEFINE entity FOR Entity»
-«FILE this.entityFileName()»
+«FILE this.entityFileName() ANDROID»
 package «packageName()»;
 
 import java.io.Serializable;

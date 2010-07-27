@@ -6,7 +6,7 @@
 «EXTENSION templates::android::ProviderExtension»
 
 «DEFINE main FOR SectionedView-»
-«FILE activityFileName()»
+«FILE activityFileName() ANDROID»
 package «packageName()»;
 
 import java.io.Serializable;

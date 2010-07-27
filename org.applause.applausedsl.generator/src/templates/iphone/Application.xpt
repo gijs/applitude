@@ -12,7 +12,7 @@
 «ENDDEFINE»
 
 «DEFINE headerFile FOR Application»
-«FILE filenameApplicationDelegateHeader()»
+«FILE filenameApplicationDelegateHeader() IPHONE»
 #import <UIKit/UIKit.h>
 
 @interface «applicationDelegateClassname()» : NSObject <UIApplicationDelegate> {
@@ -36,7 +36,7 @@
 «ENDDEFINE»
 
 «DEFINE moduleFile FOR Application»
-«FILE filenameApplicationDelegateModule()»
+«FILE filenameApplicationDelegateModule() IPHONE»
 #import "«filenameApplicationDelegateHeader()»"
 #import "IPUIView.h"
 #import "«filenameCentralProvidersHeader()»"

@@ -11,7 +11,7 @@
 «ENDDEFINE»
 
 «DEFINE providerFactory FOR Application»
-«FILE providerFactoryFileName()»
+«FILE providerFactoryFileName() ANDROID»
 package «packageName()»;
 
 import static de.itemis.base.StringUtils.*;
@@ -30,7 +30,7 @@ public class «providerFactoryClassName()» {
 «ENDDEFINE»
 
 «DEFINE providerClass FOR ContentProvider»
-«FILE this.providerFileName()»
+«FILE this.providerFileName() ANDROID»
 package «packageName()»;
 
 import java.io.Reader;

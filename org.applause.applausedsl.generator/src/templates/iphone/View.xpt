@@ -13,7 +13,7 @@
 «ENDDEFINE»
 
 «DEFINE viewHeader FOR View»
-«FILE filenameHeader()»
+«FILE filenameHeader() IPHONE»
 #import <UIKit/UIKit.h>
 #import "«baseClassFilenameHeader()»"
 
@@ -26,7 +26,7 @@
 «ENDDEFINE»
 
 «DEFINE viewModule FOR SectionedView»
-«FILE filenameModule()»
+«FILE filenameModule() IPHONE»
 #import "«filenameHeader()»"
 #import "NSObject+iPhonical.h"
 «EXPAND imports» 
