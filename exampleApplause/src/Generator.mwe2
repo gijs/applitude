@@ -1,6 +1,6 @@
 module Generator
 
-var androidDir = "src-gena"
+var androidDir = "../explAndroid/src"
 var iphoneDir = "src-geni"
 var modelPath = "src/model"
 
