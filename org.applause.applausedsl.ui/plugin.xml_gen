@@ -180,7 +180,7 @@
             class="org.applause.applausedsl.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator">
       </markerResolutionGenerator>
    </extension>
-   <!-- builder -->
+
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
@@ -192,6 +192,5 @@
             project="true">
       </wizard>
    </extension>
-   
 
 </plugin>

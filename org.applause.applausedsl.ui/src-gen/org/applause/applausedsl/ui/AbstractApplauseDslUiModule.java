@@ -113,5 +113,10 @@ public abstract class AbstractApplauseDslUiModule extends DefaultUiModule {
 		binder.bind(org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.CONTENT_ASSIST)).to(org.applause.applausedsl.ui.contentassist.antlr.internal.InternalApplauseDslLexer.class);
 	}
 
+	// contributed by org.eclipse.xtext.ui.generator.projectWizard.SimpleProjectWizardFragment
+	public Class<? extends org.eclipse.xtext.ui.wizard.IProjectCreator> bindIProjectCreator() {
+		return org.applause.applausedsl.ui.wizard.ApplauseDslProjectCreator.class;
+	}
+
 
 }
