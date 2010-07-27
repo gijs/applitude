@@ -1,0 +1,15 @@
+/*
+ * This is an example model
+ */
+tabbarApplication exampleApp {
+	button {
+		title="b2" 
+		icon="icon.png"
+		view= Main ( "tesr" )
+	}
+	
+}
+
+tableview Main {
+		title="main"
+}

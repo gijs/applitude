@@ -1,0 +1,13 @@
+module Generator
+
+var androidDir = "src-gena"
+var iphoneDir = "src-geni"
+var modelPath = "src/model"
+
+Workflow {
+	component = @ workflow.ApplauseDslGenerator {
+		modelPath = modelPath
+		targetDirAndroid = androidDir
+		targetDirIphone = iphoneDir
+	}
+}
