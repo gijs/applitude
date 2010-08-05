@@ -12,7 +12,7 @@
 
 @implementation IPXMLContentProvider
 
-@synthesize url, document, keyPathToContent;
+@synthesize url, document, keyPathToContent, request;
 
 -(id)initWithURL: (NSURL*)u initialContent:(id)c keyPathToContent:(NSString *)kp andProviders:(id)p{
 	self = [super initWithContent:c andProviders:p];

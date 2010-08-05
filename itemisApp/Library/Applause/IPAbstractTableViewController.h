@@ -10,8 +10,11 @@
 #import "IPContentProvider.h"
 #import "IPUIView.h"
 #import "IPLoadingView.h"
+#import "AbstractCustomUITableViewController2.h"
 
-@interface IPAbstractTableViewController : UITableViewController<IPUIView> {
+// XXX Peter
+// @interface IPAbstractTableViewController : UITableViewController<IPUIView> {
+@interface IPAbstractTableViewController : AbstractCustomUITableViewController2<IPUIView> {
 	
 	IPContentProvider *contentProvider;
 	NSMutableDictionary *loadedImages;

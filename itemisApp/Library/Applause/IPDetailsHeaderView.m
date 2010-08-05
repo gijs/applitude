@@ -7,7 +7,7 @@
 //
 
 #import "IPDetailsHeaderView.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation IPDetailsHeaderView
 

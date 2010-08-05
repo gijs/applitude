@@ -3,20 +3,25 @@
 #import "NSObject+iPhonical.h"
 #import "itemisAppProviders.h"
 #import "VortragDetailsViewViewController.h"
- 
 
 @implementation SprecherDetailsViewController
 
 
+/*
+ * Return the number of sections in this table.
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	if(!contentProvider || !contentProvider.content || contentProvider.loading)
+	if(!contentProvider || !contentProvider.content || contentProvider.loading) {
 		return 0;
-	else
-    	return 2;
+	}
+	else {
+		return 2;
+	}
 }
 
-
-
+/*
+ * Return the number of sections in this table.
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section == 0) {
 		return [[[[contentProvider valueForKeyPath:@"content.vortraege"] componentsSeparatedByString: @", "] asArray] count];
@@ -27,64 +32,61 @@
 		return 0;
 }
 
+/*
+ * Specify the NIB which contains the custom cell we want to use.
+ */
+- (NSString *)tableView:(UITableView *)tableView nibNameForRowAtIndexPath:(NSIndexPath *)indexPath {
+	if(indexPath.section == 0) {
+		return @"DefaultCustomCell2";
+	}
+	if(indexPath.section == 1 && indexPath.row == 0) {
+		return @"Value2CustomCell2";
+	}
+	if(indexPath.section == 1 && indexPath.row == 1) {
+		return @"Value2CustomCell2";
+	}
+	return @"DefaultCustomCell2";
+}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-
+/*
+ * Configure the contents of the current cell, i.e. fill it with data.
+ */
+- (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if(indexPath.section == 0) {
 	id item = [[[[contentProvider valueForKeyPath:@"content.vortraege"] componentsSeparatedByString: @", "] asArray] objectAtIndex: indexPath.row];
 	
-    UITableViewCell *cell = [self cellDefaultForTableView:tableView];
-	cell.textLabel.text = item;
-	
-	
-	return cell;
+		cell.textLabel.text = item;
+		
 
-
-	} else
-
-
+	}
 	if(indexPath.section == 1 && indexPath.row == 0) {
 	
-	
-    UITableViewCell *cell = [self cellValue2ForTableView:tableView];
-	cell.textLabel.text = @"mail";
-	cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.email"];
-	
-	return cell;
+		cell.textLabel.text = @"mail";
+		cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.email"];
 
-	
-
-	} else
-
+	}
 	if(indexPath.section == 1 && indexPath.row == 1) {
 	
-	
-    UITableViewCell *cell = [self cellValue2ForTableView:tableView];
-	cell.textLabel.text = @"blog";
-	cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.blog"];
-	
-	return cell;
+		cell.textLabel.text = @"blog";
+		cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.blog"];
 
-	
-
-	} else
-		return nil;
+	}
 }
 
-
+/*
+ * User tapped a table cell, navigate to the next screen.
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 
 	if(indexPath.section == 0) {
 	
 	id item = [[[[contentProvider valueForKeyPath:@"content.vortraege"] componentsSeparatedByString: @", "]asArray] objectAtIndex: indexPath.row];
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForVortragByTitel: item];
-		VortragDetailsViewViewController *controller = [[VortragDetailsViewViewController alloc] init];
-		controller.contentProvider = provider;
-		[self.navigationController pushViewController: controller animated: TRUE];
-		[controller release];
-
+	IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForVortragByTitel: item];
+	VortragDetailsViewViewController *controller = [[VortragDetailsViewViewController alloc] init];
+	controller.contentProvider = provider;
+	[self.navigationController pushViewController: controller animated: TRUE];
+	[controller release];
 	
 	} else
 
@@ -96,7 +98,6 @@
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
-	
 	} else
 
 	if(indexPath.section == 1 && indexPath.row == 1) {
@@ -106,23 +107,26 @@
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
-	
 	} else
 		return;
 }
-
+/*
+ * Update the data displayed in this table.
+ */
 -(void)updateData {
-	self.navigationItem.title = @"Presenter";
+	self.navigationItem.title = @"Speaker";
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
 		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.name"];
 		
 		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.beschreibung"];
 		NSString *imageURL = [contentProvider valueForKeyPath:@"content.fotourl"];
-		self.headerView.image.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
+		self.headerView.image.image = [self 
+										getImage: imageURL 
+										withLoadingImage:@"personLoading.png" 
+										andErrorImage:@"personUnknown.png"];
 	}	
 
 	[super updateData];
 }
-
 @end

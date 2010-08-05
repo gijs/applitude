@@ -20,7 +20,7 @@
 
 - (id)valueForKey:(NSString *)key
 {
-	NSLog(self.name);
+	NSLog(@"%@", self.name);
 	NSArray *elements = [self elementsForName: key];
 	switch (elements.count) {
 		case 0:

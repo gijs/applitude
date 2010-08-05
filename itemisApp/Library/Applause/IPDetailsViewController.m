@@ -14,7 +14,8 @@
 @synthesize headerView;
 
 -(id)init {
-	id result = [super initWithStyle:UITableViewStyleGrouped];
+//	id result = [super initWithStyle:UITableViewStyleGrouped];
+	id result = [super initWithStyle:UITableViewStylePlain];    
 	self.headerView = [[IPDetailsHeaderView alloc] initWithNibName:@"IPDetailsHeaderView" bundle:nil];
 	UIView *v = self.headerView.view;
 	self.tableView.tableHeaderView = v;

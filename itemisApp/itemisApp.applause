@@ -1,12 +1,13 @@
-tabbarApplication itemisApp {
+application itemisApp {
+	background="Background.png"
 	button {
-		title= "Blog"
+		title= "News"
 		icon= "08-chat.png"
 		view= BlogList( Blogposts() )
 	}
    
 	button {
-		title= "Session"   
+		title= "Talks"   
 		icon= "66-microphone.png"
 		view= VortragListe( AllVortragItems() )
 	}
@@ -15,6 +16,12 @@ tabbarApplication itemisApp {
 		title= "Speakers"
 		icon= "person.png"
 		view= SprecherListe( AllSprecherItems() )
+	}
+	
+	button {
+		title= "Barcode"
+		icon= "123-id-card.png"
+		view= BarcodeScanner()
 	}
 }
 
@@ -95,9 +102,11 @@ contentprovider SprecherByName(String name)
 /*
  * DESCRIBING VIEWS
  */		
+ 
+customview BarcodeScanner implementedBy "BarcodeScannerViewController" 
 
 tableview BlogList(BlogItem[] items) {
-	title= "itemis blog"
+	title= "News"
 	section {
 		cell Subtitle foreach items as i {
 			text= i.author
@@ -109,7 +118,7 @@ tableview BlogList(BlogItem[] items) {
 }  
 
 detailsview BlogDetails(BlogItem item) {
-	title= "blog post" 
+	title= "News" 
 	header {
 		title= item.title
 		details= item.description
@@ -128,7 +137,7 @@ detailsview BlogDetails(BlogItem item) {
 } 
 
 tableview VortragListe(Vortrag[] items) {
-	title= "Sessions"
+	title= "Talks"
 	section {
 		cell Subtitle foreach items as i {
 			text= i.titel
@@ -139,7 +148,7 @@ tableview VortragListe(Vortrag[] items) {
 }
 
 detailsview VortragDetailsView(Vortrag vortrag) {
-	title= "Session"
+	title= "Talk"
 	header {
 		title= vortrag.titel
 		subtitle= (vortrag.untertitel "\\n" vortrag.zeit)
@@ -157,7 +166,7 @@ detailsview VortragDetailsView(Vortrag vortrag) {
 }
 
 tableview SprecherListe(Sprecher[] sprecher) {
-	title= "Presenters"
+	title= "Speakers"
 	section {
 		cell Default foreach sprecher as s {
 			text= s.name
@@ -168,7 +177,7 @@ tableview SprecherListe(Sprecher[] sprecher) {
 }
 
 detailsview SprecherDetails(Sprecher sprecher) {
-	title= "Presenter"
+	title= "Speaker"
 	header {
 		title= sprecher.name
 		details= sprecher.beschreibung

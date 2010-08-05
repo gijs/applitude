@@ -2,7 +2,7 @@
 #import <UIKit/UIKit.h>
 
 @interface itemisAppAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
+	UIWindow *window;
 	UIViewController *rootController;
 }
 

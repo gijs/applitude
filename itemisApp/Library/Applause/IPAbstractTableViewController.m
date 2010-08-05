@@ -10,6 +10,7 @@
 #import "ASIHTTPRequest.h"
 #import "TTGlobalNetwork.h"
 #import "IPCache.h"
+#import "UIImage+RoundedCorner.h"
 
 @implementation IPAbstractTableViewController
 
@@ -36,11 +37,11 @@
 
 	UIImage *image = [loadedImages valueForKey: url];
 	if(image) 
-		return image;
+		return [image roundedCornerImage:5 borderSize:0];
 	
 	NSData *data = [IPCache cachedObjectForURL: url];
 	if(data) {
-		image = [UIImage imageWithData:data];
+		image = [[UIImage imageWithData:data] roundedCornerImage:5 borderSize:0];
 		[loadedImages setValue:image forKey: url];
 		return image;
 	}
@@ -55,7 +56,7 @@
 	[errorImageNames setValue:errorImage forKey: url];
 	[loadedImages setValue:image forKey: url];
 	
-	return image;
+	return [image roundedCornerImage:5 borderSize:0];
 }
 
 - (void)updateImage:(UIImage*)image forKey:(NSString*)key {
@@ -121,6 +122,16 @@
 	[self.tableView reloadData];
 }
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (event.type == UIEventSubtypeMotionShake) {
+        [self updateData];
+    }
+}
+
 -(UITableViewCell*)cellDefaultForTableView:(UITableView *)tableView {
 	static NSString *CellIdentifier = @"CellDefault";
     
@@ -182,6 +193,7 @@
     [super viewDidAppear:animated];
 	[self updateData];
 	[self.contentProvider requestContentIfEmpty];
+    [self becomeFirstResponder];
 }
 
 /*
@@ -230,7 +242,7 @@
     return 0;
 }
 
-
+/* XXX Peter
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -245,7 +257,7 @@
 	
     return cell;
 }
-
+*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.

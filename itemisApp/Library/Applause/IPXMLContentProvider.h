@@ -21,8 +21,9 @@
 
 -(id)initWithURL: (NSURL*)u initialContent:(id)c keyPathToContent:(NSString *)kp andProviders:(id)p;
 
-@property(nonatomic, copy) NSURL *url;
-@property(nonatomic, copy) CXMLDocument *document;
-@property(nonatomic, copy) NSString *keyPathToContent;
+@property (nonatomic, copy) NSURL *url;
+@property (nonatomic, copy) ASIHTTPRequest *request;
+@property (nonatomic, copy) CXMLDocument *document;
+@property (nonatomic, copy) NSString *keyPathToContent;
 
 @end
