@@ -17,63 +17,64 @@ T17 : 'urlconform(' ;
 T18 : '[' ;
 T19 : ']' ;
 T20 : 'split(' ;
-T21 : 'tabbarApplication' ;
+T21 : 'application' ;
 T22 : '{' ;
-T23 : '}' ;
-T24 : 'button' ;
-T25 : 'title=' ;
-T26 : 'icon=' ;
-T27 : 'view=' ;
-T28 : 'type' ;
-T29 : 'mapsTo' ;
-T30 : 'entity' ;
-T31 : 'extends' ;
-T32 : 'derived' ;
-T33 : 'contentprovider' ;
-T34 : 'returns' ;
-T35 : 'fetches' ;
-T36 : 'XML' ;
-T37 : 'from' ;
-T38 : 'selects' ;
-T39 : 'tableview' ;
-T40 : 'detailsview' ;
-T41 : 'customview' ;
-T42 : 'implementedBy' ;
-T43 : 'header' ;
-T44 : 'subtitle=' ;
-T45 : 'details=' ;
-T46 : 'image=' ;
-T47 : 'section' ;
-T48 : 'cell' ;
-T49 : 'foreach' ;
-T50 : 'text=' ;
-T51 : 'action=' ;
-T52 : 'as' ;
-T53 : 'Default' ;
-T54 : 'DefaultWithDisclosure' ;
-T55 : 'Value2' ;
-T56 : 'Double' ;
-T57 : 'Subtitle' ;
+T23 : 'background=' ;
+T24 : '}' ;
+T25 : 'button' ;
+T26 : 'title=' ;
+T27 : 'icon=' ;
+T28 : 'view=' ;
+T29 : 'type' ;
+T30 : 'mapsTo' ;
+T31 : 'entity' ;
+T32 : 'extends' ;
+T33 : 'derived' ;
+T34 : 'contentprovider' ;
+T35 : 'returns' ;
+T36 : 'fetches' ;
+T37 : 'XML' ;
+T38 : 'from' ;
+T39 : 'selects' ;
+T40 : 'tableview' ;
+T41 : 'detailsview' ;
+T42 : 'customview' ;
+T43 : 'implementedBy' ;
+T44 : 'header' ;
+T45 : 'subtitle=' ;
+T46 : 'details=' ;
+T47 : 'image=' ;
+T48 : 'section' ;
+T49 : 'cell' ;
+T50 : 'foreach' ;
+T51 : 'text=' ;
+T52 : 'action=' ;
+T53 : 'as' ;
+T54 : 'Default' ;
+T55 : 'DefaultWithDisclosure' ;
+T56 : 'Value2' ;
+T57 : 'Double' ;
+T58 : 'Subtitle' ;
 
-// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3138
+// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3134
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3140
+// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3136
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3142
+// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3138
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3144
+// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3140
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3146
+// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3142
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3148
+// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3144
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3150
+// $ANTLR src "../org.applause.applausedsl/src-gen/org/applause/applausedsl/parser/antlr/internal/InternalApplauseDsl.g" 3146
 RULE_ANY_OTHER : .;
 
 

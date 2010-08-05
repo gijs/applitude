@@ -20,10 +20,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Model/application"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Model/elements"/>
     </genClasses>
-    <genClasses ecoreClass="ApplauseDsl.ecore#//Application">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Application/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Application/buttons"/>
-    </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ModelElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ModelElement/name"/>
     </genClasses>
@@ -52,6 +48,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//CollectionLiteral/items"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//CollectionFunction"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Application">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Application/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Application/background"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Application/buttons"/>
+    </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//TabbarButton">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TabbarButton/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TabbarButton/icon"/>

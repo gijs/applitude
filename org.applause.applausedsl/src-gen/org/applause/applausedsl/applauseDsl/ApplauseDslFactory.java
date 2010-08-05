@@ -35,15 +35,6 @@ public interface ApplauseDslFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Application</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Application</em>'.
-   * @generated
-   */
-  Application createApplication();
-
-  /**
    * Returns a new object of class '<em>Model Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -150,6 +141,15 @@ public interface ApplauseDslFactory extends EFactory
    * @generated
    */
   CollectionFunction createCollectionFunction();
+
+  /**
+   * Returns a new object of class '<em>Application</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Application</em>'.
+   * @generated
+   */
+  Application createApplication();
 
   /**
    * Returns a new object of class '<em>Tabbar Button</em>'.

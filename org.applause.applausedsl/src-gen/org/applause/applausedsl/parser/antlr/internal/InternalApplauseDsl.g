@@ -145,38 +145,6 @@ ruleModel returns [EObject current=null]
 
 
 
-// Entry rule entryRuleApplication
-entryRuleApplication returns [EObject current=null] 
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getApplicationRule(), currentNode); }
-	 iv_ruleApplication=ruleApplication 
-	 { $current=$iv_ruleApplication.current; } 
-	 EOF 
-;
-
-// Rule Application
-ruleApplication returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-
-    { 
-        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getTabBarApplicationParserRuleCall(), currentNode); 
-    }
-    this_TabBarApplication_0=ruleTabBarApplication
-    { 
-        $current = $this_TabBarApplication_0.current; 
-        currentNode = currentNode.getParent();
-    }
-
-;
-
-
-
-
-
 // Entry rule entryRuleModelElement
 entryRuleModelElement returns [EObject current=null] 
 	:
@@ -1096,35 +1064,35 @@ ruleCollectionFunction returns [EObject current=null]
 
 
 
-// Entry rule entryRuleTabBarApplication
-entryRuleTabBarApplication returns [EObject current=null] 
+// Entry rule entryRuleApplication
+entryRuleApplication returns [EObject current=null] 
 	:
-	{ currentNode = createCompositeNode(grammarAccess.getTabBarApplicationRule(), currentNode); }
-	 iv_ruleTabBarApplication=ruleTabBarApplication 
-	 { $current=$iv_ruleTabBarApplication.current; } 
+	{ currentNode = createCompositeNode(grammarAccess.getApplicationRule(), currentNode); }
+	 iv_ruleApplication=ruleApplication 
+	 { $current=$iv_ruleApplication.current; } 
 	 EOF 
 ;
 
-// Rule TabBarApplication
-ruleTabBarApplication returns [EObject current=null] 
+// Rule Application
+ruleApplication returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(	'tabbarApplication' 
+(	'application' 
     {
-        createLeafNode(grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0(), null); 
+        createLeafNode(grammarAccess.getApplicationAccess().getApplicationKeyword_0(), null); 
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getTabBarApplicationAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+			createLeafNode(grammarAccess.getApplicationAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
 		}
 		{
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getTabBarApplicationRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getApplicationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode, $current);
 	        }
 	        try {
@@ -1142,23 +1110,51 @@ ruleTabBarApplication returns [EObject current=null]
 )
 )	'{' 
     {
-        createLeafNode(grammarAccess.getTabBarApplicationAccess().getLeftCurlyBracketKeyword_2(), null); 
+        createLeafNode(grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_2(), null); 
+    }
+(	'background=' 
+    {
+        createLeafNode(grammarAccess.getApplicationAccess().getBackgroundKeyword_3_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getBackgroundScalarExpressionParserRuleCall_3_1_0(), currentNode); 
 	    }
-		lv_buttons_3_0=ruleTabbarButton		{
+		lv_background_4_0=ruleScalarExpression		{
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getTabBarApplicationRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getApplicationRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"background",
+	        		lv_background_4_0, 
+	        		"ScalarExpression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))?(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getButtonsTabbarButtonParserRuleCall_4_0(), currentNode); 
+	    }
+		lv_buttons_5_0=ruleTabbarButton		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getApplicationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		add(
 	       			$current, 
 	       			"buttons",
-	        		lv_buttons_3_0, 
+	        		lv_buttons_5_0, 
 	        		"TabbarButton", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1170,7 +1166,7 @@ ruleTabBarApplication returns [EObject current=null]
 )
 )*	'}' 
     {
-        createLeafNode(grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_4(), null); 
+        createLeafNode(grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_5(), null); 
     }
 )
 ;

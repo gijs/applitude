@@ -45,18 +45,6 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getElementsModelElementParserRuleCall_1_0() { return cElementsModelElementParserRuleCall_1_0; }
 	}
 
-	public class ApplicationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Application");
-		private final RuleCall cTabBarApplicationParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//Application:
-		//	TabBarApplication;
-		public ParserRule getRule() { return rule; }
-
-		//TabBarApplication
-		public RuleCall getTabBarApplicationParserRuleCall() { return cTabBarApplicationParserRuleCall; }
-	}
-
 	public class ModelElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModelElement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -536,28 +524,32 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 	}
 
-	public class TabBarApplicationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TabBarApplication");
+	public class ApplicationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Application");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTabbarApplicationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cApplicationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cButtonsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cButtonsTabbarButtonParserRuleCall_3_0 = (RuleCall)cButtonsAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cBackgroundKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cBackgroundAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cBackgroundScalarExpressionParserRuleCall_3_1_0 = (RuleCall)cBackgroundAssignment_3_1.eContents().get(0);
+		private final Assignment cButtonsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cButtonsTabbarButtonParserRuleCall_4_0 = (RuleCall)cButtonsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//// -------------------------------------------
 		//// applications
-		//TabBarApplication returns Application:
-		//	"tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
+		//Application:
+		//	"application" name=ID "{" ("background=" background=ScalarExpression)? buttons+=TabbarButton* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"tabbarApplication" name=ID "{" buttons+=TabbarButton* "}"
+		//"application" name=ID "{" ("background=" background=ScalarExpression)? buttons+=TabbarButton* "}"
 		public Group getGroup() { return cGroup; }
 
-		//"tabbarApplication"
-		public Keyword getTabbarApplicationKeyword_0() { return cTabbarApplicationKeyword_0; }
+		//"application"
+		public Keyword getApplicationKeyword_0() { return cApplicationKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -568,14 +560,26 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		//("background=" background=ScalarExpression)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"background="
+		public Keyword getBackgroundKeyword_3_0() { return cBackgroundKeyword_3_0; }
+
+		//background=ScalarExpression
+		public Assignment getBackgroundAssignment_3_1() { return cBackgroundAssignment_3_1; }
+
+		//ScalarExpression
+		public RuleCall getBackgroundScalarExpressionParserRuleCall_3_1_0() { return cBackgroundScalarExpressionParserRuleCall_3_1_0; }
+
 		//buttons+=TabbarButton*
-		public Assignment getButtonsAssignment_3() { return cButtonsAssignment_3; }
+		public Assignment getButtonsAssignment_4() { return cButtonsAssignment_4; }
 
 		//TabbarButton
-		public RuleCall getButtonsTabbarButtonParserRuleCall_3_0() { return cButtonsTabbarButtonParserRuleCall_3_0; }
+		public RuleCall getButtonsTabbarButtonParserRuleCall_4_0() { return cButtonsTabbarButtonParserRuleCall_4_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class TabbarButtonElements extends AbstractParserRuleElementFinder {
@@ -1634,7 +1638,6 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private ModelElements pModel;
-	private ApplicationElements pApplication;
 	private ModelElementElements pModelElement;
 	private VariableDeclarationElements pVariableDeclaration;
 	private TypeDescriptionElements pTypeDescription;
@@ -1648,7 +1651,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private StringFunctionElements pStringFunction;
 	private CollectionLiteralElements pCollectionLiteral;
 	private CollectionFunctionElements pCollectionFunction;
-	private TabBarApplicationElements pTabBarApplication;
+	private ApplicationElements pApplication;
 	private TabbarButtonElements pTabbarButton;
 	private TypeElements pType;
 	private SimpleTypeElements pSimpleType;
@@ -1699,16 +1702,6 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getModelRule() {
 		return getModelAccess().getRule();
-	}
-
-	//Application:
-	//	TabBarApplication;
-	public ApplicationElements getApplicationAccess() {
-		return (pApplication != null) ? pApplication : (pApplication = new ApplicationElements());
-	}
-	
-	public ParserRule getApplicationRule() {
-		return getApplicationAccess().getRule();
 	}
 
 	//ModelElement:
@@ -1852,14 +1845,14 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// -------------------------------------------
 	//// applications
-	//TabBarApplication returns Application:
-	//	"tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
-	public TabBarApplicationElements getTabBarApplicationAccess() {
-		return (pTabBarApplication != null) ? pTabBarApplication : (pTabBarApplication = new TabBarApplicationElements());
+	//Application:
+	//	"application" name=ID "{" ("background=" background=ScalarExpression)? buttons+=TabbarButton* "}";
+	public ApplicationElements getApplicationAccess() {
+		return (pApplication != null) ? pApplication : (pApplication = new ApplicationElements());
 	}
 	
-	public ParserRule getTabBarApplicationRule() {
-		return getTabBarApplicationAccess().getRule();
+	public ParserRule getApplicationRule() {
+		return getApplicationAccess().getRule();
 	}
 
 	//TabbarButton:

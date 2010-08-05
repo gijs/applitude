@@ -12,11 +12,11 @@
 «ENDDEFINE»
 
 «DEFINE headerFile FOR Application»
-«FILE filenameApplicationDelegateHeader() IPHONE»
+«FILE filenameApplicationDelegateHeader()»
 #import <UIKit/UIKit.h>
 
 @interface «applicationDelegateClassname()» : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
+	UIWindow *window;
 	UIViewController *rootController;
 }
 
@@ -36,17 +36,30 @@
 «ENDDEFINE»
 
 «DEFINE moduleFile FOR Application»
-«FILE filenameApplicationDelegateModule() IPHONE»
+«FILE filenameApplicationDelegateModule()»
 #import "«filenameApplicationDelegateHeader()»"
 #import "IPUIView.h"
 #import "«filenameCentralProvidersHeader()»"
 
 «EXPAND importStatements-»
 
+/*
+ * This is the «this.name» app.
+ */
 @implementation «applicationDelegateClassname()»
 
-@synthesize window, rootController;
+#pragma mark -
+#pragma mark Properties
 
+@synthesize window;
+@synthesize rootController;
+
+#pragma mark -
+#pragma mark View Management
+
+/*
+ * Set up the tab bar controller.
+ */
 -(UIViewController*)createController {
 	«centralProvidersClassName()» *providers = [[[«centralProvidersClassName()» alloc] init] autorelease];
 	UITabBarController *result = [[UITabBarController alloc] init];
@@ -62,32 +75,50 @@
 	return result;
 }
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+#pragma mark -
+#pragma mark Application life cycle
+
+/*
+ * Set up background (if enabled) and main window layout.
+ */
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+	application.statusBarStyle = UIStatusBarStyleBlackOpaque;
+	«IF this.background != null»
+	UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:«this.background.expression('','')»]];
+	[window addSubview:backgroundImageView];
+	[backgroundImageView release];
+	«ENDIF»
 	self.rootController = [self createController];
 	[window addSubview: [self.rootController view]];
-    [window makeKeyAndVisible];
+	[window makeKeyAndVisible];
 }
 
+#pragma mark -
+#pragma mark Memory management
+
+/*
+ * Clean up.
+ */
 - (void)dealloc {
 	self.rootController = nil;
-    [window release];
-    [super dealloc];
+	[window release];
+	[super dealloc];
 }
-
 
 @end
 «ENDFILE»
 «ENDDEFINE»
 
 «DEFINE barControllerInstance FOR TabbarButton»
-	«IF view.provider != null»
-	contentProvider = «view.provider.contentProvider('providers', '', '')»;
-	«ENDIF»
 	controller = [[«view.view.className()» alloc] init];
+	«IF view.provider != null-»
+	contentProvider = «view.provider.contentProvider('providers', '', '')»;
 	[controller setContentProvider: contentProvider];
+	«ENDIF-»
 	controller.tabBarItem.title = «title.expression('', '')»;
 	controller.tabBarItem.image = [UIImage imageNamed:«this.icon.expression('','')»];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
+	navController.navigationBar.barStyle = UIBarStyleBlack;	
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];

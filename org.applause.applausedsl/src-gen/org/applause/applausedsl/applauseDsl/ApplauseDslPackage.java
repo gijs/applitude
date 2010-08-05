@@ -98,43 +98,6 @@ public interface ApplauseDslPackage extends EPackage
   int MODEL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl <em>Application</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.applause.applausedsl.applauseDsl.impl.ApplicationImpl
-   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getApplication()
-   * @generated
-   */
-  int APPLICATION = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPLICATION__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Buttons</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPLICATION__BUTTONS = 1;
-
-  /**
-   * The number of structural features of the '<em>Application</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int APPLICATION_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.ModelElementImpl <em>Model Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -142,7 +105,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getModelElement()
    * @generated
    */
-  int MODEL_ELEMENT = 2;
+  int MODEL_ELEMENT = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -170,7 +133,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getVariableDeclaration()
    * @generated
    */
-  int VARIABLE_DECLARATION = 3;
+  int VARIABLE_DECLARATION = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -198,7 +161,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTypeDescription()
    * @generated
    */
-  int TYPE_DESCRIPTION = 4;
+  int TYPE_DESCRIPTION = 3;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -235,7 +198,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 5;
+  int PARAMETER = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -272,7 +235,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 7;
+  int EXPRESSION = 6;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -291,7 +254,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getObjectReference()
    * @generated
    */
-  int OBJECT_REFERENCE = 6;
+  int OBJECT_REFERENCE = 5;
 
   /**
    * The feature id for the '<em><b>Object</b></em>' reference.
@@ -328,7 +291,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getScalarExpression()
    * @generated
    */
-  int SCALAR_EXPRESSION = 8;
+  int SCALAR_EXPRESSION = 7;
 
   /**
    * The number of structural features of the '<em>Scalar Expression</em>' class.
@@ -347,7 +310,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCollectionExpression()
    * @generated
    */
-  int COLLECTION_EXPRESSION = 9;
+  int COLLECTION_EXPRESSION = 8;
 
   /**
    * The number of structural features of the '<em>Collection Expression</em>' class.
@@ -366,7 +329,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 10;
+  int STRING_LITERAL = 9;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -394,7 +357,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringFunction()
    * @generated
    */
-  int STRING_FUNCTION = 11;
+  int STRING_FUNCTION = 10;
 
   /**
    * The number of structural features of the '<em>String Function</em>' class.
@@ -413,7 +376,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCollectionLiteral()
    * @generated
    */
-  int COLLECTION_LITERAL = 12;
+  int COLLECTION_LITERAL = 11;
 
   /**
    * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -441,7 +404,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCollectionFunction()
    * @generated
    */
-  int COLLECTION_FUNCTION = 13;
+  int COLLECTION_FUNCTION = 12;
 
   /**
    * The number of structural features of the '<em>Collection Function</em>' class.
@@ -451,6 +414,52 @@ public interface ApplauseDslPackage extends EPackage
    * @ordered
    */
   int COLLECTION_FUNCTION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl <em>Application</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.applausedsl.applauseDsl.impl.ApplicationImpl
+   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getApplication()
+   * @generated
+   */
+  int APPLICATION = 13;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Background</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__BACKGROUND = 1;
+
+  /**
+   * The feature id for the '<em><b>Buttons</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__BUTTONS = 2;
+
+  /**
+   * The number of structural features of the '<em>Application</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl <em>Tabbar Button</em>}' class.
@@ -1538,38 +1547,6 @@ public interface ApplauseDslPackage extends EPackage
   EReference getModel_Elements();
 
   /**
-   * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.Application <em>Application</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Application</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Application
-   * @generated
-   */
-  EClass getApplication();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.applause.applausedsl.applauseDsl.Application#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Application#getName()
-   * @see #getApplication()
-   * @generated
-   */
-  EAttribute getApplication_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.applause.applausedsl.applauseDsl.Application#getButtons <em>Buttons</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Buttons</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Application#getButtons()
-   * @see #getApplication()
-   * @generated
-   */
-  EReference getApplication_Buttons();
-
-  /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.ModelElement <em>Model Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1787,6 +1764,49 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EClass getCollectionFunction();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.Application <em>Application</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Application</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Application
+   * @generated
+   */
+  EClass getApplication();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.applausedsl.applauseDsl.Application#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Application#getName()
+   * @see #getApplication()
+   * @generated
+   */
+  EAttribute getApplication_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Application#getBackground <em>Background</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Background</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Application#getBackground()
+   * @see #getApplication()
+   * @generated
+   */
+  EReference getApplication_Background();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.applausedsl.applauseDsl.Application#getButtons <em>Buttons</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Buttons</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Application#getButtons()
+   * @see #getApplication()
+   * @generated
+   */
+  EReference getApplication_Buttons();
 
   /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.TabbarButton <em>Tabbar Button</em>}'.
@@ -2582,32 +2602,6 @@ public interface ApplauseDslPackage extends EPackage
     EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
 
     /**
-     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl <em>Application</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.applause.applausedsl.applauseDsl.impl.ApplicationImpl
-     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getApplication()
-     * @generated
-     */
-    EClass APPLICATION = eINSTANCE.getApplication();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Buttons</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference APPLICATION__BUTTONS = eINSTANCE.getApplication_Buttons();
-
-    /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.ModelElementImpl <em>Model Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2798,6 +2792,40 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EClass COLLECTION_FUNCTION = eINSTANCE.getCollectionFunction();
+
+    /**
+     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl <em>Application</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.applausedsl.applauseDsl.impl.ApplicationImpl
+     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getApplication()
+     * @generated
+     */
+    EClass APPLICATION = eINSTANCE.getApplication();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Background</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION__BACKGROUND = eINSTANCE.getApplication_Background();
+
+    /**
+     * The meta object literal for the '<em><b>Buttons</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference APPLICATION__BUTTONS = eINSTANCE.getApplication_Buttons();
 
     /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl <em>Tabbar Button</em>}' class.

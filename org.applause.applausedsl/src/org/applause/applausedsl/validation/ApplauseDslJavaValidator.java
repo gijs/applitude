@@ -1,6 +1,7 @@
 package org.applause.applausedsl.validation;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
+import org.applause.applausedsl.applauseDsl.Application;
 import org.applause.applausedsl.applauseDsl.StringLiteral;
 import org.applause.applausedsl.applauseDsl.TabbarButton;
 import org.applause.applausedsl.applauseDsl.View;
@@ -30,18 +31,32 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 	}
 	
 	@Check
+	void imageExists(Application application) {
+		if (application.getBackground() instanceof StringLiteral) {
+			String filename = ((StringLiteral) application.getBackground()).getValue();
+			Resource res = application.eResource();
+
+			if (!imageExists(filename, res)) {
+				error("The background image file you specified does not exist.", ApplauseDslPackage.APPLICATION__BACKGROUND);
+			}
+		}
+	}
+	
+	@Check
 	void iconExists(TabbarButton button) {
 		if (button.getIcon() instanceof StringLiteral) {
 			String filename = ((StringLiteral) button.getIcon()).getValue();
 			Resource res = button.eResource();
 			
-			URI uri = res.getURI().appendSegment("..").appendSegment("Images").appendSegment(filename);
-			boolean exists = (res.getResourceSet().getURIConverter().exists(uri, null));
-			if(!exists)
-				error("File does not exist.", ApplauseDslPackage.TABBAR_BUTTON__ICON);
-			System.out.println("uri " + uri);
-			System.out.println("exists " + exists);
+			if (!imageExists(filename, res)) {
+				error("The icon image file you specified does not exist.", ApplauseDslPackage.TABBAR_BUTTON__ICON);
+			}
 		}
+	}
+
+	private boolean imageExists(String filename, Resource res) {
+		URI uri = res.getURI().appendSegment("..").appendSegment("Images").appendSegment(filename);
+		return (res.getResourceSet().getURIConverter().exists(uri, null));
 	}
 
 	

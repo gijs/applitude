@@ -69,7 +69,6 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
     switch (eClass.getClassifierID())
     {
       case ApplauseDslPackage.MODEL: return createModel();
-      case ApplauseDslPackage.APPLICATION: return createApplication();
       case ApplauseDslPackage.MODEL_ELEMENT: return createModelElement();
       case ApplauseDslPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case ApplauseDslPackage.TYPE_DESCRIPTION: return createTypeDescription();
@@ -82,6 +81,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.STRING_FUNCTION: return createStringFunction();
       case ApplauseDslPackage.COLLECTION_LITERAL: return createCollectionLiteral();
       case ApplauseDslPackage.COLLECTION_FUNCTION: return createCollectionFunction();
+      case ApplauseDslPackage.APPLICATION: return createApplication();
       case ApplauseDslPackage.TABBAR_BUTTON: return createTabbarButton();
       case ApplauseDslPackage.TYPE: return createType();
       case ApplauseDslPackage.SIMPLE_TYPE: return createSimpleType();
@@ -155,17 +155,6 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     ModelImpl model = new ModelImpl();
     return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Application createApplication()
-  {
-    ApplicationImpl application = new ApplicationImpl();
-    return application;
   }
 
   /**
@@ -298,6 +287,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     CollectionFunctionImpl collectionFunction = new CollectionFunctionImpl();
     return collectionFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Application createApplication()
+  {
+    ApplicationImpl application = new ApplicationImpl();
+    return application;
   }
 
   /**

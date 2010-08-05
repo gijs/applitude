@@ -102,13 +102,6 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ApplauseDslPackage.APPLICATION:
-      {
-        Application application = (Application)theEObject;
-        T result = caseApplication(application);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ApplauseDslPackage.MODEL_ELEMENT:
       {
         ModelElement modelElement = (ModelElement)theEObject;
@@ -202,6 +195,13 @@ public class ApplauseDslSwitch<T>
         T result = caseCollectionFunction(collectionFunction);
         if (result == null) result = caseExpression(collectionFunction);
         if (result == null) result = caseCollectionExpression(collectionFunction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.APPLICATION:
+      {
+        Application application = (Application)theEObject;
+        T result = caseApplication(application);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -436,22 +436,6 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Application</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseApplication(Application object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -639,6 +623,22 @@ public class ApplauseDslSwitch<T>
    * @generated
    */
   public T caseCollectionFunction(CollectionFunction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Application</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseApplication(Application object)
   {
     return null;
   }

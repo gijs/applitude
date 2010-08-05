@@ -6,9 +6,6 @@ Model:
 	application=Application
 	(elements+=ModelElement)*;
 	
-Application:
-	TabBarApplication;
-
 ModelElement:
 	Type | ContentProvider | View;
 	
@@ -62,8 +59,9 @@ CollectionFunction:
 // -------------------------------------------
 // applications
 
-TabBarApplication returns Application:
-	"tabbarApplication" name=ID '{'
+Application returns Application:
+	"application" name=ID '{'
+		('background=' background=ScalarExpression)?
 		(buttons += TabbarButton)*
 	'}';
 

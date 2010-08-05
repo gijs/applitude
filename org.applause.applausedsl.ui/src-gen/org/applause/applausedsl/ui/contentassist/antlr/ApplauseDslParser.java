@@ -60,7 +60,8 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCollectionLiteralAccess().getGroup(), "rule__CollectionLiteral__Group__0");
 					put(grammarAccess.getCollectionLiteralAccess().getGroup_2(), "rule__CollectionLiteral__Group_2__0");
 					put(grammarAccess.getCollectionFunctionAccess().getGroup(), "rule__CollectionFunction__Group__0");
-					put(grammarAccess.getTabBarApplicationAccess().getGroup(), "rule__TabBarApplication__Group__0");
+					put(grammarAccess.getApplicationAccess().getGroup(), "rule__Application__Group__0");
+					put(grammarAccess.getApplicationAccess().getGroup_3(), "rule__Application__Group_3__0");
 					put(grammarAccess.getTabbarButtonAccess().getGroup(), "rule__TabbarButton__Group__0");
 					put(grammarAccess.getSimpleTypeAccess().getGroup(), "rule__SimpleType__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
@@ -111,8 +112,9 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCollectionLiteralAccess().getItemsAssignment_2_1(), "rule__CollectionLiteral__ItemsAssignment_2_1");
 					put(grammarAccess.getCollectionFunctionAccess().getValueAssignment_2(), "rule__CollectionFunction__ValueAssignment_2");
 					put(grammarAccess.getCollectionFunctionAccess().getDelimiterAssignment_4(), "rule__CollectionFunction__DelimiterAssignment_4");
-					put(grammarAccess.getTabBarApplicationAccess().getNameAssignment_1(), "rule__TabBarApplication__NameAssignment_1");
-					put(grammarAccess.getTabBarApplicationAccess().getButtonsAssignment_3(), "rule__TabBarApplication__ButtonsAssignment_3");
+					put(grammarAccess.getApplicationAccess().getNameAssignment_1(), "rule__Application__NameAssignment_1");
+					put(grammarAccess.getApplicationAccess().getBackgroundAssignment_3_1(), "rule__Application__BackgroundAssignment_3_1");
+					put(grammarAccess.getApplicationAccess().getButtonsAssignment_4(), "rule__Application__ButtonsAssignment_4");
 					put(grammarAccess.getTabbarButtonAccess().getTitleAssignment_3(), "rule__TabbarButton__TitleAssignment_3");
 					put(grammarAccess.getTabbarButtonAccess().getIconAssignment_5(), "rule__TabbarButton__IconAssignment_5");
 					put(grammarAccess.getTabbarButtonAccess().getViewAssignment_7(), "rule__TabbarButton__ViewAssignment_7");

@@ -173,6 +173,7 @@
 			</command>
 		</menuContribution>
 	</extension>
+	
    <!-- quickfix marker resolution generator -->
    <extension
          point="org.eclipse.ui.ide.markerResolution">
@@ -180,7 +181,16 @@
             class="org.applause.applausedsl.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator">
       </markerResolutionGenerator>
    </extension>
-   <!-- builder -->
+   
+   <!-- Builder -->
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="org.applause.applausedsl.ui.generator.Generator">
+      </participant>
+   </extension>   
+   
+   <!-- New Project Wizard -->
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
@@ -192,6 +202,4 @@
             project="true">
       </wizard>
    </extension>
-   
-
 </plugin>

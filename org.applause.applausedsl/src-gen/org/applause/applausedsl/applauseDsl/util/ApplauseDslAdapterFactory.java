@@ -83,11 +83,6 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseApplication(Application object)
-      {
-        return createApplicationAdapter();
-      }
-      @Override
       public Adapter caseModelElement(ModelElement object)
       {
         return createModelElementAdapter();
@@ -146,6 +141,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseCollectionFunction(CollectionFunction object)
       {
         return createCollectionFunctionAdapter();
+      }
+      @Override
+      public Adapter caseApplication(Application object)
+      {
+        return createApplicationAdapter();
       }
       @Override
       public Adapter caseTabbarButton(TabbarButton object)
@@ -305,21 +305,6 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Application <em>Application</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.Application
-   * @generated
-   */
-  public Adapter createApplicationAdapter()
   {
     return null;
   }
@@ -500,6 +485,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCollectionFunctionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Application <em>Application</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.Application
+   * @generated
+   */
+  public Adapter createApplicationAdapter()
   {
     return null;
   }

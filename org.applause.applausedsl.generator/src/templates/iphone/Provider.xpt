@@ -8,7 +8,7 @@
 «ENDDEFINE»
 
 «DEFINE headerFile FOR Application»
-«FILE filenameCentralProvidersHeader() IPHONE»
+«FILE filenameCentralProvidersHeader()»
 #import "IPContentProvider.h"
 
 @interface «centralProvidersClassName()» : NSObject {
@@ -23,7 +23,7 @@
 «ENDDEFINE»
 
 «DEFINE moduleFile FOR Application»
-«FILE filenameCentralProvidersModule() IPHONE»
+«FILE filenameCentralProvidersModule()»
 #import "«filenameCentralProvidersHeader()»"
 #import "IPXMLContentProvider.h"
 
