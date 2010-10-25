@@ -3,7 +3,6 @@ module workflow.ApplauseDslGenerator
 import org.eclipse.emf.mwe.utils.*
 
 var targetDirIphone="src-gen"
-var targetDirAndroid = "src-gen"
 
 var fileEncoding = "UTF-8"
 var modelPath = "src/model"
@@ -29,10 +28,6 @@ Workflow {
 		outlet = {
 			name = "IPHONE"			
 			path = targetDirIphone
-		}
-		outlet = {
-			name = "ANDROID"
-			path = targetDirAndroid	
 		}
 		fileEncoding = fileEncoding
 	}
