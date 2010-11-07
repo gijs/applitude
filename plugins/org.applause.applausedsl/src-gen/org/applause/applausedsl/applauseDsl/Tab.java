@@ -9,23 +9,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Tabbar Button</b></em>'.
+ * A representation of the model object '<em><b>Tab</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.TabbarButton#getTitle <em>Title</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.TabbarButton#getIcon <em>Icon</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.TabbarButton#getView <em>View</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Tab#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Tab#getIcon <em>Icon</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Tab#getView <em>View</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTabbarButton()
+ * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTab()
  * @model
  * @generated
  */
-public interface TabbarButton extends EObject
+public interface Tab extends EObject
 {
   /**
    * Returns the value of the '<em><b>Title</b></em>' containment reference.
@@ -37,14 +37,14 @@ public interface TabbarButton extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Title</em>' containment reference.
    * @see #setTitle(ScalarExpression)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTabbarButton_Title()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTab_Title()
    * @model containment="true"
    * @generated
    */
   ScalarExpression getTitle();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.TabbarButton#getTitle <em>Title</em>}' containment reference.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Tab#getTitle <em>Title</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Title</em>' containment reference.
@@ -63,14 +63,14 @@ public interface TabbarButton extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Icon</em>' containment reference.
    * @see #setIcon(ScalarExpression)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTabbarButton_Icon()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTab_Icon()
    * @model containment="true"
    * @generated
    */
   ScalarExpression getIcon();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.TabbarButton#getIcon <em>Icon</em>}' containment reference.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Tab#getIcon <em>Icon</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Icon</em>' containment reference.
@@ -89,14 +89,14 @@ public interface TabbarButton extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>View</em>' containment reference.
    * @see #setView(ViewCall)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTabbarButton_View()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTab_View()
    * @model containment="true"
    * @generated
    */
   ViewCall getView();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.TabbarButton#getView <em>View</em>}' containment reference.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Tab#getView <em>View</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>View</em>' containment reference.
@@ -105,4 +105,4 @@ public interface TabbarButton extends EObject
    */
   void setView(ViewCall value);
 
-} // TabbarButton
+} // Tab

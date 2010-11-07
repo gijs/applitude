@@ -51,12 +51,12 @@
     <genClasses ecoreClass="ApplauseDsl.ecore#//Application">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Application/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Application/background"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Application/buttons"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Application/tabs"/>
     </genClasses>
-    <genClasses ecoreClass="ApplauseDsl.ecore#//TabbarButton">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TabbarButton/title"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TabbarButton/icon"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TabbarButton/view"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Tab">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Tab/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Tab/icon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Tab/view"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Type"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//SimpleType">

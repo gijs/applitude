@@ -28,10 +28,10 @@
 «ENDDEFINE»
 
 «DEFINE importStatements FOR Application-»
-«EXPAND importStatement FOREACH buttons-»
+«EXPAND importStatement FOREACH tabs-»
 «ENDDEFINE»
 
-«DEFINE importStatement FOR TabbarButton-»
+«DEFINE importStatement FOR Tab-»
 #import "«view.view.filenameHeader()»"
 «ENDDEFINE»
 
@@ -69,7 +69,7 @@
 	UINavigationController *navController;
 	IPContentProvider *contentProvider;
 
-«EXPAND barControllerInstance FOREACH buttons»
+«EXPAND barControllerInstance FOREACH tabs»
 
 	result.viewControllers = controllers;
 	return result;
@@ -109,17 +109,22 @@
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE barControllerInstance FOR TabbarButton»
+«DEFINE barControllerInstance FOR Tab»
 	controller = [[«view.view.className()» alloc] init];
 	«IF view.provider != null-»
 	contentProvider = «view.provider.contentProvider('providers', '', '')»;
 	[controller setContentProvider: contentProvider];
 	«ENDIF-»
-	controller.tabBarItem.title = «title.expression('', '')»;
-	controller.tabBarItem.image = [UIImage imageNamed:«this.icon.expression('','')»];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	navController.navigationBar.barStyle = UIBarStyleBlack;	
+	navController.tabBarItem.title = «title.expression('', '')»;
+	«IF this.icon != null-»
+	navController.tabBarItem.image = [UIImage imageNamed:«this.icon.expression('','')»];
+	«ENDIF-»
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];
 «ENDDEFINE»
+
+«REM»
+TODO: Branding property: navController.navigationBar.barStyle = UIBarStyleBlack;
+«ENDREM»	

@@ -152,13 +152,13 @@ public interface ApplauseDslFactory extends EFactory
   Application createApplication();
 
   /**
-   * Returns a new object of class '<em>Tabbar Button</em>'.
+   * Returns a new object of class '<em>Tab</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Tabbar Button</em>'.
+   * @return a new object of class '<em>Tab</em>'.
    * @generated
    */
-  TabbarButton createTabbarButton();
+  Tab createTab();
 
   /**
    * Returns a new object of class '<em>Type</em>'.

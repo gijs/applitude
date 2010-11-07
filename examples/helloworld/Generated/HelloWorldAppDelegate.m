@@ -4,6 +4,7 @@
 #import "HelloWorldProviders.h"
 
 #import "HelloWorldViewController.h"
+#import "HelloWorldViewController.h"
 
 /*
  * This is the HelloWorld app.
@@ -33,10 +34,16 @@
 
 
 	controller = [[HelloWorldViewController alloc] init];
-	controller.tabBarItem.title = @"Hello";
-	controller.tabBarItem.image = [UIImage imageNamed:@"chat.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	navController.navigationBar.barStyle = UIBarStyleBlack;	
+	navController.tabBarItem.title = @"Hello World";
+	navController.tabBarItem.image = [UIImage imageNamed:@"chat.png"];
+	[controllers addObject: navController];
+	[controller release];
+	[navController release];
+
+	controller = [[HelloWorldViewController alloc] init];
+	navController = [[UINavigationController alloc] initWithRootViewController:controller];
+	navController.tabBarItem.title = @"Empty";
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];

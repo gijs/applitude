@@ -205,10 +205,10 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ApplauseDslPackage.TABBAR_BUTTON:
+      case ApplauseDslPackage.TAB:
       {
-        TabbarButton tabbarButton = (TabbarButton)theEObject;
-        T result = caseTabbarButton(tabbarButton);
+        Tab tab = (Tab)theEObject;
+        T result = caseTab(tab);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -644,17 +644,17 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Tabbar Button</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Tab</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Tabbar Button</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Tab</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTabbarButton(TabbarButton object)
+  public T caseTab(Tab object)
   {
     return null;
   }

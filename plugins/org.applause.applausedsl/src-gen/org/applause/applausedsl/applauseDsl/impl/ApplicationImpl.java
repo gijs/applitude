@@ -10,7 +10,7 @@ import java.util.Collection;
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.Application;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
-import org.applause.applausedsl.applauseDsl.TabbarButton;
+import org.applause.applausedsl.applauseDsl.Tab;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl#getBackground <em>Background</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl#getButtons <em>Buttons</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl#getTabs <em>Tabs</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,14 +74,14 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
   protected ScalarExpression background;
 
   /**
-   * The cached value of the '{@link #getButtons() <em>Buttons</em>}' containment reference list.
+   * The cached value of the '{@link #getTabs() <em>Tabs</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getButtons()
+   * @see #getTabs()
    * @generated
    * @ordered
    */
-  protected EList<TabbarButton> buttons;
+  protected EList<Tab> tabs;
 
   /**
    * <!-- begin-user-doc -->
@@ -180,13 +180,13 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TabbarButton> getButtons()
+  public EList<Tab> getTabs()
   {
-    if (buttons == null)
+    if (tabs == null)
     {
-      buttons = new EObjectContainmentEList<TabbarButton>(TabbarButton.class, this, ApplauseDslPackage.APPLICATION__BUTTONS);
+      tabs = new EObjectContainmentEList<Tab>(Tab.class, this, ApplauseDslPackage.APPLICATION__TABS);
     }
-    return buttons;
+    return tabs;
   }
 
   /**
@@ -201,8 +201,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     {
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         return basicSetBackground(null, msgs);
-      case ApplauseDslPackage.APPLICATION__BUTTONS:
-        return ((InternalEList<?>)getButtons()).basicRemove(otherEnd, msgs);
+      case ApplauseDslPackage.APPLICATION__TABS:
+        return ((InternalEList<?>)getTabs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -221,8 +221,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return getName();
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         return getBackground();
-      case ApplauseDslPackage.APPLICATION__BUTTONS:
-        return getButtons();
+      case ApplauseDslPackage.APPLICATION__TABS:
+        return getTabs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -244,9 +244,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         setBackground((ScalarExpression)newValue);
         return;
-      case ApplauseDslPackage.APPLICATION__BUTTONS:
-        getButtons().clear();
-        getButtons().addAll((Collection<? extends TabbarButton>)newValue);
+      case ApplauseDslPackage.APPLICATION__TABS:
+        getTabs().clear();
+        getTabs().addAll((Collection<? extends Tab>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -268,8 +268,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         setBackground((ScalarExpression)null);
         return;
-      case ApplauseDslPackage.APPLICATION__BUTTONS:
-        getButtons().clear();
+      case ApplauseDslPackage.APPLICATION__TABS:
+        getTabs().clear();
         return;
     }
     super.eUnset(featureID);
@@ -289,8 +289,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         return background != null;
-      case ApplauseDslPackage.APPLICATION__BUTTONS:
-        return buttons != null && !buttons.isEmpty();
+      case ApplauseDslPackage.APPLICATION__TABS:
+        return tabs != null && !tabs.isEmpty();
     }
     return super.eIsSet(featureID);
   }

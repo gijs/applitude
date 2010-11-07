@@ -3,7 +3,7 @@ package org.applause.applausedsl.validation;
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.Application;
 import org.applause.applausedsl.applauseDsl.StringLiteral;
-import org.applause.applausedsl.applauseDsl.TabbarButton;
+import org.applause.applausedsl.applauseDsl.Tab;
 import org.applause.applausedsl.applauseDsl.View;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -43,13 +43,13 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 	}
 	
 	@Check
-	void iconExists(TabbarButton button) {
-		if (button.getIcon() instanceof StringLiteral) {
-			String filename = ((StringLiteral) button.getIcon()).getValue();
-			Resource res = button.eResource();
+	void iconExists(Tab tab) {
+		if (tab.getIcon() instanceof StringLiteral) {
+			String filename = ((StringLiteral) tab.getIcon()).getValue();
+			Resource res = tab.eResource();
 			
 			if (!imageExists(filename, res)) {
-				error("The icon image file you specified does not exist.", ApplauseDslPackage.TABBAR_BUTTON__ICON);
+				error("The icon image file you specified does not exist.", ApplauseDslPackage.TAB__ICON);
 			}
 		}
 	}

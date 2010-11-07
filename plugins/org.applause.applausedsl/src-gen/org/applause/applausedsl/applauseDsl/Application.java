@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.Application#getName <em>Name</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.Application#getBackground <em>Background</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.Application#getButtons <em>Buttons</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Application#getTabs <em>Tabs</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,19 +82,19 @@ public interface Application extends EObject
   void setBackground(ScalarExpression value);
 
   /**
-   * Returns the value of the '<em><b>Buttons</b></em>' containment reference list.
-   * The list contents are of type {@link org.applause.applausedsl.applauseDsl.TabbarButton}.
+   * Returns the value of the '<em><b>Tabs</b></em>' containment reference list.
+   * The list contents are of type {@link org.applause.applausedsl.applauseDsl.Tab}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Buttons</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Tabs</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Buttons</em>' containment reference list.
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getApplication_Buttons()
+   * @return the value of the '<em>Tabs</em>' containment reference list.
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getApplication_Tabs()
    * @model containment="true"
    * @generated
    */
-  EList<TabbarButton> getButtons();
+  EList<Tab> getTabs();
 
 } // Application

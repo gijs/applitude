@@ -3,7 +3,7 @@
 */
 package org.applause.applausedsl.ui.contentassist;
 
-import org.applause.applausedsl.applauseDsl.TabbarButton;
+import org.applause.applausedsl.applauseDsl.Tab;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -19,11 +19,11 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class ApplauseDslProposalProvider extends AbstractApplauseDslProposalProvider {
-	public void completeTabbarButton_Icon(TabbarButton button, Assignment assignment, ContentAssistContext context,
+	public void completeTabbarButton_Icon(Tab tab, Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) throws CoreException {
-		super.completeTabbarButton_Icon(button, assignment, context, acceptor);
+		super.completeTab_Icon(tab, assignment, context, acceptor);
 		
-		Resource res = button.eResource();
+		Resource res = tab.eResource();
 		URI uri = res.getURI().appendSegment("..").appendSegment("Images");
 		
 	    String platformResourceString = uri.toPlatformString(true);

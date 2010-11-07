@@ -37,7 +37,7 @@ import org.applause.applausedsl.applauseDsl.StringLiteral;
 import org.applause.applausedsl.applauseDsl.StringReplace;
 import org.applause.applausedsl.applauseDsl.StringSplit;
 import org.applause.applausedsl.applauseDsl.StringUrlConform;
-import org.applause.applausedsl.applauseDsl.TabbarButton;
+import org.applause.applausedsl.applauseDsl.Tab;
 import org.applause.applausedsl.applauseDsl.TableView;
 import org.applause.applausedsl.applauseDsl.Type;
 import org.applause.applausedsl.applauseDsl.TypeDescription;
@@ -167,7 +167,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass tabbarButtonEClass = null;
+  private EClass tabEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -682,7 +682,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getApplication_Buttons()
+  public EReference getApplication_Tabs()
   {
     return (EReference)applicationEClass.getEStructuralFeatures().get(2);
   }
@@ -692,9 +692,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTabbarButton()
+  public EClass getTab()
   {
-    return tabbarButtonEClass;
+    return tabEClass;
   }
 
   /**
@@ -702,9 +702,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTabbarButton_Title()
+  public EReference getTab_Title()
   {
-    return (EReference)tabbarButtonEClass.getEStructuralFeatures().get(0);
+    return (EReference)tabEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -712,9 +712,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTabbarButton_Icon()
+  public EReference getTab_Icon()
   {
-    return (EReference)tabbarButtonEClass.getEStructuralFeatures().get(1);
+    return (EReference)tabEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -722,9 +722,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTabbarButton_View()
+  public EReference getTab_View()
   {
-    return (EReference)tabbarButtonEClass.getEStructuralFeatures().get(2);
+    return (EReference)tabEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1457,12 +1457,12 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     applicationEClass = createEClass(APPLICATION);
     createEAttribute(applicationEClass, APPLICATION__NAME);
     createEReference(applicationEClass, APPLICATION__BACKGROUND);
-    createEReference(applicationEClass, APPLICATION__BUTTONS);
+    createEReference(applicationEClass, APPLICATION__TABS);
 
-    tabbarButtonEClass = createEClass(TABBAR_BUTTON);
-    createEReference(tabbarButtonEClass, TABBAR_BUTTON__TITLE);
-    createEReference(tabbarButtonEClass, TABBAR_BUTTON__ICON);
-    createEReference(tabbarButtonEClass, TABBAR_BUTTON__VIEW);
+    tabEClass = createEClass(TAB);
+    createEReference(tabEClass, TAB__TITLE);
+    createEReference(tabEClass, TAB__ICON);
+    createEReference(tabEClass, TAB__VIEW);
 
     typeEClass = createEClass(TYPE);
 
@@ -1659,12 +1659,12 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEClass(applicationEClass, Application.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getApplication_Name(), ecorePackage.getEString(), "name", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getApplication_Background(), this.getScalarExpression(), null, "background", null, 0, 1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getApplication_Buttons(), this.getTabbarButton(), null, "buttons", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getApplication_Tabs(), this.getTab(), null, "tabs", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(tabbarButtonEClass, TabbarButton.class, "TabbarButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTabbarButton_Title(), this.getScalarExpression(), null, "title", null, 0, 1, TabbarButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTabbarButton_Icon(), this.getScalarExpression(), null, "icon", null, 0, 1, TabbarButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTabbarButton_View(), this.getViewCall(), null, "view", null, 0, 1, TabbarButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(tabEClass, Tab.class, "Tab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTab_Title(), this.getScalarExpression(), null, "title", null, 0, 1, Tab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTab_Icon(), this.getScalarExpression(), null, "icon", null, 0, 1, Tab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTab_View(), this.getViewCall(), null, "view", null, 0, 1, Tab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

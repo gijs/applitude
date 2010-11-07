@@ -82,7 +82,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.COLLECTION_LITERAL: return createCollectionLiteral();
       case ApplauseDslPackage.COLLECTION_FUNCTION: return createCollectionFunction();
       case ApplauseDslPackage.APPLICATION: return createApplication();
-      case ApplauseDslPackage.TABBAR_BUTTON: return createTabbarButton();
+      case ApplauseDslPackage.TAB: return createTab();
       case ApplauseDslPackage.TYPE: return createType();
       case ApplauseDslPackage.SIMPLE_TYPE: return createSimpleType();
       case ApplauseDslPackage.ENTITY: return createEntity();
@@ -305,10 +305,10 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public TabbarButton createTabbarButton()
+  public Tab createTab()
   {
-    TabbarButtonImpl tabbarButton = new TabbarButtonImpl();
-    return tabbarButton;
+    TabImpl tab = new TabImpl();
+    return tab;
   }
 
   /**

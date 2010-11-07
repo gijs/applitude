@@ -444,13 +444,13 @@ public interface ApplauseDslPackage extends EPackage
   int APPLICATION__BACKGROUND = 1;
 
   /**
-   * The feature id for the '<em><b>Buttons</b></em>' containment reference list.
+   * The feature id for the '<em><b>Tabs</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__BUTTONS = 2;
+  int APPLICATION__TABS = 2;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -462,14 +462,14 @@ public interface ApplauseDslPackage extends EPackage
   int APPLICATION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl <em>Tabbar Button</em>}' class.
+   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.TabImpl <em>Tab</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl
-   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTabbarButton()
+   * @see org.applause.applausedsl.applauseDsl.impl.TabImpl
+   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTab()
    * @generated
    */
-  int TABBAR_BUTTON = 14;
+  int TAB = 14;
 
   /**
    * The feature id for the '<em><b>Title</b></em>' containment reference.
@@ -478,7 +478,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TABBAR_BUTTON__TITLE = 0;
+  int TAB__TITLE = 0;
 
   /**
    * The feature id for the '<em><b>Icon</b></em>' containment reference.
@@ -487,7 +487,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TABBAR_BUTTON__ICON = 1;
+  int TAB__ICON = 1;
 
   /**
    * The feature id for the '<em><b>View</b></em>' containment reference.
@@ -496,16 +496,16 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TABBAR_BUTTON__VIEW = 2;
+  int TAB__VIEW = 2;
 
   /**
-   * The number of structural features of the '<em>Tabbar Button</em>' class.
+   * The number of structural features of the '<em>Tab</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABBAR_BUTTON_FEATURE_COUNT = 3;
+  int TAB_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.TypeImpl <em>Type</em>}' class.
@@ -1798,58 +1798,58 @@ public interface ApplauseDslPackage extends EPackage
   EReference getApplication_Background();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.applause.applausedsl.applauseDsl.Application#getButtons <em>Buttons</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.applause.applausedsl.applauseDsl.Application#getTabs <em>Tabs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Buttons</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Application#getButtons()
+   * @return the meta object for the containment reference list '<em>Tabs</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Application#getTabs()
    * @see #getApplication()
    * @generated
    */
-  EReference getApplication_Buttons();
+  EReference getApplication_Tabs();
 
   /**
-   * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.TabbarButton <em>Tabbar Button</em>}'.
+   * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.Tab <em>Tab</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Tabbar Button</em>'.
-   * @see org.applause.applausedsl.applauseDsl.TabbarButton
+   * @return the meta object for class '<em>Tab</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Tab
    * @generated
    */
-  EClass getTabbarButton();
+  EClass getTab();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.TabbarButton#getTitle <em>Title</em>}'.
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getTitle <em>Title</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Title</em>'.
-   * @see org.applause.applausedsl.applauseDsl.TabbarButton#getTitle()
-   * @see #getTabbarButton()
+   * @see org.applause.applausedsl.applauseDsl.Tab#getTitle()
+   * @see #getTab()
    * @generated
    */
-  EReference getTabbarButton_Title();
+  EReference getTab_Title();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.TabbarButton#getIcon <em>Icon</em>}'.
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getIcon <em>Icon</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Icon</em>'.
-   * @see org.applause.applausedsl.applauseDsl.TabbarButton#getIcon()
-   * @see #getTabbarButton()
+   * @see org.applause.applausedsl.applauseDsl.Tab#getIcon()
+   * @see #getTab()
    * @generated
    */
-  EReference getTabbarButton_Icon();
+  EReference getTab_Icon();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.TabbarButton#getView <em>View</em>}'.
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getView <em>View</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>View</em>'.
-   * @see org.applause.applausedsl.applauseDsl.TabbarButton#getView()
-   * @see #getTabbarButton()
+   * @see org.applause.applausedsl.applauseDsl.Tab#getView()
+   * @see #getTab()
    * @generated
    */
-  EReference getTabbarButton_View();
+  EReference getTab_View();
 
   /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.Type <em>Type</em>}'.
@@ -2820,22 +2820,22 @@ public interface ApplauseDslPackage extends EPackage
     EReference APPLICATION__BACKGROUND = eINSTANCE.getApplication_Background();
 
     /**
-     * The meta object literal for the '<em><b>Buttons</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Tabs</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference APPLICATION__BUTTONS = eINSTANCE.getApplication_Buttons();
+    EReference APPLICATION__TABS = eINSTANCE.getApplication_Tabs();
 
     /**
-     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl <em>Tabbar Button</em>}' class.
+     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.TabImpl <em>Tab</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl
-     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTabbarButton()
+     * @see org.applause.applausedsl.applauseDsl.impl.TabImpl
+     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTab()
      * @generated
      */
-    EClass TABBAR_BUTTON = eINSTANCE.getTabbarButton();
+    EClass TAB = eINSTANCE.getTab();
 
     /**
      * The meta object literal for the '<em><b>Title</b></em>' containment reference feature.
@@ -2843,7 +2843,7 @@ public interface ApplauseDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TABBAR_BUTTON__TITLE = eINSTANCE.getTabbarButton_Title();
+    EReference TAB__TITLE = eINSTANCE.getTab_Title();
 
     /**
      * The meta object literal for the '<em><b>Icon</b></em>' containment reference feature.
@@ -2851,7 +2851,7 @@ public interface ApplauseDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TABBAR_BUTTON__ICON = eINSTANCE.getTabbarButton_Icon();
+    EReference TAB__ICON = eINSTANCE.getTab_Icon();
 
     /**
      * The meta object literal for the '<em><b>View</b></em>' containment reference feature.
@@ -2859,7 +2859,7 @@ public interface ApplauseDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TABBAR_BUTTON__VIEW = eINSTANCE.getTabbarButton_View();
+    EReference TAB__VIEW = eINSTANCE.getTab_View();
 
     /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.TypeImpl <em>Type</em>}' class.

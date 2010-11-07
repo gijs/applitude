@@ -44,10 +44,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="background" eType="#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buttons" upperBound="-1"
-        eType="#//TabbarButton" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tabs" upperBound="-1" eType="#//Tab"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TabbarButton">
+  <eClassifiers xsi:type="ecore:EClass" name="Tab">
     <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//ScalarExpression"

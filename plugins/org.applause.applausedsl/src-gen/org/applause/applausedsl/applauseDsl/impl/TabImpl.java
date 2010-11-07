@@ -7,7 +7,7 @@ package org.applause.applausedsl.applauseDsl.impl;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
-import org.applause.applausedsl.applauseDsl.TabbarButton;
+import org.applause.applausedsl.applauseDsl.Tab;
 import org.applause.applausedsl.applauseDsl.ViewCall;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,20 +21,20 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Tabbar Button</b></em>'.
+ * An implementation of the model object '<em><b>Tab</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl#getIcon <em>Icon</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TabbarButtonImpl#getView <em>View</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TabImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TabImpl#getIcon <em>Icon</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TabImpl#getView <em>View</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements TabbarButton
+public class TabImpl extends MinimalEObjectImpl.Container implements Tab
 {
   /**
    * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
@@ -71,7 +71,7 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TabbarButtonImpl()
+  protected TabImpl()
   {
     super();
   }
@@ -84,7 +84,7 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
   @Override
   protected EClass eStaticClass()
   {
-    return ApplauseDslPackage.Literals.TABBAR_BUTTON;
+    return ApplauseDslPackage.Literals.TAB;
   }
 
   /**
@@ -108,7 +108,7 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
     title = newTitle;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TABBAR_BUTTON__TITLE, oldTitle, newTitle);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TAB__TITLE, oldTitle, newTitle);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -125,14 +125,14 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
     {
       NotificationChain msgs = null;
       if (title != null)
-        msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TABBAR_BUTTON__TITLE, null, msgs);
+        msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TAB__TITLE, null, msgs);
       if (newTitle != null)
-        msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TABBAR_BUTTON__TITLE, null, msgs);
+        msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TAB__TITLE, null, msgs);
       msgs = basicSetTitle(newTitle, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TABBAR_BUTTON__TITLE, newTitle, newTitle));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TAB__TITLE, newTitle, newTitle));
   }
 
   /**
@@ -156,7 +156,7 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
     icon = newIcon;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TABBAR_BUTTON__ICON, oldIcon, newIcon);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TAB__ICON, oldIcon, newIcon);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -173,14 +173,14 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
     {
       NotificationChain msgs = null;
       if (icon != null)
-        msgs = ((InternalEObject)icon).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TABBAR_BUTTON__ICON, null, msgs);
+        msgs = ((InternalEObject)icon).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TAB__ICON, null, msgs);
       if (newIcon != null)
-        msgs = ((InternalEObject)newIcon).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TABBAR_BUTTON__ICON, null, msgs);
+        msgs = ((InternalEObject)newIcon).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TAB__ICON, null, msgs);
       msgs = basicSetIcon(newIcon, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TABBAR_BUTTON__ICON, newIcon, newIcon));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TAB__ICON, newIcon, newIcon));
   }
 
   /**
@@ -204,7 +204,7 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
     view = newView;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TABBAR_BUTTON__VIEW, oldView, newView);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TAB__VIEW, oldView, newView);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -221,14 +221,14 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
     {
       NotificationChain msgs = null;
       if (view != null)
-        msgs = ((InternalEObject)view).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TABBAR_BUTTON__VIEW, null, msgs);
+        msgs = ((InternalEObject)view).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TAB__VIEW, null, msgs);
       if (newView != null)
-        msgs = ((InternalEObject)newView).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TABBAR_BUTTON__VIEW, null, msgs);
+        msgs = ((InternalEObject)newView).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TAB__VIEW, null, msgs);
       msgs = basicSetView(newView, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TABBAR_BUTTON__VIEW, newView, newView));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TAB__VIEW, newView, newView));
   }
 
   /**
@@ -241,11 +241,11 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.TABBAR_BUTTON__TITLE:
+      case ApplauseDslPackage.TAB__TITLE:
         return basicSetTitle(null, msgs);
-      case ApplauseDslPackage.TABBAR_BUTTON__ICON:
+      case ApplauseDslPackage.TAB__ICON:
         return basicSetIcon(null, msgs);
-      case ApplauseDslPackage.TABBAR_BUTTON__VIEW:
+      case ApplauseDslPackage.TAB__VIEW:
         return basicSetView(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -261,11 +261,11 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.TABBAR_BUTTON__TITLE:
+      case ApplauseDslPackage.TAB__TITLE:
         return getTitle();
-      case ApplauseDslPackage.TABBAR_BUTTON__ICON:
+      case ApplauseDslPackage.TAB__ICON:
         return getIcon();
-      case ApplauseDslPackage.TABBAR_BUTTON__VIEW:
+      case ApplauseDslPackage.TAB__VIEW:
         return getView();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -281,13 +281,13 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.TABBAR_BUTTON__TITLE:
+      case ApplauseDslPackage.TAB__TITLE:
         setTitle((ScalarExpression)newValue);
         return;
-      case ApplauseDslPackage.TABBAR_BUTTON__ICON:
+      case ApplauseDslPackage.TAB__ICON:
         setIcon((ScalarExpression)newValue);
         return;
-      case ApplauseDslPackage.TABBAR_BUTTON__VIEW:
+      case ApplauseDslPackage.TAB__VIEW:
         setView((ViewCall)newValue);
         return;
     }
@@ -304,13 +304,13 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.TABBAR_BUTTON__TITLE:
+      case ApplauseDslPackage.TAB__TITLE:
         setTitle((ScalarExpression)null);
         return;
-      case ApplauseDslPackage.TABBAR_BUTTON__ICON:
+      case ApplauseDslPackage.TAB__ICON:
         setIcon((ScalarExpression)null);
         return;
-      case ApplauseDslPackage.TABBAR_BUTTON__VIEW:
+      case ApplauseDslPackage.TAB__VIEW:
         setView((ViewCall)null);
         return;
     }
@@ -327,14 +327,14 @@ public class TabbarButtonImpl extends MinimalEObjectImpl.Container implements Ta
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.TABBAR_BUTTON__TITLE:
+      case ApplauseDslPackage.TAB__TITLE:
         return title != null;
-      case ApplauseDslPackage.TABBAR_BUTTON__ICON:
+      case ApplauseDslPackage.TAB__ICON:
         return icon != null;
-      case ApplauseDslPackage.TABBAR_BUTTON__VIEW:
+      case ApplauseDslPackage.TAB__VIEW:
         return view != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //TabbarButtonImpl
+} //TabImpl

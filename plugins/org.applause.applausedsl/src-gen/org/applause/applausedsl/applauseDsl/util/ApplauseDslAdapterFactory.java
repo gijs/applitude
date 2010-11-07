@@ -148,9 +148,9 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createApplicationAdapter();
       }
       @Override
-      public Adapter caseTabbarButton(TabbarButton object)
+      public Adapter caseTab(Tab object)
       {
-        return createTabbarButtonAdapter();
+        return createTabAdapter();
       }
       @Override
       public Adapter caseType(Type object)
@@ -505,16 +505,16 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.TabbarButton <em>Tabbar Button</em>}'.
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Tab <em>Tab</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.TabbarButton
+   * @see org.applause.applausedsl.applauseDsl.Tab
    * @generated
    */
-  public Adapter createTabbarButtonAdapter()
+  public Adapter createTabAdapter()
   {
     return null;
   }
