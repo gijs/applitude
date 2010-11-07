@@ -1,16 +1,20 @@
 application HelloWorld {
-	button {
-		title="Hello"
-		icon="chat.png"
-		view=HelloWorld()
+	tab {
+		title: "Hello World"
+		icon: "chat.png"
+		view: HelloWorld()
+	}
+	tab {
+		title: "Empty"
+		view: HelloWorld()
 	}
 }
 
 tableview HelloWorld {
-	title="Hello World"
+	title: "Hello World"
 	section {
 		cell Default {
-			text="Hello"
+			text: "Hello"
 		}
 	}
 }
