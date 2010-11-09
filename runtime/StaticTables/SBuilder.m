@@ -30,7 +30,7 @@
 		NSLog(@"No section!");
 	}
 	SRowLink *row = [[[SRowLink alloc] initWithLabel:text controllerClass:controllerClass] autorelease];
-	[[lastSection rows] addObject:row];
+	[lastSection add:row];
 }
 
 - (SRowTextField *) textFieldWithLabel:(NSString *) label model:(ModelProperty *) model {
@@ -39,7 +39,7 @@
 	}
 	SRowTextField *row = [[[SRowTextField alloc] initWithLabel:label] autorelease];
 	row.model = model;
-	[[lastSection rows] addObject:row];
+	[lastSection add:row];
 	return row;
 }
 

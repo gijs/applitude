@@ -1,13 +1,15 @@
 #import "SStaticSection.h"
 
+#import "PlaceholderResolver.h"
 
 @implementation SStaticSection
 
 - (id) initWithText:(NSString *)aText {
 	self = [super init];
 	if (self != nil) {
-		text = [aText retain];
-		rows = [[NSMutableArray alloc] init];
+		fText = [aText retain];
+		fRows = [[NSMutableArray alloc] init];
+		fPlaceholder = [[PlaceholderResolver alloc] initWithArray:fRows];
 	}
 	return self;
 }
@@ -17,17 +19,22 @@
 }
 
 - (NSString *) text {
-	return text;
+	return fText;
 }
 
-- (NSMutableArray *) rows {
-	return rows;
+- (NSObject<SItemPlaceholder> *) rows {
+	return fPlaceholder;
+}
+
+- (void) add:(NSObject<SRow> *) row {
+	[fRows addObject:row];
 }
 
 - (void) dealloc
 {
-	[text release];
-	[rows release];
+	[fText release];
+	[fRows release];
+	[fPlaceholder release];
 	[super dealloc];
 }
 

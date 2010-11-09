@@ -62,7 +62,8 @@
 - (NSObject<SRow> *) rowAtIndexPath:(NSIndexPath *)indexPath {
 	[self checkInitialized];
 	NSObject<SSection> *section = [fSections objectAtIndex:indexPath.section];
-	return [[section rows] objectAtIndex:indexPath.row];
+	NSObject<SRow> *row = [[section rows] objectAtIndex:indexPath.row];
+	return row;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

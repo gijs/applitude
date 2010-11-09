@@ -1,10 +1,11 @@
 #import <UIKit/UIKit.h>
 
 #import "SRow.h"
+#import "SItemPlaceholder.h"
 
 @protocol SSection
 
 - (NSString *) text;
-- (NSArray *) rows;
+- (NSObject<SItemPlaceholder> *) rows;
 
 @end
