@@ -25,7 +25,8 @@
 «DEFINE moduleFile FOR Application»
 «FILE filenameCentralProvidersModule()»
 #import "«filenameCentralProvidersHeader()»"
-#import "IPXMLContentProvider.h"
+«FOREACH providersWithImplementation().neededImports().toSet() AS import»#import "«import»"
+«ENDFOREACH-»
 
 @implementation «centralProvidersClassName()»
 

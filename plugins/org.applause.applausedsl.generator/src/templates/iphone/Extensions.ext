@@ -48,6 +48,9 @@ neededImports(ProviderConstruction this):
 neededImports(ComplexProviderConstruction this):
 	{application().filenameCentralProvidersHeader()};
 
+neededImports(ContentProvider this):
+	{"IPXMLContentProvider.h"};
+
 baseClassName(View this):
 	"";
 	
