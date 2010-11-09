@@ -6,6 +6,9 @@ extension templates::MetamodelExtensions;
 className(View this):
 	this.name.toFirstUpper() + "ViewController";
 
+className(CustomView this):
+	this.className;
+
 filenameHeader(View this):
 	className() + ".h";
 	
