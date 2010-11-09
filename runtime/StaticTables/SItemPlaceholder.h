@@ -2,6 +2,7 @@
 
 @protocol SItemPlaceholder
 
-- (NSArray *) items;
+- (int) count;
+- (NSObject *) objectAtIndex:(int) index;
 
 @end

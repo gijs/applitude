@@ -18,9 +18,9 @@
 
 @interface STableViewController : UITableViewController
 {
-	NSArray *sections;
+	NSObject<SItemPlaceholder> *fSections;
 }
 
-- (NSObject<SItemPlaceholder> *) buildSections;
+- (NSArray *) buildSections;
 
 @end

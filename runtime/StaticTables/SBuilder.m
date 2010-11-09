@@ -6,6 +6,8 @@
 
 @implementation SBuilder
 
+@synthesize sections;
+
 - (id) init {
 	self = [super init];
 	if (self != nil) {
@@ -39,10 +41,6 @@
 	row.model = model;
 	[[lastSection rows] addObject:row];
 	return row;
-}
-
-- (NSArray *) items {
-	return sections;
 }
 
 - (void) dealloc {

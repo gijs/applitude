@@ -5,12 +5,14 @@
 #import "SRowTextField.h"
 #import "ModelProperty.h"
 
-@interface SBuilder : NSObject <SItemPlaceholder> {
+@interface SBuilder : NSObject {
 
 	SStaticSection *lastSection;
 	NSMutableArray *sections;
 
 }
+
+@property (readonly, nonatomic) NSArray *sections;
 
 + (SBuilder *) builder;
 - (void) section:(NSString *) text;

@@ -16,69 +16,52 @@
 #import "SItemPlaceholder.h"
 #import "SSection.h"
 #import "SRow.h"
+#import "PlaceholderResolver.h"
 
 @implementation STableViewController
 
-- (NSMutableArray *) flatten:(NSArray *)array {
-	NSMutableArray *flattenedArray = [NSMutableArray array];
-	// TODO: this should be lazy, flattening is only the quick route to success
-	for (NSObject *item in array) {
-		if ([item conformsToProtocol:@protocol(SItemPlaceholder)]) {
-			[flattenedArray addObjectsFromArray:[(NSObject<SItemPlaceholder> *)item items]];
-		}
-	}
-	return flattenedArray;
-}
-
 - (void) checkInitialized {
-	if (!sections) {
-		sections = [[[self buildSections] items] retain];
+	if (!fSections) {
+		NSArray *sectionList = [self buildSections];
+		NSLog(@"sections: %@", sectionList);
+		fSections = [[PlaceholderResolver alloc] initWithArray:sectionList];
+		NSLog(@"flattened sections: %@", fSections);
 	}
 }
 
 - (void) clear {
-	[sections release];
-	sections = nil;
+	[fSections release];
+	fSections = nil;
 }
 
-- (NSObject<SItemPlaceholder> *) buildSections {
-	NSLog(@"buildSections method not overwritten for %@", self);
+- (NSArray *) buildSections {
+	NSLog(@"Method [%@ buildSections] must be overwritten", self);
 	return nil;
 }
 
-- (void)updateAndReload
-{
+- (void)updateAndReload {
 	[self clear];
 	[self checkInitialized];
 	[self.tableView reloadData];
 }
 
-//
-// numberOfSectionsInTableView:
-//
-// Return the number of sections for the table.
-//
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	[self checkInitialized];
-	NSLog(@"%i sections", [sections count]);
-	return [sections count];
+	int count = [fSections count];
+	NSLog(@"%i sections", count);
+	return count;
 }
 
-//
-// tableView:numberOfRowsInSection:
-//
-// Returns the number of rows in a given section.
-//
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)i {
 	[self checkInitialized];
 
-	NSObject<SSection> *section = [sections objectAtIndex:i];
+	NSObject<SSection> *section = [fSections objectAtIndex:i];
 	return [[section rows] count];
 }
 
 - (NSObject<SRow> *) rowAtIndexPath:(NSIndexPath *)indexPath {
 	[self checkInitialized];
-	NSObject<SSection> *section = [sections objectAtIndex:indexPath.section];
+	NSObject<SSection> *section = [fSections objectAtIndex:indexPath.section];
 	return [[section rows] objectAtIndex:indexPath.row];
 }
 
