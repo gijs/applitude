@@ -129,7 +129,7 @@ DetailsView:
 	'}';
 	
 CustomView:
-	'customview' name=ID ('(' content=Parameter ')')? 'implementedBy' objclass=STRING;
+	'customview' name=ID ('(' content=Parameter ')')? 'class' className=STRING;
 	
 ViewHeader:
 	{ViewHeader}
