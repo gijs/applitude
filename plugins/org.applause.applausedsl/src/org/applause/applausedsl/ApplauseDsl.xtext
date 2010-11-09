@@ -67,9 +67,9 @@ Application returns Application:
 
 Tab:
 	'tab' '{'
-		('title' ':' title=ScalarExpression)
-		& ('icon' ':' icon=ScalarExpression)?
-		& ('view' ':' view=ViewCall)
+		('title:' title=ScalarExpression)
+		& ('icon:' icon=ScalarExpression)?
+		& ('view:' view=ViewCall)
 	'}'
 ;
 
@@ -117,13 +117,13 @@ SectionedView:
 		
 TableView:
 	'tableview' name=ID ('(' content=Parameter ')')? '{'
-		'title' ':' title=ScalarExpression
+		'title:' title=ScalarExpression
 		(sections+=ViewSection)*
 	'}';
 	
 DetailsView:
 	'detailsview' name=ID ('(' content=Parameter ')')? '{'
-		'title' ':' title=ScalarExpression
+		'title:' title=ScalarExpression
 		(header=ViewHeader)?
 		(sections+=ViewSection)*
 	'}';
@@ -134,24 +134,24 @@ CustomView:
 ViewHeader:
 	{ViewHeader}
 	'header' '{'
-		('title' ':' title=ScalarExpression)?
-		('subtitle' ':' subtitle=ScalarExpression)?
-		('details' ':' details=ScalarExpression)?
-		('image' ':' image=ScalarExpression)?
+		('title:' title=ScalarExpression)?
+		('subtitle:' subtitle=ScalarExpression)?
+		('details:' details=ScalarExpression)?
+		('image:' image=ScalarExpression)?
 	'}';
 	
 ViewSection:
 	'section' '{'
-		('title' ':' title=ScalarExpression)?
+		('title:' title=ScalarExpression)?
 		(cells+=SectionCell)+
 	'}';
 	
 SectionCell:
 	'cell' type=CellType ('foreach' iterator=CollectionIterator)? '{'
-		('text' ':' text=ScalarExpression)?
-		('details' ':' details=ScalarExpression)?
-		('image' ':' image=ScalarExpression)?
-		('action' ':' action=ViewAction)?
+		('text:' text=ScalarExpression)?
+		('details:' details=ScalarExpression)?
+		('image:' image=ScalarExpression)?
+		('action:' action=ViewAction)?
 	'}';
 	
 enum CellType:
