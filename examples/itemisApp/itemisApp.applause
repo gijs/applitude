@@ -1,27 +1,27 @@
 application itemisApp {
 	background="Background.png"
-	button {
-		title= "News"
-		icon= "08-chat.png"
-		view= BlogList( Blogposts() )
+	tab {
+		title: "News"
+		icon: "08-chat.png"
+		view: BlogList( Blogposts() )
 	}
    
-	button {
-		title= "Talks"   
-		icon= "66-microphone.png"
-		view= VortragListe( AllVortragItems() )
+	tab {
+		title: "Talks"   
+		icon: "66-microphone.png"
+		view: VortragListe( AllVortragItems() )
 	}
 
-	button {
-		title= "Speakers"
-		icon= "person.png"
-		view= SprecherListe( AllSprecherItems() )
+	tab {
+		title: "Speakers"
+		icon: "person.png"
+		view: SprecherListe( AllSprecherItems() )
 	}
 	
-	button {
-		title= "Barcode"
-		icon= "123-id-card.png"
-		view= BarcodeScanner()
+	tab {
+		title: "Barcode"
+		icon: "123-id-card.png"
+		view: BarcodeScanner()
 	}
 }
 
@@ -103,62 +103,62 @@ contentprovider SprecherByName(String name)
  * DESCRIBING VIEWS
  */		
  
-customview BarcodeScanner implementedBy "BarcodeScannerViewController" 
+customview BarcodeScanner class "BarcodeScannerViewController" 
 
 tableview BlogList(BlogItem[] items) {
-	title= "News"
+	title: "News"
 	section {
 		cell Subtitle foreach items as i {
-			text= i.author
-			details= i.title
-			image= ("http://blogs.itemis.de/wp-content/themes/itemis-WP-Theme/photos/" urlconform(i.author) ".jpg")
-			action= BlogDetails(i)   
+			text: i.author
+			details: i.title
+			image: ("http://blogs.itemis.de/wp-content/themes/itemis-WP-Theme/photos/" urlconform(i.author) ".jpg")
+			action: BlogDetails(i)   
 		}
 	} 
 }  
 
 detailsview BlogDetails(BlogItem item) {
-	title= "News" 
+	title: "News" 
 	header {
-		title= item.title
-		details= item.description
-		image= ("http://blogs.itemis.de/wp-content/themes/itemis-WP-Theme/photos/"urlconform(item.author)".jpg")
+		title: item.title
+		details: item.description
+		image: ("http://blogs.itemis.de/wp-content/themes/itemis-WP-Theme/photos/"urlconform(item.author)".jpg")
 	}
 	section {
 		cell Default {
-			text= item.author
-			action= SprecherDetails(SprecherByName(item.author))
+			text: item.author
+			action: SprecherDetails(SprecherByName(item.author))
 		}
 		cell Default {
-			text= "Open in Safari"
-			action= item.link
+			text: "Open in Safari"
+			action: item.link
 		}
 	}
 } 
 
 tableview VortragListe(Vortrag[] items) {
-	title= "Talks"
+	title: "Talks"
 	section {
 		cell Subtitle foreach items as i {
-			text= i.titel
-			details= i.zeit
-			action= VortragDetailsView( i )   
+			text: i.titel
+			details: i.zeit
+			action: VortragDetailsView( i )   
 		} 
 	}
 }
 
 detailsview VortragDetailsView(Vortrag vortrag) {
-	title= "Talk"
+	title: "Talk"
 	header {
-		title= vortrag.titel
-		subtitle= (vortrag.untertitel "\\n" vortrag.zeit)
-		details= vortrag.beschreibung
+		title: vortrag.titel
+		subtitle: (vortrag.untertitel "\\n" vortrag.zeit)
+		details: vortrag.beschreibung
 	}
 	
 	section {
 		cell DefaultWithDisclosure foreach split(vortrag.sprecher, ", ") as s {
-			text= s
-			action= SprecherDetails(SprecherByName(s))		
+			text: s
+			action: SprecherDetails(SprecherByName(s))		
 		}
 		
 	}
@@ -166,42 +166,42 @@ detailsview VortragDetailsView(Vortrag vortrag) {
 }
 
 tableview SprecherListe(Sprecher[] sprecher) {
-	title= "Speakers"
+	title: "Speakers"
 	section {
 		cell Default foreach sprecher as s {
-			text= s.name
-			image= s.fotourl
-			action= SprecherDetails(s)   
+			text: s.name
+			image: s.fotourl
+			action: SprecherDetails(s)   
 		}
 	}
 }
 
 detailsview SprecherDetails(Sprecher sprecher) {
-	title= "Speaker"
+	title: "Speaker"
 	header {
-		title= sprecher.name
-		details= sprecher.beschreibung
-		image= sprecher.fotourl
+		title: sprecher.name
+		details: sprecher.beschreibung
+		image: sprecher.fotourl
 	}
 	
 	
 	section {
 		cell Default foreach split(sprecher.vortraege, ", ") as titel {
-			text= titel
-			action= VortragDetailsView(VortragByTitel(titel))
+			text: titel
+			action: VortragDetailsView(VortragByTitel(titel))
 		}
 	}
 	
 	section {
 		cell Value2 {
-			text= "mail"
-			details= sprecher.email
-			action= ("mailto:"sprecher.email) 
+			text: "mail"
+			details: sprecher.email
+			action: ("mailto:"sprecher.email) 
 		}
 		cell Value2 {
-			text= "blog"
-			details= sprecher.blog
-			action= ("http://"sprecher.blog) 
+			text: "blog"
+			details: sprecher.blog
+			action: ("http://"sprecher.blog) 
 		}
 	}
 }
