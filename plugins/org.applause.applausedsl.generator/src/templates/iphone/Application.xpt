@@ -43,9 +43,6 @@
 
 «EXPAND importStatements-»
 
-/*
- * This is the «this.name» app.
- */
 @implementation «applicationDelegateClassname()»
 
 #pragma mark -
@@ -57,17 +54,10 @@
 #pragma mark -
 #pragma mark View Management
 
-/*
- * Set up the tab bar controller.
- */
--(UIViewController*)createController {
+- (UIViewController*) createTabBarController {
 	«centralProvidersClassName()» *providers = [[[«centralProvidersClassName()» alloc] init] autorelease];
 	UITabBarController *result = [[UITabBarController alloc] init];
 	NSMutableArray *controllers = [NSMutableArray array];
-	
-	UIViewController<IPUIView> *controller;
-	UINavigationController *navController;
-	IPContentProvider *contentProvider;
 
 «EXPAND barControllerInstance FOREACH tabs»
 
@@ -117,19 +107,21 @@
 «ENDDEFINE»
 
 «DEFINE barControllerInstance FOR Tab»
-	controller = [[«view.view.className()» alloc] init];
-	«IF view.provider != null-»
-	contentProvider = «view.provider.contentProvider('providers', '', '')»;
-	[controller setContentProvider: contentProvider];
-	«ENDIF-»
-	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	navController.tabBarItem.title = «title.expression('', '')»;
-	«IF this.icon != null-»
-	navController.tabBarItem.image = [UIImage imageNamed:«this.icon.expression('','')»];
-	«ENDIF-»
-	[controllers addObject: navController];
-	[controller release];
-	[navController release];
+	{
+		UIViewController *controller = [[«view.view.className()» alloc] init];
+		«IF view.provider != null-»
+		IPContentProvider *contentProvider = «view.provider.contentProvider('providers', '', '')»;
+		[(UIViewController<IPUIView> *) controller setContentProvider: contentProvider];
+		«ENDIF-»
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		navController.tabBarItem.title = «title.expression('', '')»;
+		«IF this.icon != null-»
+		navController.tabBarItem.image = [UIImage imageNamed:«this.icon.expression('','')»];
+		«ENDIF-»
+		[controllers addObject: navController];
+		[controller release];
+		[navController release];
+	}
 «ENDDEFINE»
 
 «REM»
