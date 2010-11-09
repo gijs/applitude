@@ -88,7 +88,14 @@
 	[window addSubview:backgroundImageView];
 	[backgroundImageView release];
 	«ENDIF»
-	self.rootController = [self createController];
+
+	// Create a window (in case this is not created using a .xib)
+	if (!self.window) {
+		self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+		[self.window release];
+	}
+
+	self.rootController = [self createTabBarController];
 	[window addSubview: [self.rootController view]];
 	[window makeKeyAndVisible];
 }
