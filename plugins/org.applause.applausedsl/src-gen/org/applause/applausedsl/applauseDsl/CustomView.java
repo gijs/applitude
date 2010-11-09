@@ -14,7 +14,7 @@ package org.applause.applausedsl.applauseDsl;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.CustomView#getObjclass <em>Objclass</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.CustomView#getClassName <em>Class Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,29 +25,29 @@ package org.applause.applausedsl.applauseDsl;
 public interface CustomView extends View
 {
   /**
-   * Returns the value of the '<em><b>Objclass</b></em>' attribute.
+   * Returns the value of the '<em><b>Class Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Objclass</em>' attribute isn't clear,
+   * If the meaning of the '<em>Class Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Objclass</em>' attribute.
-   * @see #setObjclass(String)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCustomView_Objclass()
+   * @return the value of the '<em>Class Name</em>' attribute.
+   * @see #setClassName(String)
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCustomView_ClassName()
    * @model
    * @generated
    */
-  String getObjclass();
+  String getClassName();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.CustomView#getObjclass <em>Objclass</em>}' attribute.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.CustomView#getClassName <em>Class Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Objclass</em>' attribute.
-   * @see #getObjclass()
+   * @param value the new value of the '<em>Class Name</em>' attribute.
+   * @see #getClassName()
    * @generated
    */
-  void setObjclass(String value);
+  void setClassName(String value);
 
 } // CustomView

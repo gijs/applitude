@@ -982,7 +982,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCustomView_Objclass()
+  public EAttribute getCustomView_ClassName()
   {
     return (EAttribute)customViewEClass.getEStructuralFeatures().get(0);
   }
@@ -1499,7 +1499,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(detailsViewEClass, DETAILS_VIEW__HEADER);
 
     customViewEClass = createEClass(CUSTOM_VIEW);
-    createEAttribute(customViewEClass, CUSTOM_VIEW__OBJCLASS);
+    createEAttribute(customViewEClass, CUSTOM_VIEW__CLASS_NAME);
 
     viewHeaderEClass = createEClass(VIEW_HEADER);
     createEReference(viewHeaderEClass, VIEW_HEADER__TITLE);
@@ -1701,7 +1701,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getDetailsView_Header(), this.getViewHeader(), null, "header", null, 0, 1, DetailsView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(customViewEClass, CustomView.class, "CustomView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCustomView_Objclass(), ecorePackage.getEString(), "objclass", null, 0, 1, CustomView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCustomView_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, CustomView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewHeaderEClass, ViewHeader.class, "ViewHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getViewHeader_Title(), this.getScalarExpression(), null, "title", null, 0, 1, ViewHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

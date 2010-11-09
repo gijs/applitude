@@ -996,13 +996,13 @@ public interface ApplauseDslPackage extends EPackage
   int CUSTOM_VIEW__CONTENT = VIEW__CONTENT;
 
   /**
-   * The feature id for the '<em><b>Objclass</b></em>' attribute.
+   * The feature id for the '<em><b>Class Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM_VIEW__OBJCLASS = VIEW_FEATURE_COUNT + 0;
+  int CUSTOM_VIEW__CLASS_NAME = VIEW_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Custom View</em>' class.
@@ -2116,15 +2116,15 @@ public interface ApplauseDslPackage extends EPackage
   EClass getCustomView();
 
   /**
-   * Returns the meta object for the attribute '{@link org.applause.applausedsl.applauseDsl.CustomView#getObjclass <em>Objclass</em>}'.
+   * Returns the meta object for the attribute '{@link org.applause.applausedsl.applauseDsl.CustomView#getClassName <em>Class Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Objclass</em>'.
-   * @see org.applause.applausedsl.applauseDsl.CustomView#getObjclass()
+   * @return the meta object for the attribute '<em>Class Name</em>'.
+   * @see org.applause.applausedsl.applauseDsl.CustomView#getClassName()
    * @see #getCustomView()
    * @generated
    */
-  EAttribute getCustomView_Objclass();
+  EAttribute getCustomView_ClassName();
 
   /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.ViewHeader <em>View Header</em>}'.
@@ -3084,12 +3084,12 @@ public interface ApplauseDslPackage extends EPackage
     EClass CUSTOM_VIEW = eINSTANCE.getCustomView();
 
     /**
-     * The meta object literal for the '<em><b>Objclass</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CUSTOM_VIEW__OBJCLASS = eINSTANCE.getCustomView_Objclass();
+    EAttribute CUSTOM_VIEW__CLASS_NAME = eINSTANCE.getCustomView_ClassName();
 
     /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.ViewHeaderImpl <em>View Header</em>}' class.

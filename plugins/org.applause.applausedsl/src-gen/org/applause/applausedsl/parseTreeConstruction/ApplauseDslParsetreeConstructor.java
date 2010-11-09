@@ -2958,11 +2958,11 @@ protected class Application_RightCurlyBracketKeyword_5 extends KeywordToken  {
 /************ begin Rule Tab ****************
  *
  * Tab:
- * 	"tab" "{" ("title" ":" title=ScalarExpression) & ("icon" ":" icon=ScalarExpression)? & ("view" ":" view=ViewCall) "}";
+ * 	"tab" "{" ("title:" title=ScalarExpression) & ("icon:" icon=ScalarExpression)? & ("view:" view=ViewCall) "}";
  *
  **/
 
-// "tab" "{" ("title" ":" title=ScalarExpression) & ("icon" ":" icon=ScalarExpression)? & ("view" ":" view=ViewCall) "}"
+// "tab" "{" ("title:" title=ScalarExpression) & ("icon:" icon=ScalarExpression)? & ("view:" view=ViewCall) "}"
 protected class Tab_UnorderedGroup extends UnorderedGroupToken {
 	
 	public Tab_UnorderedGroup(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2991,7 +2991,7 @@ protected class Tab_UnorderedGroup extends UnorderedGroupToken {
 
 }
 
-// "tab" "{" ("title" ":" title=ScalarExpression)
+// "tab" "{" ("title:" title=ScalarExpression)
 protected class Tab_Group_0 extends GroupToken {
 	
 	public Tab_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3056,7 +3056,7 @@ protected class Tab_LeftCurlyBracketKeyword_0_1 extends KeywordToken  {
 
 }
 
-// "title" ":" title=ScalarExpression
+// "title:" title=ScalarExpression
 protected class Tab_Group_0_2 extends GroupToken {
 	
 	public Tab_Group_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3071,14 +3071,14 @@ protected class Tab_Group_0_2 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Tab_TitleAssignment_0_2_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Tab_TitleAssignment_0_2_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "title"
+// "title:"
 protected class Tab_TitleKeyword_0_2_0 extends KeywordToken  {
 	
 	public Tab_TitleKeyword_0_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3100,38 +3100,16 @@ protected class Tab_TitleKeyword_0_2_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class Tab_ColonKeyword_0_2_1 extends KeywordToken  {
-	
-	public Tab_ColonKeyword_0_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getTabAccess().getColonKeyword_0_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Tab_TitleKeyword_0_2_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // title=ScalarExpression
-protected class Tab_TitleAssignment_0_2_2 extends AssignmentToken  {
+protected class Tab_TitleAssignment_0_2_1 extends AssignmentToken  {
 	
-	public Tab_TitleAssignment_0_2_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Tab_TitleAssignment_0_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTabAccess().getTitleAssignment_0_2_2();
+		return grammarAccess.getTabAccess().getTitleAssignment_0_2_1();
 	}
 
     @Override
@@ -3150,7 +3128,7 @@ protected class Tab_TitleAssignment_0_2_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getTabAccess().getTitleScalarExpressionParserRuleCall_0_2_2_0(); 
+				element = grammarAccess.getTabAccess().getTitleScalarExpressionParserRuleCall_0_2_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -3162,7 +3140,7 @@ protected class Tab_TitleAssignment_0_2_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Tab_ColonKeyword_0_2_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Tab_TitleKeyword_0_2_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -3170,7 +3148,7 @@ protected class Tab_TitleAssignment_0_2_2 extends AssignmentToken  {
 
 
 
-// ("icon" ":" icon=ScalarExpression)?
+// ("icon:" icon=ScalarExpression)?
 protected class Tab_Group_1 extends GroupToken {
 	
 	public Tab_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3185,14 +3163,14 @@ protected class Tab_Group_1 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Tab_IconAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Tab_IconAssignment_1_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "icon"
+// "icon:"
 protected class Tab_IconKeyword_1_0 extends KeywordToken  {
 	
 	public Tab_IconKeyword_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3214,38 +3192,16 @@ protected class Tab_IconKeyword_1_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class Tab_ColonKeyword_1_1 extends KeywordToken  {
-	
-	public Tab_ColonKeyword_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getTabAccess().getColonKeyword_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Tab_IconKeyword_1_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // icon=ScalarExpression
-protected class Tab_IconAssignment_1_2 extends AssignmentToken  {
+protected class Tab_IconAssignment_1_1 extends AssignmentToken  {
 	
-	public Tab_IconAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Tab_IconAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTabAccess().getIconAssignment_1_2();
+		return grammarAccess.getTabAccess().getIconAssignment_1_1();
 	}
 
     @Override
@@ -3264,7 +3220,7 @@ protected class Tab_IconAssignment_1_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getTabAccess().getIconScalarExpressionParserRuleCall_1_2_0(); 
+				element = grammarAccess.getTabAccess().getIconScalarExpressionParserRuleCall_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -3276,14 +3232,14 @@ protected class Tab_IconAssignment_1_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Tab_ColonKeyword_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Tab_IconKeyword_1_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-// ("view" ":" view=ViewCall) "}"
+// ("view:" view=ViewCall) "}"
 protected class Tab_Group_2 extends GroupToken {
 	
 	public Tab_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3305,7 +3261,7 @@ protected class Tab_Group_2 extends GroupToken {
 
 }
 
-// "view" ":" view=ViewCall
+// "view:" view=ViewCall
 protected class Tab_Group_2_0 extends GroupToken {
 	
 	public Tab_Group_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3320,14 +3276,14 @@ protected class Tab_Group_2_0 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Tab_ViewAssignment_2_0_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Tab_ViewAssignment_2_0_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "view"
+// "view:"
 protected class Tab_ViewKeyword_2_0_0 extends KeywordToken  {
 	
 	public Tab_ViewKeyword_2_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3350,38 +3306,16 @@ protected class Tab_ViewKeyword_2_0_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class Tab_ColonKeyword_2_0_1 extends KeywordToken  {
-	
-	public Tab_ColonKeyword_2_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getTabAccess().getColonKeyword_2_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Tab_ViewKeyword_2_0_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // view=ViewCall
-protected class Tab_ViewAssignment_2_0_2 extends AssignmentToken  {
+protected class Tab_ViewAssignment_2_0_1 extends AssignmentToken  {
 	
-	public Tab_ViewAssignment_2_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Tab_ViewAssignment_2_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTabAccess().getViewAssignment_2_0_2();
+		return grammarAccess.getTabAccess().getViewAssignment_2_0_1();
 	}
 
     @Override
@@ -3400,7 +3334,7 @@ protected class Tab_ViewAssignment_2_0_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getViewCallRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getTabAccess().getViewViewCallParserRuleCall_2_0_2_0(); 
+				element = grammarAccess.getTabAccess().getViewViewCallParserRuleCall_2_0_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -3412,7 +3346,7 @@ protected class Tab_ViewAssignment_2_0_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Tab_ColonKeyword_2_0_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Tab_ViewKeyword_2_0_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -5188,11 +5122,11 @@ protected class SectionedView_DetailsViewParserRuleCall_1 extends RuleCallToken 
 /************ begin Rule TableView ****************
  *
  * TableView:
- * 	"tableview" name=ID ("(" content=Parameter ")")? "{" "title" ":" title=ScalarExpression sections+=ViewSection* "}";
+ * 	"tableview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression sections+=ViewSection* "}";
  *
  **/
 
-// "tableview" name=ID ("(" content=Parameter ")")? "{" "title" ":" title=ScalarExpression sections+=ViewSection* "}"
+// "tableview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression sections+=ViewSection* "}"
 protected class TableView_Group extends GroupToken {
 	
 	public TableView_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5207,7 +5141,7 @@ protected class TableView_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new TableView_RightCurlyBracketKeyword_8(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new TableView_RightCurlyBracketKeyword_7(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5412,7 +5346,7 @@ protected class TableView_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// "title"
+// "title:"
 protected class TableView_TitleKeyword_4 extends KeywordToken  {
 	
 	public TableView_TitleKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5434,38 +5368,16 @@ protected class TableView_TitleKeyword_4 extends KeywordToken  {
 
 }
 
-// ":"
-protected class TableView_ColonKeyword_5 extends KeywordToken  {
-	
-	public TableView_ColonKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getTableViewAccess().getColonKeyword_5();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new TableView_TitleKeyword_4(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // title=ScalarExpression
-protected class TableView_TitleAssignment_6 extends AssignmentToken  {
+protected class TableView_TitleAssignment_5 extends AssignmentToken  {
 	
-	public TableView_TitleAssignment_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public TableView_TitleAssignment_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTableViewAccess().getTitleAssignment_6();
+		return grammarAccess.getTableViewAccess().getTitleAssignment_5();
 	}
 
     @Override
@@ -5484,7 +5396,7 @@ protected class TableView_TitleAssignment_6 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getTableViewAccess().getTitleScalarExpressionParserRuleCall_6_0(); 
+				element = grammarAccess.getTableViewAccess().getTitleScalarExpressionParserRuleCall_5_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5496,22 +5408,22 @@ protected class TableView_TitleAssignment_6 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new TableView_ColonKeyword_5(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new TableView_TitleKeyword_4(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // sections+=ViewSection*
-protected class TableView_SectionsAssignment_7 extends AssignmentToken  {
+protected class TableView_SectionsAssignment_6 extends AssignmentToken  {
 	
-	public TableView_SectionsAssignment_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public TableView_SectionsAssignment_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTableViewAccess().getSectionsAssignment_7();
+		return grammarAccess.getTableViewAccess().getSectionsAssignment_6();
 	}
 
     @Override
@@ -5530,7 +5442,7 @@ protected class TableView_SectionsAssignment_7 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getViewSectionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getTableViewAccess().getSectionsViewSectionParserRuleCall_7_0(); 
+				element = grammarAccess.getTableViewAccess().getSectionsViewSectionParserRuleCall_6_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5542,30 +5454,30 @@ protected class TableView_SectionsAssignment_7 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new TableView_SectionsAssignment_7(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new TableView_TitleAssignment_6(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new TableView_SectionsAssignment_6(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new TableView_TitleAssignment_5(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class TableView_RightCurlyBracketKeyword_8 extends KeywordToken  {
+protected class TableView_RightCurlyBracketKeyword_7 extends KeywordToken  {
 	
-	public TableView_RightCurlyBracketKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public TableView_RightCurlyBracketKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getTableViewAccess().getRightCurlyBracketKeyword_8();
+		return grammarAccess.getTableViewAccess().getRightCurlyBracketKeyword_7();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new TableView_SectionsAssignment_7(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new TableView_TitleAssignment_6(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new TableView_SectionsAssignment_6(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TableView_TitleAssignment_5(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -5579,12 +5491,12 @@ protected class TableView_RightCurlyBracketKeyword_8 extends KeywordToken  {
 /************ begin Rule DetailsView ****************
  *
  * DetailsView:
- * 	"detailsview" name=ID ("(" content=Parameter ")")? "{" "title" ":" title=ScalarExpression header=ViewHeader?
+ * 	"detailsview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression header=ViewHeader?
  * 	sections+=ViewSection* "}";
  *
  **/
 
-// "detailsview" name=ID ("(" content=Parameter ")")? "{" "title" ":" title=ScalarExpression header=ViewHeader?
+// "detailsview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression header=ViewHeader?
 // sections+=ViewSection* "}"
 protected class DetailsView_Group extends GroupToken {
 	
@@ -5600,7 +5512,7 @@ protected class DetailsView_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DetailsView_RightCurlyBracketKeyword_9(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new DetailsView_RightCurlyBracketKeyword_8(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5805,7 +5717,7 @@ protected class DetailsView_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// "title"
+// "title:"
 protected class DetailsView_TitleKeyword_4 extends KeywordToken  {
 	
 	public DetailsView_TitleKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5827,38 +5739,16 @@ protected class DetailsView_TitleKeyword_4 extends KeywordToken  {
 
 }
 
-// ":"
-protected class DetailsView_ColonKeyword_5 extends KeywordToken  {
-	
-	public DetailsView_ColonKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getDetailsViewAccess().getColonKeyword_5();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new DetailsView_TitleKeyword_4(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // title=ScalarExpression
-protected class DetailsView_TitleAssignment_6 extends AssignmentToken  {
+protected class DetailsView_TitleAssignment_5 extends AssignmentToken  {
 	
-	public DetailsView_TitleAssignment_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DetailsView_TitleAssignment_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDetailsViewAccess().getTitleAssignment_6();
+		return grammarAccess.getDetailsViewAccess().getTitleAssignment_5();
 	}
 
     @Override
@@ -5877,7 +5767,7 @@ protected class DetailsView_TitleAssignment_6 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getDetailsViewAccess().getTitleScalarExpressionParserRuleCall_6_0(); 
+				element = grammarAccess.getDetailsViewAccess().getTitleScalarExpressionParserRuleCall_5_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5889,22 +5779,22 @@ protected class DetailsView_TitleAssignment_6 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DetailsView_ColonKeyword_5(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new DetailsView_TitleKeyword_4(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // header=ViewHeader?
-protected class DetailsView_HeaderAssignment_7 extends AssignmentToken  {
+protected class DetailsView_HeaderAssignment_6 extends AssignmentToken  {
 	
-	public DetailsView_HeaderAssignment_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DetailsView_HeaderAssignment_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDetailsViewAccess().getHeaderAssignment_7();
+		return grammarAccess.getDetailsViewAccess().getHeaderAssignment_6();
 	}
 
     @Override
@@ -5923,7 +5813,7 @@ protected class DetailsView_HeaderAssignment_7 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getViewHeaderRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getDetailsViewAccess().getHeaderViewHeaderParserRuleCall_7_0(); 
+				element = grammarAccess.getDetailsViewAccess().getHeaderViewHeaderParserRuleCall_6_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5935,22 +5825,22 @@ protected class DetailsView_HeaderAssignment_7 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DetailsView_TitleAssignment_6(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new DetailsView_TitleAssignment_5(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // sections+=ViewSection*
-protected class DetailsView_SectionsAssignment_8 extends AssignmentToken  {
+protected class DetailsView_SectionsAssignment_7 extends AssignmentToken  {
 	
-	public DetailsView_SectionsAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DetailsView_SectionsAssignment_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDetailsViewAccess().getSectionsAssignment_8();
+		return grammarAccess.getDetailsViewAccess().getSectionsAssignment_7();
 	}
 
     @Override
@@ -5969,7 +5859,7 @@ protected class DetailsView_SectionsAssignment_8 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getViewSectionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getDetailsViewAccess().getSectionsViewSectionParserRuleCall_8_0(); 
+				element = grammarAccess.getDetailsViewAccess().getSectionsViewSectionParserRuleCall_7_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5981,32 +5871,32 @@ protected class DetailsView_SectionsAssignment_8 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DetailsView_SectionsAssignment_8(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new DetailsView_HeaderAssignment_7(lastRuleCallOrigin, next, actIndex, consumed);
-			case 2: return new DetailsView_TitleAssignment_6(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new DetailsView_SectionsAssignment_7(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new DetailsView_HeaderAssignment_6(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new DetailsView_TitleAssignment_5(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class DetailsView_RightCurlyBracketKeyword_9 extends KeywordToken  {
+protected class DetailsView_RightCurlyBracketKeyword_8 extends KeywordToken  {
 	
-	public DetailsView_RightCurlyBracketKeyword_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public DetailsView_RightCurlyBracketKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDetailsViewAccess().getRightCurlyBracketKeyword_9();
+		return grammarAccess.getDetailsViewAccess().getRightCurlyBracketKeyword_8();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new DetailsView_SectionsAssignment_8(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new DetailsView_HeaderAssignment_7(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new DetailsView_TitleAssignment_6(lastRuleCallOrigin, this, 2, inst);
+			case 0: return new DetailsView_SectionsAssignment_7(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new DetailsView_HeaderAssignment_6(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new DetailsView_TitleAssignment_5(lastRuleCallOrigin, this, 2, inst);
 			default: return null;
 		}	
 	}
@@ -6020,11 +5910,11 @@ protected class DetailsView_RightCurlyBracketKeyword_9 extends KeywordToken  {
 /************ begin Rule CustomView ****************
  *
  * CustomView:
- * 	"customview" name=ID ("(" content=Parameter ")")? "implementedBy" objclass=STRING;
+ * 	"customview" name=ID ("(" content=Parameter ")")? "class" className=STRING;
  *
  **/
 
-// "customview" name=ID ("(" content=Parameter ")")? "implementedBy" objclass=STRING
+// "customview" name=ID ("(" content=Parameter ")")? "class" className=STRING
 protected class CustomView_Group extends GroupToken {
 	
 	public CustomView_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6039,7 +5929,7 @@ protected class CustomView_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new CustomView_ObjclassAssignment_4(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new CustomView_ClassNameAssignment_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6221,16 +6111,16 @@ protected class CustomView_RightParenthesisKeyword_2_2 extends KeywordToken  {
 }
 
 
-// "implementedBy"
-protected class CustomView_ImplementedByKeyword_3 extends KeywordToken  {
+// "class"
+protected class CustomView_ClassKeyword_3 extends KeywordToken  {
 	
-	public CustomView_ImplementedByKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public CustomView_ClassKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getCustomViewAccess().getImplementedByKeyword_3();
+		return grammarAccess.getCustomViewAccess().getClassKeyword_3();
 	}
 
     @Override
@@ -6244,33 +6134,33 @@ protected class CustomView_ImplementedByKeyword_3 extends KeywordToken  {
 
 }
 
-// objclass=STRING
-protected class CustomView_ObjclassAssignment_4 extends AssignmentToken  {
+// className=STRING
+protected class CustomView_ClassNameAssignment_4 extends AssignmentToken  {
 	
-	public CustomView_ObjclassAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public CustomView_ClassNameAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCustomViewAccess().getObjclassAssignment_4();
+		return grammarAccess.getCustomViewAccess().getClassNameAssignment_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new CustomView_ImplementedByKeyword_3(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new CustomView_ClassKeyword_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("objclass",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("objclass");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCustomViewAccess().getObjclassSTRINGTerminalRuleCall_4_0(), value, null)) {
+		if((value = eObjectConsumer.getConsumable("className",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("className");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCustomViewAccess().getClassNameSTRINGTerminalRuleCall_4_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getCustomViewAccess().getObjclassSTRINGTerminalRuleCall_4_0();
+			element = grammarAccess.getCustomViewAccess().getClassNameSTRINGTerminalRuleCall_4_0();
 			return obj;
 		}
 		return null;
@@ -6285,13 +6175,13 @@ protected class CustomView_ObjclassAssignment_4 extends AssignmentToken  {
 /************ begin Rule ViewHeader ****************
  *
  * ViewHeader:
- * 	{ViewHeader} "header" "{" ("title" ":" title=ScalarExpression)? ("subtitle" ":" subtitle=ScalarExpression)? ("details"
- * 	":" details=ScalarExpression)? ("image" ":" image=ScalarExpression)? "}";
+ * 	{ViewHeader} "header" "{" ("title:" title=ScalarExpression)? ("subtitle:" subtitle=ScalarExpression)? ("details:"
+ * 	details=ScalarExpression)? ("image:" image=ScalarExpression)? "}";
  *
  **/
 
-// {ViewHeader} "header" "{" ("title" ":" title=ScalarExpression)? ("subtitle" ":" subtitle=ScalarExpression)? ("details"
-// ":" details=ScalarExpression)? ("image" ":" image=ScalarExpression)? "}"
+// {ViewHeader} "header" "{" ("title:" title=ScalarExpression)? ("subtitle:" subtitle=ScalarExpression)? ("details:"
+// details=ScalarExpression)? ("image:" image=ScalarExpression)? "}"
 protected class ViewHeader_Group extends GroupToken {
 	
 	public ViewHeader_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6390,7 +6280,7 @@ protected class ViewHeader_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 
 }
 
-// ("title" ":" title=ScalarExpression)?
+// ("title:" title=ScalarExpression)?
 protected class ViewHeader_Group_3 extends GroupToken {
 	
 	public ViewHeader_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6405,14 +6295,14 @@ protected class ViewHeader_Group_3 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ViewHeader_TitleAssignment_3_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new ViewHeader_TitleAssignment_3_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "title"
+// "title:"
 protected class ViewHeader_TitleKeyword_3_0 extends KeywordToken  {
 	
 	public ViewHeader_TitleKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6434,38 +6324,16 @@ protected class ViewHeader_TitleKeyword_3_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class ViewHeader_ColonKeyword_3_1 extends KeywordToken  {
-	
-	public ViewHeader_ColonKeyword_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getViewHeaderAccess().getColonKeyword_3_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ViewHeader_TitleKeyword_3_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // title=ScalarExpression
-protected class ViewHeader_TitleAssignment_3_2 extends AssignmentToken  {
+protected class ViewHeader_TitleAssignment_3_1 extends AssignmentToken  {
 	
-	public ViewHeader_TitleAssignment_3_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ViewHeader_TitleAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getViewHeaderAccess().getTitleAssignment_3_2();
+		return grammarAccess.getViewHeaderAccess().getTitleAssignment_3_1();
 	}
 
     @Override
@@ -6484,7 +6352,7 @@ protected class ViewHeader_TitleAssignment_3_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getViewHeaderAccess().getTitleScalarExpressionParserRuleCall_3_2_0(); 
+				element = grammarAccess.getViewHeaderAccess().getTitleScalarExpressionParserRuleCall_3_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6496,14 +6364,14 @@ protected class ViewHeader_TitleAssignment_3_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ViewHeader_ColonKeyword_3_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new ViewHeader_TitleKeyword_3_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-// ("subtitle" ":" subtitle=ScalarExpression)?
+// ("subtitle:" subtitle=ScalarExpression)?
 protected class ViewHeader_Group_4 extends GroupToken {
 	
 	public ViewHeader_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6518,14 +6386,14 @@ protected class ViewHeader_Group_4 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ViewHeader_SubtitleAssignment_4_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new ViewHeader_SubtitleAssignment_4_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "subtitle"
+// "subtitle:"
 protected class ViewHeader_SubtitleKeyword_4_0 extends KeywordToken  {
 	
 	public ViewHeader_SubtitleKeyword_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6548,38 +6416,16 @@ protected class ViewHeader_SubtitleKeyword_4_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class ViewHeader_ColonKeyword_4_1 extends KeywordToken  {
-	
-	public ViewHeader_ColonKeyword_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getViewHeaderAccess().getColonKeyword_4_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ViewHeader_SubtitleKeyword_4_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // subtitle=ScalarExpression
-protected class ViewHeader_SubtitleAssignment_4_2 extends AssignmentToken  {
+protected class ViewHeader_SubtitleAssignment_4_1 extends AssignmentToken  {
 	
-	public ViewHeader_SubtitleAssignment_4_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ViewHeader_SubtitleAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getViewHeaderAccess().getSubtitleAssignment_4_2();
+		return grammarAccess.getViewHeaderAccess().getSubtitleAssignment_4_1();
 	}
 
     @Override
@@ -6598,7 +6444,7 @@ protected class ViewHeader_SubtitleAssignment_4_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getViewHeaderAccess().getSubtitleScalarExpressionParserRuleCall_4_2_0(); 
+				element = grammarAccess.getViewHeaderAccess().getSubtitleScalarExpressionParserRuleCall_4_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6610,14 +6456,14 @@ protected class ViewHeader_SubtitleAssignment_4_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ViewHeader_ColonKeyword_4_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new ViewHeader_SubtitleKeyword_4_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-// ("details" ":" details=ScalarExpression)?
+// ("details:" details=ScalarExpression)?
 protected class ViewHeader_Group_5 extends GroupToken {
 	
 	public ViewHeader_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6632,14 +6478,14 @@ protected class ViewHeader_Group_5 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ViewHeader_DetailsAssignment_5_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new ViewHeader_DetailsAssignment_5_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "details"
+// "details:"
 protected class ViewHeader_DetailsKeyword_5_0 extends KeywordToken  {
 	
 	public ViewHeader_DetailsKeyword_5_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6663,38 +6509,16 @@ protected class ViewHeader_DetailsKeyword_5_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class ViewHeader_ColonKeyword_5_1 extends KeywordToken  {
-	
-	public ViewHeader_ColonKeyword_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getViewHeaderAccess().getColonKeyword_5_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ViewHeader_DetailsKeyword_5_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // details=ScalarExpression
-protected class ViewHeader_DetailsAssignment_5_2 extends AssignmentToken  {
+protected class ViewHeader_DetailsAssignment_5_1 extends AssignmentToken  {
 	
-	public ViewHeader_DetailsAssignment_5_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ViewHeader_DetailsAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getViewHeaderAccess().getDetailsAssignment_5_2();
+		return grammarAccess.getViewHeaderAccess().getDetailsAssignment_5_1();
 	}
 
     @Override
@@ -6713,7 +6537,7 @@ protected class ViewHeader_DetailsAssignment_5_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getViewHeaderAccess().getDetailsScalarExpressionParserRuleCall_5_2_0(); 
+				element = grammarAccess.getViewHeaderAccess().getDetailsScalarExpressionParserRuleCall_5_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6725,14 +6549,14 @@ protected class ViewHeader_DetailsAssignment_5_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ViewHeader_ColonKeyword_5_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new ViewHeader_DetailsKeyword_5_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-// ("image" ":" image=ScalarExpression)?
+// ("image:" image=ScalarExpression)?
 protected class ViewHeader_Group_6 extends GroupToken {
 	
 	public ViewHeader_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6747,14 +6571,14 @@ protected class ViewHeader_Group_6 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ViewHeader_ImageAssignment_6_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new ViewHeader_ImageAssignment_6_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "image"
+// "image:"
 protected class ViewHeader_ImageKeyword_6_0 extends KeywordToken  {
 	
 	public ViewHeader_ImageKeyword_6_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6779,38 +6603,16 @@ protected class ViewHeader_ImageKeyword_6_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class ViewHeader_ColonKeyword_6_1 extends KeywordToken  {
-	
-	public ViewHeader_ColonKeyword_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getViewHeaderAccess().getColonKeyword_6_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ViewHeader_ImageKeyword_6_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // image=ScalarExpression
-protected class ViewHeader_ImageAssignment_6_2 extends AssignmentToken  {
+protected class ViewHeader_ImageAssignment_6_1 extends AssignmentToken  {
 	
-	public ViewHeader_ImageAssignment_6_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ViewHeader_ImageAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getViewHeaderAccess().getImageAssignment_6_2();
+		return grammarAccess.getViewHeaderAccess().getImageAssignment_6_1();
 	}
 
     @Override
@@ -6829,7 +6631,7 @@ protected class ViewHeader_ImageAssignment_6_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getViewHeaderAccess().getImageScalarExpressionParserRuleCall_6_2_0(); 
+				element = grammarAccess.getViewHeaderAccess().getImageScalarExpressionParserRuleCall_6_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6841,7 +6643,7 @@ protected class ViewHeader_ImageAssignment_6_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ViewHeader_ColonKeyword_6_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new ViewHeader_ImageKeyword_6_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -6881,11 +6683,11 @@ protected class ViewHeader_RightCurlyBracketKeyword_7 extends KeywordToken  {
 /************ begin Rule ViewSection ****************
  *
  * ViewSection:
- * 	"section" "{" ("title" ":" title=ScalarExpression)? cells+=SectionCell+ "}";
+ * 	"section" "{" ("title:" title=ScalarExpression)? cells+=SectionCell+ "}";
  *
  **/
 
-// "section" "{" ("title" ":" title=ScalarExpression)? cells+=SectionCell+ "}"
+// "section" "{" ("title:" title=ScalarExpression)? cells+=SectionCell+ "}"
 protected class ViewSection_Group extends GroupToken {
 	
 	public ViewSection_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6957,7 +6759,7 @@ protected class ViewSection_LeftCurlyBracketKeyword_1 extends KeywordToken  {
 
 }
 
-// ("title" ":" title=ScalarExpression)?
+// ("title:" title=ScalarExpression)?
 protected class ViewSection_Group_2 extends GroupToken {
 	
 	public ViewSection_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6972,14 +6774,14 @@ protected class ViewSection_Group_2 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ViewSection_TitleAssignment_2_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new ViewSection_TitleAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "title"
+// "title:"
 protected class ViewSection_TitleKeyword_2_0 extends KeywordToken  {
 	
 	public ViewSection_TitleKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7001,38 +6803,16 @@ protected class ViewSection_TitleKeyword_2_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class ViewSection_ColonKeyword_2_1 extends KeywordToken  {
-	
-	public ViewSection_ColonKeyword_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getViewSectionAccess().getColonKeyword_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new ViewSection_TitleKeyword_2_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // title=ScalarExpression
-protected class ViewSection_TitleAssignment_2_2 extends AssignmentToken  {
+protected class ViewSection_TitleAssignment_2_1 extends AssignmentToken  {
 	
-	public ViewSection_TitleAssignment_2_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public ViewSection_TitleAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getViewSectionAccess().getTitleAssignment_2_2();
+		return grammarAccess.getViewSectionAccess().getTitleAssignment_2_1();
 	}
 
     @Override
@@ -7051,7 +6831,7 @@ protected class ViewSection_TitleAssignment_2_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getViewSectionAccess().getTitleScalarExpressionParserRuleCall_2_2_0(); 
+				element = grammarAccess.getViewSectionAccess().getTitleScalarExpressionParserRuleCall_2_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -7063,7 +6843,7 @@ protected class ViewSection_TitleAssignment_2_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ViewSection_ColonKeyword_2_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new ViewSection_TitleKeyword_2_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -7147,13 +6927,13 @@ protected class ViewSection_RightCurlyBracketKeyword_4 extends KeywordToken  {
 /************ begin Rule SectionCell ****************
  *
  * SectionCell:
- * 	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text" ":" text=ScalarExpression)? ("details" ":"
- * 	details=ScalarExpression)? ("image" ":" image=ScalarExpression)? ("action" ":" action=ViewAction)? "}";
+ * 	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text:" text=ScalarExpression)? ("details:"
+ * 	details=ScalarExpression)? ("image:" image=ScalarExpression)? ("action:" action=ViewAction)? "}";
  *
  **/
 
-// "cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text" ":" text=ScalarExpression)? ("details" ":"
-// details=ScalarExpression)? ("image" ":" image=ScalarExpression)? ("action" ":" action=ViewAction)? "}"
+// "cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text:" text=ScalarExpression)? ("details:"
+// details=ScalarExpression)? ("image:" image=ScalarExpression)? ("action:" action=ViewAction)? "}"
 protected class SectionCell_Group extends GroupToken {
 	
 	public SectionCell_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7351,7 +7131,7 @@ protected class SectionCell_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// ("text" ":" text=ScalarExpression)?
+// ("text:" text=ScalarExpression)?
 protected class SectionCell_Group_4 extends GroupToken {
 	
 	public SectionCell_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7366,14 +7146,14 @@ protected class SectionCell_Group_4 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SectionCell_TextAssignment_4_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new SectionCell_TextAssignment_4_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "text"
+// "text:"
 protected class SectionCell_TextKeyword_4_0 extends KeywordToken  {
 	
 	public SectionCell_TextKeyword_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7395,38 +7175,16 @@ protected class SectionCell_TextKeyword_4_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class SectionCell_ColonKeyword_4_1 extends KeywordToken  {
-	
-	public SectionCell_ColonKeyword_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSectionCellAccess().getColonKeyword_4_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SectionCell_TextKeyword_4_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // text=ScalarExpression
-protected class SectionCell_TextAssignment_4_2 extends AssignmentToken  {
+protected class SectionCell_TextAssignment_4_1 extends AssignmentToken  {
 	
-	public SectionCell_TextAssignment_4_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SectionCell_TextAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSectionCellAccess().getTextAssignment_4_2();
+		return grammarAccess.getSectionCellAccess().getTextAssignment_4_1();
 	}
 
     @Override
@@ -7445,7 +7203,7 @@ protected class SectionCell_TextAssignment_4_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSectionCellAccess().getTextScalarExpressionParserRuleCall_4_2_0(); 
+				element = grammarAccess.getSectionCellAccess().getTextScalarExpressionParserRuleCall_4_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -7457,14 +7215,14 @@ protected class SectionCell_TextAssignment_4_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new SectionCell_ColonKeyword_4_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new SectionCell_TextKeyword_4_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-// ("details" ":" details=ScalarExpression)?
+// ("details:" details=ScalarExpression)?
 protected class SectionCell_Group_5 extends GroupToken {
 	
 	public SectionCell_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7479,14 +7237,14 @@ protected class SectionCell_Group_5 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SectionCell_DetailsAssignment_5_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new SectionCell_DetailsAssignment_5_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "details"
+// "details:"
 protected class SectionCell_DetailsKeyword_5_0 extends KeywordToken  {
 	
 	public SectionCell_DetailsKeyword_5_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7509,38 +7267,16 @@ protected class SectionCell_DetailsKeyword_5_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class SectionCell_ColonKeyword_5_1 extends KeywordToken  {
-	
-	public SectionCell_ColonKeyword_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSectionCellAccess().getColonKeyword_5_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SectionCell_DetailsKeyword_5_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // details=ScalarExpression
-protected class SectionCell_DetailsAssignment_5_2 extends AssignmentToken  {
+protected class SectionCell_DetailsAssignment_5_1 extends AssignmentToken  {
 	
-	public SectionCell_DetailsAssignment_5_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SectionCell_DetailsAssignment_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSectionCellAccess().getDetailsAssignment_5_2();
+		return grammarAccess.getSectionCellAccess().getDetailsAssignment_5_1();
 	}
 
     @Override
@@ -7559,7 +7295,7 @@ protected class SectionCell_DetailsAssignment_5_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSectionCellAccess().getDetailsScalarExpressionParserRuleCall_5_2_0(); 
+				element = grammarAccess.getSectionCellAccess().getDetailsScalarExpressionParserRuleCall_5_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -7571,14 +7307,14 @@ protected class SectionCell_DetailsAssignment_5_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new SectionCell_ColonKeyword_5_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new SectionCell_DetailsKeyword_5_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-// ("image" ":" image=ScalarExpression)?
+// ("image:" image=ScalarExpression)?
 protected class SectionCell_Group_6 extends GroupToken {
 	
 	public SectionCell_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7593,14 +7329,14 @@ protected class SectionCell_Group_6 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SectionCell_ImageAssignment_6_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new SectionCell_ImageAssignment_6_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "image"
+// "image:"
 protected class SectionCell_ImageKeyword_6_0 extends KeywordToken  {
 	
 	public SectionCell_ImageKeyword_6_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7624,38 +7360,16 @@ protected class SectionCell_ImageKeyword_6_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class SectionCell_ColonKeyword_6_1 extends KeywordToken  {
-	
-	public SectionCell_ColonKeyword_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSectionCellAccess().getColonKeyword_6_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SectionCell_ImageKeyword_6_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // image=ScalarExpression
-protected class SectionCell_ImageAssignment_6_2 extends AssignmentToken  {
+protected class SectionCell_ImageAssignment_6_1 extends AssignmentToken  {
 	
-	public SectionCell_ImageAssignment_6_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SectionCell_ImageAssignment_6_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSectionCellAccess().getImageAssignment_6_2();
+		return grammarAccess.getSectionCellAccess().getImageAssignment_6_1();
 	}
 
     @Override
@@ -7674,7 +7388,7 @@ protected class SectionCell_ImageAssignment_6_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSectionCellAccess().getImageScalarExpressionParserRuleCall_6_2_0(); 
+				element = grammarAccess.getSectionCellAccess().getImageScalarExpressionParserRuleCall_6_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -7686,14 +7400,14 @@ protected class SectionCell_ImageAssignment_6_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new SectionCell_ColonKeyword_6_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new SectionCell_ImageKeyword_6_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-// ("action" ":" action=ViewAction)?
+// ("action:" action=ViewAction)?
 protected class SectionCell_Group_7 extends GroupToken {
 	
 	public SectionCell_Group_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7708,14 +7422,14 @@ protected class SectionCell_Group_7 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SectionCell_ActionAssignment_7_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new SectionCell_ActionAssignment_7_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "action"
+// "action:"
 protected class SectionCell_ActionKeyword_7_0 extends KeywordToken  {
 	
 	public SectionCell_ActionKeyword_7_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7740,38 +7454,16 @@ protected class SectionCell_ActionKeyword_7_0 extends KeywordToken  {
 
 }
 
-// ":"
-protected class SectionCell_ColonKeyword_7_1 extends KeywordToken  {
-	
-	public SectionCell_ColonKeyword_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSectionCellAccess().getColonKeyword_7_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SectionCell_ActionKeyword_7_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-}
-
 // action=ViewAction
-protected class SectionCell_ActionAssignment_7_2 extends AssignmentToken  {
+protected class SectionCell_ActionAssignment_7_1 extends AssignmentToken  {
 	
-	public SectionCell_ActionAssignment_7_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SectionCell_ActionAssignment_7_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSectionCellAccess().getActionAssignment_7_2();
+		return grammarAccess.getSectionCellAccess().getActionAssignment_7_1();
 	}
 
     @Override
@@ -7790,7 +7482,7 @@ protected class SectionCell_ActionAssignment_7_2 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getViewActionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSectionCellAccess().getActionViewActionParserRuleCall_7_2_0(); 
+				element = grammarAccess.getSectionCellAccess().getActionViewActionParserRuleCall_7_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -7802,7 +7494,7 @@ protected class SectionCell_ActionAssignment_7_2 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new SectionCell_ColonKeyword_7_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new SectionCell_ActionKeyword_7_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	

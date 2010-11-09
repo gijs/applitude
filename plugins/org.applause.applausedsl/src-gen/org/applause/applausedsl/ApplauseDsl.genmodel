@@ -90,7 +90,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//DetailsView/header"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//CustomView">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//CustomView/objclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//CustomView/className"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ViewHeader">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewHeader/title"/>

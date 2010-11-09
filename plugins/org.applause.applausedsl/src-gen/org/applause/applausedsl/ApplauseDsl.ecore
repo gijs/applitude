@@ -96,7 +96,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomView" eSuperTypes="#//View">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objclass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewHeader">
     <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"

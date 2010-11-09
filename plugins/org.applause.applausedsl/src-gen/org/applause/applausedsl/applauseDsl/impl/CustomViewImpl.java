@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CustomViewImpl#getObjclass <em>Objclass</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CustomViewImpl#getClassName <em>Class Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,24 +30,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class CustomViewImpl extends ViewImpl implements CustomView
 {
   /**
-   * The default value of the '{@link #getObjclass() <em>Objclass</em>}' attribute.
+   * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getObjclass()
+   * @see #getClassName()
    * @generated
    * @ordered
    */
-  protected static final String OBJCLASS_EDEFAULT = null;
+  protected static final String CLASS_NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getObjclass() <em>Objclass</em>}' attribute.
+   * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getObjclass()
+   * @see #getClassName()
    * @generated
    * @ordered
    */
-  protected String objclass = OBJCLASS_EDEFAULT;
+  protected String className = CLASS_NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +75,9 @@ public class CustomViewImpl extends ViewImpl implements CustomView
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getObjclass()
+  public String getClassName()
   {
-    return objclass;
+    return className;
   }
 
   /**
@@ -85,12 +85,12 @@ public class CustomViewImpl extends ViewImpl implements CustomView
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setObjclass(String newObjclass)
+  public void setClassName(String newClassName)
   {
-    String oldObjclass = objclass;
-    objclass = newObjclass;
+    String oldClassName = className;
+    className = newClassName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CUSTOM_VIEW__OBJCLASS, oldObjclass, objclass));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CUSTOM_VIEW__CLASS_NAME, oldClassName, className));
   }
 
   /**
@@ -103,8 +103,8 @@ public class CustomViewImpl extends ViewImpl implements CustomView
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.CUSTOM_VIEW__OBJCLASS:
-        return getObjclass();
+      case ApplauseDslPackage.CUSTOM_VIEW__CLASS_NAME:
+        return getClassName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class CustomViewImpl extends ViewImpl implements CustomView
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.CUSTOM_VIEW__OBJCLASS:
-        setObjclass((String)newValue);
+      case ApplauseDslPackage.CUSTOM_VIEW__CLASS_NAME:
+        setClassName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class CustomViewImpl extends ViewImpl implements CustomView
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.CUSTOM_VIEW__OBJCLASS:
-        setObjclass(OBJCLASS_EDEFAULT);
+      case ApplauseDslPackage.CUSTOM_VIEW__CLASS_NAME:
+        setClassName(CLASS_NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class CustomViewImpl extends ViewImpl implements CustomView
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.CUSTOM_VIEW__OBJCLASS:
-        return OBJCLASS_EDEFAULT == null ? objclass != null : !OBJCLASS_EDEFAULT.equals(objclass);
+      case ApplauseDslPackage.CUSTOM_VIEW__CLASS_NAME:
+        return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
     }
     return super.eIsSet(featureID);
   }
@@ -170,8 +170,8 @@ public class CustomViewImpl extends ViewImpl implements CustomView
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (objclass: ");
-    result.append(objclass);
+    result.append(" (className: ");
+    result.append(className);
     result.append(')');
     return result.toString();
   }

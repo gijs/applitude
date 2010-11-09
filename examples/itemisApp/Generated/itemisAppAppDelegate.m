@@ -8,9 +8,6 @@
 #import "SprecherListeViewController.h"
 #import "BarcodeScannerViewController.h"
 
-/*
- * This is the itemisApp app.
- */
 @implementation itemisAppAppDelegate
 
 #pragma mark -
@@ -22,60 +19,57 @@
 #pragma mark -
 #pragma mark View Management
 
-/*
- * Set up the tab bar controller.
- */
--(UIViewController*)createController {
+- (UIViewController*) createTabBarController {
 	itemisAppProviders *providers = [[[itemisAppProviders alloc] init] autorelease];
 	UITabBarController *result = [[UITabBarController alloc] init];
 	NSMutableArray *controllers = [NSMutableArray array];
-	
-	UIViewController<IPUIView> *controller;
-	UINavigationController *navController;
-	IPContentProvider *contentProvider;
 
 
-	controller = [[BlogListViewController alloc] init];
-	contentProvider = [providers providerForBlogposts];
-	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"News";
-	controller.tabBarItem.image = [UIImage imageNamed:@"08-chat.png"];
-	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	navController.navigationBar.barStyle = UIBarStyleBlack;	
-	[controllers addObject: navController];
-	[controller release];
-	[navController release];
+	{
+		UIViewController *controller = [[BlogListViewController alloc] init];
+		IPContentProvider *contentProvider = [providers providerForBlogposts];
+		[(UIViewController<IPUIView> *) controller setContentProvider: contentProvider];
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		navController.tabBarItem.title = @"News";
+		navController.tabBarItem.image = [UIImage imageNamed:@"08-chat.png"];
+		[controllers addObject: navController];
+		[controller release];
+		[navController release];
+	}
 
-	controller = [[VortragListeViewController alloc] init];
-	contentProvider = [providers providerForAllVortragItems];
-	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Talks";
-	controller.tabBarItem.image = [UIImage imageNamed:@"66-microphone.png"];
-	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	navController.navigationBar.barStyle = UIBarStyleBlack;	
-	[controllers addObject: navController];
-	[controller release];
-	[navController release];
+	{
+		UIViewController *controller = [[VortragListeViewController alloc] init];
+		IPContentProvider *contentProvider = [providers providerForAllVortragItems];
+		[(UIViewController<IPUIView> *) controller setContentProvider: contentProvider];
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		navController.tabBarItem.title = @"Talks";
+		navController.tabBarItem.image = [UIImage imageNamed:@"66-microphone.png"];
+		[controllers addObject: navController];
+		[controller release];
+		[navController release];
+	}
 
-	controller = [[SprecherListeViewController alloc] init];
-	contentProvider = [providers providerForAllSprecherItems];
-	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Speakers";
-	controller.tabBarItem.image = [UIImage imageNamed:@"person.png"];
-	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	navController.navigationBar.barStyle = UIBarStyleBlack;	
-	[controllers addObject: navController];
-	[controller release];
-	[navController release];
+	{
+		UIViewController *controller = [[SprecherListeViewController alloc] init];
+		IPContentProvider *contentProvider = [providers providerForAllSprecherItems];
+		[(UIViewController<IPUIView> *) controller setContentProvider: contentProvider];
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		navController.tabBarItem.title = @"Speakers";
+		navController.tabBarItem.image = [UIImage imageNamed:@"person.png"];
+		[controllers addObject: navController];
+		[controller release];
+		[navController release];
+	}
 
-	controller = [[BarcodeScannerViewController alloc] init];
-	controller.tabBarItem.title = @"Barcode";
-	controller.tabBarItem.image = [UIImage imageNamed:@"123-id-card.png"];
-	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	navController.navigationBar.barStyle = UIBarStyleBlack;	
-	[controllers addObject: navController];
-	[controller release];
-	[navController release];
+	{
+		UIViewController *controller = [[BarcodeScannerViewController alloc] init];
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		navController.tabBarItem.title = @"Barcode";
+		navController.tabBarItem.image = [UIImage imageNamed:@"123-id-card.png"];
+		[controllers addObject: navController];
+		[controller release];
+		[navController release];
+	}
 
 
 	result.viewControllers = controllers;
@@ -95,7 +89,14 @@
 	[window addSubview:backgroundImageView];
 	[backgroundImageView release];
 	
-	self.rootController = [self createController];
+
+	// Create a window (in case this is not created using a .xib)
+	if (!self.window) {
+		self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+		[self.window release];
+	}
+
+	self.rootController = [self createTabBarController];
 	[window addSubview: [self.rootController view]];
 	[window makeKeyAndVisible];
 }
