@@ -1,8 +1,8 @@
-#import "SStaticSection.h"
+#import "StaticSection.h"
 
 #import "PlaceholderResolver.h"
 
-@implementation SStaticSection
+@implementation StaticSection
 
 - (id) initWithText:(NSString *)aText {
 	self = [super init];
@@ -14,7 +14,7 @@
 	return self;
 }
 
-+ (SStaticSection *) forText:text {
++ (StaticSection *) forText:text {
 	return [[[self alloc] initWithText:text] autorelease];
 }
 
@@ -22,12 +22,12 @@
 	return fText;
 }
 
-- (NSObject<SItemPlaceholder> *) rows {
+- (NSObject<Placeholder> *) rows {
 	return fPlaceholder;
 }
 
-- (void) add:(NSObject<SRow> *) row {
-	[fRows addObject:row];
+- (void) add:(id) item {
+	[fRows addObject:item];
 }
 
 - (void) dealloc

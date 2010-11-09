@@ -22,7 +22,7 @@
 - (int) count {
 	int count = 0;
 	for (id item in fArray) {
-		if ([item conformsToProtocol:@protocol(SItemPlaceholder)]) {
+		if ([item conformsToProtocol:@protocol(Placeholder)]) {
 			count += [item count];
 		} else {
 			count++;
@@ -34,7 +34,7 @@
 - (NSObject *) objectAtIndex:(int) index {
 	int i = 0;
 	for (id item in fArray) {
-		if ([item conformsToProtocol:@protocol(SItemPlaceholder)]) {
+		if ([item conformsToProtocol:@protocol(Placeholder)]) {
 			int count = [item count];
 
 			// Item in this placeholder?

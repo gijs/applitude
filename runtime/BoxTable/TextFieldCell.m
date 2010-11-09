@@ -29,21 +29,23 @@
 
  */
 
-#import "TKLabelTextFieldCell.h"
+#import "TextFieldCell.h"
 
 #import "Row.h"
 #import "LogUtils.h"
 
-@implementation TKLabelTextFieldCell
-@synthesize textField;
+@implementation TextFieldCell
+@synthesize textField = _textField, onReturn = _onReturn, model = _model;
 
-- (id)init {
+- (id) init {
 	if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil]) {
-		textField = [[UITextField alloc] initWithFrame:CGRectZero];
-		[self addSubview:textField];
-		textField.font = [UIFont boldSystemFontOfSize:16.0];
+		self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
+		[self addSubview:self.textField];
+		self.textField.font = [UIFont boldSystemFontOfSize:16.0];
+		self.textField.delegate = self;
+		self.textField.backgroundColor = [UIColor yellowColor];
 
-		[textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
+		[self.textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
     }
     return self;
 }
@@ -59,7 +61,7 @@
 	r.origin.x += 120;
 	r.size.width -= 120;
 	r.size.height += 5;
-	textField.frame = r;
+	self.textField.frame = r;
 }
 
 - (void)willTransitionToState:(UITableViewCellStateMask)state{
@@ -69,19 +71,33 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-	textField.textColor = (selected) ? [UIColor whiteColor] : [UIColor blackColor];
-	[textField becomeFirstResponder];
+	self.textField.textColor = (selected) ? [UIColor whiteColor] : [UIColor blackColor];
+	[self.textField becomeFirstResponder];
 }
 
 - (void) setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
 	[super setHighlighted:highlighted animated:animated];
-	textField.textColor = highlighted ? [UIColor whiteColor] : [UIColor blackColor];
+	self.textField.textColor = highlighted ? [UIColor whiteColor] : [UIColor blackColor];
+}
+
+- (void) setModel:(ModelProperty*) model {
+	[_model unbind];
+	[_model release];
+	_model = [model retain];
+	[_model bindTo:self.textField property:@"text"];
 }
 
 - (void)dealloc {
-	[textField release];
+	self.textField = nil;
+	self.onReturn = nil;
+	self.model = nil;
 	[super dealloc];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[self.model setValue:textField.text];
+	[self.onReturn performWithObject:textField];
+	return YES;
+}
 
 @end

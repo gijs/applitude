@@ -29,12 +29,17 @@
 
  */
 
+#import "Action.h"
+#import "ModelProperty.h"
 
-
-@interface TKLabelTextFieldCell : UITableViewCell<UITextFieldDelegate> {
-	UITextField *textField;
+@interface TextFieldCell : UITableViewCell<UITextFieldDelegate> {
+	UITextField *_textField;
+	Action *_onReturn;
+	ModelProperty *_model;
 }
 
 @property (retain, nonatomic) UITextField *textField;
+@property (retain, nonatomic) Action *onReturn;
+@property (retain, nonatomic) ModelProperty *model;
 
 @end

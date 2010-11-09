@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SItemPlaceholder.h"
+#import "Placeholder.h"
 
-@interface PlaceholderResolver : NSObject<SItemPlaceholder> {
+@interface PlaceholderResolver : NSObject<Placeholder> {
 
 	NSArray *fArray;
 

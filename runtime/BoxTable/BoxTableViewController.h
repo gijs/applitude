@@ -14,11 +14,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "SItemPlaceholder.h";
+#import "Placeholder.h";
 
-@interface STableViewController : UITableViewController
+@interface BoxTableViewController : UITableViewController
 {
-	NSObject<SItemPlaceholder> *fSections;
+	NSObject<Placeholder> *fSections;
 }
 
 - (NSArray *) buildSections;

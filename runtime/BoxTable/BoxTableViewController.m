@@ -12,13 +12,12 @@
 //  appreciated but not required.
 //
 
-#import "STableViewController.h"
-#import "SItemPlaceholder.h"
-#import "SSection.h"
-#import "SRow.h"
+#import "BoxTableViewController.h"
+#import "Placeholder.h"
+#import "Section.h"
 #import "PlaceholderResolver.h"
 
-@implementation STableViewController
+@implementation BoxTableViewController
 
 - (void) checkInitialized {
 	if (!fSections) {
@@ -55,27 +54,25 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)i {
 	[self checkInitialized];
 
-	NSObject<SSection> *section = [fSections objectAtIndex:i];
+	NSObject<Section> *section = [fSections objectAtIndex:i];
 	return [[section rows] count];
 }
 
-- (NSObject<SRow> *) rowAtIndexPath:(NSIndexPath *)indexPath {
-	[self checkInitialized];
-	NSObject<SSection> *section = [fSections objectAtIndex:indexPath.section];
-	NSObject<SRow> *row = [[section rows] objectAtIndex:indexPath.row];
-	return row;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return [[self rowAtIndexPath:indexPath] cellForTableView:tableView];
+	[self checkInitialized];
+	NSObject<Section> *section = [fSections objectAtIndex:indexPath.section];
+	UITableViewCell *cell = [[section rows] objectAtIndex:indexPath.row];
+
+	return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSObject<SRow> *row = [self rowAtIndexPath:indexPath];
+	//NSObject<SRow> *row = [self rowAtIndexPath:indexPath];
 
-	if ([row respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
-		[row tableView:tableView didSelectRowAtIndexPath:indexPath];
-	}
+	//if ([row respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+	//	[row tableView:tableView didSelectRowAtIndexPath:indexPath];
+	//}
 }
 
 - (void)didReceiveMemoryWarning {
