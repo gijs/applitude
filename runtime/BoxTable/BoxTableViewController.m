@@ -16,6 +16,7 @@
 #import "Placeholder.h"
 #import "Section.h"
 #import "PlaceholderResolver.h"
+#import "Cell.h"
 
 @implementation BoxTableViewController
 
@@ -63,16 +64,14 @@
 	[self checkInitialized];
 	NSObject<Section> *section = [fSections objectAtIndex:indexPath.section];
 	UITableViewCell *cell = [[section rows] objectAtIndex:indexPath.row];
-
 	return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//NSObject<SRow> *row = [self rowAtIndexPath:indexPath];
-
-	//if ([row respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
-	//	[row tableView:tableView didSelectRowAtIndexPath:indexPath];
-	//}
+	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+	if ([cell conformsToProtocol:@protocol(Cell)]) {
+		[(NSObject<Cell> *)cell didSelect];
+	}
 }
 
 - (void)didReceiveMemoryWarning {

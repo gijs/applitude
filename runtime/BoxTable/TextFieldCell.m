@@ -43,7 +43,6 @@
 		[self addSubview:self.textField];
 		self.textField.font = [UIFont boldSystemFontOfSize:16.0];
 		self.textField.delegate = self;
-		self.textField.backgroundColor = [UIColor yellowColor];
 
 		[self.textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
     }
