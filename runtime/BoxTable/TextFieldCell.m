@@ -69,14 +69,10 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-	self.textField.textColor = (selected) ? [UIColor whiteColor] : [UIColor blackColor];
-	[self.textField becomeFirstResponder];
-}
-
-- (void) setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
-	[super setHighlighted:highlighted animated:animated];
-	self.textField.textColor = highlighted ? [UIColor whiteColor] : [UIColor blackColor];
+	[super setSelected:NO animated:NO];
+	if (selected) {
+		[self.textField becomeFirstResponder];
+	}
 }
 
 - (void) setModel:(ModelProperty*) model {
