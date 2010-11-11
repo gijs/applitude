@@ -14,7 +14,35 @@ filenameHeader(View this):
 	
 filenameModule(View this):
 	className() + ".m";
-	
+
+/* View Accessor */
+views(Application this):
+	this.name + "Views";
+
+viewsH(Application this):
+	views(this) + ".h";
+
+viewsM(Application this):
+	views(this) + ".m";
+
+neededImports(View this):
+	{ this.className() + ".h" };
+
+className(TabView view):
+	"UITabBarController";
+
+factoryMethodSignature(View view):
+	"+ (" + view.className() + " *) " + view.factoryMethodName();
+
+factoryMethodName(View view):
+	"create" + view.name;
+
+factoryCall(View view):
+	"[" + application(view).views() + " " + view.factoryMethodName() + "]";
+
+
+
+/* Providers */
 centralProvidersClassName(Application this):
 	this.name + "Providers";
 	
@@ -137,3 +165,9 @@ methodSignature(ContentProvider p):
 	
 providersWithImplementation(Application this):
 	model().elements.typeSelect(ContentProvider);
+	
+allViews(Application this):
+	model().elements.typeSelect(View);
+	
+allViewClasses(Application this):
+	model().elements.typeSelect(View).removeAll(model().elements.typeSelect(TabView));

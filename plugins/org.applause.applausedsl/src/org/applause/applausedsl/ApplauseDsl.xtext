@@ -61,17 +61,9 @@ CollectionFunction:
 
 Application returns Application:
 	"application" name=ID '{'
-		('background=' background=ScalarExpression)?
-		(tabs += Tab)*
+		('background:' background=ScalarExpression)?
+		('view:' startView=ViewCall)
 	'}';
-
-Tab:
-	'tab' '{'
-		('title:' title=ScalarExpression)
-		& ('icon:' icon=ScalarExpression)?
-		& ('view:' view=ViewCall)
-	'}'
-;
 
 // -------------------------------------------
 // types
@@ -110,8 +102,20 @@ ProviderConstruction:
 
 
 View:
-	SectionedView | CustomView;
-	
+	TabView | SectionedView | CustomView;
+
+TabView:
+	'tabview' name=ID ('(' content=Parameter ')')? '{'
+		(tabs += Tab)*
+	'}';
+
+Tab:
+	'tab' '{'
+		('title:' title=ScalarExpression)
+		& ('icon:' icon=ScalarExpression)?
+		& ('view:' view=ViewCall)
+	'}';
+
 SectionedView: 
 	TableView | DetailsView;
 		

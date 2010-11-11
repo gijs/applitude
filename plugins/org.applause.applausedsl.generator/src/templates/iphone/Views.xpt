@@ -1,0 +1,76 @@
+«IMPORT org::applause::applausedsl::applauseDsl»
+
+«EXTENSION templates::iphone::Extensions»
+«EXTENSION templates::MetamodelExtensions»
+
+«DEFINE main FOR Application-»
+«EXPAND headerFile»
+«EXPAND moduleFile»
+«ENDDEFINE»
+
+
+
+«DEFINE headerFile FOR Application»
+«FILE viewsH()»
+
+«FOREACH allViewClasses() AS view»#import "«view.className()».h"
+«ENDFOREACH-»
+
+@interface «views()» : NSObject {
+
+}
+
+«FOREACH allViews() AS view-»
+«view.factoryMethodSignature()»;
+«ENDFOREACH»
+
+@end
+«ENDFILE»
+«ENDDEFINE»
+
+
+
+«DEFINE moduleFile FOR Application»
+«FILE viewsM()»
+#import "«viewsH()»"
+
+@implementation «views()»
+
+«EXPAND viewFactoryMethod FOREACH allViews()»
+
+@end
+«ENDFILE»
+«ENDDEFINE»
+
+
+
+«DEFINE viewFactoryMethod FOR View»
+«factoryMethodSignature()» {
+	return [[[«className()» alloc] init] autorelease];
+}
+«ENDDEFINE»
+
+
+«DEFINE viewFactoryMethod FOR TabView»
+«factoryMethodSignature()» {
+	UITabBarController *controller = [[[UITabBarController alloc] init] autorelease];
+	NSMutableArray *controllers = [NSMutableArray array];
+
+	«FOREACH tabs AS tab»
+	{
+		UIViewController *controller = «tab.view.view.factoryCall()»;
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		navController.tabBarItem.title = «tab.title.expression('', '')»;
+		«IF tab.icon != null-»
+		navController.tabBarItem.image = [UIImage imageNamed:«tab.icon.expression('','')»];
+		«ENDIF-»
+		[controllers addObject: navController];
+		[controller release];
+		[navController release];
+	}
+	«ENDFOREACH»
+
+	controller.viewControllers = controllers;
+	return controller;
+}
+«ENDDEFINE»

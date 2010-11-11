@@ -9,5 +9,6 @@
 «DEFINE main FOR Application-»
 «EXPAND View::main»
 «EXPAND Provider::main»
+«EXPAND Views::main»
 «EXPAND Application::main»
 «ENDDEFINE»

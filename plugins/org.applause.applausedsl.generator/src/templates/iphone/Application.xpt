@@ -11,6 +11,8 @@
 «EXPAND moduleFile»
 «ENDDEFINE»
 
+
+
 «DEFINE headerFile FOR Application»
 «FILE filenameApplicationDelegateHeader()»
 #import <UIKit/UIKit.h>
@@ -27,8 +29,9 @@
 «ENDFILE»
 «ENDDEFINE»
 
+
+
 «DEFINE importStatements FOR Application-»
-«EXPAND importStatement FOREACH tabs-»
 «ENDDEFINE»
 
 «DEFINE importStatement FOR Tab-»
@@ -40,30 +43,13 @@
 #import "«filenameApplicationDelegateHeader()»"
 #import "IPUIView.h"
 #import "«filenameCentralProvidersHeader()»"
+#import "«viewsH()»"
 
 «EXPAND importStatements-»
 
 @implementation «applicationDelegateClassname()»
 
-#pragma mark -
-#pragma mark Properties
-
-@synthesize window;
-@synthesize rootController;
-
-#pragma mark -
-#pragma mark View Management
-
-- (UIViewController*) createTabBarController {
-	«centralProvidersClassName()» *providers = [[[«centralProvidersClassName()» alloc] init] autorelease];
-	UITabBarController *result = [[UITabBarController alloc] init];
-	NSMutableArray *controllers = [NSMutableArray array];
-
-«EXPAND barControllerInstance FOREACH tabs»
-
-	result.viewControllers = controllers;
-	return result;
-}
+@synthesize window, rootController;
 
 #pragma mark -
 #pragma mark Application life cycle
@@ -72,7 +58,6 @@
  * Set up background (if enabled) and main window layout.
  */
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-	application.statusBarStyle = UIStatusBarStyleBlackOpaque;
 	«IF this.background != null»
 	UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:«this.background.expression('','')»]];
 	[window addSubview:backgroundImageView];
@@ -85,7 +70,7 @@
 		[self.window release];
 	}
 
-	self.rootController = [self createTabBarController];
+	self.rootController = «this.startView.view.factoryCall()»;
 	[window addSubview: [self.rootController view]];
 	[window makeKeyAndVisible];
 }
@@ -106,24 +91,8 @@
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE barControllerInstance FOR Tab»
-	{
-		UIViewController *controller = [[«view.view.className()» alloc] init];
-		«IF view.provider != null-»
-		IPContentProvider *contentProvider = «view.provider.contentProvider('providers', '', '')»;
-		[(UIViewController<IPUIView> *) controller setContentProvider: contentProvider];
-		«ENDIF-»
-		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-		navController.tabBarItem.title = «title.expression('', '')»;
-		«IF this.icon != null-»
-		navController.tabBarItem.image = [UIImage imageNamed:«this.icon.expression('','')»];
-		«ENDIF-»
-		[controllers addObject: navController];
-		[controller release];
-		[navController release];
-	}
-«ENDDEFINE»
-
 «REM»
-TODO: Branding property: navController.navigationBar.barStyle = UIBarStyleBlack;
+TODO: Branding properties:
+application.statusBarStyle = UIStatusBarStyleBlackOpaque;
+navController.navigationBar.barStyle = UIBarStyleBlack;
 «ENDREM»	
