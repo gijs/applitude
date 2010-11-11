@@ -60,13 +60,10 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCollectionLiteralAccess().getGroup(), "rule__CollectionLiteral__Group__0");
 					put(grammarAccess.getCollectionLiteralAccess().getGroup_2(), "rule__CollectionLiteral__Group_2__0");
 					put(grammarAccess.getCollectionFunctionAccess().getGroup(), "rule__CollectionFunction__Group__0");
-					put(grammarAccess.getApplicationAccess().getGroup(), "rule__Application__Group__0");
-					put(grammarAccess.getApplicationAccess().getGroup_3(), "rule__Application__Group_3__0");
-					put(grammarAccess.getTabAccess().getGroup_0(), "rule__Tab__Group_0__0");
-					put(grammarAccess.getTabAccess().getGroup_0_2(), "rule__Tab__Group_0_2__0");
-					put(grammarAccess.getTabAccess().getGroup_1(), "rule__Tab__Group_1__0");
-					put(grammarAccess.getTabAccess().getGroup_2(), "rule__Tab__Group_2__0");
-					put(grammarAccess.getTabAccess().getGroup_2_0(), "rule__Tab__Group_2_0__0");
+					put(grammarAccess.getApplicationAccess().getGroup_0(), "rule__Application__Group_0__0");
+					put(grammarAccess.getApplicationAccess().getGroup_0_3(), "rule__Application__Group_0_3__0");
+					put(grammarAccess.getApplicationAccess().getGroup_1(), "rule__Application__Group_1__0");
+					put(grammarAccess.getApplicationAccess().getGroup_1_0(), "rule__Application__Group_1_0__0");
 					put(grammarAccess.getSimpleTypeAccess().getGroup(), "rule__SimpleType__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup_2(), "rule__Entity__Group_2__0");
@@ -75,6 +72,13 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getContentProviderAccess().getGroup_2(), "rule__ContentProvider__Group_2__0");
 					put(grammarAccess.getProviderConstructionAccess().getGroup_0(), "rule__ProviderConstruction__Group_0__0");
 					put(grammarAccess.getProviderConstructionAccess().getGroup_1(), "rule__ProviderConstruction__Group_1__0");
+					put(grammarAccess.getTabViewAccess().getGroup(), "rule__TabView__Group__0");
+					put(grammarAccess.getTabViewAccess().getGroup_2(), "rule__TabView__Group_2__0");
+					put(grammarAccess.getTabAccess().getGroup_0(), "rule__Tab__Group_0__0");
+					put(grammarAccess.getTabAccess().getGroup_0_2(), "rule__Tab__Group_0_2__0");
+					put(grammarAccess.getTabAccess().getGroup_1(), "rule__Tab__Group_1__0");
+					put(grammarAccess.getTabAccess().getGroup_2(), "rule__Tab__Group_2__0");
+					put(grammarAccess.getTabAccess().getGroup_2_0(), "rule__Tab__Group_2_0__0");
 					put(grammarAccess.getTableViewAccess().getGroup(), "rule__TableView__Group__0");
 					put(grammarAccess.getTableViewAccess().getGroup_2(), "rule__TableView__Group_2__0");
 					put(grammarAccess.getDetailsViewAccess().getGroup(), "rule__DetailsView__Group__0");
@@ -116,12 +120,9 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCollectionLiteralAccess().getItemsAssignment_2_1(), "rule__CollectionLiteral__ItemsAssignment_2_1");
 					put(grammarAccess.getCollectionFunctionAccess().getValueAssignment_2(), "rule__CollectionFunction__ValueAssignment_2");
 					put(grammarAccess.getCollectionFunctionAccess().getDelimiterAssignment_4(), "rule__CollectionFunction__DelimiterAssignment_4");
-					put(grammarAccess.getApplicationAccess().getNameAssignment_1(), "rule__Application__NameAssignment_1");
-					put(grammarAccess.getApplicationAccess().getBackgroundAssignment_3_1(), "rule__Application__BackgroundAssignment_3_1");
-					put(grammarAccess.getApplicationAccess().getTabsAssignment_4(), "rule__Application__TabsAssignment_4");
-					put(grammarAccess.getTabAccess().getTitleAssignment_0_2_1(), "rule__Tab__TitleAssignment_0_2_1");
-					put(grammarAccess.getTabAccess().getIconAssignment_1_1(), "rule__Tab__IconAssignment_1_1");
-					put(grammarAccess.getTabAccess().getViewAssignment_2_0_1(), "rule__Tab__ViewAssignment_2_0_1");
+					put(grammarAccess.getApplicationAccess().getNameAssignment_0_1(), "rule__Application__NameAssignment_0_1");
+					put(grammarAccess.getApplicationAccess().getBackgroundAssignment_0_3_1(), "rule__Application__BackgroundAssignment_0_3_1");
+					put(grammarAccess.getApplicationAccess().getStartViewAssignment_1_0_1(), "rule__Application__StartViewAssignment_1_0_1");
 					put(grammarAccess.getSimpleTypeAccess().getNameAssignment_1(), "rule__SimpleType__NameAssignment_1");
 					put(grammarAccess.getSimpleTypeAccess().getPlatformTypeAssignment_3(), "rule__SimpleType__PlatformTypeAssignment_3");
 					put(grammarAccess.getEntityAccess().getNameAssignment_1(), "rule__Entity__NameAssignment_1");
@@ -139,6 +140,12 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProviderConstructionAccess().getProviderAssignment_0_1(), "rule__ProviderConstruction__ProviderAssignment_0_1");
 					put(grammarAccess.getProviderConstructionAccess().getArgumentAssignment_0_3(), "rule__ProviderConstruction__ArgumentAssignment_0_3");
 					put(grammarAccess.getProviderConstructionAccess().getExpressionAssignment_1_1(), "rule__ProviderConstruction__ExpressionAssignment_1_1");
+					put(grammarAccess.getTabViewAccess().getNameAssignment_1(), "rule__TabView__NameAssignment_1");
+					put(grammarAccess.getTabViewAccess().getContentAssignment_2_1(), "rule__TabView__ContentAssignment_2_1");
+					put(grammarAccess.getTabViewAccess().getTabsAssignment_4(), "rule__TabView__TabsAssignment_4");
+					put(grammarAccess.getTabAccess().getTitleAssignment_0_2_1(), "rule__Tab__TitleAssignment_0_2_1");
+					put(grammarAccess.getTabAccess().getIconAssignment_1_1(), "rule__Tab__IconAssignment_1_1");
+					put(grammarAccess.getTabAccess().getViewAssignment_2_0_1(), "rule__Tab__ViewAssignment_2_0_1");
 					put(grammarAccess.getTableViewAccess().getNameAssignment_1(), "rule__TableView__NameAssignment_1");
 					put(grammarAccess.getTableViewAccess().getContentAssignment_2_1(), "rule__TableView__ContentAssignment_2_1");
 					put(grammarAccess.getTableViewAccess().getTitleAssignment_5(), "rule__TableView__TitleAssignment_5");
@@ -168,6 +175,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExternalOpenAccess().getUrlAssignment(), "rule__ExternalOpen__UrlAssignment");
 					put(grammarAccess.getViewCallAccess().getViewAssignment_0(), "rule__ViewCall__ViewAssignment_0");
 					put(grammarAccess.getViewCallAccess().getProviderAssignment_2(), "rule__ViewCall__ProviderAssignment_2");
+					put(grammarAccess.getApplicationAccess().getUnorderedGroup(), "rule__Application__UnorderedGroup");
 					put(grammarAccess.getTabAccess().getUnorderedGroup(), "rule__Tab__UnorderedGroup");
 				}
 			};

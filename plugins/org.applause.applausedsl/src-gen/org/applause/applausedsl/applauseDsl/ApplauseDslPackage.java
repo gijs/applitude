@@ -444,13 +444,13 @@ public interface ApplauseDslPackage extends EPackage
   int APPLICATION__BACKGROUND = 1;
 
   /**
-   * The feature id for the '<em><b>Tabs</b></em>' containment reference list.
+   * The feature id for the '<em><b>Start View</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__TABS = 2;
+  int APPLICATION__START_VIEW = 2;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -462,52 +462,6 @@ public interface ApplauseDslPackage extends EPackage
   int APPLICATION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.TabImpl <em>Tab</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.applause.applausedsl.applauseDsl.impl.TabImpl
-   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTab()
-   * @generated
-   */
-  int TAB = 14;
-
-  /**
-   * The feature id for the '<em><b>Title</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TAB__TITLE = 0;
-
-  /**
-   * The feature id for the '<em><b>Icon</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TAB__ICON = 1;
-
-  /**
-   * The feature id for the '<em><b>View</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TAB__VIEW = 2;
-
-  /**
-   * The number of structural features of the '<em>Tab</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TAB_FEATURE_COUNT = 3;
-
-  /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.TypeImpl <em>Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -515,7 +469,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getType()
    * @generated
    */
-  int TYPE = 15;
+  int TYPE = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -543,7 +497,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getSimpleType()
    * @generated
    */
-  int SIMPLE_TYPE = 16;
+  int SIMPLE_TYPE = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -580,7 +534,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 17;
+  int ENTITY = 16;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -626,7 +580,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 18;
+  int PROPERTY = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -672,7 +626,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getContentProvider()
    * @generated
    */
-  int CONTENT_PROVIDER = 19;
+  int CONTENT_PROVIDER = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -745,7 +699,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getProviderConstruction()
    * @generated
    */
-  int PROVIDER_CONSTRUCTION = 20;
+  int PROVIDER_CONSTRUCTION = 19;
 
   /**
    * The number of structural features of the '<em>Provider Construction</em>' class.
@@ -764,7 +718,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getView()
    * @generated
    */
-  int VIEW = 21;
+  int VIEW = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -794,6 +748,98 @@ public interface ApplauseDslPackage extends EPackage
   int VIEW_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.TabViewImpl <em>Tab View</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.applausedsl.applauseDsl.impl.TabViewImpl
+   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTabView()
+   * @generated
+   */
+  int TAB_VIEW = 21;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_VIEW__NAME = VIEW__NAME;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_VIEW__CONTENT = VIEW__CONTENT;
+
+  /**
+   * The feature id for the '<em><b>Tabs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_VIEW__TABS = VIEW_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Tab View</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_VIEW_FEATURE_COUNT = VIEW_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.TabImpl <em>Tab</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.applausedsl.applauseDsl.impl.TabImpl
+   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTab()
+   * @generated
+   */
+  int TAB = 22;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB__TITLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB__ICON = 1;
+
+  /**
+   * The feature id for the '<em><b>View</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB__VIEW = 2;
+
+  /**
+   * The number of structural features of the '<em>Tab</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TAB_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.SectionedViewImpl <em>Sectioned View</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -801,7 +847,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getSectionedView()
    * @generated
    */
-  int SECTIONED_VIEW = 22;
+  int SECTIONED_VIEW = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -856,7 +902,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTableView()
    * @generated
    */
-  int TABLE_VIEW = 23;
+  int TABLE_VIEW = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -911,7 +957,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getDetailsView()
    * @generated
    */
-  int DETAILS_VIEW = 24;
+  int DETAILS_VIEW = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -975,7 +1021,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCustomView()
    * @generated
    */
-  int CUSTOM_VIEW = 25;
+  int CUSTOM_VIEW = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1021,7 +1067,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getViewHeader()
    * @generated
    */
-  int VIEW_HEADER = 26;
+  int VIEW_HEADER = 27;
 
   /**
    * The feature id for the '<em><b>Title</b></em>' containment reference.
@@ -1076,7 +1122,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getViewSection()
    * @generated
    */
-  int VIEW_SECTION = 27;
+  int VIEW_SECTION = 28;
 
   /**
    * The feature id for the '<em><b>Title</b></em>' containment reference.
@@ -1113,7 +1159,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getSectionCell()
    * @generated
    */
-  int SECTION_CELL = 28;
+  int SECTION_CELL = 29;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1186,7 +1232,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCollectionIterator()
    * @generated
    */
-  int COLLECTION_ITERATOR = 29;
+  int COLLECTION_ITERATOR = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1223,7 +1269,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getViewAction()
    * @generated
    */
-  int VIEW_ACTION = 30;
+  int VIEW_ACTION = 31;
 
   /**
    * The number of structural features of the '<em>View Action</em>' class.
@@ -1242,7 +1288,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getExternalOpen()
    * @generated
    */
-  int EXTERNAL_OPEN = 31;
+  int EXTERNAL_OPEN = 32;
 
   /**
    * The feature id for the '<em><b>Url</b></em>' containment reference.
@@ -1270,7 +1316,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getViewCall()
    * @generated
    */
-  int VIEW_CALL = 32;
+  int VIEW_CALL = 33;
 
   /**
    * The feature id for the '<em><b>View</b></em>' reference.
@@ -1307,7 +1353,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringConcat()
    * @generated
    */
-  int STRING_CONCAT = 33;
+  int STRING_CONCAT = 34;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -1335,7 +1381,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringReplace()
    * @generated
    */
-  int STRING_REPLACE = 34;
+  int STRING_REPLACE = 35;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1381,7 +1427,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringUrlConform()
    * @generated
    */
-  int STRING_URL_CONFORM = 35;
+  int STRING_URL_CONFORM = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1409,7 +1455,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringSplit()
    * @generated
    */
-  int STRING_SPLIT = 36;
+  int STRING_SPLIT = 37;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1446,7 +1492,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getComplexProviderConstruction()
    * @generated
    */
-  int COMPLEX_PROVIDER_CONSTRUCTION = 37;
+  int COMPLEX_PROVIDER_CONSTRUCTION = 38;
 
   /**
    * The feature id for the '<em><b>Provider</b></em>' reference.
@@ -1483,7 +1529,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getSimpleProviderConstruction()
    * @generated
    */
-  int SIMPLE_PROVIDER_CONSTRUCTION = 38;
+  int SIMPLE_PROVIDER_CONSTRUCTION = 39;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1511,7 +1557,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCellType()
    * @generated
    */
-  int CELL_TYPE = 39;
+  int CELL_TYPE = 40;
 
 
   /**
@@ -1798,58 +1844,15 @@ public interface ApplauseDslPackage extends EPackage
   EReference getApplication_Background();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.applause.applausedsl.applauseDsl.Application#getTabs <em>Tabs</em>}'.
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Application#getStartView <em>Start View</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Tabs</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Application#getTabs()
+   * @return the meta object for the containment reference '<em>Start View</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Application#getStartView()
    * @see #getApplication()
    * @generated
    */
-  EReference getApplication_Tabs();
-
-  /**
-   * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.Tab <em>Tab</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Tab</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Tab
-   * @generated
-   */
-  EClass getTab();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getTitle <em>Title</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Title</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Tab#getTitle()
-   * @see #getTab()
-   * @generated
-   */
-  EReference getTab_Title();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getIcon <em>Icon</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Icon</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Tab#getIcon()
-   * @see #getTab()
-   * @generated
-   */
-  EReference getTab_Icon();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getView <em>View</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>View</em>'.
-   * @see org.applause.applausedsl.applauseDsl.Tab#getView()
-   * @see #getTab()
-   * @generated
-   */
-  EReference getTab_View();
+  EReference getApplication_StartView();
 
   /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.Type <em>Type</em>}'.
@@ -2041,6 +2044,70 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EReference getView_Content();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.TabView <em>Tab View</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tab View</em>'.
+   * @see org.applause.applausedsl.applauseDsl.TabView
+   * @generated
+   */
+  EClass getTabView();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.applausedsl.applauseDsl.TabView#getTabs <em>Tabs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Tabs</em>'.
+   * @see org.applause.applausedsl.applauseDsl.TabView#getTabs()
+   * @see #getTabView()
+   * @generated
+   */
+  EReference getTabView_Tabs();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.Tab <em>Tab</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tab</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Tab
+   * @generated
+   */
+  EClass getTab();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getTitle <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Title</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Tab#getTitle()
+   * @see #getTab()
+   * @generated
+   */
+  EReference getTab_Title();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Icon</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Tab#getIcon()
+   * @see #getTab()
+   * @generated
+   */
+  EReference getTab_Icon();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.Tab#getView <em>View</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>View</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Tab#getView()
+   * @see #getTab()
+   * @generated
+   */
+  EReference getTab_View();
 
   /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.SectionedView <em>Sectioned View</em>}'.
@@ -2820,46 +2887,12 @@ public interface ApplauseDslPackage extends EPackage
     EReference APPLICATION__BACKGROUND = eINSTANCE.getApplication_Background();
 
     /**
-     * The meta object literal for the '<em><b>Tabs</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Start View</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference APPLICATION__TABS = eINSTANCE.getApplication_Tabs();
-
-    /**
-     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.TabImpl <em>Tab</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.applause.applausedsl.applauseDsl.impl.TabImpl
-     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTab()
-     * @generated
-     */
-    EClass TAB = eINSTANCE.getTab();
-
-    /**
-     * The meta object literal for the '<em><b>Title</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TAB__TITLE = eINSTANCE.getTab_Title();
-
-    /**
-     * The meta object literal for the '<em><b>Icon</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TAB__ICON = eINSTANCE.getTab_Icon();
-
-    /**
-     * The meta object literal for the '<em><b>View</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TAB__VIEW = eINSTANCE.getTab_View();
+    EReference APPLICATION__START_VIEW = eINSTANCE.getApplication_StartView();
 
     /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.TypeImpl <em>Type</em>}' class.
@@ -3018,6 +3051,58 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EReference VIEW__CONTENT = eINSTANCE.getView_Content();
+
+    /**
+     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.TabViewImpl <em>Tab View</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.applausedsl.applauseDsl.impl.TabViewImpl
+     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTabView()
+     * @generated
+     */
+    EClass TAB_VIEW = eINSTANCE.getTabView();
+
+    /**
+     * The meta object literal for the '<em><b>Tabs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TAB_VIEW__TABS = eINSTANCE.getTabView_Tabs();
+
+    /**
+     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.TabImpl <em>Tab</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.applausedsl.applauseDsl.impl.TabImpl
+     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTab()
+     * @generated
+     */
+    EClass TAB = eINSTANCE.getTab();
+
+    /**
+     * The meta object literal for the '<em><b>Title</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TAB__TITLE = eINSTANCE.getTab_Title();
+
+    /**
+     * The meta object literal for the '<em><b>Icon</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TAB__ICON = eINSTANCE.getTab_Icon();
+
+    /**
+     * The meta object literal for the '<em><b>View</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TAB__VIEW = eINSTANCE.getTab_View();
 
     /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.SectionedViewImpl <em>Sectioned View</em>}' class.

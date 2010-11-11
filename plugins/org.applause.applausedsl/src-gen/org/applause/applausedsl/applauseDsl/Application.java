@@ -5,8 +5,6 @@
  */
 package org.applause.applausedsl.applauseDsl;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.Application#getName <em>Name</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.Application#getBackground <em>Background</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.Application#getTabs <em>Tabs</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Application#getStartView <em>Start View</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,19 +80,29 @@ public interface Application extends EObject
   void setBackground(ScalarExpression value);
 
   /**
-   * Returns the value of the '<em><b>Tabs</b></em>' containment reference list.
-   * The list contents are of type {@link org.applause.applausedsl.applauseDsl.Tab}.
+   * Returns the value of the '<em><b>Start View</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tabs</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Start View</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tabs</em>' containment reference list.
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getApplication_Tabs()
+   * @return the value of the '<em>Start View</em>' containment reference.
+   * @see #setStartView(ViewCall)
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getApplication_StartView()
    * @model containment="true"
    * @generated
    */
-  EList<Tab> getTabs();
+  ViewCall getStartView();
+
+  /**
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Application#getStartView <em>Start View</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Start View</em>' containment reference.
+   * @see #getStartView()
+   * @generated
+   */
+  void setStartView(ViewCall value);
 
 } // Application

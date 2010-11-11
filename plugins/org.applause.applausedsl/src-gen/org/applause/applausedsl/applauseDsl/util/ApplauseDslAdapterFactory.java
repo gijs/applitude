@@ -148,11 +148,6 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createApplicationAdapter();
       }
       @Override
-      public Adapter caseTab(Tab object)
-      {
-        return createTabAdapter();
-      }
-      @Override
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
@@ -186,6 +181,16 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseView(View object)
       {
         return createViewAdapter();
+      }
+      @Override
+      public Adapter caseTabView(TabView object)
+      {
+        return createTabViewAdapter();
+      }
+      @Override
+      public Adapter caseTab(Tab object)
+      {
+        return createTabAdapter();
       }
       @Override
       public Adapter caseSectionedView(SectionedView object)
@@ -505,21 +510,6 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Tab <em>Tab</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.Tab
-   * @generated
-   */
-  public Adapter createTabAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -620,6 +610,36 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createViewAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.TabView <em>Tab View</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.TabView
+   * @generated
+   */
+  public Adapter createTabViewAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Tab <em>Tab</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.Tab
+   * @generated
+   */
+  public Adapter createTabAdapter()
   {
     return null;
   }

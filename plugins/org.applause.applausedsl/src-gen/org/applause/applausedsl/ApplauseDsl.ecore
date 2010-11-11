@@ -44,15 +44,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="background" eType="#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tabs" upperBound="-1" eType="#//Tab"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tab">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//ViewCall"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startView" eType="#//ViewCall"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//ModelElement"/>
@@ -82,6 +74,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProviderConstruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="View" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//Parameter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TabView" eSuperTypes="#//View">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tabs" upperBound="-1" eType="#//Tab"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tab">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//ViewCall"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SectionedView" eSuperTypes="#//View">

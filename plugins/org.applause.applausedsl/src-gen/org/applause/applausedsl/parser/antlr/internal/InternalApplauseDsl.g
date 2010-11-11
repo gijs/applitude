@@ -1080,15 +1080,29 @@ ruleApplication returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(	'application' 
+(
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getApplicationAccess().getUnorderedGroup());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getApplicationAccess().getUnorderedGroup(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getApplicationAccess().getUnorderedGroup(), 0);
+	 				}
+					(	'application' 
     {
-        createLeafNode(grammarAccess.getApplicationAccess().getApplicationKeyword_0(), null); 
+        createLeafNode(grammarAccess.getApplicationAccess().getApplicationKeyword_0_0(), null); 
     }
 (
 (
-		lv_name_1_0=RULE_ID
+		lv_name_2_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getApplicationAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+			createLeafNode(grammarAccess.getApplicationAccess().getNameIDTerminalRuleCall_0_1_0(), "name"); 
 		}
 		{
 	        if ($current==null) {
@@ -1099,7 +1113,7 @@ ruleApplication returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"name",
-	        		lv_name_1_0, 
+	        		lv_name_2_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -1110,18 +1124,18 @@ ruleApplication returns [EObject current=null]
 )
 )	'{' 
     {
-        createLeafNode(grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_2(), null); 
+        createLeafNode(grammarAccess.getApplicationAccess().getLeftCurlyBracketKeyword_0_2(), null); 
     }
-(	'background=' 
+(	'background:' 
     {
-        createLeafNode(grammarAccess.getApplicationAccess().getBackgroundKeyword_3_0(), null); 
+        createLeafNode(grammarAccess.getApplicationAccess().getBackgroundKeyword_0_3_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getBackgroundScalarExpressionParserRuleCall_3_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getBackgroundScalarExpressionParserRuleCall_0_3_1_0(), currentNode); 
 	    }
-		lv_background_4_0=ruleScalarExpression		{
+		lv_background_5_0=ruleScalarExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getApplicationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -1130,7 +1144,7 @@ ruleApplication returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"background",
-	        		lv_background_4_0, 
+	        		lv_background_5_0, 
 	        		"ScalarExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1140,178 +1154,37 @@ ruleApplication returns [EObject current=null]
 	    }
 
 )
-))?(
+))?)
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getApplicationAccess().getUnorderedGroup());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getApplicationAccess().getUnorderedGroup(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getApplicationAccess().getUnorderedGroup(), 1);
+	 				}
+					((	'view:' 
+    {
+        createLeafNode(grammarAccess.getApplicationAccess().getViewKeyword_1_0_0(), null); 
+    }
+(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getTabsTabParserRuleCall_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getApplicationAccess().getStartViewViewCallParserRuleCall_1_0_1_0(), currentNode); 
 	    }
-		lv_tabs_5_0=ruleTab		{
+		lv_startView_7_0=ruleViewCall		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getApplicationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
-	       		add(
-	       			$current, 
-	       			"tabs",
-	        		lv_tabs_5_0, 
-	        		"Tab", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)*	'}' 
-    {
-        createLeafNode(grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_5(), null); 
-    }
-)
-;
-
-
-
-
-
-// Entry rule entryRuleTab
-entryRuleTab returns [EObject current=null] 
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getTabRule(), currentNode); }
-	 iv_ruleTab=ruleTab 
-	 { $current=$iv_ruleTab.current; } 
-	 EOF 
-;
-
-// Rule Tab
-ruleTab returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-(
-
-(
-	{ 
-	  getUnorderedGroupHelper().enter(grammarAccess.getTabAccess().getUnorderedGroup());
-	}
-	(
-		(
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getTabAccess().getUnorderedGroup(), 0)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getTabAccess().getUnorderedGroup(), 0);
-	 				}
-					(	'tab' 
-    {
-        createLeafNode(grammarAccess.getTabAccess().getTabKeyword_0_0(), null); 
-    }
-	'{' 
-    {
-        createLeafNode(grammarAccess.getTabAccess().getLeftCurlyBracketKeyword_0_1(), null); 
-    }
-(	'title:' 
-    {
-        createLeafNode(grammarAccess.getTabAccess().getTitleKeyword_0_2_0(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTabAccess().getTitleScalarExpressionParserRuleCall_0_2_1_0(), currentNode); 
-	    }
-		lv_title_4_0=ruleScalarExpression		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getTabRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
 	       		set(
 	       			$current, 
-	       			"title",
-	        		lv_title_4_0, 
-	        		"ScalarExpression", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTabAccess().getUnorderedGroup());
-	 				}
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getTabAccess().getUnorderedGroup(), 1)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getTabAccess().getUnorderedGroup(), 1);
-	 				}
-					(	'icon:' 
-    {
-        createLeafNode(grammarAccess.getTabAccess().getIconKeyword_1_0(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTabAccess().getIconScalarExpressionParserRuleCall_1_1_0(), currentNode); 
-	    }
-		lv_icon_6_0=ruleScalarExpression		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getTabRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"icon",
-	        		lv_icon_6_0, 
-	        		"ScalarExpression", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTabAccess().getUnorderedGroup());
-	 				}
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getTabAccess().getUnorderedGroup(), 2)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getTabAccess().getUnorderedGroup(), 2);
-	 				}
-					((	'view:' 
-    {
-        createLeafNode(grammarAccess.getTabAccess().getViewKeyword_2_0_0(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTabAccess().getViewViewCallParserRuleCall_2_0_1_0(), currentNode); 
-	    }
-		lv_view_8_0=ruleViewCall		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getTabRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"view",
-	        		lv_view_8_0, 
+	       			"startView",
+	        		lv_startView_7_0, 
 	        		"ViewCall", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1323,21 +1196,21 @@ ruleTab returns [EObject current=null]
 )
 ))	'}' 
     {
-        createLeafNode(grammarAccess.getTabAccess().getRightCurlyBracketKeyword_2_1(), null); 
+        createLeafNode(grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_1_1(), null); 
     }
 )
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTabAccess().getUnorderedGroup());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getApplicationAccess().getUnorderedGroup());
 	 				}
  				)
 			)  
 
 		)+
-	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getTabAccess().getUnorderedGroup())}?	
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getApplicationAccess().getUnorderedGroup())}?	
 	)
 )
 	{ 
-	  getUnorderedGroupHelper().leave(grammarAccess.getTabAccess().getUnorderedGroup());
+	  getUnorderedGroupHelper().leave(grammarAccess.getApplicationAccess().getUnorderedGroup());
 	}
 
 )
@@ -1981,23 +1854,320 @@ ruleView returns [EObject current=null]
     }:
 (
     { 
-        currentNode=createCompositeNode(grammarAccess.getViewAccess().getSectionedViewParserRuleCall_0(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getViewAccess().getTabViewParserRuleCall_0(), currentNode); 
     }
-    this_SectionedView_0=ruleSectionedView
+    this_TabView_0=ruleTabView
     { 
-        $current = $this_SectionedView_0.current; 
+        $current = $this_TabView_0.current; 
         currentNode = currentNode.getParent();
     }
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getViewAccess().getCustomViewParserRuleCall_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getViewAccess().getSectionedViewParserRuleCall_1(), currentNode); 
     }
-    this_CustomView_1=ruleCustomView
+    this_SectionedView_1=ruleSectionedView
     { 
-        $current = $this_CustomView_1.current; 
+        $current = $this_SectionedView_1.current; 
         currentNode = currentNode.getParent();
     }
+
+    |
+    { 
+        currentNode=createCompositeNode(grammarAccess.getViewAccess().getCustomViewParserRuleCall_2(), currentNode); 
+    }
+    this_CustomView_2=ruleCustomView
+    { 
+        $current = $this_CustomView_2.current; 
+        currentNode = currentNode.getParent();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleTabView
+entryRuleTabView returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getTabViewRule(), currentNode); }
+	 iv_ruleTabView=ruleTabView 
+	 { $current=$iv_ruleTabView.current; } 
+	 EOF 
+;
+
+// Rule TabView
+ruleTabView returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	'tabview' 
+    {
+        createLeafNode(grammarAccess.getTabViewAccess().getTabviewKeyword_0(), null); 
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			createLeafNode(grammarAccess.getTabViewAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTabViewRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"name",
+	        		lv_name_1_0, 
+	        		"ID", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(	'(' 
+    {
+        createLeafNode(grammarAccess.getTabViewAccess().getLeftParenthesisKeyword_2_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTabViewAccess().getContentParameterParserRuleCall_2_1_0(), currentNode); 
+	    }
+		lv_content_3_0=ruleParameter		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTabViewRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"content",
+	        		lv_content_3_0, 
+	        		"Parameter", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	')' 
+    {
+        createLeafNode(grammarAccess.getTabViewAccess().getRightParenthesisKeyword_2_2(), null); 
+    }
+)?	'{' 
+    {
+        createLeafNode(grammarAccess.getTabViewAccess().getLeftCurlyBracketKeyword_3(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTabViewAccess().getTabsTabParserRuleCall_4_0(), currentNode); 
+	    }
+		lv_tabs_6_0=ruleTab		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTabViewRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"tabs",
+	        		lv_tabs_6_0, 
+	        		"Tab", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)*	'}' 
+    {
+        createLeafNode(grammarAccess.getTabViewAccess().getRightCurlyBracketKeyword_5(), null); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleTab
+entryRuleTab returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getTabRule(), currentNode); }
+	 iv_ruleTab=ruleTab 
+	 { $current=$iv_ruleTab.current; } 
+	 EOF 
+;
+
+// Rule Tab
+ruleTab returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getTabAccess().getUnorderedGroup());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getTabAccess().getUnorderedGroup(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getTabAccess().getUnorderedGroup(), 0);
+	 				}
+					(	'tab' 
+    {
+        createLeafNode(grammarAccess.getTabAccess().getTabKeyword_0_0(), null); 
+    }
+	'{' 
+    {
+        createLeafNode(grammarAccess.getTabAccess().getLeftCurlyBracketKeyword_0_1(), null); 
+    }
+(	'title:' 
+    {
+        createLeafNode(grammarAccess.getTabAccess().getTitleKeyword_0_2_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTabAccess().getTitleScalarExpressionParserRuleCall_0_2_1_0(), currentNode); 
+	    }
+		lv_title_4_0=ruleScalarExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTabRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"title",
+	        		lv_title_4_0, 
+	        		"ScalarExpression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTabAccess().getUnorderedGroup());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getTabAccess().getUnorderedGroup(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getTabAccess().getUnorderedGroup(), 1);
+	 				}
+					(	'icon:' 
+    {
+        createLeafNode(grammarAccess.getTabAccess().getIconKeyword_1_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTabAccess().getIconScalarExpressionParserRuleCall_1_1_0(), currentNode); 
+	    }
+		lv_icon_6_0=ruleScalarExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTabRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"icon",
+	        		lv_icon_6_0, 
+	        		"ScalarExpression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTabAccess().getUnorderedGroup());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getTabAccess().getUnorderedGroup(), 2)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getTabAccess().getUnorderedGroup(), 2);
+	 				}
+					((	'view:' 
+    {
+        createLeafNode(grammarAccess.getTabAccess().getViewKeyword_2_0_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTabAccess().getViewViewCallParserRuleCall_2_0_1_0(), currentNode); 
+	    }
+		lv_view_8_0=ruleViewCall		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTabRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"view",
+	        		lv_view_8_0, 
+	        		"ViewCall", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))?	'}' 
+    {
+        createLeafNode(grammarAccess.getTabAccess().getRightCurlyBracketKeyword_2_1(), null); 
+    }
+)
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTabAccess().getUnorderedGroup());
+	 				}
+ 				)
+			)  
+
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getTabAccess().getUnorderedGroup())}?	
+	)
+)
+	{ 
+	  getUnorderedGroupHelper().leave(grammarAccess.getTabAccess().getUnorderedGroup());
+	}
+
 )
 ;
 

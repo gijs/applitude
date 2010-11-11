@@ -5,26 +5,19 @@
  */
 package org.applause.applausedsl.applauseDsl.impl;
 
-import java.util.Collection;
-
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.Application;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
-import org.applause.applausedsl.applauseDsl.Tab;
+import org.applause.applausedsl.applauseDsl.ViewCall;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl#getBackground <em>Background</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl#getTabs <em>Tabs</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ApplicationImpl#getStartView <em>Start View</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,14 +67,14 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
   protected ScalarExpression background;
 
   /**
-   * The cached value of the '{@link #getTabs() <em>Tabs</em>}' containment reference list.
+   * The cached value of the '{@link #getStartView() <em>Start View</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTabs()
+   * @see #getStartView()
    * @generated
    * @ordered
    */
-  protected EList<Tab> tabs;
+  protected ViewCall startView;
 
   /**
    * <!-- begin-user-doc -->
@@ -180,13 +173,47 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Tab> getTabs()
+  public ViewCall getStartView()
   {
-    if (tabs == null)
+    return startView;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStartView(ViewCall newStartView, NotificationChain msgs)
+  {
+    ViewCall oldStartView = startView;
+    startView = newStartView;
+    if (eNotificationRequired())
     {
-      tabs = new EObjectContainmentEList<Tab>(Tab.class, this, ApplauseDslPackage.APPLICATION__TABS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.APPLICATION__START_VIEW, oldStartView, newStartView);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return tabs;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStartView(ViewCall newStartView)
+  {
+    if (newStartView != startView)
+    {
+      NotificationChain msgs = null;
+      if (startView != null)
+        msgs = ((InternalEObject)startView).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.APPLICATION__START_VIEW, null, msgs);
+      if (newStartView != null)
+        msgs = ((InternalEObject)newStartView).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.APPLICATION__START_VIEW, null, msgs);
+      msgs = basicSetStartView(newStartView, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.APPLICATION__START_VIEW, newStartView, newStartView));
   }
 
   /**
@@ -201,8 +228,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     {
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         return basicSetBackground(null, msgs);
-      case ApplauseDslPackage.APPLICATION__TABS:
-        return ((InternalEList<?>)getTabs()).basicRemove(otherEnd, msgs);
+      case ApplauseDslPackage.APPLICATION__START_VIEW:
+        return basicSetStartView(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -221,8 +248,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return getName();
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         return getBackground();
-      case ApplauseDslPackage.APPLICATION__TABS:
-        return getTabs();
+      case ApplauseDslPackage.APPLICATION__START_VIEW:
+        return getStartView();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -232,7 +259,6 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -244,9 +270,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         setBackground((ScalarExpression)newValue);
         return;
-      case ApplauseDslPackage.APPLICATION__TABS:
-        getTabs().clear();
-        getTabs().addAll((Collection<? extends Tab>)newValue);
+      case ApplauseDslPackage.APPLICATION__START_VIEW:
+        setStartView((ViewCall)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -268,8 +293,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         setBackground((ScalarExpression)null);
         return;
-      case ApplauseDslPackage.APPLICATION__TABS:
-        getTabs().clear();
+      case ApplauseDslPackage.APPLICATION__START_VIEW:
+        setStartView((ViewCall)null);
         return;
     }
     super.eUnset(featureID);
@@ -289,8 +314,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ApplauseDslPackage.APPLICATION__BACKGROUND:
         return background != null;
-      case ApplauseDslPackage.APPLICATION__TABS:
-        return tabs != null && !tabs.isEmpty();
+      case ApplauseDslPackage.APPLICATION__START_VIEW:
+        return startView != null;
     }
     return super.eIsSet(featureID);
   }

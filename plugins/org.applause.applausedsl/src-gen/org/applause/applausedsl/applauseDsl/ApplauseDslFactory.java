@@ -152,15 +152,6 @@ public interface ApplauseDslFactory extends EFactory
   Application createApplication();
 
   /**
-   * Returns a new object of class '<em>Tab</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Tab</em>'.
-   * @generated
-   */
-  Tab createTab();
-
-  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -222,6 +213,24 @@ public interface ApplauseDslFactory extends EFactory
    * @generated
    */
   View createView();
+
+  /**
+   * Returns a new object of class '<em>Tab View</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tab View</em>'.
+   * @generated
+   */
+  TabView createTabView();
+
+  /**
+   * Returns a new object of class '<em>Tab</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tab</em>'.
+   * @generated
+   */
+  Tab createTab();
 
   /**
    * Returns a new object of class '<em>Sectioned View</em>'.

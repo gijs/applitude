@@ -82,7 +82,6 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.COLLECTION_LITERAL: return createCollectionLiteral();
       case ApplauseDslPackage.COLLECTION_FUNCTION: return createCollectionFunction();
       case ApplauseDslPackage.APPLICATION: return createApplication();
-      case ApplauseDslPackage.TAB: return createTab();
       case ApplauseDslPackage.TYPE: return createType();
       case ApplauseDslPackage.SIMPLE_TYPE: return createSimpleType();
       case ApplauseDslPackage.ENTITY: return createEntity();
@@ -90,6 +89,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.CONTENT_PROVIDER: return createContentProvider();
       case ApplauseDslPackage.PROVIDER_CONSTRUCTION: return createProviderConstruction();
       case ApplauseDslPackage.VIEW: return createView();
+      case ApplauseDslPackage.TAB_VIEW: return createTabView();
+      case ApplauseDslPackage.TAB: return createTab();
       case ApplauseDslPackage.SECTIONED_VIEW: return createSectionedView();
       case ApplauseDslPackage.TABLE_VIEW: return createTableView();
       case ApplauseDslPackage.DETAILS_VIEW: return createDetailsView();
@@ -305,17 +306,6 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Tab createTab()
-  {
-    TabImpl tab = new TabImpl();
-    return tab;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Type createType()
   {
     TypeImpl type = new TypeImpl();
@@ -386,6 +376,28 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     ViewImpl view = new ViewImpl();
     return view;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TabView createTabView()
+  {
+    TabViewImpl tabView = new TabViewImpl();
+    return tabView;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Tab createTab()
+  {
+    TabImpl tab = new TabImpl();
+    return tab;
   }
 
   /**

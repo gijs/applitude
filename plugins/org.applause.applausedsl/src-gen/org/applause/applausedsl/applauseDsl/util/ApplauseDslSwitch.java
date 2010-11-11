@@ -205,13 +205,6 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ApplauseDslPackage.TAB:
-      {
-        Tab tab = (Tab)theEObject;
-        T result = caseTab(tab);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ApplauseDslPackage.TYPE:
       {
         Type type = (Type)theEObject;
@@ -266,6 +259,22 @@ public class ApplauseDslSwitch<T>
         View view = (View)theEObject;
         T result = caseView(view);
         if (result == null) result = caseModelElement(view);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.TAB_VIEW:
+      {
+        TabView tabView = (TabView)theEObject;
+        T result = caseTabView(tabView);
+        if (result == null) result = caseView(tabView);
+        if (result == null) result = caseModelElement(tabView);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.TAB:
+      {
+        Tab tab = (Tab)theEObject;
+        T result = caseTab(tab);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -644,22 +653,6 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Tab</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Tab</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTab(Tab object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -767,6 +760,38 @@ public class ApplauseDslSwitch<T>
    * @generated
    */
   public T caseView(View object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tab View</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tab View</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTabView(TabView object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tab</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tab</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTab(Tab object)
   {
     return null;
   }
