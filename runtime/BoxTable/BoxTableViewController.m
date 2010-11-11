@@ -22,10 +22,7 @@
 
 - (void) checkInitialized {
 	if (!fSections) {
-		NSArray *sectionList = [self buildSections];
-		NSLog(@"sections: %@", sectionList);
-		fSections = [[PlaceholderResolver alloc] initWithArray:sectionList];
-		NSLog(@"flattened sections: %@", fSections);
+		fSections = [[PlaceholderResolver alloc] initWithArray:[self buildSections]];
 	}
 }
 
@@ -35,7 +32,7 @@
 }
 
 - (NSArray *) buildSections {
-	NSLog(@"Method [%@ buildSections] must be overwritten", self);
+	NSLog(@"Method [%@ buildSections] not overwritten", self);
 	return nil;
 }
 
@@ -48,7 +45,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	[self checkInitialized];
 	int count = [fSections count];
-	NSLog(@"%i sections", count);
 	return count;
 }
 
@@ -58,7 +54,6 @@
 	NSObject<Section> *section = [fSections objectAtIndex:i];
 	return [[section rows] count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	[self checkInitialized];
