@@ -53,24 +53,23 @@
 
 «DEFINE viewFactoryMethod FOR TabView»
 «factoryMethodSignature()» {
-	UITabBarController *controller = [[[UITabBarController alloc] init] autorelease];
+	UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
 	NSMutableArray *controllers = [NSMutableArray array];
 
 	«FOREACH tabs AS tab»
 	{
-		UIViewController *controller = «tab.view.view.factoryCall()»;
+		UIViewController *controller = «(tab.view != null) ? tab.view.view.factoryCall() : "nil"»;
 		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
 		navController.tabBarItem.title = «tab.title.expression('', '')»;
 		«IF tab.icon != null-»
 		navController.tabBarItem.image = [UIImage imageNamed:«tab.icon.expression('','')»];
 		«ENDIF-»
 		[controllers addObject: navController];
-		[controller release];
 		[navController release];
 	}
 	«ENDFOREACH»
 
-	controller.viewControllers = controllers;
-	return controller;
+	tabController.viewControllers = controllers;
+	return tabController;
 }
 «ENDDEFINE»

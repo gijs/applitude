@@ -62,7 +62,7 @@ CollectionFunction:
 Application returns Application:
 	"application" name=ID '{'
 		('background:' background=ScalarExpression)?
-		('view:' startView=ViewCall)
+		& ('view:' startView=ViewCall)
 	'}';
 
 // -------------------------------------------
@@ -113,7 +113,7 @@ Tab:
 	'tab' '{'
 		('title:' title=ScalarExpression)
 		& ('icon:' icon=ScalarExpression)?
-		& ('view:' view=ViewCall)
+		& ('view:' view=ViewCall)?
 	'}';
 
 SectionedView: 
