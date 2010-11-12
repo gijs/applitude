@@ -68,22 +68,25 @@
 	}
 }
 
-- (void) setModel:(ModelProperty*) model {
-	[_model unbind];
-	[_model release];
-	_model = [model retain];
-	[_model bindTo:self.textField property:@"text"];
+- (Property *) model {
+	return fModelBinding.model;
+}
+
+- (void) setModel:(Property *) model {
+	[fModelBinding release];
+	fModelBinding = [[model bindTo:[Property object:self.textField property:@"text"]] retain];
 }
 
 - (void)dealloc {
+	NSLog(@"dealloc: %@", self);
 	self.textField = nil;
 	self.onReturn = nil;
-	self.model = nil;
+	[fModelBinding release];
 	[super dealloc];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	self.model.modelValue = textField.text;
+	self.model.value = textField.text;
 	[self.onReturn performWithObject:textField];
 	return YES;
 }

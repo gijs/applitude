@@ -5,6 +5,6 @@
 
 @protocol Action
 
-- (id) performWithObject:(NSObject *) object;
+- (void) performWithObject:(NSObject *) object;
 
 @end

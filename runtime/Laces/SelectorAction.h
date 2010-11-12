@@ -11,6 +11,6 @@
 }
 
 + (id) actionWithObject:(NSObject *) object selector:(SEL) selector;
-- (id) performWithObject:(NSObject *) object;
+- (void) performWithObject:(NSObject *) object;
 
 @end

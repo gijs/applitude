@@ -39,16 +39,17 @@
 	return cell;
 }
 
-- (TextFieldCell *) textFieldWithLabel:(NSString *) label model:(ModelProperty *) model {
+- (TextFieldCell *) textFieldWithLabel:(NSString *) label model:(Property *) model {
 	if (!lastSection) {
 		NSLog(@"No section!");
 	}
 
-	TextFieldCell *cell = [[[TextFieldCell alloc] init] autorelease];
+	TextFieldCell *cell = [[TextFieldCell alloc] init];
 	cell.textLabel.text = label;
 	cell.model = model;
 
-	[lastSection add:cell];
+	[lastSection add:cell]; [cell release];
+
 	return cell;
 }
 

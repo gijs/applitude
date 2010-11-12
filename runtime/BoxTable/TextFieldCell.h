@@ -29,16 +29,16 @@
  */
 
 #import "Action.h"
-#import "ModelProperty.h"
+#import "Property.h"
 
 @interface TextFieldCell : UITableViewCell<UITextFieldDelegate> {
 	UITextField *_textField;
 	NSObject<Action> *_onReturn;
-	ModelProperty *_model;
+	Binding *fModelBinding;
 }
 
 @property (retain, nonatomic) UITextField *textField;
 @property (retain, nonatomic) NSObject<Action> *onReturn;
-@property (retain, nonatomic) ModelProperty *model;
+@property (retain, nonatomic) Property *model;
 
 @end

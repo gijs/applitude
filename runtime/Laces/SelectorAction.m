@@ -19,8 +19,8 @@
 	[super dealloc];
 }
 
-- (id) performWithObject:(NSObject *) object {
-	return [fObject performSelector:fSelector withObject:object];
+- (void) performWithObject:(NSObject *) object {
+	[fObject performSelector:fSelector withObject:object];
 }
 
 + (id) actionWithObject:(NSObject *) object selector:(SEL) selector {
