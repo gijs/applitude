@@ -54,22 +54,20 @@
 «DEFINE viewFactoryMethod FOR TabView»
 «factoryMethodSignature()» {
 	UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
-	NSMutableArray *controllers = [NSMutableArray array];
+	«FOREACH tabs AS tab ITERATOR i»
+	UINavigationController *tab«i.counter1» = [[UINavigationController alloc] initWithRootViewController:«(tab.view != null) ? tab.view.view.factoryCall() : "nil"»];
+	tab«i.counter1».tabBarItem.title = «tab.title.expression('', '')»;
+	«IF tab.icon != null-»
+	tab«i.counter1».tabBarItem.image = [UIImage imageNamed:«tab.icon.expression('','')»];
+	«ENDIF-»
+	«ENDFOREACH-»
 
-	«FOREACH tabs AS tab»
-	{
-		UIViewController *controller = «(tab.view != null) ? tab.view.view.factoryCall() : "nil"»;
-		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-		navController.tabBarItem.title = «tab.title.expression('', '')»;
-		«IF tab.icon != null-»
-		navController.tabBarItem.image = [UIImage imageNamed:«tab.icon.expression('','')»];
-		«ENDIF-»
-		[controllers addObject: navController];
-		[navController release];
-	}
-	«ENDFOREACH»
+	tabController.viewControllers = [NSArray arrayWithObjects:«FOREACH tabs AS tab ITERATOR i SEPARATOR ", "»tab«i.counter1»«ENDFOREACH», nil];
 
-	tabController.viewControllers = controllers;
+	«FOREACH tabs AS tab ITERATOR i-»
+	[tab«i.counter1» release];
+	«ENDFOREACH-»
+
 	return tabController;
 }
 «ENDDEFINE»
