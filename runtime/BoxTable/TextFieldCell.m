@@ -43,14 +43,8 @@
 		[self addSubview:self.textField];
 		self.textField.font = [UIFont boldSystemFontOfSize:16.0];
 		self.textField.delegate = self;
-
-		[self.textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:NULL];
     }
     return self;
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	NSLog(@"%@ %@ %@ %@", keyPath, object, change, context);
 }
 
 - (void) layoutSubviews {
