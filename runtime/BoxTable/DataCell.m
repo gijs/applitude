@@ -1,39 +1,21 @@
-//
-//  DataCell.m
-//  teilAuto
-//
-//  Created by Ralf Ebert on 10.11.10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
-//
+// © 2010 Ralf Ebert
+// Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
 
 #import "DataCell.h"
 
-
 @implementation DataCell
 
-@synthesize model = _model, onTouch = _onTouch;
+@synthesize model = _model;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+- (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
         // Initialization code
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-- (void) didSelect {
-	[self.onTouch performWithObject:self];
-}
-
-- (void)dealloc {
+- (void) dealloc {
     self.model = nil;
-	self.onTouch = nil;
 	[super dealloc];
 }
 

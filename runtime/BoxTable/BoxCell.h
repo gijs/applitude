@@ -3,14 +3,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Placeholder.h"
+#import "Action.h"
+#import "Cell.h"
 
-@interface PlaceholderResolver : NSObject<Placeholder> {
+@interface BoxCell : UITableViewCell<Cell> {
 
-	NSArray *fArray;
+	NSObject<Action> *_onTouch;
 
 }
 
-- (id) initWithArray:(NSArray *)array;
+@property (nonatomic, retain) NSObject<Action> *onTouch;
 
 @end

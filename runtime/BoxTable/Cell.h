@@ -1,10 +1,5 @@
-//
-//  Cell.h
-//  teilAuto
-//
-//  Created by Ralf Ebert on 10.11.10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
-//
+// © 2010 Ralf Ebert
+// Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
 
 #import <UIKit/UIKit.h>
 

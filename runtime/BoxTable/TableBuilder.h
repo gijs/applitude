@@ -1,9 +1,13 @@
+// © 2010 Ralf Ebert
+// Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
+
 #import <Foundation/Foundation.h>
 
 #import "StaticSection.h"
 #import "Placeholder.h"
 #import "ModelProperty.h"
 #import "TextFieldCell.h"
+#import "BoxCell.h"
 
 @interface TableBuilder : NSObject {
 
@@ -18,7 +22,7 @@
 
 - (void) section:(NSString *) text;
 
-- (UITableViewCell *) link:(NSString *) text to:(Class) controllerClass;
+- (BoxCell *) text:(NSString *) text;
 - (TextFieldCell *) textFieldWithLabel:(NSString *) label model:(ModelProperty *) model;
 - (void) dynamic:(NSObject<Placeholder> *) placeholder;
 

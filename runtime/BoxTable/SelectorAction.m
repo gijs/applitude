@@ -1,7 +1,9 @@
-#import "Action.h"
+// © 2010 Ralf Ebert
+// Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
 
+#import "SelectorAction.h"
 
-@implementation Action
+@implementation SelectorAction
 
 - (id) initWithObject:(NSObject *) object selector:(SEL) selector {
 	self = [super init];
@@ -22,7 +24,7 @@
 }
 
 + (id) actionWithObject:(NSObject *) object selector:(SEL) selector {
-	return [[[Action alloc] initWithObject:object selector:selector] autorelease];
+	return [[[SelectorAction alloc] initWithObject:object selector:selector] autorelease];
 }
 
 @end

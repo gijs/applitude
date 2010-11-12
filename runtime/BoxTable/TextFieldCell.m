@@ -1,5 +1,4 @@
 //
-//  TKLabelTextfieldCell.m
 //  Created by Devin Ross on 7/1/09.
 //
 /*

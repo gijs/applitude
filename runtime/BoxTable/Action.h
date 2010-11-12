@@ -1,12 +1,10 @@
-#import <Foundation/Foundation.h>
+// © 2010 Ralf Ebert
+// Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
 
+#import <UIKit/UIKit.h>
 
-@interface Action : NSObject {
-	NSObject *fObject;
-	SEL fSelector;
-}
+@protocol Action
 
-+ (id) actionWithObject:(NSObject *) object selector:(SEL) selector;
 - (id) performWithObject:(NSObject *) object;
 
 @end

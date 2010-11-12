@@ -1,5 +1,4 @@
 //
-//  TKLabelTextfieldCell.h
 //  Created by Devin Ross on 7/1/09.
 //
 /*
@@ -34,12 +33,12 @@
 
 @interface TextFieldCell : UITableViewCell<UITextFieldDelegate> {
 	UITextField *_textField;
-	Action *_onReturn;
+	NSObject<Action> *_onReturn;
 	ModelProperty *_model;
 }
 
 @property (retain, nonatomic) UITextField *textField;
-@property (retain, nonatomic) Action *onReturn;
+@property (retain, nonatomic) NSObject<Action> *onReturn;
 @property (retain, nonatomic) ModelProperty *model;
 
 @end

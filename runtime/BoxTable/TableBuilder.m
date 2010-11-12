@@ -1,3 +1,6 @@
+// © 2010 Ralf Ebert
+// Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
+
 #import "TableBuilder.h"
 
 #import "StaticSection.h"
@@ -24,12 +27,12 @@
 	[sections addObject:lastSection];
 }
 
-- (UITableViewCell *) link:(NSString *) text to:(Class) controllerClass {
+- (BoxCell *) text:(NSString *) text {
 	if (!lastSection) {
 		NSLog(@"No section!");
 	}
 
-	UITableViewCell *cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:nil] autorelease];
+	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil] autorelease];
 	cell.textLabel.text = text;
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	[lastSection add:cell];

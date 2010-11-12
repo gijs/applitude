@@ -1,3 +1,6 @@
+// © 2010 Ralf Ebert
+// Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
+
 #import "ModelProperty.h"
 
 @implementation ModelProperty
@@ -65,5 +68,5 @@
 	[super dealloc];
 }
 
-
 @end
+
