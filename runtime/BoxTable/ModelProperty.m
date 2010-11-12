@@ -1,6 +1,5 @@
 #import "ModelProperty.h"
 
-
 @implementation ModelProperty
 
 - (id) initWithObject:(NSObject *) obj property:(NSString *) propertyName {
@@ -23,17 +22,30 @@
 	[fBoundToObject retain];
 	[fBoundToProperty retain];
 	NSLog(@"%@.%@ -bind-> %@.%@", fObject, fPropertyName, fBoundToObject, fBoundToProperty);
+	self.boundValue = self.modelValue;
 	[fBoundToObject addObserver:self forKeyPath:fBoundToProperty options:NSKeyValueObservingOptionNew context:NULL];
 }
 
-- (void) setValue:(NSObject *) newValue {
+- (id) modelValue {
+	return [fObject valueForKey:fPropertyName];
+}
+
+- (void) setModelValue:(id) newValue {
 	[fObject setValue:newValue forKey:fPropertyName];
+}
+
+- (id) boundValue {
+	return [fBoundToObject valueForKey:fBoundToProperty];
+}
+
+- (void) setBoundValue:(id) newValue {
+	[fBoundToObject setValue:newValue forKey:fBoundToProperty];
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	NSObject *newValue = [change valueForKey:NSKeyValueChangeNewKey];
 	NSLog(@"==> %@.%@ setValue: %@", fObject, fPropertyName, newValue);
-	[fObject setValue:newValue forKey:fPropertyName];
+	self.modelValue = newValue;
 }
 
 - (void) unbind {

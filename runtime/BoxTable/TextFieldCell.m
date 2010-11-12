@@ -90,7 +90,7 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	[self.model setValue:textField.text];
+	self.model.modelValue = textField.text;
 	[self.onReturn performWithObject:textField];
 	return YES;
 }

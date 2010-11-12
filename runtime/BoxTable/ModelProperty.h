@@ -11,6 +11,8 @@
 + (id) propertyForObject:(NSObject *) object property:(NSString *) property;
 - (void) bindTo:(NSObject *) object property:(NSString *) property;
 - (void) unbind;
-- (void) setValue:(NSObject *) newValue;
+
+@property (nonatomic, assign) id modelValue;
+@property (nonatomic, assign) id boundValue;
 
 @end
