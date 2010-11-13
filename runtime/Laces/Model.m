@@ -31,10 +31,10 @@
 }
 
 - (void) dealloc {
-	[fObject release];
+	NSLog(@"✝ %@", self);
 	[fProperties release];
+	[fObject release];
 	[super dealloc];
 }
-
 
 @end

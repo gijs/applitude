@@ -16,4 +16,6 @@
 
 @property (nonatomic, readonly) Property *model;
 
+- (void) unbind;
+
 @end

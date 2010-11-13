@@ -19,6 +19,7 @@
 - (void) removeObserver:(NSObject *) observer;
 - (Binding *) bindTo:(Property *) property;
 - (Binding *) bindTo:(Property *) property converter:(NSObject<Converter> *)converter;
+- (void) unbind:(Binding *)binding;
 
 @property (nonatomic, assign) id value;
 @property (nonatomic, assign) BOOL freeze;

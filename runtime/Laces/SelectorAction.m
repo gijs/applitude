@@ -8,14 +8,14 @@
 - (id) initWithObject:(NSObject *) object selector:(SEL) selector {
 	self = [super init];
 	if (self != nil) {
-		fObject = [object retain];
+		// referred object is not retained to break cycles
+		fObject = object;
 		fSelector = selector;
 	}
 	return self;
 }
 
 - (void) dealloc {
-	[fObject release];
 	[super dealloc];
 }
 

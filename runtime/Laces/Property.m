@@ -10,7 +10,8 @@
 - (id) initWithObject:(NSObject *) obj property:(NSString *) propertyName {
 	self = [super init];
 	if (self != nil) {
-		fObject = [obj retain];
+		// referred object is not retained to break cycles
+		fObject = obj;
 		fPropertyName = [propertyName retain];
 	}
 	return self;
@@ -30,10 +31,12 @@
 }
 
 - (void) addObserver:(NSObject *) observer {
+	NSLog(@"   add observer %@(%i) for %@(%i).%@", [observer class], observer, [fObject class], fObject, fPropertyName);
 	[fObject addObserver:observer forKeyPath:fPropertyName options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void) removeObserver:(NSObject *) observer {
+	NSLog(@"remove observer %@(%i) for %@(%i).%@", [observer class], observer, [fObject class], fObject, fPropertyName);
 	[fObject removeObserver:observer forKeyPath:fPropertyName];
 }
 
@@ -45,7 +48,7 @@
 		[fBindings addObject:binding];
 	}
 	[binding release];
-	NSLog(@"%@", binding);
+	NSLog(@"Bound %@", binding);
 	return binding;
 }
 
@@ -53,13 +56,17 @@
 	return [self bindTo:property converter:nil];
 }
 
+- (void) unbind:(Binding *)binding {
+	[fBindings removeObject:binding];
+}
+
 - (NSString *) description {
-	return [NSString stringWithFormat:@"%@.%@", [fObject class], fPropertyName];
+	return [NSString stringWithFormat:@"Property[%@.%@]", [fObject class], fPropertyName];
 }
 
 - (void) dealloc {
+	NSLog(@"✝ %@, %i bindings", self, [fBindings count]);
 	[fBindings release];
-	[fObject release];
 	[fPropertyName release];
 	[super dealloc];
 }

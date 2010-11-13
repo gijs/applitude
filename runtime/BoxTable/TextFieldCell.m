@@ -34,7 +34,7 @@
 #import "LogUtils.h"
 
 @implementation TextFieldCell
-@synthesize textField = _textField, onReturn = _onReturn, model = _model;
+@synthesize textField = _textField, onReturn = _onReturn;
 
 - (id) init {
 	if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil]) {
@@ -69,24 +69,25 @@
 }
 
 - (Property *) model {
-	return fModelBinding.model;
+	return _binding.model;
 }
 
 - (void) setModel:(Property *) model {
-	[fModelBinding release];
-	fModelBinding = [[model bindTo:[Property object:self.textField property:@"text"]] retain];
+	[_binding unbind];
+	if (model != nil) {
+		_binding = [model bindTo:[[Property alloc] initWithObject:self.textField property:@"text"]];
+	}
 }
 
 - (void)dealloc {
-	NSLog(@"dealloc: %@", self);
-	self.textField = nil;
+	NSLog(@"✝ %@", self);
 	self.onReturn = nil;
-	[fModelBinding release];
+	self.textField = nil;
 	[super dealloc];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	self.model.value = textField.text;
+	self.model.value = self.textField.text;
 	[self.onReturn performWithObject:textField];
 	return YES;
 }

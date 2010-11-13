@@ -12,7 +12,7 @@
 - (id) initWithModel:(Property *)model target:(Property *)target converter:(NSObject<Converter> *)converter{
 	self = [super init];
 	if (self != nil) {
-		// model is not retained to break the cycle: model -owns-> binding -owns-> target
+		// weak reference
 		fModel = model;
 		fTarget = [target retain];
 		fConverter = [converter retain];
@@ -46,8 +46,12 @@
 	return [NSString stringWithFormat:@"[%@ ↔ %@]", fModel, fTarget];
 }
 
+- (void) unbind {
+	[fModel unbind:self];
+}
+
 - (void) dealloc {
-	NSLog(@"☠ %@", self);
+	NSLog(@"✝ %@", self);
 	[fModel removeObserver:self];
 	[fTarget removeObserver:self];
 	[fTarget release];
