@@ -2,28 +2,27 @@
 // Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
 
 #import "Model.h"
+#import "Binding.h"
 
 @implementation Model
 
-@synthesize value = fObject;
+@synthesize modelObject = fObject;
 
 - (id) initWithObject:(NSObject *)object {
 	self = [super init];
 	if (self != nil) {
 		fObject = [object retain];
-		fProperties = [[NSMutableDictionary alloc] init];
+		fBindings = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
 
-- (Property *) property:(NSString *) propertyName {
-	Property *property = [fProperties objectForKey:propertyName];
-	if (property == nil) {
-		property = [[Property alloc] initWithObject:fObject property:propertyName];
-		[fProperties setValue:property forKey:propertyName];
-		[property release];
-	}
-	return property;
+- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter {
+	Binding *binding = [[Binding alloc] initWithModel:self property:modelProperty to:target property:targetProperty converter:converter];
+	[fBindings addObject:binding];
+	[binding release];
+	NSLog(@"Created %@", binding);
+	return binding;
 }
 
 - (NSString *) description {
@@ -32,7 +31,7 @@
 
 - (void) dealloc {
 	NSLog(@"✝ %@", self);
-	[fProperties release];
+	[fBindings release];
 	[fObject release];
 	[super dealloc];
 }

@@ -3,19 +3,22 @@
 
 #import <Foundation/Foundation.h>
 
-@class Property;
+#import "Model.h"
 #import "Converter.h"
 
 @interface Binding : NSObject {
-	Property *wModel;
-	Property *fTarget;
+	Model *fModel;
+	NSString *fModelProperty;
+
+	NSObject *fTarget;
+	NSString *fTargetProperty;
+
 	NSObject<Converter> *fConverter;
 }
 
-- (id) initWithModel:(Property *)model target:(Property *)target converter:(NSObject<Converter> *)converter;
-
-@property (nonatomic, readonly) Property *model;
-
-- (void) unbind;
+- (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter;
+- (void) rebindModel:(Model *)model property:(NSString *)modelProperty;
+- (void) updateModel;
+- (void) updateTarget;
 
 @end

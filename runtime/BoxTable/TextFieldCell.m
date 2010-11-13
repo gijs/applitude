@@ -68,15 +68,18 @@
 	}
 }
 
-- (Property *) model {
-	return _binding.model;
+- (void) bind:(Model *)model property:(NSString *)propertyName {
+	if (fBinding) {
+		[fBinding rebindModel:model property:propertyName];
+	} else {
+		fBinding = [model bind:propertyName to:self.textField property:@"text" converter:nil];
+	}
 }
 
-- (void) setModel:(Property *) model {
-	[_binding unbind];
-	if (model != nil) {
-		_binding = [model bindTo:[[Property alloc] initWithObject:self.textField property:@"text"]];
-	}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[fBinding updateModel];
+	[self.onReturn performWithObject:textField];
+	return YES;
 }
 
 - (void)dealloc {
@@ -84,12 +87,6 @@
 	self.onReturn = nil;
 	self.textField = nil;
 	[super dealloc];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	self.model.value = self.textField.text;
-	[self.onReturn performWithObject:textField];
-	return YES;
 }
 
 @end

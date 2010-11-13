@@ -3,18 +3,19 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Property.h"
+@class Binding;
+#import "Converter.h"
 
 @interface Model : NSObject {
 
 	NSObject *fObject;
-	NSMutableDictionary *fProperties;
+	NSMutableArray *fBindings;
 
 }
 
 - (id) initWithObject:(NSObject *)object;
-- (Property *) property:(NSString *) propertyName;
+- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter;
 
-@property (nonatomic, readonly) id value;
+@property (nonatomic, readonly) id modelObject;
 
 @end

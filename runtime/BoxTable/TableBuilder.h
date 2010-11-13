@@ -5,7 +5,6 @@
 
 #import "StaticSection.h"
 #import "Placeholder.h"
-#import "Property.h"
 #import "TextFieldCell.h"
 #import "BoxCell.h"
 
@@ -23,7 +22,7 @@
 - (void) section:(NSString *) text;
 
 - (BoxCell *) text:(NSString *) text;
-- (TextFieldCell *) textFieldWithLabel:(NSString *) label model:(Property *) model;
+- (TextFieldCell *) textFieldWithLabel:(NSString *) label;
 - (void) dynamic:(NSObject<Placeholder> *) placeholder;
 
 @end
