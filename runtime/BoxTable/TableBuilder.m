@@ -5,6 +5,7 @@
 
 #import "StaticSection.h"
 #import "TextFieldCell.h"
+#import "Branding.h"
 
 @implementation TableBuilder
 
@@ -35,6 +36,7 @@
 	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil] autorelease];
 	cell.textLabel.text = text;
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	brandCell(cell);
 	[lastSection add:cell];
 	return cell;
 }
@@ -47,6 +49,7 @@
 	TextFieldCell *cell = [[TextFieldCell alloc] init];
 	cell.textLabel.text = label;
 	cell.model = model;
+	brandCell(cell);
 
 	[lastSection add:cell]; [cell release];
 
