@@ -7,7 +7,7 @@
 #import "Converter.h"
 
 @interface Binding : NSObject {
-	Property *fModel;
+	Property *wModel;
 	Property *fTarget;
 	NSObject<Converter> *fConverter;
 }

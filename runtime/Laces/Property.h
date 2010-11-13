@@ -10,7 +10,6 @@
 	NSObject *fObject;
 	NSString *fPropertyName;
 	NSMutableArray *fBindings;
-	BOOL *_freeze;
 }
 
 - (id) initWithObject:(NSObject *) obj property:(NSString *) propertyName;
@@ -22,6 +21,5 @@
 - (void) unbind:(Binding *)binding;
 
 @property (nonatomic, assign) id value;
-@property (nonatomic, assign) BOOL freeze;
 
 @end

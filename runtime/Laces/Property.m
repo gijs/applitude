@@ -5,8 +5,6 @@
 
 @implementation Property
 
-@synthesize freeze;
-
 - (id) initWithObject:(NSObject *) obj property:(NSString *) propertyName {
 	self = [super init];
 	if (self != nil) {

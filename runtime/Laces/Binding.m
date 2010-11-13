@@ -2,57 +2,57 @@
 // Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
 
 #import "Binding.h"
-
 #import "Property.h"
 
 @implementation Binding
 
-@synthesize model = fModel;
+@synthesize model = wModel;
 
 - (id) initWithModel:(Property *)model target:(Property *)target converter:(NSObject<Converter> *)converter{
 	self = [super init];
 	if (self != nil) {
-		// weak reference
-		fModel = model;
+		wModel = model;
 		fTarget = [target retain];
 		fConverter = [converter retain];
-		fTarget.value = (fConverter != nil) ? [fConverter convert:fModel.value] : fModel.value;
-		[fModel addObserver:self];
+		fTarget.value = (fConverter != nil) ? [fConverter convert:wModel.value] : wModel.value;
+		[wModel addObserver:self];
 		[fTarget addObserver:self];
 	}
 	return self;
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if (fModel.freeze)
+	static BOOL updateInProgress;
+
+	if (updateInProgress)
 		return;
 
 	@try {
-		fModel.freeze = YES;
+		updateInProgress = true;
 		NSObject *value = [change valueForKey:NSKeyValueChangeNewKey];
-		if (![fModel.value isEqual:value]) {
-			fModel.value = value;
+		if (![wModel.value isEqual:value]) {
+			wModel.value = value;
 		}
 		if (![fTarget.value isEqual:value]) {
 			fTarget.value = (fConverter != nil) ? [fConverter convert:value] : value;
 		}
 	}
 	@finally {
-		fModel.freeze = NO;
+		updateInProgress = NO;
 	}
 }
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"[%@ ↔ %@]", fModel, fTarget];
+	return [NSString stringWithFormat:@"Binding[%@ ↔ %@]", wModel, fTarget];
 }
 
 - (void) unbind {
-	[fModel unbind:self];
+	[wModel unbind:self];
 }
 
 - (void) dealloc {
 	NSLog(@"✝ %@", self);
-	[fModel removeObserver:self];
+	[wModel removeObserver:self];
 	[fTarget removeObserver:self];
 	[fTarget release];
 	[fConverter release];
