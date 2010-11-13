@@ -33,6 +33,7 @@
 «DEFINE moduleFile FOR Application»
 «FILE viewsM()»
 #import "«viewsH()»"
+#import "Branding.h"
 
 @implementation «views()»
 
@@ -56,6 +57,7 @@
 	UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
 	«FOREACH tabs AS tab ITERATOR i»
 	UINavigationController *tab«i.counter1» = [[UINavigationController alloc] initWithRootViewController:«(tab.view != null) ? tab.view.view.factoryCall() : "nil"»];
+	brandNavigationController(tab«i.counter1»);
 	tab«i.counter1».tabBarItem.title = «tab.title.expression('', '')»;
 	«IF tab.icon != null-»
 	tab«i.counter1».tabBarItem.image = [UIImage imageNamed:«tab.icon.expression('','')»];

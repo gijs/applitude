@@ -10,5 +10,5 @@
 «EXPAND View::main»
 «EXPAND Provider::main»
 «EXPAND Views::main»
-«EXPAND Application::main»
+«EXPAND AppDelegate::main»
 «ENDDEFINE»

@@ -25,6 +25,8 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) UIViewController *rootController;
 
+- (void) setRootController:(UIViewController *) controller animationTransition:(UIViewAnimationTransition)transition;
+
 @end
 «ENDFILE»
 «ENDDEFINE»
@@ -36,6 +38,8 @@
 
 «DEFINE importStatement FOR Tab-»
 #import "«view.view.filenameHeader()»"
+
+
 «ENDDEFINE»
 
 «DEFINE moduleFile FOR Application»
@@ -74,6 +78,14 @@
 	}
 	rootController = [controller retain];
 	[self.window addSubview:rootController.view];
+}
+
+- (void) setRootController:(UIViewController *) controller animationTransition:(UIViewAnimationTransition)transition {
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationTransition:transition forView:self.window cache:YES];
+	self.rootController = controller;
+	[UIView commitAnimations];
 }
 
 - (void) dealloc {
