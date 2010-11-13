@@ -5,6 +5,9 @@
 
 @implementation Binding
 
+// Null-safe isEqual ([nil isEqual:nil] is false)
+#define OBJECT_EQUAL(o1, o2) ((o1 == nil && o2 == nil) || (o1 != nil && o2 != nil && [o1 isEqual:o2]))
+
 // TODO: if this is called directly, the Binding is not registered with the Model
 - (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter{
 	self = [super init];
@@ -28,10 +31,12 @@
 		NSLog(@"WARNING: Rebinding to a different model is not supported as of now!");
 		return;
 	}
+
 	[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
 	fModelProperty = modelProperty;
 	[self updateTarget];
 	[fModel.modelObject addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
+
 	NSLog(@"Rebind: %@", self);
 }
 
@@ -44,10 +49,9 @@
 	id oldValue = [fModel.modelObject valueForKey:fModelProperty];
 	id newValue = [fTarget valueForKey:fTargetProperty];
 
-	// TODO: check if the check is actually required
-	if (![oldValue isEqual:newValue]) {
-		[fModel.modelObject setValue:newValue forKey:fModelProperty];
+	if (!OBJECT_EQUAL(oldValue, newValue)) {
 		NSLog(@"%@.%@ := %@", [fModel class], fModelProperty, newValue);
+		[fModel.modelObject setValue:newValue forKey:fModelProperty];
 	}
 }
 
@@ -58,14 +62,13 @@
 		newValue = [fConverter convert:newValue];
 	}
 
-	if (![oldValue isEqual:newValue]) {
-		[fTarget setValue:newValue forKey:fTargetProperty];
+	if (!OBJECT_EQUAL(oldValue, newValue)) {
 		NSLog(@"%@.%@ := %@", [fTarget class], fTargetProperty, newValue);
+		[fTarget setValue:newValue forKey:fTargetProperty];
 	}
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	//TODO: check if updateInProgress is actually necessary
 	static BOOL updateInProgress;
 
 	if (updateInProgress)
@@ -76,7 +79,7 @@
 		if (object == fModel.modelObject) {
 			[self updateTarget];
 		}
-		if (object == fTarget) {
+		else if (object == fTarget) {
 			[self updateModel];
 		}
 	}
