@@ -4,7 +4,7 @@
 #import <Foundation/Foundation.h>
 
 #define NSLogCGRect(rect) \
-	NSLog(@"x=%i y=%i width=%i height=%i", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+	NSLog(@"x=%f y=%f width=%f height=%f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 
 #define NSAlertLog(text) \
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:text delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; \
