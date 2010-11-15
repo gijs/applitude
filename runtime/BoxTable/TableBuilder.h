@@ -23,6 +23,7 @@
 
 - (void) cell:(UITableViewCell *)cell;
 - (BoxCell *) text:(NSString *) text;
+- (BoxCell *) link:(NSString *) text;
 - (TextFieldCell *) textFieldWithLabel:(NSString *) label;
 - (void) dynamic:(NSObject<Placeholder> *) placeholder;
 

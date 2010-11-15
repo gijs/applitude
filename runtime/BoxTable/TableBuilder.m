@@ -39,10 +39,15 @@
 - (BoxCell *) text:(NSString *) text {
 	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
 	cell.textLabel.text = text;
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	brandCell(cell);
 	[self cell:cell];
 	[cell release];
+	return cell;
+}
+
+- (BoxCell *) link:(NSString *) text {
+	BoxCell *cell = [self text:text];
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	return cell;
 }
 
