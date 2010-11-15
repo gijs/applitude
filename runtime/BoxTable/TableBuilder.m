@@ -28,29 +28,31 @@
 	[sections addObject:lastSection];
 }
 
-- (BoxCell *) text:(NSString *) text {
+- (void) cell:(UITableViewCell *)cell {
 	if (!lastSection) {
 		NSLog(@"No section!");
+		return;
 	}
+	[lastSection add:cell];
+}
 
-	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil] autorelease];
+- (BoxCell *) text:(NSString *) text {
+	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
 	cell.textLabel.text = text;
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	brandCell(cell);
-	[lastSection add:cell];
+	[self cell:cell];
+	[cell release];
 	return cell;
 }
 
 - (TextFieldCell *) textFieldWithLabel:(NSString *) label {
-	if (!lastSection) {
-		NSLog(@"No section!");
-	}
-
 	TextFieldCell *cell = [[TextFieldCell alloc] init];
 	cell.textLabel.text = label;
 	brandCell(cell);
 
-	[lastSection add:cell]; [cell release];
+	[self cell:cell];
+	[cell release];
 
 	return cell;
 }
@@ -58,6 +60,7 @@
 - (void) dynamic:(NSObject<Placeholder> *) placeholder {
 	if (!lastSection) {
 		NSLog(@"No section!");
+		return;
 	}
 	[lastSection add:placeholder];
 }

@@ -21,6 +21,7 @@
 
 - (void) section:(NSString *) text;
 
+- (void) cell:(UITableViewCell *)cell;
 - (BoxCell *) text:(NSString *) text;
 - (TextFieldCell *) textFieldWithLabel:(NSString *) label;
 - (void) dynamic:(NSObject<Placeholder> *) placeholder;
