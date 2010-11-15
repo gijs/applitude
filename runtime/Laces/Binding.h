@@ -20,5 +20,6 @@
 - (void) rebindModel:(Model *)model property:(NSString *)modelProperty;
 - (void) updateModel;
 - (void) updateTarget;
+- (void) unbind;
 
 @end

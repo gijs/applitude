@@ -25,6 +25,10 @@
 	return binding;
 }
 
+- (void) unbind:(Binding *)binding {
+	[fBindings removeObject:binding];
+}
+
 - (NSString *) description {
 	return [NSString stringWithFormat:@"Model[%@]", [fObject description]];
 }

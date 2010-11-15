@@ -15,6 +15,7 @@
 
 - (id) initWithObject:(NSObject *)object;
 - (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter;
+- (void) unbind:(Binding *)binding;
 
 @property (nonatomic, readonly) id modelObject;
 

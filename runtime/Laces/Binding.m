@@ -40,6 +40,10 @@
 	NSLog(@"Rebind: %@", self);
 }
 
+- (void) unbind {
+	[fModel unbind:self];
+}
+
 - (void) updateModel {
 	if (fConverter != nil) {
 		NSLog(@"%@ has a converter, updating the model is not supported!");
