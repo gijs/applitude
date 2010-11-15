@@ -25,8 +25,13 @@
 	return binding;
 }
 
+// internal method for Binding only
 - (void) unbind:(Binding *)binding {
-	[fBindings removeObject:binding];
+	int i = [fBindings indexOfObject:binding];
+	if (i < 0) {
+		NSLog(@"Error: Binding %@ was not bound, cannot unbind!");
+	}
+	[fBindings removeObjectAtIndex:i];
 }
 
 - (NSString *) description {
@@ -35,6 +40,9 @@
 
 - (void) dealloc {
 	NSLog(@"✝ %@", self);
+	while([fBindings count] > 0) {
+		[[fBindings objectAtIndex:0] unbind];
+	}
 	[fBindings release];
 	[fObject release];
 	[super dealloc];

@@ -41,7 +41,14 @@
 }
 
 - (void) unbind {
-	[fModel unbind:self];
+	if (fModel != nil) {
+		NSLog(@"Unbind %@", self);
+		[fTarget removeObserver:self forKeyPath:fTargetProperty];
+		[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
+		Model *model = fModel;
+		fModel = nil;
+		[model unbind:self];
+	}
 }
 
 - (void) updateModel {
@@ -98,8 +105,7 @@
 
 - (void) dealloc {
 	NSLog(@"✝ %@", self);
-	[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
-	[fTarget removeObserver:self forKeyPath:fTargetProperty];
+	[self unbind];
 	[fModelProperty release];
 	[fTargetProperty release];
 	[fConverter release];
