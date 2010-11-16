@@ -4,7 +4,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Model.h"
-#import "Converter.h"
+#import "BindingSettings.h"
 
 @interface Binding : NSObject {
 	Model *fModel;
@@ -13,14 +13,15 @@
 	NSObject *fTarget;
 	NSString *fTargetProperty;
 
-	NSObject<Converter> *fConverter;
+	BindingSettings *fSettings;
 	BOOL fUpdateInProgress;
 }
 
-- (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter;
-- (void) rebindModel:(Model *)model property:(NSString *)modelProperty;
+- (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
 - (void) updateModel;
 - (void) updateTarget;
 - (void) unbind;
+
+@property (nonatomic, retain) NSString *modelProperty;
 
 @end

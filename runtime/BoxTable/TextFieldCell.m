@@ -68,16 +68,7 @@
 	}
 }
 
-- (void) bind:(Model *)model property:(NSString *)propertyName {
-	if (fBinding) {
-		[fBinding rebindModel:model property:propertyName];
-	} else {
-		fBinding = [model bind:propertyName to:self.textField property:@"text" converter:nil];
-	}
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-	[fBinding updateModel];
 	[self.onReturn performWithObject:textField];
 	return YES;
 }

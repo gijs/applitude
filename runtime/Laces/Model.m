@@ -17,12 +17,16 @@
 	return self;
 }
 
-- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter {
-	Binding *binding = [[Binding alloc] initWithModel:self property:modelProperty to:target property:targetProperty converter:converter];
+- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings {
+	Binding *binding = [[Binding alloc] initWithModel:self property:modelProperty to:target property:targetProperty settings:settings];
 	[fBindings addObject:binding];
 	[binding release];
 	NSLog(@"Created %@", binding);
 	return binding;
+}
+
+- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty {
+	return [self bind:modelProperty to:target property:targetProperty settings:nil];
 }
 
 // internal method for Binding only

@@ -4,7 +4,7 @@
 #import <Foundation/Foundation.h>
 
 @class Binding;
-#import "Converter.h"
+#import "BindingSettings.h"
 
 @interface Model : NSObject {
 
@@ -14,7 +14,8 @@
 }
 
 - (id) initWithObject:(NSObject *)object;
-- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter;
+- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
+- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty;
 - (void) unbind:(Binding *)binding;
 
 @property (nonatomic, readonly) id modelObject;

@@ -5,18 +5,20 @@
 
 @implementation Binding
 
+@synthesize modelProperty = fModelProperty;
+
 // Null-safe isEqual ([nil isEqual:nil] is false)
 #define OBJECT_EQUAL(o1, o2) ((o1 == nil && o2 == nil) || (o1 != nil && o2 != nil && [o1 isEqual:o2]))
 
 // TODO: if this is called directly, the Binding is not registered with the Model
-- (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter{
+- (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings {
 	self = [super init];
 	if (self != nil) {
 		fModel = model;
 		fModelProperty = [modelProperty retain];
 		fTarget = target;
 		fTargetProperty = [targetProperty retain];
-		fConverter = [converter retain];
+		fSettings = [settings retain];
 
 		[self updateTarget];
 
@@ -26,18 +28,16 @@
 	return self;
 }
 
-- (void) rebindModel:(Model *)model property:(NSString *)modelProperty {
-	if (fModel != model) {
-		NSLog(@"WARNING: Rebinding to a different model is not supported as of now!");
-		return;
+// Rebind to another model property
+- (void) setModelProperty:(NSString *)modelProperty {
+	if (modelProperty != fModelProperty) {
+		[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
+		[fModelProperty release];
+		fModelProperty = [modelProperty retain];
+		[self updateTarget];
+		[fModel.modelObject addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
+		NSLog(@"Rebound: %@", self);
 	}
-
-	[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
-	fModelProperty = modelProperty;
-	[self updateTarget];
-	[fModel.modelObject addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
-
-	NSLog(@"Rebind: %@", self);
 }
 
 - (void) unbind {
@@ -52,7 +52,7 @@
 }
 
 - (void) updateModel {
-	if (fConverter != nil) {
+	if (fSettings != nil && fSettings.converter) {
 		NSLog(@"%@ has a converter, updating the model is not supported!");
 		return;
 	}
@@ -69,8 +69,8 @@
 - (void) updateTarget {
 	id oldValue = [fTarget valueForKey:fTargetProperty];
 	id newValue = [fModel.modelObject valueForKey:fModelProperty];
-	if (fConverter != nil) {
-		newValue = [fConverter convert:newValue];
+	if (fSettings != nil && fSettings.converter != nil) {
+		newValue = [fSettings.converter convert:newValue];
 	}
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
@@ -107,7 +107,7 @@
 	[self unbind];
 	[fModelProperty release];
 	[fTargetProperty release];
-	[fConverter release];
+	[fSettings release];
 	[super dealloc];
 }
 
