@@ -23,7 +23,9 @@
 		[self updateTarget];
 
 		[fModel.modelObject addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
-		[fTarget addObserver:self forKeyPath:fTargetProperty options:NSKeyValueObservingOptionNew context:NULL];
+		if (!fSettings.readonly) {
+			[fTarget addObserver:self forKeyPath:fTargetProperty options:NSKeyValueObservingOptionNew context:NULL];
+		}
 	}
 	return self;
 }
@@ -43,7 +45,9 @@
 - (void) unbind {
 	if (fModel != nil) {
 		NSLog(@"Unbind %@", self);
-		[fTarget removeObserver:self forKeyPath:fTargetProperty];
+		if (!fSettings.readonly) {
+			[fTarget removeObserver:self forKeyPath:fTargetProperty];
+		}
 		[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
 		Model *model = fModel;
 		fModel = nil;
@@ -52,16 +56,11 @@
 }
 
 - (void) updateModel {
-	if (fSettings != nil && (fSettings.converter || fSettings.formattingSelector)) {
-		NSLog(@"%@ has a converter/formatter, updating the model is not supported!");
-		return;
-	}
-
 	id oldValue = [fModel.modelObject valueForKey:fModelProperty];
 	id newValue = [fTarget valueForKey:fTargetProperty];
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
-		NSLog(@"%@.%@ := %@", [fModel class], fModelProperty, newValue);
+		NSLog(@"  %@.%@ := %@", [fModel class], fModelProperty, newValue);
 		[fModel.modelObject setValue:newValue forKey:fModelProperty];
 	}
 }
@@ -77,27 +76,18 @@
 	}
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
-		NSLog(@"%@.%@ := %@", [fTarget class], fTargetProperty, newValue);
+		NSLog(@"  %@.%@ := %@", [fTarget class], fTargetProperty, newValue);
 		[fTarget setValue:newValue forKey:fTargetProperty];
 	}
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if (fUpdateInProgress) {
-		return;
+	NSLog(@"  observed change: %@.%@ -> %@", [object class], keyPath, [change valueForKey:NSKeyValueChangeNewKey]);
+	if (object == fModel.modelObject) {
+		[self updateTarget];
 	}
-
-	@try {
-		fUpdateInProgress = true;
-		if (object == fModel.modelObject) {
-			[self updateTarget];
-		}
-		else if (object == fTarget) {
-			[self updateModel];
-		}
-	}
-	@finally {
-		fUpdateInProgress = NO;
+	else if (object == fTarget) {
+		[self updateModel];
 	}
 }
 

@@ -14,7 +14,6 @@
 	NSString *fTargetProperty;
 
 	BindingSettings *fSettings;
-	BOOL fUpdateInProgress;
 }
 
 - (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;

@@ -8,10 +8,12 @@
 @interface BindingSettings : NSObject {
 	NSObject<Converter> *fConverter;
 	SEL fFormattingSelector;
+	BOOL fReadOnly;
 }
 
 @property (nonatomic, retain) NSObject<Converter> *converter;
 @property (nonatomic, assign) SEL formattingSelector;
+@property (nonatomic, assign) BOOL readonly;
 
 + (id) withConverter:(NSObject<Converter> *)converter;
 + (id) withFormattingSelector:(SEL)selector;

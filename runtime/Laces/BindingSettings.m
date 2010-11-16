@@ -5,17 +5,19 @@
 
 @implementation BindingSettings
 
-@synthesize converter = fConverter, formattingSelector = fFormattingSelector;
+@synthesize converter = fConverter, formattingSelector = fFormattingSelector, readonly = fR;
 
 + (id) withConverter:(NSObject<Converter> *)converter {
 	BindingSettings *settings = [[[BindingSettings alloc] init] autorelease];
 	settings.converter = converter;
+	settings.readonly = YES;
 	return settings;
 }
 
 + (id) withFormattingSelector:(SEL)selector {
 	BindingSettings *settings = [[[BindingSettings alloc] init] autorelease];
 	settings.formattingSelector = selector;
+	settings.readonly = YES;
 	return settings;
 }
 
