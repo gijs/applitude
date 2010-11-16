@@ -52,8 +52,8 @@
 }
 
 - (void) updateModel {
-	if (fSettings != nil && fSettings.converter) {
-		NSLog(@"%@ has a converter, updating the model is not supported!");
+	if (fSettings != nil && (fSettings.converter || fSettings.formattingSelector)) {
+		NSLog(@"%@ has a converter/formatter, updating the model is not supported!");
 		return;
 	}
 
@@ -69,8 +69,11 @@
 - (void) updateTarget {
 	id oldValue = [fTarget valueForKey:fTargetProperty];
 	id newValue = [fModel.modelObject valueForKey:fModelProperty];
-	if (fSettings != nil && fSettings.converter != nil) {
-		newValue = [fSettings.converter convert:newValue];
+	if (fSettings != nil) {
+		if (fSettings.converter)
+			newValue = [fSettings.converter convert:newValue];
+		else if (fSettings.formattingSelector)
+			newValue = [newValue performSelector:fSettings.formattingSelector];
 	}
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
