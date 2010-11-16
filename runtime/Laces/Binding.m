@@ -80,13 +80,12 @@
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	static BOOL updateInProgress;
-
-	if (updateInProgress)
+	if (fUpdateInProgress) {
 		return;
+	}
 
 	@try {
-		updateInProgress = true;
+		fUpdateInProgress = true;
 		if (object == fModel.modelObject) {
 			[self updateTarget];
 		}
@@ -95,7 +94,7 @@
 		}
 	}
 	@finally {
-		updateInProgress = NO;
+		fUpdateInProgress = NO;
 	}
 }
 

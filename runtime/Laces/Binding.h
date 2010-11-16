@@ -14,6 +14,7 @@
 	NSString *fTargetProperty;
 
 	NSObject<Converter> *fConverter;
+	BOOL fUpdateInProgress;
 }
 
 - (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty converter:(NSObject<Converter> *)converter;
