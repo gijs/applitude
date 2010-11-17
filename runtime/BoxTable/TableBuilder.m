@@ -39,7 +39,6 @@
 - (BoxCell *) text:(NSString *) text {
 	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
 	cell.textLabel.text = text;
-	brandCell(cell);
 	[self cell:cell];
 	[cell release];
 	return cell;
@@ -54,8 +53,6 @@
 - (TextFieldCell *) textFieldWithLabel:(NSString *) label {
 	TextFieldCell *cell = [[TextFieldCell alloc] init];
 	cell.textLabel.text = label;
-	brandCell(cell);
-
 	[self cell:cell];
 	[cell release];
 

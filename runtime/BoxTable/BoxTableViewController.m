@@ -11,6 +11,7 @@
 #import "Section.h"
 #import "PlaceholderResolver.h"
 #import "Cell.h"
+#import "Branding.h"
 
 @implementation BoxTableViewController
 
@@ -53,6 +54,7 @@
 	[self checkInitialized];
 	NSObject<Section> *section = [fSections objectAtIndex:indexPath.section];
 	UITableViewCell *cell = [[section rows] objectAtIndex:indexPath.row];
+	brandCell(tableView, cell, indexPath);
 	return cell;
 }
 
