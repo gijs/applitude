@@ -19,7 +19,7 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class ApplauseDslProposalProvider extends AbstractApplauseDslProposalProvider {
-	public void completeTabbarButton_Icon(Tab tab, Assignment assignment, ContentAssistContext context,
+	public void completeTab_Icon(Tab tab, Assignment assignment, ContentAssistContext context,
 			ICompletionProposalAcceptor acceptor) throws CoreException {
 		super.completeTab_Icon(tab, assignment, context, acceptor);
 		
