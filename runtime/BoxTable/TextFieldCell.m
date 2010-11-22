@@ -69,6 +69,8 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[textField willChangeValueForKey:@"text"];
+	[textField didChangeValueForKey:@"text"];
 	[self.onReturn performWithObject:textField];
 	return YES;
 }
