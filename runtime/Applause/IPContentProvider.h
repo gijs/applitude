@@ -8,21 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface IPContentProvider : NSObject {
-	id content;
-	id providers;
-	BOOL loading;
+	id fContent;
+	BOOL fLoading;
 }
 
--(void)requestContent;
--(void)requestContentIfEmpty;
+- (void) requestContent;
+- (void) requestContentIfEmpty;
 
--(id) initWithContent:(id)aContent andProviders:(id)aProviders;
-+(id) providerWithContent: (id)aContent andProviders:(id)aProviders;
+- (id) initWithContent:(id)aContent;
++ (id) providerWithContent: (id)aContent;
 
 @property (nonatomic, retain) id content;
-@property (nonatomic, retain) id providers;
 @property (nonatomic, assign) BOOL loading;
 
 @end

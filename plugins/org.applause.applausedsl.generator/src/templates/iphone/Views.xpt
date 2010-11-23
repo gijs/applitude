@@ -11,12 +11,12 @@
 
 
 «DEFINE headerFile FOR Application»
-«FILE viewsH()»
+«FILE viewFactory().h()»
 
 «FOREACH allViewClasses() AS view»#import "«view.className()».h"
 «ENDFOREACH-»
 
-@interface «views()» : NSObject {
+@interface «viewFactory().name» : NSObject {
 
 }
 
@@ -31,11 +31,11 @@
 
 
 «DEFINE moduleFile FOR Application»
-«FILE viewsM()»
-#import "«viewsH()»"
+«FILE viewFactory().m()»
+«viewFactory().importHeader()»
 #import "Branding.h"
 
-@implementation «views()»
+@implementation «viewFactory().name»
 
 «EXPAND viewFactoryMethod FOREACH allViews()»
 

@@ -7,44 +7,87 @@
 «EXPAND moduleFile»
 «ENDDEFINE»
 
+
+
+
 «DEFINE headerFile FOR Application»
-«FILE filenameCentralProvidersHeader()»
+«FILE providerFactory().h()»
 #import "IPContentProvider.h"
+«allProviders().neededClasses().objcImports()»
 
-@interface «centralProvidersClassName()» : NSObject {
-
+@interface «providerFactory().name» : NSObject {
+	«allProviders().select(e|e.storing).collect(e|"IPContentProvider *"+e.ivar()+";").toString("\n\t")»
 }
 
-«FOREACH providersWithImplementation() AS p-»
-«p.methodSignature()»;
-«ENDFOREACH»
++ («providerFactory().name» *) sharedProviders;
+
+«allProviders().methodSignature().statements()»
+
 @end
 «ENDFILE»
 «ENDDEFINE»
+
+
+
 
 «DEFINE moduleFile FOR Application»
-«FILE filenameCentralProvidersModule()»
-#import "«filenameCentralProvidersHeader()»"
-«FOREACH providersWithImplementation().neededImports().toSet() AS import»#import "«import»"
-«ENDFOREACH-»
+«FILE providerFactory().m()»
+«providerFactory().importHeader()»
 
-@implementation «centralProvidersClassName()»
+@implementation «providerFactory().name»
 
-«EXPAND providerMethodImplementation FOREACH providersWithImplementation()»
+static «providerFactory().name» *sharedProviders = nil;
+
++ («providerFactory().name» *) sharedProviders {
+	@synchronized(self) {
+		if (sharedProviders == nil)
+			sharedProviders = [[self alloc] init];
+	}
+	return sharedProviders;
+}
+
+«EXPAND providerMethodImplementation FOREACH allProviders()»
 @end
 «ENDFILE»
 «ENDDEFINE»
 
+
+
+
 «DEFINE providerMethodImplementation FOR ContentProvider»
-«LET parameter.name != null ? parameter.name : '' AS kvcTarget»
 «methodSignature()» {
-	NSString* url = «url.expression(kvcTarget, '')»;
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: «selection.expression(kvcTarget, '')»
-								  andProviders:self] autorelease];
-	return result;
+	«IF !this.storing-»
+		return «EXPAND constructProvider-»;
+	«ELSE»
+	if (!«this.ivar()») {
+		«this.ivar()» = «EXPAND constructProvider-»;
+	}
+	return «this.ivar()»;
+	«ENDIF»
 }
-«ENDLET»
+«ENDDEFINE»
+
+
+
+«DEFINE constructProvider FOR ContentProvider-»
+«IF this.implementation == null-»
+[[IPSimpleContentProvider alloc] initWithContent:«type.className().objcAllocInit()»]«ELSE-»
+«EXPAND constructProvider(this) FOR this.implementation-»
+«ENDIF-»
+«ENDDEFINE»
+
+
+
+«DEFINE constructProvider(ContentProvider provider) FOR ContentProviderImplementation»
+	<Unknown «provider»> 
+«ENDDEFINE»
+
+«DEFINE constructProvider(ContentProvider provider) FOR FetchingContentProviderImplementation-»
+«LET provider.parameter.name != null ? provider.parameter.name : '' AS kvcTarget-»
+[[«this.className()» alloc] initWithURL:[NSURL URLWithString:«url.expression(kvcTarget, '')»]]
+«ENDLET-»
+«ENDDEFINE»
+
+«DEFINE constructProvider(ContentProvider provider) FOR CustomContentProviderImplementation-»
+«this.className().objcAllocInit()»
 «ENDDEFINE»

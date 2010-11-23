@@ -74,7 +74,7 @@ SimpleType:
 	'type' name=ID 'mapsTo' platformType = STRING;
 	
 Entity :
-	'entity' name=ID ('extends' extends=[Entity])? '{'
+	'entity' (runtimeType?='class')? name=ID ('extends' extends=[Entity])? '{'
 		(properties+=Property)*
 	'}';
 
@@ -87,10 +87,21 @@ Property:
 ContentProvider:
 	'contentprovider' name=ID
 	('(' parameter=Parameter ')')? 
-	'returns' type=[Type] (many?='[]')?
-	'fetches' 'XML'
-	'from' url=ScalarExpression
-	'selects' selection=ScalarExpression;
+	('returns'|storing?="stores") type=[Type] (many?='[]')?
+	implementation=ContentProviderImplementation?;
+
+ContentProviderImplementation:
+	FetchingContentProviderImplementation | CustomContentProviderImplementation;
+
+enum SerializationFormat:
+	XML | JSON;
+
+FetchingContentProviderImplementation:
+	'fetches' format=SerializationFormat 'from' url=ScalarExpression 'selects' selection=ScalarExpression?;
+
+CustomContentProviderImplementation:
+	'class' providerClass=ProjectClass;
+
 
 ProviderConstruction:
 	{ComplexProviderConstruction} provider=[ContentProvider] '(' (argument=Expression)? ')' |
@@ -176,3 +187,6 @@ ExternalOpen:
 
 ViewCall:
 	view=[View] '(' (provider=ProviderConstruction)? ')';
+	
+ProjectClass:
+	name=ID;

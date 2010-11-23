@@ -16,5 +16,6 @@
 }
 
 - (NSArray *) buildSections;
+- (void) updateAndReload;
 
 @end

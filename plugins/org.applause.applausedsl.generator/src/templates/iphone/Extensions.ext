@@ -3,11 +3,40 @@ import org::applause::applausedsl::applauseDsl;
 
 extension templates::MetamodelExtensions;
 
+// Objective C language support
+
+objcImports(Collection[String] classNames):
+	classNames.toSet().remove(null).remove("").collect(e|"#import \"" + e + '.h";').toString("\n");
+
+objcAllocInit(String className):
+	"[[" + className + " alloc] init]";
+
+cached ProjectClass newProjectClass(String name):
+	JAVA templates.Extensions.createProjectClass(java.lang.String);
+
+h(ProjectClass this):
+	this.name + ".h";
+
+m(ProjectClass this):
+	this.name + ".m";
+
+importHeader(ProjectClass class):
+	"#import \"" + class.h() + '";';
+
+importHeader(Collection[ProjectClass] classes):
+	classes.remove(null).collect(e|e.importHeader()).toString("\n");
+
+statements(Collection[String] strings):
+	strings.collect(e|e + ";").toString("\n");
+
 className(View this):
 	this.name.toFirstUpper() + "ViewController";
 
 className(CustomView this):
 	this.className;
+
+className(Type this):
+	this.name;
 
 filenameHeader(View this):
 	className() + ".h";
@@ -16,14 +45,8 @@ filenameModule(View this):
 	className() + ".m";
 
 /* View Accessor */
-views(Application this):
-	this.name + "Views";
-
-viewsH(Application this):
-	views(this) + ".h";
-
-viewsM(Application this):
-	views(this) + ".m";
+viewFactory(Application app):
+	newProjectClass(app.name + "Views");
 
 neededImports(View this):
 	{ this.className() + ".h" };
@@ -38,46 +61,59 @@ factoryMethodName(View view):
 	"create" + view.name;
 
 factoryCall(View view):
-	"[" + application(view).views() + " " + view.factoryMethodName() + "]";
+	"[" + application(view).viewFactory().name + " " + view.factoryMethodName() + "]";
 
 
 
 /* Providers */
-centralProvidersClassName(Application this):
-	this.name + "Providers";
-	
-filenameCentralProvidersHeader(Application this):
-	centralProvidersClassName() + ".h";
-	
-filenameCentralProvidersModule(Application this):
-	centralProvidersClassName() + ".m";
-	
-applicationDelegateClassname(Application this):
-	this.name + "AppDelegate";
+providerFactory(Application app):
+	newProjectClass(app.name + "Providers");
 
-filenameApplicationDelegateHeader(Application this):
-	applicationDelegateClassname() + '.h';
-
-filenameApplicationDelegateModule(Application this):
-	applicationDelegateClassname() + '.m';
-
+applicationDelegate(Application app):
+	newProjectClass(app.name + "AppDelegate");
+	
 neededImports(SectionedView this):
 	sections.cells.action.reject(e|e==null).neededImports().flatten().toSet();
 	
 neededImports(ViewAction this):
 	{};	
-	
-neededImports(ViewCall this):
-	provider.neededImports().union({view.filenameHeader()});
-	
-neededImports(ProviderConstruction this):
-	{"IPContentProvider.h"};
-	
-neededImports(ComplexProviderConstruction this):
-	{application().filenameCentralProvidersHeader()};
 
-neededImports(ContentProvider this):
-	{"IPXMLContentProvider.h"};
+className(ContentProviderImplementation this):
+	"<undefined className(" + this + ")>";
+
+className(FetchingContentProviderImplementation this):
+	"IP" + this.format.name + "ContentProvider";
+
+className(CustomContentProviderImplementation this):
+	this.providerClass.name;
+
+ivar(ContentProvider provider):
+	"f" + provider.name.toFirstUpper();
+
+
+
+neededClasses(Type this):
+	{};
+
+neededClasses(Entity this):
+	this.runtimeType ? { this.className() } : {}; 
+
+
+neededClasses(ViewCall this):
+	provider.neededClasses().union({view.className()});
+
+neededClasses(ContentProvider this):
+	this.type.neededClasses().addAll(this.implementation == null ? {} : {this.implementation.className()});
+	
+neededClasses(ProviderConstruction this):
+	{"IPContentProvider"};
+	
+neededClasses(ComplexProviderConstruction this):
+	{application().providerFactory()};
+
+
+
+
 
 baseClassName(View this):
 	"";
@@ -159,11 +195,11 @@ rowCount(SectionCell this):
 	iterator == null ? 1 : '[[' + iterator.collection.expression('contentProvider', 'content') +' asArray] count]'; 
 	
 methodSignature(ContentProvider p):
-	"-(IPContentProvider*)providerFor" + p.name + (
+	"- (IPContentProvider *) providerFor" + p.name + (
 		p.parameter != null ? ':(id)' + p.parameter.name : '') 
 	;
 	
-providersWithImplementation(Application this):
+allProviders(Application this):
 	model().elements.typeSelect(ContentProvider);
 	
 allViews(Application this):

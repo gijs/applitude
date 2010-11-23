@@ -31,7 +31,7 @@
 	return nil;
 }
 
-- (void)updateAndReload {
+- (void) updateAndReload {
 	[self clear];
 	[self checkInitialized];
 	[self.tableView reloadData];

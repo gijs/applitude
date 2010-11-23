@@ -11,36 +11,32 @@
 
 @implementation IPContentProvider
 
-@synthesize content, providers, loading;
+@synthesize content = fContent, loading = fLoading;
 
--(void)requestContent {
-	[NSException raise:NSInternalInconsistencyException 
+- (void) requestContent {
+	[NSException raise:NSInternalInconsistencyException
 				format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
 }
 
--(void)requestContentIfEmpty {
-	if(!content)
+- (void) requestContentIfEmpty {
+	if(!fContent)
 		[self requestContent];
 }
 
--(id) initWithContent:(id)aContent andProviders:(id)aProviders{
+- (id) initWithContent:(id)aContent {
 	self = [super init];
 	if(self) {
 		self.content = aContent;
-		self.providers = aProviders;
 	}
 	return self;
 }
 
-
-+(id) providerWithContent: (id)aContent andProviders:(id)aProviders {
-	return [[[self alloc] initWithContent:aContent andProviders:aProviders]autorelease];
++ (id) providerWithContent: (id)aContent {
+	return [[[self alloc] initWithContent:aContent] autorelease];
 }
 
-- (void) dealloc
-{
+- (void) dealloc {
 	self.content = nil;
-	self.providers = nil;
 	[super dealloc];
 }
 
@@ -48,7 +44,7 @@
 
 @implementation IPSimpleContentProvider
 
--(void)requestContent {
+- (void) requestContent {
 	[self willChangeValueForKey:@"content"];
     [self didChangeValueForKey:@"content"];
 }

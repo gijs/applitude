@@ -14,10 +14,10 @@
 
 
 «DEFINE headerFile FOR Application»
-«FILE filenameApplicationDelegateHeader()»
+«FILE applicationDelegate().h()»
 #import <UIKit/UIKit.h>
 
-@interface «applicationDelegateClassname()» : NSObject <UIApplicationDelegate> {
+@interface «applicationDelegate().name» : NSObject <UIApplicationDelegate> {
 	UIWindow *window;
 	UIViewController *rootController;
 }
@@ -43,15 +43,14 @@
 «ENDDEFINE»
 
 «DEFINE moduleFile FOR Application»
-«FILE filenameApplicationDelegateModule()»
-#import "«filenameApplicationDelegateHeader()»"
+«FILE applicationDelegate().m()»
+«{ applicationDelegate(), providerFactory() }.importHeader()»
 #import "IPUIView.h"
-#import "«filenameCentralProvidersHeader()»"
-#import "«viewsH()»"
+«viewFactory().importHeader()»
 
 «EXPAND importStatements-»
 
-@implementation «applicationDelegateClassname()»
+@implementation «applicationDelegate().name»
 
 @synthesize window, rootController;
 

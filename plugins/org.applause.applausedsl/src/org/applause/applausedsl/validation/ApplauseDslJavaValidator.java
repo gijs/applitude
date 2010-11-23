@@ -2,6 +2,7 @@ package org.applause.applausedsl.validation;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.Application;
+import org.applause.applausedsl.applauseDsl.ContentProvider;
 import org.applause.applausedsl.applauseDsl.StringLiteral;
 import org.applause.applausedsl.applauseDsl.Tab;
 import org.applause.applausedsl.applauseDsl.View;
@@ -22,6 +23,13 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 //			error("You need to specify exactly one home view.", AppModelDslPackage.APPLICATION);
 //		}
 //	}
+
+	@Check
+	void cachingOnlyForUnparameterizedContent(ContentProvider contentProvider) {
+		if (contentProvider.isStoring() && contentProvider.getParameter()!=null) {
+			error("Storing the content provider is only supported for content providers without parameters.", ApplauseDslPackage.CONTENT_PROVIDER__STORING);
+		}
+	}
 	
 	@Check
 	void viewNamesShouldStartWithCapital(View view) {
