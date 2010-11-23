@@ -1,5 +1,8 @@
 package templates;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.applause.applausedsl.applauseDsl.ApplauseDslFactory;
 import org.applause.applausedsl.applauseDsl.ProjectClass;
 import org.eclipse.emf.ecore.EObject;
@@ -7,6 +10,8 @@ import org.eclipse.xtext.EcoreUtil2;
 
 public class Extensions {
 	
+	private static Set<ProjectClass> currentImportBag = new HashSet<ProjectClass>();
+
 	public static EObject getRootContainer(EObject obj) {
 		EObject result = EcoreUtil2.getRootContainer(obj);
 		return result;
@@ -16,6 +21,15 @@ public class Extensions {
 		ProjectClass projectClass = ApplauseDslFactory.eINSTANCE.createProjectClass();
 		projectClass.setName(name);
 		return projectClass;
+	}
+
+	public static String use(ProjectClass projectClass) {
+		currentImportBag.add(projectClass);
+		return projectClass.getName();
+	}
+
+	public static void useImportBag(Set<ProjectClass> usedClasses) {
+		currentImportBag = usedClasses;
 	}
 
 }

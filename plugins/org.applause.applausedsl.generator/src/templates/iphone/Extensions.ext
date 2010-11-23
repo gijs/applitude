@@ -5,38 +5,58 @@ extension templates::MetamodelExtensions;
 
 // Objective C language support
 
+String use(String name):
+	use(newProjectClass(name));
+
+String use(ProjectClass projectClass):
+	JAVA templates.Extensions.use(org.applause.applausedsl.applauseDsl.ProjectClass);
+
+Void useImportBag(Set[ProjectClass] bag):
+	JAVA templates.Extensions.useImportBag(java.util.Set);
+
+
 objcImports(Collection[String] classNames):
 	classNames.toSet().remove(null).remove("").collect(e|"#import \"" + e + '.h";').toString("\n");
 
-objcAllocInit(String className):
-	"[[" + className + " alloc] init]";
+create Set[ProjectClass] bagHeaderImports (ProjectClass class):
+	((List[ProjectClass]) {}).toSet();
+
+create Set[ProjectClass] bagModuleImports (ProjectClass class):
+	((List[ProjectClass]) {}).toSet();
+
+Set[ProjectClass] headerImports(ProjectClass class):
+	class.bagHeaderImports().remove(class);
+
+Set[ProjectClass] moduleImports(ProjectClass class):
+	class.bagModuleImports().removeAll(class.bagHeaderImports()).add(class);
 
 cached ProjectClass newProjectClass(String name):
 	JAVA templates.Extensions.createProjectClass(java.lang.String);
 
-h(ProjectClass this):
-	this.name + ".h";
+h(ProjectClass class):
+	useImportBag(class.bagHeaderImports()) -> (class.name + ".h");
 
-m(ProjectClass this):
-	this.name + ".m";
+m(ProjectClass class):
+	useImportBag(class.bagModuleImports()) -> (class.name + ".m");
 
-importHeader(ProjectClass class):
-	"#import \"" + class.h() + '";';
-
-importHeader(Collection[ProjectClass] classes):
-	classes.remove(null).collect(e|e.importHeader()).toString("\n");
+allocInit(ProjectClass class):
+	"[[" + use(class) + " alloc] init]";
 
 statements(Collection[String] strings):
 	strings.collect(e|e + ";").toString("\n");
 
+
+
+
+
 className(View this):
-	this.name.toFirstUpper() + "ViewController";
+	use(this.name.toFirstUpper() + "ViewController");
 
 className(CustomView this):
-	this.className;
+	use(this.className);
 
-className(Type this):
-	this.name;
+class(Type this):
+	newProjectClass(this.name);
 
 filenameHeader(View this):
 	className() + ".h";
@@ -61,7 +81,7 @@ factoryMethodName(View view):
 	"create" + view.name;
 
 factoryCall(View view):
-	"[" + application(view).viewFactory().name + " " + view.factoryMethodName() + "]";
+	"[" + use(application(view).viewFactory()) + " " + view.factoryMethodName() + "]";
 
 
 
@@ -78,14 +98,14 @@ neededImports(SectionedView this):
 neededImports(ViewAction this):
 	{};	
 
-className(ContentProviderImplementation this):
-	"<undefined className(" + this + ")>";
+class(ContentProviderImplementation this):
+	Void;
 
-className(FetchingContentProviderImplementation this):
-	"IP" + this.format.name + "ContentProvider";
+class(FetchingContentProviderImplementation this):
+	newProjectClass("IP" + this.format.name + "ContentProvider");
 
-className(CustomContentProviderImplementation this):
-	this.providerClass.name;
+class(CustomContentProviderImplementation this):
+	newProjectClass(this.providerClass.name);
 
 ivar(ContentProvider provider):
 	"f" + provider.name.toFirstUpper();
@@ -96,14 +116,14 @@ neededClasses(Type this):
 	{};
 
 neededClasses(Entity this):
-	this.runtimeType ? { this.className() } : {}; 
+	this.runtimeType ? { this.class() } : {}; 
 
 
 neededClasses(ViewCall this):
 	provider.neededClasses().union({view.className()});
 
 neededClasses(ContentProvider this):
-	this.type.neededClasses().addAll(this.implementation == null ? {} : {this.implementation.className()});
+	this.type.neededClasses().addAll(this.implementation == null ? {} : {this.implementation.class()});
 	
 neededClasses(ProviderConstruction this):
 	{"IPContentProvider"};

@@ -8,18 +8,15 @@
 «ENDDEFINE»
 
 
-
-
 «DEFINE headerFile FOR Application»
 «FILE providerFactory().h()»
-#import "IPContentProvider.h"
-«allProviders().neededClasses().objcImports()»
+«EXPAND ObjC::Import FOREACH providerFactory().headerImports() ONFILECLOSE»
 
-@interface «providerFactory().name» : NSObject {
-	«allProviders().select(e|e.storing).collect(e|"IPContentProvider *"+e.ivar()+";").toString("\n\t")»
+@interface «use(providerFactory())» : NSObject {
+	«allProviders().select(e|e.storing).collect(e|use("IPContentProvider")+" *"+e.ivar()+";").toString("\n\t")»
 }
 
-+ («providerFactory().name» *) sharedProviders;
++ («use(providerFactory())» *) sharedProviders;
 
 «allProviders().methodSignature().statements()»
 
@@ -32,13 +29,13 @@
 
 «DEFINE moduleFile FOR Application»
 «FILE providerFactory().m()»
-«providerFactory().importHeader()»
+«EXPAND ObjC::Import FOREACH providerFactory().moduleImports() ONFILECLOSE»
 
-@implementation «providerFactory().name»
+@implementation «use(providerFactory())»
 
-static «providerFactory().name» *sharedProviders = nil;
+static «use(providerFactory())» *sharedProviders = nil;
 
-+ («providerFactory().name» *) sharedProviders {
++ («use(providerFactory())» *) sharedProviders {
 	@synchronized(self) {
 		if (sharedProviders == nil)
 			sharedProviders = [[self alloc] init];
@@ -50,7 +47,6 @@ static «providerFactory().name» *sharedProviders = nil;
 @end
 «ENDFILE»
 «ENDDEFINE»
-
 
 
 
@@ -71,7 +67,7 @@ static «providerFactory().name» *sharedProviders = nil;
 
 «DEFINE constructProvider FOR ContentProvider-»
 «IF this.implementation == null-»
-[[IPSimpleContentProvider alloc] initWithContent:«type.className().objcAllocInit()»]«ELSE-»
+[[IPSimpleContentProvider alloc] initWithContent:«type.class().allocInit()»]«ELSE-»
 «EXPAND constructProvider(this) FOR this.implementation-»
 «ENDIF-»
 «ENDDEFINE»
@@ -84,10 +80,10 @@ static «providerFactory().name» *sharedProviders = nil;
 
 «DEFINE constructProvider(ContentProvider provider) FOR FetchingContentProviderImplementation-»
 «LET provider.parameter.name != null ? provider.parameter.name : '' AS kvcTarget-»
-[[«this.className()» alloc] initWithURL:[NSURL URLWithString:«url.expression(kvcTarget, '')»]]
+[[«use(this.class())» alloc] initWithURL:[NSURL URLWithString:«url.expression(kvcTarget, '')»]]
 «ENDLET-»
 «ENDDEFINE»
 
 «DEFINE constructProvider(ContentProvider provider) FOR CustomContentProviderImplementation-»
-«this.className().objcAllocInit()»
+«this.class().allocInit()»
 «ENDDEFINE»

@@ -16,6 +16,7 @@
 «DEFINE headerFile FOR Application»
 «FILE applicationDelegate().h()»
 #import <UIKit/UIKit.h>
+«EXPAND ObjC::Import FOREACH applicationDelegate().headerImports() ONFILECLOSE»
 
 @interface «applicationDelegate().name» : NSObject <UIApplicationDelegate> {
 	UIWindow *window;
@@ -33,22 +34,10 @@
 
 
 
-«DEFINE importStatements FOR Application-»
-«ENDDEFINE»
-
-«DEFINE importStatement FOR Tab-»
-#import "«view.view.filenameHeader()»"
-
-
-«ENDDEFINE»
 
 «DEFINE moduleFile FOR Application»
 «FILE applicationDelegate().m()»
-«{ applicationDelegate(), providerFactory() }.importHeader()»
-#import "IPUIView.h"
-«viewFactory().importHeader()»
-
-«EXPAND importStatements-»
+«EXPAND ObjC::Import FOREACH applicationDelegate().moduleImports() ONFILECLOSE»
 
 @implementation «applicationDelegate().name»
 

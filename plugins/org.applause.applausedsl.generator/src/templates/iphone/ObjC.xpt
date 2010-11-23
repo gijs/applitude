@@ -1,0 +1,6 @@
+«IMPORT org::applause::applausedsl::applauseDsl»
+
+«EXTENSION templates::iphone::Extensions»
+
+«DEFINE Import FOR ProjectClass»#import "«this.name».h";
+«ENDDEFINE»

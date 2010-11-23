@@ -9,14 +9,11 @@
 «ENDDEFINE»
 
 
-
 «DEFINE headerFile FOR Application»
 «FILE viewFactory().h()»
+«EXPAND ObjC::Import FOREACH viewFactory().headerImports() ONFILECLOSE»
 
-«FOREACH allViewClasses() AS view»#import "«view.className()».h"
-«ENDFOREACH-»
-
-@interface «viewFactory().name» : NSObject {
+@interface «use(viewFactory())» : NSObject {
 
 }
 
@@ -32,10 +29,10 @@
 
 «DEFINE moduleFile FOR Application»
 «FILE viewFactory().m()»
-«viewFactory().importHeader()»
+«EXPAND ObjC::Import FOREACH viewFactory().moduleImports() ONFILECLOSE»
 #import "Branding.h"
 
-@implementation «viewFactory().name»
+@implementation «use(viewFactory())»
 
 «EXPAND viewFactoryMethod FOREACH allViews()»
 
