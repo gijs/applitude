@@ -15,10 +15,10 @@ package org.applause.applausedsl.applauseDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.ContentProvider#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.ContentProvider#isStoring <em>Storing</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.ContentProvider#getType <em>Type</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.ContentProvider#isMany <em>Many</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.ContentProvider#getUrl <em>Url</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.ContentProvider#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.ContentProvider#getImplementation <em>Implementation</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +53,32 @@ public interface ContentProvider extends ModelElement
    * @generated
    */
   void setParameter(Parameter value);
+
+  /**
+   * Returns the value of the '<em><b>Storing</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Storing</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Storing</em>' attribute.
+   * @see #setStoring(boolean)
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getContentProvider_Storing()
+   * @model
+   * @generated
+   */
+  boolean isStoring();
+
+  /**
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.ContentProvider#isStoring <em>Storing</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Storing</em>' attribute.
+   * @see #isStoring()
+   * @generated
+   */
+  void setStoring(boolean value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' reference.
@@ -107,55 +133,29 @@ public interface ContentProvider extends ModelElement
   void setMany(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Url</b></em>' containment reference.
+   * Returns the value of the '<em><b>Implementation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Url</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Implementation</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Url</em>' containment reference.
-   * @see #setUrl(ScalarExpression)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getContentProvider_Url()
+   * @return the value of the '<em>Implementation</em>' containment reference.
+   * @see #setImplementation(ContentProviderImplementation)
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getContentProvider_Implementation()
    * @model containment="true"
    * @generated
    */
-  ScalarExpression getUrl();
+  ContentProviderImplementation getImplementation();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.ContentProvider#getUrl <em>Url</em>}' containment reference.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.ContentProvider#getImplementation <em>Implementation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Url</em>' containment reference.
-   * @see #getUrl()
+   * @param value the new value of the '<em>Implementation</em>' containment reference.
+   * @see #getImplementation()
    * @generated
    */
-  void setUrl(ScalarExpression value);
-
-  /**
-   * Returns the value of the '<em><b>Selection</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Selection</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Selection</em>' containment reference.
-   * @see #setSelection(ScalarExpression)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getContentProvider_Selection()
-   * @model containment="true"
-   * @generated
-   */
-  ScalarExpression getSelection();
-
-  /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.ContentProvider#getSelection <em>Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Selection</em>' containment reference.
-   * @see #getSelection()
-   * @generated
-   */
-  void setSelection(ScalarExpression value);
+  void setImplementation(ContentProviderImplementation value);
 
 } // ContentProvider

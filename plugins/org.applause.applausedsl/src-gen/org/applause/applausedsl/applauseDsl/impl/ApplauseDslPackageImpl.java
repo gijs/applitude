@@ -15,20 +15,25 @@ import org.applause.applausedsl.applauseDsl.CollectionIterator;
 import org.applause.applausedsl.applauseDsl.CollectionLiteral;
 import org.applause.applausedsl.applauseDsl.ComplexProviderConstruction;
 import org.applause.applausedsl.applauseDsl.ContentProvider;
+import org.applause.applausedsl.applauseDsl.ContentProviderImplementation;
+import org.applause.applausedsl.applauseDsl.CustomContentProviderImplementation;
 import org.applause.applausedsl.applauseDsl.CustomView;
 import org.applause.applausedsl.applauseDsl.DetailsView;
 import org.applause.applausedsl.applauseDsl.Entity;
 import org.applause.applausedsl.applauseDsl.Expression;
 import org.applause.applausedsl.applauseDsl.ExternalOpen;
+import org.applause.applausedsl.applauseDsl.FetchingContentProviderImplementation;
 import org.applause.applausedsl.applauseDsl.Model;
 import org.applause.applausedsl.applauseDsl.ModelElement;
 import org.applause.applausedsl.applauseDsl.ObjectReference;
 import org.applause.applausedsl.applauseDsl.Parameter;
+import org.applause.applausedsl.applauseDsl.ProjectClass;
 import org.applause.applausedsl.applauseDsl.Property;
 import org.applause.applausedsl.applauseDsl.ProviderConstruction;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
 import org.applause.applausedsl.applauseDsl.SectionCell;
 import org.applause.applausedsl.applauseDsl.SectionedView;
+import org.applause.applausedsl.applauseDsl.SerializationFormat;
 import org.applause.applausedsl.applauseDsl.SimpleProviderConstruction;
 import org.applause.applausedsl.applauseDsl.SimpleType;
 import org.applause.applausedsl.applauseDsl.StringConcat;
@@ -203,6 +208,27 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass contentProviderImplementationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fetchingContentProviderImplementationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass customContentProviderImplementationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass providerConstructionEClass = null;
 
   /**
@@ -308,6 +334,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass projectClassEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass stringConcatEClass = null;
 
   /**
@@ -344,6 +377,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EClass simpleProviderConstructionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum serializationFormatEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -740,9 +780,19 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getEntity_RuntimeType()
+  {
+    return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getEntity_Extends()
   {
-    return (EReference)entityEClass.getEStructuralFeatures().get(0);
+    return (EReference)entityEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -752,7 +802,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    */
   public EReference getEntity_Properties()
   {
-    return (EReference)entityEClass.getEStructuralFeatures().get(1);
+    return (EReference)entityEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -810,9 +860,19 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getContentProvider_Storing()
+  {
+    return (EAttribute)contentProviderEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getContentProvider_Type()
   {
-    return (EReference)contentProviderEClass.getEStructuralFeatures().get(1);
+    return (EReference)contentProviderEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -822,7 +882,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    */
   public EAttribute getContentProvider_Many()
   {
-    return (EAttribute)contentProviderEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)contentProviderEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -830,19 +890,79 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getContentProvider_Url()
-  {
-    return (EReference)contentProviderEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getContentProvider_Selection()
+  public EReference getContentProvider_Implementation()
   {
     return (EReference)contentProviderEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getContentProviderImplementation()
+  {
+    return contentProviderImplementationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFetchingContentProviderImplementation()
+  {
+    return fetchingContentProviderImplementationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFetchingContentProviderImplementation_Format()
+  {
+    return (EAttribute)fetchingContentProviderImplementationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFetchingContentProviderImplementation_Url()
+  {
+    return (EReference)fetchingContentProviderImplementationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFetchingContentProviderImplementation_Selection()
+  {
+    return (EReference)fetchingContentProviderImplementationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCustomContentProviderImplementation()
+  {
+    return customContentProviderImplementationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCustomContentProviderImplementation_ProviderClass()
+  {
+    return (EReference)customContentProviderImplementationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1250,6 +1370,26 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getProjectClass()
+  {
+    return projectClassEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProjectClass_Name()
+  {
+    return (EAttribute)projectClassEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getStringConcat()
   {
     return stringConcatEClass;
@@ -1410,6 +1550,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getSerializationFormat()
+  {
+    return serializationFormatEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getCellType()
   {
     return cellTypeEEnum;
@@ -1493,6 +1643,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEAttribute(simpleTypeEClass, SIMPLE_TYPE__PLATFORM_TYPE);
 
     entityEClass = createEClass(ENTITY);
+    createEAttribute(entityEClass, ENTITY__RUNTIME_TYPE);
     createEReference(entityEClass, ENTITY__EXTENDS);
     createEReference(entityEClass, ENTITY__PROPERTIES);
 
@@ -1502,10 +1653,20 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     contentProviderEClass = createEClass(CONTENT_PROVIDER);
     createEReference(contentProviderEClass, CONTENT_PROVIDER__PARAMETER);
+    createEAttribute(contentProviderEClass, CONTENT_PROVIDER__STORING);
     createEReference(contentProviderEClass, CONTENT_PROVIDER__TYPE);
     createEAttribute(contentProviderEClass, CONTENT_PROVIDER__MANY);
-    createEReference(contentProviderEClass, CONTENT_PROVIDER__URL);
-    createEReference(contentProviderEClass, CONTENT_PROVIDER__SELECTION);
+    createEReference(contentProviderEClass, CONTENT_PROVIDER__IMPLEMENTATION);
+
+    contentProviderImplementationEClass = createEClass(CONTENT_PROVIDER_IMPLEMENTATION);
+
+    fetchingContentProviderImplementationEClass = createEClass(FETCHING_CONTENT_PROVIDER_IMPLEMENTATION);
+    createEAttribute(fetchingContentProviderImplementationEClass, FETCHING_CONTENT_PROVIDER_IMPLEMENTATION__FORMAT);
+    createEReference(fetchingContentProviderImplementationEClass, FETCHING_CONTENT_PROVIDER_IMPLEMENTATION__URL);
+    createEReference(fetchingContentProviderImplementationEClass, FETCHING_CONTENT_PROVIDER_IMPLEMENTATION__SELECTION);
+
+    customContentProviderImplementationEClass = createEClass(CUSTOM_CONTENT_PROVIDER_IMPLEMENTATION);
+    createEReference(customContentProviderImplementationEClass, CUSTOM_CONTENT_PROVIDER_IMPLEMENTATION__PROVIDER_CLASS);
 
     providerConstructionEClass = createEClass(PROVIDER_CONSTRUCTION);
 
@@ -1562,6 +1723,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(viewCallEClass, VIEW_CALL__VIEW);
     createEReference(viewCallEClass, VIEW_CALL__PROVIDER);
 
+    projectClassEClass = createEClass(PROJECT_CLASS);
+    createEAttribute(projectClassEClass, PROJECT_CLASS__NAME);
+
     stringConcatEClass = createEClass(STRING_CONCAT);
     createEReference(stringConcatEClass, STRING_CONCAT__VALUES);
 
@@ -1585,6 +1749,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(simpleProviderConstructionEClass, SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
 
     // Create enums
+    serializationFormatEEnum = createEEnum(SERIALIZATION_FORMAT);
     cellTypeEEnum = createEEnum(CELL_TYPE);
   }
 
@@ -1634,6 +1799,8 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     entityEClass.getESuperTypes().add(this.getType());
     propertyEClass.getESuperTypes().add(this.getVariableDeclaration());
     contentProviderEClass.getESuperTypes().add(this.getModelElement());
+    fetchingContentProviderImplementationEClass.getESuperTypes().add(this.getContentProviderImplementation());
+    customContentProviderImplementationEClass.getESuperTypes().add(this.getContentProviderImplementation());
     viewEClass.getESuperTypes().add(this.getModelElement());
     tabViewEClass.getESuperTypes().add(this.getView());
     sectionedViewEClass.getESuperTypes().add(this.getView());
@@ -1699,6 +1866,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEAttribute(getSimpleType_PlatformType(), ecorePackage.getEString(), "platformType", null, 0, 1, SimpleType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEntity_RuntimeType(), ecorePackage.getEBoolean(), "runtimeType", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Extends(), this.getEntity(), null, "extends", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Properties(), this.getProperty(), null, "properties", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1708,10 +1876,20 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     initEClass(contentProviderEClass, ContentProvider.class, "ContentProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getContentProvider_Parameter(), this.getParameter(), null, "parameter", null, 0, 1, ContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContentProvider_Storing(), ecorePackage.getEBoolean(), "storing", null, 0, 1, ContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getContentProvider_Type(), this.getType(), null, "type", null, 0, 1, ContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getContentProvider_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, ContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getContentProvider_Url(), this.getScalarExpression(), null, "url", null, 0, 1, ContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getContentProvider_Selection(), this.getScalarExpression(), null, "selection", null, 0, 1, ContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContentProvider_Implementation(), this.getContentProviderImplementation(), null, "implementation", null, 0, 1, ContentProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contentProviderImplementationEClass, ContentProviderImplementation.class, "ContentProviderImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(fetchingContentProviderImplementationEClass, FetchingContentProviderImplementation.class, "FetchingContentProviderImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFetchingContentProviderImplementation_Format(), this.getSerializationFormat(), "format", null, 0, 1, FetchingContentProviderImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFetchingContentProviderImplementation_Url(), this.getScalarExpression(), null, "url", null, 0, 1, FetchingContentProviderImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFetchingContentProviderImplementation_Selection(), this.getScalarExpression(), null, "selection", null, 0, 1, FetchingContentProviderImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(customContentProviderImplementationEClass, CustomContentProviderImplementation.class, "CustomContentProviderImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCustomContentProviderImplementation_ProviderClass(), this.getProjectClass(), null, "providerClass", null, 0, 1, CustomContentProviderImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(providerConstructionEClass, ProviderConstruction.class, "ProviderConstruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1768,6 +1946,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getViewCall_View(), this.getView(), null, "view", null, 0, 1, ViewCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getViewCall_Provider(), this.getProviderConstruction(), null, "provider", null, 0, 1, ViewCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(projectClassEClass, ProjectClass.class, "ProjectClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProjectClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProjectClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(stringConcatEClass, StringConcat.class, "StringConcat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStringConcat_Values(), this.getScalarExpression(), null, "values", null, 0, -1, StringConcat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1791,6 +1972,10 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getSimpleProviderConstruction_Expression(), this.getExpression(), null, "expression", null, 0, 1, SimpleProviderConstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
+    initEEnum(serializationFormatEEnum, SerializationFormat.class, "SerializationFormat");
+    addEEnumLiteral(serializationFormatEEnum, SerializationFormat.XML);
+    addEEnumLiteral(serializationFormatEEnum, SerializationFormat.JSON);
+
     initEEnum(cellTypeEEnum, CellType.class, "CellType");
     addEEnumLiteral(cellTypeEEnum, CellType.DEFAULT);
     addEEnumLiteral(cellTypeEEnum, CellType.DEFAULT_WITH_DISCLOSURE);

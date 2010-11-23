@@ -7,8 +7,8 @@ package org.applause.applausedsl.applauseDsl.impl;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.ContentProvider;
+import org.applause.applausedsl.applauseDsl.ContentProviderImplementation;
 import org.applause.applausedsl.applauseDsl.Parameter;
-import org.applause.applausedsl.applauseDsl.ScalarExpression;
 import org.applause.applausedsl.applauseDsl.Type;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,10 +27,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ContentProviderImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ContentProviderImpl#isStoring <em>Storing</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ContentProviderImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ContentProviderImpl#isMany <em>Many</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ContentProviderImpl#getUrl <em>Url</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ContentProviderImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ContentProviderImpl#getImplementation <em>Implementation</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +47,26 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
    * @ordered
    */
   protected Parameter parameter;
+
+  /**
+   * The default value of the '{@link #isStoring() <em>Storing</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isStoring()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean STORING_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isStoring() <em>Storing</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isStoring()
+   * @generated
+   * @ordered
+   */
+  protected boolean storing = STORING_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' reference.
@@ -79,24 +99,14 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
   protected boolean many = MANY_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
+   * The cached value of the '{@link #getImplementation() <em>Implementation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUrl()
+   * @see #getImplementation()
    * @generated
    * @ordered
    */
-  protected ScalarExpression url;
-
-  /**
-   * The cached value of the '{@link #getSelection() <em>Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSelection()
-   * @generated
-   * @ordered
-   */
-  protected ScalarExpression selection;
+  protected ContentProviderImplementation implementation;
 
   /**
    * <!-- begin-user-doc -->
@@ -172,6 +182,29 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isStoring()
+  {
+    return storing;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStoring(boolean newStoring)
+  {
+    boolean oldStoring = storing;
+    storing = newStoring;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONTENT_PROVIDER__STORING, oldStoring, storing));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Type getType()
   {
     if (type != null && type.eIsProxy())
@@ -238,9 +271,9 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
    * <!-- end-user-doc -->
    * @generated
    */
-  public ScalarExpression getUrl()
+  public ContentProviderImplementation getImplementation()
   {
-    return url;
+    return implementation;
   }
 
   /**
@@ -248,13 +281,13 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetUrl(ScalarExpression newUrl, NotificationChain msgs)
+  public NotificationChain basicSetImplementation(ContentProviderImplementation newImplementation, NotificationChain msgs)
   {
-    ScalarExpression oldUrl = url;
-    url = newUrl;
+    ContentProviderImplementation oldImplementation = implementation;
+    implementation = newImplementation;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONTENT_PROVIDER__URL, oldUrl, newUrl);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION, oldImplementation, newImplementation);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -265,68 +298,20 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setUrl(ScalarExpression newUrl)
+  public void setImplementation(ContentProviderImplementation newImplementation)
   {
-    if (newUrl != url)
+    if (newImplementation != implementation)
     {
       NotificationChain msgs = null;
-      if (url != null)
-        msgs = ((InternalEObject)url).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CONTENT_PROVIDER__URL, null, msgs);
-      if (newUrl != null)
-        msgs = ((InternalEObject)newUrl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CONTENT_PROVIDER__URL, null, msgs);
-      msgs = basicSetUrl(newUrl, msgs);
+      if (implementation != null)
+        msgs = ((InternalEObject)implementation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION, null, msgs);
+      if (newImplementation != null)
+        msgs = ((InternalEObject)newImplementation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION, null, msgs);
+      msgs = basicSetImplementation(newImplementation, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONTENT_PROVIDER__URL, newUrl, newUrl));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ScalarExpression getSelection()
-  {
-    return selection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetSelection(ScalarExpression newSelection, NotificationChain msgs)
-  {
-    ScalarExpression oldSelection = selection;
-    selection = newSelection;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONTENT_PROVIDER__SELECTION, oldSelection, newSelection);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSelection(ScalarExpression newSelection)
-  {
-    if (newSelection != selection)
-    {
-      NotificationChain msgs = null;
-      if (selection != null)
-        msgs = ((InternalEObject)selection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CONTENT_PROVIDER__SELECTION, null, msgs);
-      if (newSelection != null)
-        msgs = ((InternalEObject)newSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CONTENT_PROVIDER__SELECTION, null, msgs);
-      msgs = basicSetSelection(newSelection, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONTENT_PROVIDER__SELECTION, newSelection, newSelection));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION, newImplementation, newImplementation));
   }
 
   /**
@@ -341,10 +326,8 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
     {
       case ApplauseDslPackage.CONTENT_PROVIDER__PARAMETER:
         return basicSetParameter(null, msgs);
-      case ApplauseDslPackage.CONTENT_PROVIDER__URL:
-        return basicSetUrl(null, msgs);
-      case ApplauseDslPackage.CONTENT_PROVIDER__SELECTION:
-        return basicSetSelection(null, msgs);
+      case ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION:
+        return basicSetImplementation(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -361,15 +344,15 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
     {
       case ApplauseDslPackage.CONTENT_PROVIDER__PARAMETER:
         return getParameter();
+      case ApplauseDslPackage.CONTENT_PROVIDER__STORING:
+        return isStoring();
       case ApplauseDslPackage.CONTENT_PROVIDER__TYPE:
         if (resolve) return getType();
         return basicGetType();
       case ApplauseDslPackage.CONTENT_PROVIDER__MANY:
         return isMany();
-      case ApplauseDslPackage.CONTENT_PROVIDER__URL:
-        return getUrl();
-      case ApplauseDslPackage.CONTENT_PROVIDER__SELECTION:
-        return getSelection();
+      case ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION:
+        return getImplementation();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -387,17 +370,17 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
       case ApplauseDslPackage.CONTENT_PROVIDER__PARAMETER:
         setParameter((Parameter)newValue);
         return;
+      case ApplauseDslPackage.CONTENT_PROVIDER__STORING:
+        setStoring((Boolean)newValue);
+        return;
       case ApplauseDslPackage.CONTENT_PROVIDER__TYPE:
         setType((Type)newValue);
         return;
       case ApplauseDslPackage.CONTENT_PROVIDER__MANY:
         setMany((Boolean)newValue);
         return;
-      case ApplauseDslPackage.CONTENT_PROVIDER__URL:
-        setUrl((ScalarExpression)newValue);
-        return;
-      case ApplauseDslPackage.CONTENT_PROVIDER__SELECTION:
-        setSelection((ScalarExpression)newValue);
+      case ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION:
+        setImplementation((ContentProviderImplementation)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -416,17 +399,17 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
       case ApplauseDslPackage.CONTENT_PROVIDER__PARAMETER:
         setParameter((Parameter)null);
         return;
+      case ApplauseDslPackage.CONTENT_PROVIDER__STORING:
+        setStoring(STORING_EDEFAULT);
+        return;
       case ApplauseDslPackage.CONTENT_PROVIDER__TYPE:
         setType((Type)null);
         return;
       case ApplauseDslPackage.CONTENT_PROVIDER__MANY:
         setMany(MANY_EDEFAULT);
         return;
-      case ApplauseDslPackage.CONTENT_PROVIDER__URL:
-        setUrl((ScalarExpression)null);
-        return;
-      case ApplauseDslPackage.CONTENT_PROVIDER__SELECTION:
-        setSelection((ScalarExpression)null);
+      case ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION:
+        setImplementation((ContentProviderImplementation)null);
         return;
     }
     super.eUnset(featureID);
@@ -444,14 +427,14 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
     {
       case ApplauseDslPackage.CONTENT_PROVIDER__PARAMETER:
         return parameter != null;
+      case ApplauseDslPackage.CONTENT_PROVIDER__STORING:
+        return storing != STORING_EDEFAULT;
       case ApplauseDslPackage.CONTENT_PROVIDER__TYPE:
         return type != null;
       case ApplauseDslPackage.CONTENT_PROVIDER__MANY:
         return many != MANY_EDEFAULT;
-      case ApplauseDslPackage.CONTENT_PROVIDER__URL:
-        return url != null;
-      case ApplauseDslPackage.CONTENT_PROVIDER__SELECTION:
-        return selection != null;
+      case ApplauseDslPackage.CONTENT_PROVIDER__IMPLEMENTATION:
+        return implementation != null;
     }
     return super.eIsSet(featureID);
   }
@@ -467,7 +450,9 @@ public class ContentProviderImpl extends ModelElementImpl implements ContentProv
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (many: ");
+    result.append(" (storing: ");
+    result.append(storing);
+    result.append(", many: ");
     result.append(many);
     result.append(')');
     return result.toString();

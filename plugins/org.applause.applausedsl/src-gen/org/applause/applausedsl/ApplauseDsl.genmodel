@@ -9,6 +9,10 @@
     editorPluginID="org.applause.applausedsl.editor">
   <genPackages prefix="ApplauseDsl" basePackage="org.applause.applausedsl" disposableProviderFactory="true"
       ecorePackage="ApplauseDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//SerializationFormat">
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//SerializationFormat/XML"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//SerializationFormat/JSON"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//CellType">
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/default"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/defaultWithDisclosure"/>
@@ -58,6 +62,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//SimpleType/platformType"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Entity/runtimeType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Entity/extends"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Entity/properties"/>
     </genClasses>
@@ -67,10 +72,19 @@
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ContentProvider">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ContentProvider/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ContentProvider/storing"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ContentProvider/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ContentProvider/many"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ContentProvider/url"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ContentProvider/selection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ContentProvider/implementation"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ContentProviderImplementation"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//FetchingContentProviderImplementation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//FetchingContentProviderImplementation/format"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//FetchingContentProviderImplementation/url"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//FetchingContentProviderImplementation/selection"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//CustomContentProviderImplementation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//CustomContentProviderImplementation/providerClass"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ProviderConstruction"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//View">
@@ -123,6 +137,9 @@
     <genClasses ecoreClass="ApplauseDsl.ecore#//ViewCall">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewCall/view"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewCall/provider"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ProjectClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ProjectClass/name"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//StringConcat">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//StringConcat/values"/>

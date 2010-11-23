@@ -660,60 +660,68 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Entity");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cExtendsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cExtendsEntityCrossReference_2_1_0 = (CrossReference)cExtendsAssignment_2_1.eContents().get(0);
-		private final RuleCall cExtendsEntityIDTerminalRuleCall_2_1_0_1 = (RuleCall)cExtendsEntityCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cPropertiesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cPropertiesPropertyParserRuleCall_4_0 = (RuleCall)cPropertiesAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cRuntimeTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cRuntimeTypeClassKeyword_1_0 = (Keyword)cRuntimeTypeAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cExtendsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cExtendsEntityCrossReference_3_1_0 = (CrossReference)cExtendsAssignment_3_1.eContents().get(0);
+		private final RuleCall cExtendsEntityIDTerminalRuleCall_3_1_0_1 = (RuleCall)cExtendsEntityCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cPropertiesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPropertiesPropertyParserRuleCall_5_0 = (RuleCall)cPropertiesAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Entity:
-		//	"entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
+		//	"entity" runtimeType?="class"? name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}"
+		//"entity" runtimeType?="class"? name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"entity"
 		public Keyword getEntityKeyword_0() { return cEntityKeyword_0; }
 
+		//runtimeType?="class"?
+		public Assignment getRuntimeTypeAssignment_1() { return cRuntimeTypeAssignment_1; }
+
+		//"class"
+		public Keyword getRuntimeTypeClassKeyword_1_0() { return cRuntimeTypeClassKeyword_1_0; }
+
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//("extends" extends=[Entity])?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"extends"
-		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
 
 		//extends=[Entity]
-		public Assignment getExtendsAssignment_2_1() { return cExtendsAssignment_2_1; }
+		public Assignment getExtendsAssignment_3_1() { return cExtendsAssignment_3_1; }
 
 		//[Entity]
-		public CrossReference getExtendsEntityCrossReference_2_1_0() { return cExtendsEntityCrossReference_2_1_0; }
+		public CrossReference getExtendsEntityCrossReference_3_1_0() { return cExtendsEntityCrossReference_3_1_0; }
 
 		//ID
-		public RuleCall getExtendsEntityIDTerminalRuleCall_2_1_0_1() { return cExtendsEntityIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getExtendsEntityIDTerminalRuleCall_3_1_0_1() { return cExtendsEntityIDTerminalRuleCall_3_1_0_1; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
 
 		//properties+=Property*
-		public Assignment getPropertiesAssignment_4() { return cPropertiesAssignment_4; }
+		public Assignment getPropertiesAssignment_5() { return cPropertiesAssignment_5; }
 
 		//Property
-		public RuleCall getPropertiesPropertyParserRuleCall_4_0() { return cPropertiesPropertyParserRuleCall_4_0; }
+		public RuleCall getPropertiesPropertyParserRuleCall_5_0() { return cPropertiesPropertyParserRuleCall_5_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class PropertyElements extends AbstractParserRuleElementFinder {
@@ -763,30 +771,27 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cParameterAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cParameterParameterParserRuleCall_2_1_0 = (RuleCall)cParameterAssignment_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Keyword cReturnsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Keyword cReturnsKeyword_3_0 = (Keyword)cAlternatives_3.eContents().get(0);
+		private final Assignment cStoringAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final Keyword cStoringStoresKeyword_3_1_0 = (Keyword)cStoringAssignment_3_1.eContents().get(0);
 		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cTypeTypeCrossReference_4_0 = (CrossReference)cTypeAssignment_4.eContents().get(0);
 		private final RuleCall cTypeTypeIDTerminalRuleCall_4_0_1 = (RuleCall)cTypeTypeCrossReference_4_0.eContents().get(1);
 		private final Assignment cManyAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final Keyword cManyLeftSquareBracketRightSquareBracketKeyword_5_0 = (Keyword)cManyAssignment_5.eContents().get(0);
-		private final Keyword cFetchesKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cXMLKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cFromKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cUrlAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cUrlScalarExpressionParserRuleCall_9_0 = (RuleCall)cUrlAssignment_9.eContents().get(0);
-		private final Keyword cSelectsKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cSelectionAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cSelectionScalarExpressionParserRuleCall_11_0 = (RuleCall)cSelectionAssignment_11.eContents().get(0);
+		private final Assignment cImplementationAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cImplementationContentProviderImplementationParserRuleCall_6_0 = (RuleCall)cImplementationAssignment_6.eContents().get(0);
 		
 		//// -------------------------------------------
 		//// content provider
 		//ContentProvider:
-		//	"contentprovider" name=ID ("(" parameter=Parameter ")")? "returns" type=[Type] many?="[]"? "fetches" "XML" "from"
-		//	url=ScalarExpression "selects" selection=ScalarExpression;
+		//	"contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns" | storing?="stores") type=[Type] many?="[]"?
+		//	implementation=ContentProviderImplementation?;
 		public ParserRule getRule() { return rule; }
 
-		//"contentprovider" name=ID ("(" parameter=Parameter ")")? "returns" type=[Type] many?="[]"? "fetches" "XML" "from"
-		//url=ScalarExpression "selects" selection=ScalarExpression
+		//"contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns" | storing?="stores") type=[Type] many?="[]"?
+		//implementation=ContentProviderImplementation?
 		public Group getGroup() { return cGroup; }
 
 		//"contentprovider"
@@ -813,8 +818,17 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 
+		//"returns" | storing?="stores"
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+
 		//"returns"
-		public Keyword getReturnsKeyword_3() { return cReturnsKeyword_3; }
+		public Keyword getReturnsKeyword_3_0() { return cReturnsKeyword_3_0; }
+
+		//storing?="stores"
+		public Assignment getStoringAssignment_3_1() { return cStoringAssignment_3_1; }
+
+		//"stores"
+		public Keyword getStoringStoresKeyword_3_1_0() { return cStoringStoresKeyword_3_1_0; }
 
 		//type=[Type]
 		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
@@ -831,29 +845,103 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"[]"
 		public Keyword getManyLeftSquareBracketRightSquareBracketKeyword_5_0() { return cManyLeftSquareBracketRightSquareBracketKeyword_5_0; }
 
-		//"fetches"
-		public Keyword getFetchesKeyword_6() { return cFetchesKeyword_6; }
+		//implementation=ContentProviderImplementation?
+		public Assignment getImplementationAssignment_6() { return cImplementationAssignment_6; }
 
-		//"XML"
-		public Keyword getXMLKeyword_7() { return cXMLKeyword_7; }
+		//ContentProviderImplementation
+		public RuleCall getImplementationContentProviderImplementationParserRuleCall_6_0() { return cImplementationContentProviderImplementationParserRuleCall_6_0; }
+	}
+
+	public class ContentProviderImplementationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ContentProviderImplementation");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cFetchingContentProviderImplementationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCustomContentProviderImplementationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ContentProviderImplementation:
+		//	FetchingContentProviderImplementation | CustomContentProviderImplementation;
+		public ParserRule getRule() { return rule; }
+
+		//FetchingContentProviderImplementation | CustomContentProviderImplementation
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//FetchingContentProviderImplementation
+		public RuleCall getFetchingContentProviderImplementationParserRuleCall_0() { return cFetchingContentProviderImplementationParserRuleCall_0; }
+
+		//CustomContentProviderImplementation
+		public RuleCall getCustomContentProviderImplementationParserRuleCall_1() { return cCustomContentProviderImplementationParserRuleCall_1; }
+	}
+
+	public class FetchingContentProviderImplementationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FetchingContentProviderImplementation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFetchesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFormatAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFormatSerializationFormatEnumRuleCall_1_0 = (RuleCall)cFormatAssignment_1.eContents().get(0);
+		private final Keyword cFromKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cUrlAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cUrlScalarExpressionParserRuleCall_3_0 = (RuleCall)cUrlAssignment_3.eContents().get(0);
+		private final Keyword cSelectsKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cSelectionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSelectionScalarExpressionParserRuleCall_5_0 = (RuleCall)cSelectionAssignment_5.eContents().get(0);
+		
+		//FetchingContentProviderImplementation:
+		//	"fetches" format=SerializationFormat "from" url=ScalarExpression "selects" selection=ScalarExpression?;
+		public ParserRule getRule() { return rule; }
+
+		//"fetches" format=SerializationFormat "from" url=ScalarExpression "selects" selection=ScalarExpression?
+		public Group getGroup() { return cGroup; }
+
+		//"fetches"
+		public Keyword getFetchesKeyword_0() { return cFetchesKeyword_0; }
+
+		//format=SerializationFormat
+		public Assignment getFormatAssignment_1() { return cFormatAssignment_1; }
+
+		//SerializationFormat
+		public RuleCall getFormatSerializationFormatEnumRuleCall_1_0() { return cFormatSerializationFormatEnumRuleCall_1_0; }
 
 		//"from"
-		public Keyword getFromKeyword_8() { return cFromKeyword_8; }
+		public Keyword getFromKeyword_2() { return cFromKeyword_2; }
 
 		//url=ScalarExpression
-		public Assignment getUrlAssignment_9() { return cUrlAssignment_9; }
+		public Assignment getUrlAssignment_3() { return cUrlAssignment_3; }
 
 		//ScalarExpression
-		public RuleCall getUrlScalarExpressionParserRuleCall_9_0() { return cUrlScalarExpressionParserRuleCall_9_0; }
+		public RuleCall getUrlScalarExpressionParserRuleCall_3_0() { return cUrlScalarExpressionParserRuleCall_3_0; }
 
 		//"selects"
-		public Keyword getSelectsKeyword_10() { return cSelectsKeyword_10; }
+		public Keyword getSelectsKeyword_4() { return cSelectsKeyword_4; }
 
-		//selection=ScalarExpression
-		public Assignment getSelectionAssignment_11() { return cSelectionAssignment_11; }
+		//selection=ScalarExpression?
+		public Assignment getSelectionAssignment_5() { return cSelectionAssignment_5; }
 
 		//ScalarExpression
-		public RuleCall getSelectionScalarExpressionParserRuleCall_11_0() { return cSelectionScalarExpressionParserRuleCall_11_0; }
+		public RuleCall getSelectionScalarExpressionParserRuleCall_5_0() { return cSelectionScalarExpressionParserRuleCall_5_0; }
+	}
+
+	public class CustomContentProviderImplementationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CustomContentProviderImplementation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cProviderClassAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cProviderClassProjectClassParserRuleCall_1_0 = (RuleCall)cProviderClassAssignment_1.eContents().get(0);
+		
+		//CustomContentProviderImplementation:
+		//	"class" providerClass=ProjectClass;
+		public ParserRule getRule() { return rule; }
+
+		//"class" providerClass=ProjectClass
+		public Group getGroup() { return cGroup; }
+
+		//"class"
+		public Keyword getClassKeyword_0() { return cClassKeyword_0; }
+
+		//providerClass=ProjectClass
+		public Assignment getProviderClassAssignment_1() { return cProviderClassAssignment_1; }
+
+		//ProjectClass
+		public RuleCall getProviderClassProjectClassParserRuleCall_1_0() { return cProviderClassProjectClassParserRuleCall_1_0; }
 	}
 
 	public class ProviderConstructionElements extends AbstractParserRuleElementFinder {
@@ -1681,8 +1769,52 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
+
+	public class ProjectClassElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ProjectClass");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//ProjectClass:
+		//	name=ID;
+		public ParserRule getRule() { return rule; }
+
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
 	
 	
+	public class SerializationFormatElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "SerializationFormat");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cXMLEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cXMLXMLKeyword_0_0 = (Keyword)cXMLEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cJSONEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cJSONJSONKeyword_1_0 = (Keyword)cJSONEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum SerializationFormat:
+		//	XML | JSON;
+		public EnumRule getRule() { return rule; }
+
+		//XML | JSON
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//XML
+		public EnumLiteralDeclaration getXMLEnumLiteralDeclaration_0() { return cXMLEnumLiteralDeclaration_0; }
+
+		//"XML"
+		public Keyword getXMLXMLKeyword_0_0() { return cXMLXMLKeyword_0_0; }
+
+		//JSON
+		public EnumLiteralDeclaration getJSONEnumLiteralDeclaration_1() { return cJSONEnumLiteralDeclaration_1; }
+
+		//"JSON"
+		public Keyword getJSONJSONKeyword_1_0() { return cJSONJSONKeyword_1_0; }
+	}
+
 	public class CellTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "CellType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1757,6 +1889,10 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private EntityElements pEntity;
 	private PropertyElements pProperty;
 	private ContentProviderElements pContentProvider;
+	private ContentProviderImplementationElements pContentProviderImplementation;
+	private SerializationFormatElements unknownRuleSerializationFormat;
+	private FetchingContentProviderImplementationElements pFetchingContentProviderImplementation;
+	private CustomContentProviderImplementationElements pCustomContentProviderImplementation;
 	private ProviderConstructionElements pProviderConstruction;
 	private ViewElements pView;
 	private TabViewElements pTabView;
@@ -1773,6 +1909,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private ViewActionElements pViewAction;
 	private ExternalOpenElements pExternalOpen;
 	private ViewCallElements pViewCall;
+	private ProjectClassElements pProjectClass;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -1979,7 +2116,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Entity:
-	//	"entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
+	//	"entity" runtimeType?="class"? name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
 	public EntityElements getEntityAccess() {
 		return (pEntity != null) ? pEntity : (pEntity = new EntityElements());
 	}
@@ -2001,14 +2138,54 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	//// -------------------------------------------
 	//// content provider
 	//ContentProvider:
-	//	"contentprovider" name=ID ("(" parameter=Parameter ")")? "returns" type=[Type] many?="[]"? "fetches" "XML" "from"
-	//	url=ScalarExpression "selects" selection=ScalarExpression;
+	//	"contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns" | storing?="stores") type=[Type] many?="[]"?
+	//	implementation=ContentProviderImplementation?;
 	public ContentProviderElements getContentProviderAccess() {
 		return (pContentProvider != null) ? pContentProvider : (pContentProvider = new ContentProviderElements());
 	}
 	
 	public ParserRule getContentProviderRule() {
 		return getContentProviderAccess().getRule();
+	}
+
+	//ContentProviderImplementation:
+	//	FetchingContentProviderImplementation | CustomContentProviderImplementation;
+	public ContentProviderImplementationElements getContentProviderImplementationAccess() {
+		return (pContentProviderImplementation != null) ? pContentProviderImplementation : (pContentProviderImplementation = new ContentProviderImplementationElements());
+	}
+	
+	public ParserRule getContentProviderImplementationRule() {
+		return getContentProviderImplementationAccess().getRule();
+	}
+
+	//enum SerializationFormat:
+	//	XML | JSON;
+	public SerializationFormatElements getSerializationFormatAccess() {
+		return (unknownRuleSerializationFormat != null) ? unknownRuleSerializationFormat : (unknownRuleSerializationFormat = new SerializationFormatElements());
+	}
+	
+	public EnumRule getSerializationFormatRule() {
+		return getSerializationFormatAccess().getRule();
+	}
+
+	//FetchingContentProviderImplementation:
+	//	"fetches" format=SerializationFormat "from" url=ScalarExpression "selects" selection=ScalarExpression?;
+	public FetchingContentProviderImplementationElements getFetchingContentProviderImplementationAccess() {
+		return (pFetchingContentProviderImplementation != null) ? pFetchingContentProviderImplementation : (pFetchingContentProviderImplementation = new FetchingContentProviderImplementationElements());
+	}
+	
+	public ParserRule getFetchingContentProviderImplementationRule() {
+		return getFetchingContentProviderImplementationAccess().getRule();
+	}
+
+	//CustomContentProviderImplementation:
+	//	"class" providerClass=ProjectClass;
+	public CustomContentProviderImplementationElements getCustomContentProviderImplementationAccess() {
+		return (pCustomContentProviderImplementation != null) ? pCustomContentProviderImplementation : (pCustomContentProviderImplementation = new CustomContentProviderImplementationElements());
+	}
+	
+	public ParserRule getCustomContentProviderImplementationRule() {
+		return getCustomContentProviderImplementationAccess().getRule();
 	}
 
 	//ProviderConstruction:
@@ -2176,6 +2353,16 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getViewCallRule() {
 		return getViewCallAccess().getRule();
+	}
+
+	//ProjectClass:
+	//	name=ID;
+	public ProjectClassElements getProjectClassAccess() {
+		return (pProjectClass != null) ? pProjectClass : (pProjectClass = new ProjectClassElements());
+	}
+	
+	public ParserRule getProjectClassRule() {
+		return getProjectClassAccess().getRule();
 	}
 
 	//terminal ID:

@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Entity#isRuntimeType <em>Runtime Type</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.Entity#getExtends <em>Extends</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.Entity#getProperties <em>Properties</em>}</li>
  * </ul>
@@ -26,6 +27,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Entity extends Type
 {
+  /**
+   * Returns the value of the '<em><b>Runtime Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Runtime Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Runtime Type</em>' attribute.
+   * @see #setRuntimeType(boolean)
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getEntity_RuntimeType()
+   * @model
+   * @generated
+   */
+  boolean isRuntimeType();
+
+  /**
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Entity#isRuntimeType <em>Runtime Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Runtime Type</em>' attribute.
+   * @see #isRuntimeType()
+   * @generated
+   */
+  void setRuntimeType(boolean value);
+
   /**
    * Returns the value of the '<em><b>Extends</b></em>' reference.
    * <!-- begin-user-doc -->

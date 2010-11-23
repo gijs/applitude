@@ -52,6 +52,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="platformType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="runtimeType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true"/>
@@ -64,11 +65,28 @@
   <eClassifiers xsi:type="ecore:EClass" name="ContentProvider" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//Parameter"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" eType="#//ContentProviderImplementation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentProviderImplementation"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="SerializationFormat">
+    <eLiterals name="XML" literal="XML"/>
+    <eLiterals name="JSON" value="1" literal="JSON"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FetchingContentProviderImplementation"
+      eSuperTypes="#//ContentProviderImplementation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="#//SerializationFormat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="url" eType="#//ScalarExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//ScalarExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomContentProviderImplementation"
+      eSuperTypes="#//ContentProviderImplementation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providerClass" eType="#//ProjectClass"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProviderConstruction"/>
@@ -151,6 +169,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//View"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="#//ProviderConstruction"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringConcat" eSuperTypes="#//StringFunction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"

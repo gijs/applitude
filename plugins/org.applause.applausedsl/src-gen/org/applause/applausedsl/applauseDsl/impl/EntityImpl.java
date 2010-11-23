@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.EntityImpl#isRuntimeType <em>Runtime Type</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.EntityImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.EntityImpl#getProperties <em>Properties</em>}</li>
  * </ul>
@@ -40,6 +41,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EntityImpl extends TypeImpl implements Entity
 {
+  /**
+   * The default value of the '{@link #isRuntimeType() <em>Runtime Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isRuntimeType()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean RUNTIME_TYPE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isRuntimeType() <em>Runtime Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isRuntimeType()
+   * @generated
+   * @ordered
+   */
+  protected boolean runtimeType = RUNTIME_TYPE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
    * <!-- begin-user-doc -->
@@ -79,6 +100,29 @@ public class EntityImpl extends TypeImpl implements Entity
   protected EClass eStaticClass()
   {
     return ApplauseDslPackage.Literals.ENTITY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isRuntimeType()
+  {
+    return runtimeType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRuntimeType(boolean newRuntimeType)
+  {
+    boolean oldRuntimeType = runtimeType;
+    runtimeType = newRuntimeType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.ENTITY__RUNTIME_TYPE, oldRuntimeType, runtimeType));
   }
 
   /**
@@ -164,6 +208,8 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.ENTITY__RUNTIME_TYPE:
+        return isRuntimeType();
       case ApplauseDslPackage.ENTITY__EXTENDS:
         if (resolve) return getExtends();
         return basicGetExtends();
@@ -184,6 +230,9 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.ENTITY__RUNTIME_TYPE:
+        setRuntimeType((Boolean)newValue);
+        return;
       case ApplauseDslPackage.ENTITY__EXTENDS:
         setExtends((Entity)newValue);
         return;
@@ -205,6 +254,9 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.ENTITY__RUNTIME_TYPE:
+        setRuntimeType(RUNTIME_TYPE_EDEFAULT);
+        return;
       case ApplauseDslPackage.ENTITY__EXTENDS:
         setExtends((Entity)null);
         return;
@@ -225,12 +277,31 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.ENTITY__RUNTIME_TYPE:
+        return runtimeType != RUNTIME_TYPE_EDEFAULT;
       case ApplauseDslPackage.ENTITY__EXTENDS:
         return extends_ != null;
       case ApplauseDslPackage.ENTITY__PROPERTIES:
         return properties != null && !properties.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (runtimeType: ");
+    result.append(runtimeType);
+    result.append(')');
+    return result.toString();
   }
 
 } //EntityImpl

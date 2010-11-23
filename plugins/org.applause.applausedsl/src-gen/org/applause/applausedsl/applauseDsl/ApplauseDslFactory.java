@@ -197,6 +197,33 @@ public interface ApplauseDslFactory extends EFactory
   ContentProvider createContentProvider();
 
   /**
+   * Returns a new object of class '<em>Content Provider Implementation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Content Provider Implementation</em>'.
+   * @generated
+   */
+  ContentProviderImplementation createContentProviderImplementation();
+
+  /**
+   * Returns a new object of class '<em>Fetching Content Provider Implementation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fetching Content Provider Implementation</em>'.
+   * @generated
+   */
+  FetchingContentProviderImplementation createFetchingContentProviderImplementation();
+
+  /**
+   * Returns a new object of class '<em>Custom Content Provider Implementation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Custom Content Provider Implementation</em>'.
+   * @generated
+   */
+  CustomContentProviderImplementation createCustomContentProviderImplementation();
+
+  /**
    * Returns a new object of class '<em>Provider Construction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -330,6 +357,15 @@ public interface ApplauseDslFactory extends EFactory
    * @generated
    */
   ViewCall createViewCall();
+
+  /**
+   * Returns a new object of class '<em>Project Class</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Project Class</em>'.
+   * @generated
+   */
+  ProjectClass createProjectClass();
 
   /**
    * Returns a new object of class '<em>String Concat</em>'.

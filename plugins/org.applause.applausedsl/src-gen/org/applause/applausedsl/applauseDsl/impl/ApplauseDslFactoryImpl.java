@@ -87,6 +87,9 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.ENTITY: return createEntity();
       case ApplauseDslPackage.PROPERTY: return createProperty();
       case ApplauseDslPackage.CONTENT_PROVIDER: return createContentProvider();
+      case ApplauseDslPackage.CONTENT_PROVIDER_IMPLEMENTATION: return createContentProviderImplementation();
+      case ApplauseDslPackage.FETCHING_CONTENT_PROVIDER_IMPLEMENTATION: return createFetchingContentProviderImplementation();
+      case ApplauseDslPackage.CUSTOM_CONTENT_PROVIDER_IMPLEMENTATION: return createCustomContentProviderImplementation();
       case ApplauseDslPackage.PROVIDER_CONSTRUCTION: return createProviderConstruction();
       case ApplauseDslPackage.VIEW: return createView();
       case ApplauseDslPackage.TAB_VIEW: return createTabView();
@@ -102,6 +105,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.VIEW_ACTION: return createViewAction();
       case ApplauseDslPackage.EXTERNAL_OPEN: return createExternalOpen();
       case ApplauseDslPackage.VIEW_CALL: return createViewCall();
+      case ApplauseDslPackage.PROJECT_CLASS: return createProjectClass();
       case ApplauseDslPackage.STRING_CONCAT: return createStringConcat();
       case ApplauseDslPackage.STRING_REPLACE: return createStringReplace();
       case ApplauseDslPackage.STRING_URL_CONFORM: return createStringUrlConform();
@@ -123,6 +127,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     switch (eDataType.getClassifierID())
     {
+      case ApplauseDslPackage.SERIALIZATION_FORMAT:
+        return createSerializationFormatFromString(eDataType, initialValue);
       case ApplauseDslPackage.CELL_TYPE:
         return createCellTypeFromString(eDataType, initialValue);
       default:
@@ -140,6 +146,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     switch (eDataType.getClassifierID())
     {
+      case ApplauseDslPackage.SERIALIZATION_FORMAT:
+        return convertSerializationFormatToString(eDataType, instanceValue);
       case ApplauseDslPackage.CELL_TYPE:
         return convertCellTypeToString(eDataType, instanceValue);
       default:
@@ -361,6 +369,39 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ContentProviderImplementation createContentProviderImplementation()
+  {
+    ContentProviderImplementationImpl contentProviderImplementation = new ContentProviderImplementationImpl();
+    return contentProviderImplementation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FetchingContentProviderImplementation createFetchingContentProviderImplementation()
+  {
+    FetchingContentProviderImplementationImpl fetchingContentProviderImplementation = new FetchingContentProviderImplementationImpl();
+    return fetchingContentProviderImplementation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CustomContentProviderImplementation createCustomContentProviderImplementation()
+  {
+    CustomContentProviderImplementationImpl customContentProviderImplementation = new CustomContentProviderImplementationImpl();
+    return customContentProviderImplementation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ProviderConstruction createProviderConstruction()
   {
     ProviderConstructionImpl providerConstruction = new ProviderConstructionImpl();
@@ -526,6 +567,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ProjectClass createProjectClass()
+  {
+    ProjectClassImpl projectClass = new ProjectClassImpl();
+    return projectClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public StringConcat createStringConcat()
   {
     StringConcatImpl stringConcat = new StringConcatImpl();
@@ -585,6 +637,28 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     SimpleProviderConstructionImpl simpleProviderConstruction = new SimpleProviderConstructionImpl();
     return simpleProviderConstruction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SerializationFormat createSerializationFormatFromString(EDataType eDataType, String initialValue)
+  {
+    SerializationFormat result = SerializationFormat.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertSerializationFormatToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

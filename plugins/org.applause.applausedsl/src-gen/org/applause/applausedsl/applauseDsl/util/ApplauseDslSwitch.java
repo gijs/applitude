@@ -247,6 +247,29 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplauseDslPackage.CONTENT_PROVIDER_IMPLEMENTATION:
+      {
+        ContentProviderImplementation contentProviderImplementation = (ContentProviderImplementation)theEObject;
+        T result = caseContentProviderImplementation(contentProviderImplementation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.FETCHING_CONTENT_PROVIDER_IMPLEMENTATION:
+      {
+        FetchingContentProviderImplementation fetchingContentProviderImplementation = (FetchingContentProviderImplementation)theEObject;
+        T result = caseFetchingContentProviderImplementation(fetchingContentProviderImplementation);
+        if (result == null) result = caseContentProviderImplementation(fetchingContentProviderImplementation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.CUSTOM_CONTENT_PROVIDER_IMPLEMENTATION:
+      {
+        CustomContentProviderImplementation customContentProviderImplementation = (CustomContentProviderImplementation)theEObject;
+        T result = caseCustomContentProviderImplementation(customContentProviderImplementation);
+        if (result == null) result = caseContentProviderImplementation(customContentProviderImplementation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplauseDslPackage.PROVIDER_CONSTRUCTION:
       {
         ProviderConstruction providerConstruction = (ProviderConstruction)theEObject;
@@ -365,6 +388,13 @@ public class ApplauseDslSwitch<T>
         ViewCall viewCall = (ViewCall)theEObject;
         T result = caseViewCall(viewCall);
         if (result == null) result = caseViewAction(viewCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.PROJECT_CLASS:
+      {
+        ProjectClass projectClass = (ProjectClass)theEObject;
+        T result = caseProjectClass(projectClass);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -733,6 +763,54 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Content Provider Implementation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Content Provider Implementation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContentProviderImplementation(ContentProviderImplementation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Fetching Content Provider Implementation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Fetching Content Provider Implementation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFetchingContentProviderImplementation(FetchingContentProviderImplementation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Custom Content Provider Implementation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Custom Content Provider Implementation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCustomContentProviderImplementation(CustomContentProviderImplementation object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Provider Construction</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -968,6 +1046,22 @@ public class ApplauseDslSwitch<T>
    * @generated
    */
   public T caseViewCall(ViewCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Project Class</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Project Class</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProjectClass(ProjectClass object)
   {
     return null;
   }

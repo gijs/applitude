@@ -173,6 +173,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createContentProviderAdapter();
       }
       @Override
+      public Adapter caseContentProviderImplementation(ContentProviderImplementation object)
+      {
+        return createContentProviderImplementationAdapter();
+      }
+      @Override
+      public Adapter caseFetchingContentProviderImplementation(FetchingContentProviderImplementation object)
+      {
+        return createFetchingContentProviderImplementationAdapter();
+      }
+      @Override
+      public Adapter caseCustomContentProviderImplementation(CustomContentProviderImplementation object)
+      {
+        return createCustomContentProviderImplementationAdapter();
+      }
+      @Override
       public Adapter caseProviderConstruction(ProviderConstruction object)
       {
         return createProviderConstructionAdapter();
@@ -246,6 +261,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseViewCall(ViewCall object)
       {
         return createViewCallAdapter();
+      }
+      @Override
+      public Adapter caseProjectClass(ProjectClass object)
+      {
+        return createProjectClassAdapter();
       }
       @Override
       public Adapter caseStringConcat(StringConcat object)
@@ -585,6 +605,51 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.ContentProviderImplementation <em>Content Provider Implementation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.ContentProviderImplementation
+   * @generated
+   */
+  public Adapter createContentProviderImplementationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.FetchingContentProviderImplementation <em>Fetching Content Provider Implementation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.FetchingContentProviderImplementation
+   * @generated
+   */
+  public Adapter createFetchingContentProviderImplementationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.CustomContentProviderImplementation <em>Custom Content Provider Implementation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.CustomContentProviderImplementation
+   * @generated
+   */
+  public Adapter createCustomContentProviderImplementationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.ProviderConstruction <em>Provider Construction</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -805,6 +870,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createViewCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.ProjectClass <em>Project Class</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.ProjectClass
+   * @generated
+   */
+  public Adapter createProjectClassAdapter()
   {
     return null;
   }
