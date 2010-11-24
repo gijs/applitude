@@ -5,7 +5,7 @@
 
 @implementation BoxCell
 
-@synthesize onTouch = _onTouch;
+@synthesize onTouch = fOnTouch, data = fData;
 
 - (void) didSelect {
 	[self.onTouch performWithObject:self];

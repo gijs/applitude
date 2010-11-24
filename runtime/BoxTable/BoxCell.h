@@ -8,10 +8,12 @@
 
 @interface BoxCell : UITableViewCell<Cell> {
 
-	NSObject<Action> *_onTouch;
+	NSObject<Action> *fOnTouch;
+	id fData;
 
 }
 
 @property (nonatomic, retain) NSObject<Action> *onTouch;
+@property (nonatomic, retain) id data;
 
 @end
