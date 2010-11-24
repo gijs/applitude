@@ -56,18 +56,18 @@
 }
 
 - (void) updateModel {
-	id oldValue = [fModel.modelObject valueForKey:fModelProperty];
-	id newValue = [fTarget valueForKey:fTargetProperty];
+	id oldValue = [fModel.modelObject valueForKeyPath:fModelProperty];
+	id newValue = [fTarget valueForKeyPath:fTargetProperty];
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
 		NSLog(@"  %@.%@ := %@", [fModel class], fModelProperty, newValue);
-		[fModel.modelObject setValue:newValue forKey:fModelProperty];
+		[fModel.modelObject setValue:newValue forKeyPath:fModelProperty];
 	}
 }
 
 - (void) updateTarget {
-	id oldValue = [fTarget valueForKey:fTargetProperty];
-	id newValue = [fModel.modelObject valueForKey:fModelProperty];
+	id oldValue = [fTarget valueForKeyPath:fTargetProperty];
+	id newValue = [fModel.modelObject valueForKeyPath:fModelProperty];
 	if (fSettings != nil) {
 		if (fSettings.converter)
 			newValue = [fSettings.converter convert:newValue];
@@ -77,7 +77,7 @@
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
 		NSLog(@"  %@.%@ := %@", [fTarget class], fTargetProperty, newValue);
-		[fTarget setValue:newValue forKey:fTargetProperty];
+		[fTarget setValue:newValue forKeyPath:fTargetProperty];
 	}
 }
 
