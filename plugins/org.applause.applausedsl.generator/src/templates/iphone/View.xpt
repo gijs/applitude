@@ -4,49 +4,91 @@
 «EXTENSION templates::MetamodelExtensions»
 
 «DEFINE main FOR Application-»
-«EXPAND view FOREACH model().elements.typeSelect(SectionedView)»
+«EXPAND view FOREACH model().elements.typeSelect(TableView)»
 «ENDDEFINE»
 
-«DEFINE view FOR SectionedView»
+«DEFINE view FOR TableView»
 «EXPAND viewHeader»
 «EXPAND viewModule»
 «ENDDEFINE»
 
-«DEFINE viewHeader FOR View»
-«FILE filenameHeader()»
+«DEFINE viewHeader FOR TableView»
+«FILE class().h()»
 #import <UIKit/UIKit.h>
-#import "«baseClassFilenameHeader()»"
+«EXPAND ObjC::Import FOREACH class().headerImports() ONFILECLOSE»
 
-@interface «className()» : «baseClassName()» {
-
+@interface «class().name» : «use("BoxTableViewController")» {
+«parameters().collect(p|p.type() + p.ivar()).statements()»
 }
 
+«initSignature()»;
+
 @end
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE viewModule FOR SectionedView»
-«FILE filenameModule()»
-#import "«filenameHeader()»"
-#import "NSObject+iPhonical.h"
-«EXPAND imports-» 
+«DEFINE viewModule FOR TableView»
+«FILE class().m()»
+«EXPAND ObjC::Import FOREACH class().moduleImports() ONFILECLOSE»
 
-@implementation «className()»
+@implementation «class().name»
 
-«EXPAND sectionCount-»
-«EXPAND sectionTitleHeader-»
-«EXPAND rowCounts-»
-«EXPAND cellDescriptions-»
-«EXPAND cellSelections-»
-«EXPAND staticData-»
-@end
-«ENDFILE»
-«ENDDEFINE»
+«initSignature()» {
+	self = [super initWithStyle:«style.constant()»];
+	if (self != nil) {
+		«parameters().collect(p|p.ivar() + " = [" + p.name + " retain]").statements()»
+	}
+	return self;
+}
 
-«DEFINE imports FOR SectionedView-»
-«FOREACH neededImports() AS import»#import "«import»"
+- (NSArray *) buildSections {
+	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
+	
+	«use('TableBuilder')» *table = [TableBuilder builder];
+«FOREACH sections AS section-»
+
+	[table section:«section.title==null ? 'nil' : section.title.expression('', '')»];
+«FOREACH section.cells AS cell-»
+«IF cell.iterator!=null-»
+	[table cell:[[«use('ContentProviderPlaceholder')» alloc] initWithController:self cellFactorySelector:@selector(«cell.iterator.name»Cell:) contentProvider:«cell.iterator.rootParameter().ivar()»]];
+«ELSE-»
+	[table text:«cell.text==null ? 'nil' : cell.text.expression('TODO', '')»];
+«ENDIF-»
 «ENDFOREACH-»
+«ENDFOREACH-»
+	return table.sections;
+}
+
+«EXPAND cellProviderMethod FOREACH sections.cells.select(e|e.iterator!=null)-»
+«EXPAND dealloc-»
+@end
+«ENDFILE»
 «ENDDEFINE»
+
+
+
+«DEFINE cellProviderMethod FOR SectionCell-»
+«LET this.iterator AS it-»
+- (UITableViewCell *) «it.name»Cell:(«it.rootParameter().description.type.objcType()» *)«it.name» {
+	«use('BoxCell')» *cell = [[BoxCell alloc] initWithFrame:CGRectZero];
+	cell.textLabel.text = «this.text.expression(it.name, '')»;
+	return cell;
+}
+«ENDLET»
+«ENDDEFINE»
+
+
+
+«DEFINE dealloc FOR TableView-»
+- (void) dealloc {
+	«parameters().collect(p|"[" + p.ivar() + " release]").statements()»
+	[super dealloc];
+}
+
+«ENDDEFINE»
+
+
+
 
 «DEFINE sectionCount FOR SectionedView»«IF sections.size != 1»
 /*
@@ -222,7 +264,6 @@
  * Update the data displayed in this table.
  */
 -(void)updateData {
-	«IF title!=null»self.navigationItem.title = «title.expression('contentProvider', 'content')»;«ENDIF»
 	«EXPAND staticData2»
 	[super updateData];
 }

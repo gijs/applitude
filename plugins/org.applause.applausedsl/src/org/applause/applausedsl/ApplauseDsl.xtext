@@ -31,7 +31,8 @@ ObjectReference:
 //     object=[VariableDeclaration] ('.' tail=ObjectReference)?;
 NestedObjectReference returns ObjectReference:
 	'.' object=[VariableDeclaration] tail=NestedObjectReference?;
-	
+
+//TODO: could this be ScalarExpression | CollectionExpression? and simplify rootParameter extension
 Expression:
 	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
 
@@ -129,10 +130,15 @@ Tab:
 
 SectionedView: 
 	TableView | DetailsView;
-		
+
+enum TableViewStyle:
+	Plain | Grouped;
+
 TableView:
 	'tableview' name=ID ('(' content=Parameter ')')? '{'
-		'title:' title=ScalarExpression
+		( ('title:' title=ScalarExpression)?
+		& ('style:' style=TableViewStyle)?     )
+		
 		(sections+=ViewSection)*
 	'}';
 	

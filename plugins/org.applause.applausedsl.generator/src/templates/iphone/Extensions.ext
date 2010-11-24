@@ -1,6 +1,7 @@
 import org::eclipse::emf::ecore;
 import org::applause::applausedsl::applauseDsl;
 
+extension org::eclipse::xtend::util::stdlib::io;
 extension templates::MetamodelExtensions;
 
 // Objective C language support
@@ -25,10 +26,10 @@ create Set[ProjectClass] bagModuleImports (ProjectClass class):
 	((List[ProjectClass]) {}).toSet();
 
 Set[ProjectClass] headerImports(ProjectClass class):
-	class.bagHeaderImports().remove(class);
+	class.bagHeaderImports().without({class});
 
 Set[ProjectClass] moduleImports(ProjectClass class):
-	class.bagModuleImports().removeAll(class.bagHeaderImports()).add(class);
+	class.bagModuleImports().without(class.bagHeaderImports()).union({class});
 
 cached ProjectClass newProjectClass(String name):
 	JAVA templates.Extensions.createProjectClass(java.lang.String);
@@ -45,9 +46,12 @@ allocInit(ProjectClass class):
 statements(Collection[String] strings):
 	strings.collect(e|e + ";").toString("\n");
 
+pointer(ProjectClass class):
+	use(class) + " *";
 
 
 
+/* Views */
 
 className(View this):
 	use(this.name.toFirstUpper() + "ViewController");
@@ -83,6 +87,60 @@ factoryMethodName(View view):
 factoryCall(View view):
 	"[" + use(application(view).viewFactory()) + " " + view.factoryMethodName() + "]";
 
+/* TableView */
+
+class(TableView view):
+	newProjectClass(view.className());
+
+constant(TableViewStyle style):
+	"UITableViewStyle" + style.name;
+
+initSignature(TableView view):
+	"- (id) init" + (view.parameters().isEmpty ? "" : "With") + view.parameters().signature().toString(" ").toFirstUpper();
+
+parameters(TableView view):
+	(List[Parameter]) (view.content != null ? { view.content } : {});
+
+signature(Parameter param):
+	param.name + ":(" + param.type() + ")" + param.name;
+
+type(Parameter param):
+	newProjectClass('IPContentProvider').pointer();
+
+ivar(Parameter param):
+	"f" + param.name.toFirstUpper();
+
+
+
+
+
+Parameter rootParameter(CollectionExpression expr):
+	throwError("abstract " + expr);
+
+Parameter rootParameter(ScalarExpression expr):
+	throwError("abstract " + expr);
+
+Parameter rootParameter(StringLiteral expr):
+	null;
+
+Parameter rootParameter(ObjectReference ref):
+ 	ref.object.rootParameter();
+
+Parameter rootParameter(VariableDeclaration this):
+	throwError("rootParameter not supported " + this);
+
+Parameter rootParameter(Parameter param):
+ 	param;
+
+Parameter rootParameter(CollectionIterator it):
+ 	it.collection.rootParameter();
+
+
+// If expr goes back to a parameter (=supplied by a content provider), resolve via content provider
+// otherwise resolve directly
+resolve(ScalarExpression expr):
+	expr.rootParameter() != null ? expr.expression(expr.rootParameter().ivar(), 'content') : expr.expression('', '');
+
 
 
 /* Providers */
@@ -109,6 +167,20 @@ class(CustomContentProviderImplementation this):
 
 ivar(ContentProvider provider):
 	"f" + provider.name.toFirstUpper();
+
+
+
+
+objcType(Type type):
+	throwError("Abstract: " + type);
+
+objcType(SimpleType type):
+	type.platformType;
+
+objcType(Entity type):
+	type.runtimeType ? type.name : "NSDictionary";
+
+
 
 
 
