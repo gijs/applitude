@@ -51,7 +51,7 @@
 }
 
 - (void) dealloc {
-	[fArray dealloc];
+	[fArray release];
 	[super dealloc];
 }
 
