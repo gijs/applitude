@@ -13,6 +13,10 @@
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//SerializationFormat/XML"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//SerializationFormat/JSON"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//TableViewStyle">
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//TableViewStyle/Plain"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//TableViewStyle/Grouped"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//CellType">
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/default"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/defaultWithDisclosure"/>
@@ -102,7 +106,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionedView/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionedView/sections"/>
     </genClasses>
-    <genClasses ecoreClass="ApplauseDsl.ecore#//TableView"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//TableView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//TableView/style"/>
+    </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//DetailsView">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//DetailsView/header"/>
     </genClasses>

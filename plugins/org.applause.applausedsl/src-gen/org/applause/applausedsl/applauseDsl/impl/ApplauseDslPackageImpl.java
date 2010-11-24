@@ -45,6 +45,7 @@ import org.applause.applausedsl.applauseDsl.StringUrlConform;
 import org.applause.applausedsl.applauseDsl.Tab;
 import org.applause.applausedsl.applauseDsl.TabView;
 import org.applause.applausedsl.applauseDsl.TableView;
+import org.applause.applausedsl.applauseDsl.TableViewStyle;
 import org.applause.applausedsl.applauseDsl.Type;
 import org.applause.applausedsl.applauseDsl.TypeDescription;
 import org.applause.applausedsl.applauseDsl.VariableDeclaration;
@@ -384,6 +385,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EEnum serializationFormatEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum tableViewStyleEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1100,6 +1108,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getTableView_Style()
+  {
+    return (EAttribute)tableViewEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDetailsView()
   {
     return detailsViewEClass;
@@ -1560,6 +1578,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getTableViewStyle()
+  {
+    return tableViewStyleEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getCellType()
   {
     return cellTypeEEnum;
@@ -1686,6 +1714,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(sectionedViewEClass, SECTIONED_VIEW__SECTIONS);
 
     tableViewEClass = createEClass(TABLE_VIEW);
+    createEAttribute(tableViewEClass, TABLE_VIEW__STYLE);
 
     detailsViewEClass = createEClass(DETAILS_VIEW);
     createEReference(detailsViewEClass, DETAILS_VIEW__HEADER);
@@ -1750,6 +1779,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     // Create enums
     serializationFormatEEnum = createEEnum(SERIALIZATION_FORMAT);
+    tableViewStyleEEnum = createEEnum(TABLE_VIEW_STYLE);
     cellTypeEEnum = createEEnum(CELL_TYPE);
   }
 
@@ -1909,6 +1939,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getSectionedView_Sections(), this.getViewSection(), null, "sections", null, 0, -1, SectionedView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(tableViewEClass, TableView.class, "TableView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTableView_Style(), this.getTableViewStyle(), "style", null, 0, 1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(detailsViewEClass, DetailsView.class, "DetailsView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDetailsView_Header(), this.getViewHeader(), null, "header", null, 0, 1, DetailsView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1975,6 +2006,10 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEEnum(serializationFormatEEnum, SerializationFormat.class, "SerializationFormat");
     addEEnumLiteral(serializationFormatEEnum, SerializationFormat.XML);
     addEEnumLiteral(serializationFormatEEnum, SerializationFormat.JSON);
+
+    initEEnum(tableViewStyleEEnum, TableViewStyle.class, "TableViewStyle");
+    addEEnumLiteral(tableViewStyleEEnum, TableViewStyle.PLAIN);
+    addEEnumLiteral(tableViewStyleEEnum, TableViewStyle.GROUPED);
 
     initEEnum(cellTypeEEnum, CellType.class, "CellType");
     addEEnumLiteral(cellTypeEEnum, CellType.DEFAULT);

@@ -1208,18 +1208,26 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cContentParameterParserRuleCall_2_1_0 = (RuleCall)cContentAssignment_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cTitleKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cTitleAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTitleScalarExpressionParserRuleCall_5_0 = (RuleCall)cTitleAssignment_5.eContents().get(0);
-		private final Assignment cSectionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cSectionsViewSectionParserRuleCall_6_0 = (RuleCall)cSectionsAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cUnorderedGroup_4.eContents().get(0);
+		private final Keyword cTitleKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final Assignment cTitleAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
+		private final RuleCall cTitleScalarExpressionParserRuleCall_4_0_1_0 = (RuleCall)cTitleAssignment_4_0_1.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cUnorderedGroup_4.eContents().get(1);
+		private final Keyword cStyleKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cStyleAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cStyleTableViewStyleEnumRuleCall_4_1_1_0 = (RuleCall)cStyleAssignment_4_1_1.eContents().get(0);
+		private final Assignment cSectionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSectionsViewSectionParserRuleCall_5_0 = (RuleCall)cSectionsAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//TableView:
-		//	"tableview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression sections+=ViewSection* "}";
+		//	"tableview" name=ID ("(" content=Parameter ")")? "{" (("title:" title=ScalarExpression)? & ("style:"
+		//	style=TableViewStyle)?) sections+=ViewSection* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"tableview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression sections+=ViewSection* "}"
+		//"tableview" name=ID ("(" content=Parameter ")")? "{" (("title:" title=ScalarExpression)? & ("style:"
+		//style=TableViewStyle)?) sections+=ViewSection* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"tableview"
@@ -1249,23 +1257,41 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
+		//("title:" title=ScalarExpression)? & ("style:" style=TableViewStyle)?
+		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
+
+		//("title:" title=ScalarExpression)?
+		public Group getGroup_4_0() { return cGroup_4_0; }
+
 		//"title:"
-		public Keyword getTitleKeyword_4() { return cTitleKeyword_4; }
+		public Keyword getTitleKeyword_4_0_0() { return cTitleKeyword_4_0_0; }
 
 		//title=ScalarExpression
-		public Assignment getTitleAssignment_5() { return cTitleAssignment_5; }
+		public Assignment getTitleAssignment_4_0_1() { return cTitleAssignment_4_0_1; }
 
 		//ScalarExpression
-		public RuleCall getTitleScalarExpressionParserRuleCall_5_0() { return cTitleScalarExpressionParserRuleCall_5_0; }
+		public RuleCall getTitleScalarExpressionParserRuleCall_4_0_1_0() { return cTitleScalarExpressionParserRuleCall_4_0_1_0; }
+
+		//("style:" style=TableViewStyle)?
+		public Group getGroup_4_1() { return cGroup_4_1; }
+
+		//"style:"
+		public Keyword getStyleKeyword_4_1_0() { return cStyleKeyword_4_1_0; }
+
+		//style=TableViewStyle
+		public Assignment getStyleAssignment_4_1_1() { return cStyleAssignment_4_1_1; }
+
+		//TableViewStyle
+		public RuleCall getStyleTableViewStyleEnumRuleCall_4_1_1_0() { return cStyleTableViewStyleEnumRuleCall_4_1_1_0; }
 
 		//sections+=ViewSection*
-		public Assignment getSectionsAssignment_6() { return cSectionsAssignment_6; }
+		public Assignment getSectionsAssignment_5() { return cSectionsAssignment_5; }
 
 		//ViewSection
-		public RuleCall getSectionsViewSectionParserRuleCall_6_0() { return cSectionsViewSectionParserRuleCall_6_0; }
+		public RuleCall getSectionsViewSectionParserRuleCall_5_0() { return cSectionsViewSectionParserRuleCall_5_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class DetailsViewElements extends AbstractParserRuleElementFinder {
@@ -1815,6 +1841,34 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getJSONJSONKeyword_1_0() { return cJSONJSONKeyword_1_0; }
 	}
 
+	public class TableViewStyleElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "TableViewStyle");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cPlainEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cPlainPlainKeyword_0_0 = (Keyword)cPlainEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cGroupedEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cGroupedGroupedKeyword_1_0 = (Keyword)cGroupedEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum TableViewStyle:
+		//	Plain | Grouped;
+		public EnumRule getRule() { return rule; }
+
+		//Plain | Grouped
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//Plain
+		public EnumLiteralDeclaration getPlainEnumLiteralDeclaration_0() { return cPlainEnumLiteralDeclaration_0; }
+
+		//"Plain"
+		public Keyword getPlainPlainKeyword_0_0() { return cPlainPlainKeyword_0_0; }
+
+		//Grouped
+		public EnumLiteralDeclaration getGroupedEnumLiteralDeclaration_1() { return cGroupedEnumLiteralDeclaration_1; }
+
+		//"Grouped"
+		public Keyword getGroupedGroupedKeyword_1_0() { return cGroupedGroupedKeyword_1_0; }
+	}
+
 	public class CellTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "CellType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1898,6 +1952,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private TabViewElements pTabView;
 	private TabElements pTab;
 	private SectionedViewElements pSectionedView;
+	private TableViewStyleElements unknownRuleTableViewStyle;
 	private TableViewElements pTableView;
 	private DetailsViewElements pDetailsView;
 	private CustomViewElements pCustomView;
@@ -2241,8 +2296,19 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getSectionedViewAccess().getRule();
 	}
 
+	//enum TableViewStyle:
+	//	Plain | Grouped;
+	public TableViewStyleElements getTableViewStyleAccess() {
+		return (unknownRuleTableViewStyle != null) ? unknownRuleTableViewStyle : (unknownRuleTableViewStyle = new TableViewStyleElements());
+	}
+	
+	public EnumRule getTableViewStyleRule() {
+		return getTableViewStyleAccess().getRule();
+	}
+
 	//TableView:
-	//	"tableview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression sections+=ViewSection* "}";
+	//	"tableview" name=ID ("(" content=Parameter ")")? "{" (("title:" title=ScalarExpression)? & ("style:"
+	//	style=TableViewStyle)?) sections+=ViewSection* "}";
 	public TableViewElements getTableViewAccess() {
 		return (pTableView != null) ? pTableView : (pTableView = new TableViewElements());
 	}

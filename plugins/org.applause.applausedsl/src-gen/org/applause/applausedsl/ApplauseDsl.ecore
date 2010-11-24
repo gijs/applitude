@@ -112,7 +112,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
         eType="#//ViewSection" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableView" eSuperTypes="#//SectionedView"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="TableViewStyle">
+    <eLiterals name="Plain" literal="Plain"/>
+    <eLiterals name="Grouped" value="1" literal="Grouped"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableView" eSuperTypes="#//SectionedView">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="#//TableViewStyle"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DetailsView" eSuperTypes="#//SectionedView">
     <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="#//ViewHeader"
         containment="true"/>

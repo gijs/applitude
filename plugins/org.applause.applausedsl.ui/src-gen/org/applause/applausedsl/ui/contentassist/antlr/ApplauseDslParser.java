@@ -51,6 +51,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSectionedViewAccess().getAlternatives(), "rule__SectionedView__Alternatives");
 					put(grammarAccess.getViewActionAccess().getAlternatives(), "rule__ViewAction__Alternatives");
 					put(grammarAccess.getSerializationFormatAccess().getAlternatives(), "rule__SerializationFormat__Alternatives");
+					put(grammarAccess.getTableViewStyleAccess().getAlternatives(), "rule__TableViewStyle__Alternatives");
 					put(grammarAccess.getCellTypeAccess().getAlternatives(), "rule__CellType__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTypeDescriptionAccess().getGroup(), "rule__TypeDescription__Group__0");
@@ -86,6 +87,8 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTabAccess().getGroup_2_0(), "rule__Tab__Group_2_0__0");
 					put(grammarAccess.getTableViewAccess().getGroup(), "rule__TableView__Group__0");
 					put(grammarAccess.getTableViewAccess().getGroup_2(), "rule__TableView__Group_2__0");
+					put(grammarAccess.getTableViewAccess().getGroup_4_0(), "rule__TableView__Group_4_0__0");
+					put(grammarAccess.getTableViewAccess().getGroup_4_1(), "rule__TableView__Group_4_1__0");
 					put(grammarAccess.getDetailsViewAccess().getGroup(), "rule__DetailsView__Group__0");
 					put(grammarAccess.getDetailsViewAccess().getGroup_2(), "rule__DetailsView__Group_2__0");
 					put(grammarAccess.getCustomViewAccess().getGroup(), "rule__CustomView__Group__0");
@@ -158,8 +161,9 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTabAccess().getViewAssignment_2_0_1(), "rule__Tab__ViewAssignment_2_0_1");
 					put(grammarAccess.getTableViewAccess().getNameAssignment_1(), "rule__TableView__NameAssignment_1");
 					put(grammarAccess.getTableViewAccess().getContentAssignment_2_1(), "rule__TableView__ContentAssignment_2_1");
-					put(grammarAccess.getTableViewAccess().getTitleAssignment_5(), "rule__TableView__TitleAssignment_5");
-					put(grammarAccess.getTableViewAccess().getSectionsAssignment_6(), "rule__TableView__SectionsAssignment_6");
+					put(grammarAccess.getTableViewAccess().getTitleAssignment_4_0_1(), "rule__TableView__TitleAssignment_4_0_1");
+					put(grammarAccess.getTableViewAccess().getStyleAssignment_4_1_1(), "rule__TableView__StyleAssignment_4_1_1");
+					put(grammarAccess.getTableViewAccess().getSectionsAssignment_5(), "rule__TableView__SectionsAssignment_5");
 					put(grammarAccess.getDetailsViewAccess().getNameAssignment_1(), "rule__DetailsView__NameAssignment_1");
 					put(grammarAccess.getDetailsViewAccess().getContentAssignment_2_1(), "rule__DetailsView__ContentAssignment_2_1");
 					put(grammarAccess.getDetailsViewAccess().getTitleAssignment_5(), "rule__DetailsView__TitleAssignment_5");
@@ -188,6 +192,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProjectClassAccess().getNameAssignment(), "rule__ProjectClass__NameAssignment");
 					put(grammarAccess.getApplicationAccess().getUnorderedGroup(), "rule__Application__UnorderedGroup");
 					put(grammarAccess.getTabAccess().getUnorderedGroup(), "rule__Tab__UnorderedGroup");
+					put(grammarAccess.getTableViewAccess().getUnorderedGroup_4(), "rule__TableView__UnorderedGroup_4");
 				}
 			};
 		}

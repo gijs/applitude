@@ -1043,13 +1043,22 @@ public interface ApplauseDslPackage extends EPackage
   int TABLE_VIEW__SECTIONS = SECTIONED_VIEW__SECTIONS;
 
   /**
+   * The feature id for the '<em><b>Style</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE_VIEW__STYLE = SECTIONED_VIEW_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Table View</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABLE_VIEW_FEATURE_COUNT = SECTIONED_VIEW_FEATURE_COUNT + 0;
+  int TABLE_VIEW_FEATURE_COUNT = SECTIONED_VIEW_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.DetailsViewImpl <em>Details View</em>}' class.
@@ -1690,6 +1699,16 @@ public interface ApplauseDslPackage extends EPackage
   int SERIALIZATION_FORMAT = 44;
 
   /**
+   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.TableViewStyle <em>Table View Style</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.applausedsl.applauseDsl.TableViewStyle
+   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTableViewStyle()
+   * @generated
+   */
+  int TABLE_VIEW_STYLE = 45;
+
+  /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.CellType <em>Cell Type</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1697,7 +1716,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCellType()
    * @generated
    */
-  int CELL_TYPE = 45;
+  int CELL_TYPE = 46;
 
 
   /**
@@ -2377,6 +2396,17 @@ public interface ApplauseDslPackage extends EPackage
   EClass getTableView();
 
   /**
+   * Returns the meta object for the attribute '{@link org.applause.applausedsl.applauseDsl.TableView#getStyle <em>Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Style</em>'.
+   * @see org.applause.applausedsl.applauseDsl.TableView#getStyle()
+   * @see #getTableView()
+   * @generated
+   */
+  EAttribute getTableView_Style();
+
+  /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.DetailsView <em>Details View</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2864,6 +2894,16 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EEnum getSerializationFormat();
+
+  /**
+   * Returns the meta object for enum '{@link org.applause.applausedsl.applauseDsl.TableViewStyle <em>Table View Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Table View Style</em>'.
+   * @see org.applause.applausedsl.applauseDsl.TableViewStyle
+   * @generated
+   */
+  EEnum getTableViewStyle();
 
   /**
    * Returns the meta object for enum '{@link org.applause.applausedsl.applauseDsl.CellType <em>Cell Type</em>}'.
@@ -3467,6 +3507,14 @@ public interface ApplauseDslPackage extends EPackage
     EClass TABLE_VIEW = eINSTANCE.getTableView();
 
     /**
+     * The meta object literal for the '<em><b>Style</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TABLE_VIEW__STYLE = eINSTANCE.getTableView_Style();
+
+    /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.DetailsViewImpl <em>Details View</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3867,6 +3915,16 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EEnum SERIALIZATION_FORMAT = eINSTANCE.getSerializationFormat();
+
+    /**
+     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.TableViewStyle <em>Table View Style</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.applausedsl.applauseDsl.TableViewStyle
+     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTableViewStyle()
+     * @generated
+     */
+    EEnum TABLE_VIEW_STYLE = eINSTANCE.getTableViewStyle();
 
     /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.CellType <em>Cell Type</em>}' enum.

@@ -2500,16 +2500,30 @@ ruleTableView returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getTableViewAccess().getLeftCurlyBracketKeyword_3(), null); 
     }
-	'title:' 
+(
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getTableViewAccess().getUnorderedGroup_4());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getTableViewAccess().getUnorderedGroup_4(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getTableViewAccess().getUnorderedGroup_4(), 0);
+	 				}
+					(	'title:' 
     {
-        createLeafNode(grammarAccess.getTableViewAccess().getTitleKeyword_4(), null); 
+        createLeafNode(grammarAccess.getTableViewAccess().getTitleKeyword_4_0_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTableViewAccess().getTitleScalarExpressionParserRuleCall_5_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getTableViewAccess().getTitleScalarExpressionParserRuleCall_4_0_1_0(), currentNode); 
 	    }
-		lv_title_7_0=ruleScalarExpression		{
+		lv_title_8_0=ruleScalarExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getTableViewRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2518,7 +2532,7 @@ ruleTableView returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"title",
-	        		lv_title_7_0, 
+	        		lv_title_8_0, 
 	        		"ScalarExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2528,12 +2542,66 @@ ruleTableView returns [EObject current=null]
 	    }
 
 )
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTableViewAccess().getUnorderedGroup_4());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getTableViewAccess().getUnorderedGroup_4(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getTableViewAccess().getUnorderedGroup_4(), 1);
+	 				}
+					(	'style:' 
+    {
+        createLeafNode(grammarAccess.getTableViewAccess().getStyleKeyword_4_1_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTableViewAccess().getStyleTableViewStyleEnumRuleCall_4_1_1_0(), currentNode); 
+	    }
+		lv_style_10_0=ruleTableViewStyle		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTableViewRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"style",
+	        		lv_style_10_0, 
+	        		"TableViewStyle", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTableViewAccess().getUnorderedGroup_4());
+	 				}
+ 				)
+			)  
+
+		)*	
+	)
+)
+	{ 
+	  getUnorderedGroupHelper().leave(grammarAccess.getTableViewAccess().getUnorderedGroup_4());
+	}
+
 )(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTableViewAccess().getSectionsViewSectionParserRuleCall_6_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getTableViewAccess().getSectionsViewSectionParserRuleCall_5_0(), currentNode); 
 	    }
-		lv_sections_8_0=ruleViewSection		{
+		lv_sections_11_0=ruleViewSection		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getTableViewRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2542,7 +2610,7 @@ ruleTableView returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"sections",
-	        		lv_sections_8_0, 
+	        		lv_sections_11_0, 
 	        		"ViewSection", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2554,7 +2622,7 @@ ruleTableView returns [EObject current=null]
 )
 )*	'}' 
     {
-        createLeafNode(grammarAccess.getTableViewAccess().getRightCurlyBracketKeyword_7(), null); 
+        createLeafNode(grammarAccess.getTableViewAccess().getRightCurlyBracketKeyword_6(), null); 
     }
 )
 ;
@@ -3581,6 +3649,27 @@ ruleSerializationFormat returns [Enumerator current=null]
 	{
         $current = grammarAccess.getSerializationFormatAccess().getJSONEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
         createLeafNode(grammarAccess.getSerializationFormatAccess().getJSONEnumLiteralDeclaration_1(), null); 
+    }
+));
+
+
+
+// Rule TableViewStyle
+ruleTableViewStyle returns [Enumerator current=null] 
+    @init { setCurrentLookahead(); resetLookahead(); }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((	'Plain' 
+	{
+        $current = grammarAccess.getTableViewStyleAccess().getPlainEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getTableViewStyleAccess().getPlainEnumLiteralDeclaration_0(), null); 
+    }
+)
+    |(	'Grouped' 
+	{
+        $current = grammarAccess.getTableViewStyleAccess().getGroupedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getTableViewStyleAccess().getGroupedEnumLiteralDeclaration_1(), null); 
     }
 ));
 

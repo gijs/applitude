@@ -129,6 +129,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
     {
       case ApplauseDslPackage.SERIALIZATION_FORMAT:
         return createSerializationFormatFromString(eDataType, initialValue);
+      case ApplauseDslPackage.TABLE_VIEW_STYLE:
+        return createTableViewStyleFromString(eDataType, initialValue);
       case ApplauseDslPackage.CELL_TYPE:
         return createCellTypeFromString(eDataType, initialValue);
       default:
@@ -148,6 +150,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
     {
       case ApplauseDslPackage.SERIALIZATION_FORMAT:
         return convertSerializationFormatToString(eDataType, instanceValue);
+      case ApplauseDslPackage.TABLE_VIEW_STYLE:
+        return convertTableViewStyleToString(eDataType, instanceValue);
       case ApplauseDslPackage.CELL_TYPE:
         return convertCellTypeToString(eDataType, instanceValue);
       default:
@@ -657,6 +661,28 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * @generated
    */
   public String convertSerializationFormatToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TableViewStyle createTableViewStyleFromString(EDataType eDataType, String initialValue)
+  {
+    TableViewStyle result = TableViewStyle.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertTableViewStyleToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
