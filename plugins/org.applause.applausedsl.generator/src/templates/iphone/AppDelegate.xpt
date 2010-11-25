@@ -54,7 +54,7 @@
 		[self.window release];
 	}
 
-	self.rootController = «this.startView.view.factoryCall()»;
+	self.rootController = «this.startView.factoryCall()»;
 	[window makeKeyAndVisible];
 }
 

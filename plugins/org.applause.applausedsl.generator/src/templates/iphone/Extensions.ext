@@ -82,13 +82,15 @@ className(TabView view):
 	"UITabBarController";
 
 factoryMethodSignature(View view):
-	"+ (" + view.className() + " *) " + view.factoryMethodName();
+	"+ (" + view.className() + " *) " + view.factoryMethodName() + view.initParameters();
 
 factoryMethodName(View view):
 	"create" + view.name;
 
-factoryCall(View view):
-	"[" + use(application(view).viewFactory()) + " " + view.factoryMethodName() + "]";
+factoryCall(ViewCall call):
+	//TODO: make sharedProviders the default for provider access
+	//TODO: support proper multiple parameters, bind parameters properly
+	"[" + use(application(call.view).viewFactory()) + " " + call.view.factoryMethodName() + (call.provider != null ? "With" + call.view.content.name.toFirstUpper() + ":" + call.provider.contentProvider("[" + call.view.application().providerFactory().use() + " sharedProviders]", '', '') : "") + "]";
 
 /* TableView */
 
@@ -117,10 +119,13 @@ constructStatements(SectionCell cell, String kvcTarget):
 	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null
 	};
 
-initSignature(TableView view):
-	"- (id) init" + (view.parameters().isEmpty ? "" : "With") + view.parameters().signature().toString(" ").toFirstUpper();
+initSignature(View view):
+	"- (id) init" + view.initParameters();
 
-parameters(TableView view):
+initParameters(View view):
+	(view.parameters().isEmpty ? "" : "With") + view.parameters().signature().toString(" ").toFirstUpper();
+
+parameters(View view):
 	(List[Parameter]) (view.content != null ? { view.content } : {});
 
 signature(Parameter param):
