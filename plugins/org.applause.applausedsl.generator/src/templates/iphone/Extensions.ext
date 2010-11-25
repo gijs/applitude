@@ -101,6 +101,14 @@ constant(TableViewStyle style):
 constant(CellType type):
 	"UITableViewCellStyle" + type.literal;
 
+constant(CellAccessory ac):
+	switch(ac.name) {
+		case 'Link' : 'UITableViewCellAccessoryDisclosureIndicator'
+		case 'Detail' : 'UITableViewCellAccessoryDetailDisclosureButton'
+		case 'Check' : 'UITableViewCellAccessoryCheckmark'
+		default : 'UITableViewCellAccessoryNone'
+	};
+
 initSignature(TableView view):
 	"- (id) init" + (view.parameters().isEmpty ? "" : "With") + view.parameters().signature().toString(" ").toFirstUpper();
 
