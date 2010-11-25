@@ -169,19 +169,22 @@ ViewSection:
 	
 SectionCell:
 	'cell' type=CellType ('foreach' iterator=CollectionIterator)? '{'
-		('text:' text=ScalarExpression)?
-		('details:' details=ScalarExpression)?
-		('image:' image=ScalarExpression)?
-		('action:' action=ViewAction)?
+		( ('text:' text=ScalarExpression)?
+		& ('details:' details=ScalarExpression)?
+		& ('image:' image=ScalarExpression)?
+		& ('action:' action=ViewAction)? 
+		& ('accessory:' accessory=CellAccessory)?)
 	'}';
 	
 enum CellType:
 	default = 'Default' |
-	defaultWithDisclosure = 'DefaultWithDisclosure' |
+	value1 = 'Value1' |
 	value2 = 'Value2' |
-	double = 'Double' |
 	subtitle = 'Subtitle';
-	
+
+enum CellAccessory:
+	None | Link | Detail | Check;
+
 CollectionIterator:
 	collection=CollectionExpression 'as' name=ID;
 	

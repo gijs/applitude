@@ -43,17 +43,24 @@
 
 - (NSArray *) buildSections {
 	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
-	
+
 	«use('TableBuilder')» *table = [TableBuilder builder];
 «FOREACH sections AS section-»
 
 	[table section:«section.title==null ? 'nil' : section.title.expression('', '')»];
-«FOREACH section.cells AS cell-»
+«FOREACH section.cells AS cell ITERATOR i-»
+	{«IF i.firstIteration» //------------------------------------------------------------------«ENDIF»
 «IF cell.iterator!=null-»
-	[table cell:[[«use('ContentProviderPlaceholder')» alloc] initWithController:self cellFactorySelector:@selector(«cell.iterator.name»Cell:) contentProvider:«cell.iterator.rootParameter().ivar()»]];
+		[table cell:[[«use('ContentProviderPlaceholder')» alloc] initWithController:self cellFactorySelector:@selector(«cell.iterator.name»Cell:) contentProvider:«cell.iterator.rootParameter().ivar()»]];
 «ELSE-»
-	[table text:«cell.text==null ? 'nil' : cell.text.expression('TODO', '')»];
+		«use('BoxCell')» *cell = [[BoxCell alloc] initWithStyle:«cell.type.constant()» reuseIdentifier:nil];
+		«{cell.text.bind('cell.textLabel', 'text'), 
+		  cell.details.bind('cell.detailTextLabel', 'text')
+		 }.statements("\n\t\t")»
+		[table cell:cell];
+		[cell release];
 «ENDIF-»
+	} //------------------------------------------------------------------
 «ENDFOREACH-»
 «ENDFOREACH-»
 	return table.sections;
