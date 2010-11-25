@@ -3,21 +3,16 @@
 
 #import <Foundation/Foundation.h>
 
-@class Binding;
 #import "BindingSettings.h"
+@class Binding;
 
 @interface BindingContext : NSObject {
-
-	NSObject *fObject;
 	NSMutableArray *fBindings;
 
 }
 
-- (id) initWithObject:(NSObject *)object;
-- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
-- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty;
+- (Binding *) bind:(NSObject *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
+- (Binding *) bind:(NSObject *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty;
 - (void) unbind:(Binding *)binding;
-
-@property (nonatomic, readonly) id modelObject;
 
 @end

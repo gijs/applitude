@@ -7,7 +7,9 @@
 #import "BindingSettings.h"
 
 @interface Binding : NSObject {
-	BindingContext *fModel;
+	BindingContext *fContext;
+	
+	NSObject *fModel;
 	NSString *fModelProperty;
 
 	NSObject *fTarget;
@@ -16,7 +18,7 @@
 	BindingSettings *fSettings;
 }
 
-- (id) initWithModel:(BindingContext *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
+- (id) initWithContext:(BindingContext *)context model:(NSObject *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
 - (void) updateModel;
 - (void) updateTarget;
 - (void) unbind;

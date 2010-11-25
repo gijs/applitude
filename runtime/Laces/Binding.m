@@ -11,9 +11,10 @@
 #define OBJECT_EQUAL(o1, o2) ((o1 == nil && o2 == nil) || (o1 != nil && o2 != nil && [o1 isEqual:o2]))
 
 // TODO: if this is called directly, the Binding is not registered with the Model
-- (id) initWithModel:(BindingContext *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings {
+- (id) initWithContext:(BindingContext *)context model:(NSObject *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings {
 	self = [super init];
 	if (self != nil) {
+		fContext = context;
 		fModel = model;
 		fModelProperty = [modelProperty retain];
 		fTarget = target;
@@ -22,7 +23,7 @@
 
 		[self updateTarget];
 
-		[fModel.modelObject addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
+		[fModel addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
 		if (!fSettings.readonly) {
 			[fTarget addObserver:self forKeyPath:fTargetProperty options:NSKeyValueObservingOptionNew context:NULL];
 		}
@@ -33,41 +34,41 @@
 // Rebind to another model property
 - (void) setModelProperty:(NSString *)modelProperty {
 	if (modelProperty != fModelProperty) {
-		[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
+		[fModel removeObserver:self forKeyPath:fModelProperty];
 		[fModelProperty release];
 		fModelProperty = [modelProperty retain];
 		[self updateTarget];
-		[fModel.modelObject addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
+		[fModel addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
 		NSLog(@"Rebound: %@", self);
 	}
 }
 
 - (void) unbind {
-	if (fModel != nil) {
+	if (fContext != nil) {
 		NSLog(@"Unbind %@", self);
 		if (!fSettings.readonly) {
 			[fTarget removeObserver:self forKeyPath:fTargetProperty];
 		}
-		[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
-		BindingContext *model = fModel;
-		fModel = nil;
-		[model unbind:self];
+		[fModel removeObserver:self forKeyPath:fModelProperty];
+		BindingContext *ctx = fContext;
+		fContext = nil;
+		[ctx unbind:self];
 	}
 }
 
 - (void) updateModel {
-	id oldValue = [fModel.modelObject valueForKeyPath:fModelProperty];
+	id oldValue = [fModel valueForKeyPath:fModelProperty];
 	id newValue = [fTarget valueForKeyPath:fTargetProperty];
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
 		NSLog(@"  %@.%@ := %@", [fModel class], fModelProperty, newValue);
-		[fModel.modelObject setValue:newValue forKeyPath:fModelProperty];
+		[fModel setValue:newValue forKeyPath:fModelProperty];
 	}
 }
 
 - (void) updateTarget {
 	id oldValue = [fTarget valueForKeyPath:fTargetProperty];
-	id newValue = [fModel.modelObject valueForKeyPath:fModelProperty];
+	id newValue = [fModel valueForKeyPath:fModelProperty];
 	if (fSettings != nil) {
 		if (fSettings.converter)
 			newValue = [fSettings.converter convert:newValue];
@@ -83,7 +84,7 @@
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	NSLog(@"  observed change: %@.%@ -> %@", [object class], keyPath, [change valueForKey:NSKeyValueChangeNewKey]);
-	if (object == fModel.modelObject) {
+	if (object == fModel) {
 		[self updateTarget];
 	}
 	else if (object == fTarget) {
@@ -92,7 +93,7 @@
 }
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"Binding[%@.%@ ↔ %@.%@]", [fModel.modelObject class], fModelProperty, [fTarget class], fTargetProperty];
+	return [NSString stringWithFormat:@"Binding[%@.%@ ↔ %@.%@]", [fModel class], fModelProperty, [fTarget class], fTargetProperty];
 }
 
 - (void) dealloc {

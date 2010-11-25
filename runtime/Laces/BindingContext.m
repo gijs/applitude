@@ -6,27 +6,24 @@
 
 @implementation BindingContext
 
-@synthesize modelObject = fObject;
-
-- (id) initWithObject:(NSObject *)object {
+- (id) init {
 	self = [super init];
 	if (self != nil) {
-		fObject = [object retain];
 		fBindings = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
 
-- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings {
-	Binding *binding = [[Binding alloc] initWithModel:self property:modelProperty to:target property:targetProperty settings:settings];
+- (Binding *) bind:(NSObject *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings {
+	Binding *binding = [[Binding alloc] initWithContext:self model:model property:modelProperty to:target property:targetProperty settings:settings];
 	[fBindings addObject:binding];
 	[binding release];
 	NSLog(@"Created %@", binding);
 	return binding;
 }
 
-- (Binding *) bind:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty {
-	return [self bind:modelProperty to:target property:targetProperty settings:nil];
+- (Binding *) bind:(NSObject *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty {
+	return [self bind:model property:modelProperty to:target property:targetProperty settings:nil];
 }
 
 // internal method for Binding only
@@ -39,7 +36,7 @@
 }
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"Model[%@]", [fObject description]];
+	return [NSString stringWithFormat:@"BindingContext[%i bindings]", [fBindings count]];
 }
 
 - (void) dealloc {
@@ -48,7 +45,6 @@
 		[[fBindings objectAtIndex:0] unbind];
 	}
 	[fBindings release];
-	[fObject release];
 	[super dealloc];
 }
 
