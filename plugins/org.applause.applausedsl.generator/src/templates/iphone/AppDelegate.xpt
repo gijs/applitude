@@ -14,9 +14,8 @@
 
 
 «DEFINE headerFile FOR Application»
-«FILE applicationDelegate().h()»
-#import <UIKit/UIKit.h>
-«EXPAND ObjC::Import FOREACH applicationDelegate().headerImports() ONFILECLOSE»
+«FILE applicationDelegate().h()-»
+«EXPAND ObjC::Import FOREACH applicationDelegate().headerImports() ONFILECLOSE-»
 
 @interface «applicationDelegate().name» : NSObject <UIApplicationDelegate> {
 	UIWindow *window;
@@ -36,8 +35,8 @@
 
 
 «DEFINE moduleFile FOR Application»
-«FILE applicationDelegate().m()»
-«EXPAND ObjC::Import FOREACH applicationDelegate().moduleImports() ONFILECLOSE»
+«FILE applicationDelegate().m()-»
+«EXPAND ObjC::Import FOREACH applicationDelegate().moduleImports() ONFILECLOSE-»
 
 @implementation «applicationDelegate().name»
 

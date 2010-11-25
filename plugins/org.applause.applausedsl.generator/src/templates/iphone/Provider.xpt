@@ -9,8 +9,8 @@
 
 
 «DEFINE headerFile FOR Application»
-«FILE providerFactory().h()»
-«EXPAND ObjC::Import FOREACH providerFactory().headerImports() ONFILECLOSE»
+«FILE providerFactory().h()-»
+«EXPAND ObjC::Import FOREACH providerFactory().headerImports() ONFILECLOSE-»
 
 @interface «use(providerFactory())» : NSObject {
 	«allProviders().select(e|e.storing).collect(e|use("IPContentProvider")+" *"+e.ivar()+";").toString("\n\t")»
@@ -28,8 +28,8 @@
 
 
 «DEFINE moduleFile FOR Application»
-«FILE providerFactory().m()»
-«EXPAND ObjC::Import FOREACH providerFactory().moduleImports() ONFILECLOSE»
+«FILE providerFactory().m()-»
+«EXPAND ObjC::Import FOREACH providerFactory().moduleImports() ONFILECLOSE-»
 
 @implementation «use(providerFactory())»
 

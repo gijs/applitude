@@ -10,8 +10,8 @@
 
 
 «DEFINE headerFile FOR Application»
-«FILE viewFactory().h()»
-«EXPAND ObjC::Import FOREACH viewFactory().headerImports() ONFILECLOSE»
+«FILE viewFactory().h()-»
+«EXPAND ObjC::Import FOREACH viewFactory().headerImports() ONFILECLOSE-»
 
 @interface «use(viewFactory())» : NSObject {
 
@@ -28,8 +28,8 @@
 
 
 «DEFINE moduleFile FOR Application»
-«FILE viewFactory().m()»
-«EXPAND ObjC::Import FOREACH viewFactory().moduleImports() ONFILECLOSE»
+«FILE viewFactory().m()-»
+«EXPAND ObjC::Import FOREACH viewFactory().moduleImports() ONFILECLOSE-»
 #import "Branding.h"
 
 @implementation «use(viewFactory())»

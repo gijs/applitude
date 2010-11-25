@@ -25,11 +25,11 @@ create Set[ProjectClass] bagHeaderImports (ProjectClass class):
 create Set[ProjectClass] bagModuleImports (ProjectClass class):
 	((List[ProjectClass]) {}).toSet();
 
-Set[ProjectClass] headerImports(ProjectClass class):
-	class.bagHeaderImports().without({class});
+List[ProjectClass] headerImports(ProjectClass class):
+	class.bagHeaderImports().without({class}).sortBy(e|e.name);
 
-Set[ProjectClass] moduleImports(ProjectClass class):
-	class.bagModuleImports().without(class.bagHeaderImports()).union({class});
+List[ProjectClass] moduleImports(ProjectClass class):
+	{class, class.bagModuleImports().without(class.bagHeaderImports()).without({class}).sortBy(e|e.name)}.flatten();
 
 cached ProjectClass newProjectClass(String name):
 	JAVA templates.Extensions.createProjectClass(java.lang.String);
@@ -47,7 +47,7 @@ statements(Collection[String] strings):
 	strings.statements("\n");
 
 statements(Collection[String] strings, String nl):
-	strings.remove(null).collect(e|e + ";").toString(nl);
+	strings.without({null}).collect(e|e + ";").toString(nl);
 
 pointer(ProjectClass class):
 	use(class) + " *";
@@ -168,7 +168,7 @@ bind(StringLiteral expr, String objectExpr, String property):
 	objectExpr + "." + property + " = " + expr.expression('', '');
 
 bind(ObjectReference expr, String objectExpr, String property):
-	'[' + expr.rootParameter().ivar() + ' bind:@"' + expr.keyPath('content').toString('.') + '" to:' + objectExpr + ' property:@"' + property + '"]';
+	'[fBindings bind:' + expr.rootParameter().ivar() + ' property:@"' + expr.keyPath('content').toString('.') + '" to:' + objectExpr + ' property:@"' + property + '"]';
 
 
 
