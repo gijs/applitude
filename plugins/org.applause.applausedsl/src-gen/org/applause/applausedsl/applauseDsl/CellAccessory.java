@@ -13,149 +13,149 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Cell Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Cell Accessory</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCellType()
+ * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCellAccessory()
  * @model
  * @generated
  */
-public enum CellType implements Enumerator
+public enum CellAccessory implements Enumerator
 {
   /**
-   * The '<em><b>Default</b></em>' literal object.
+   * The '<em><b>None</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #DEFAULT_VALUE
+   * @see #NONE_VALUE
    * @generated
    * @ordered
    */
-  DEFAULT(0, "default", "Default"),
+  NONE(0, "None", "None"),
 
   /**
-   * The '<em><b>Value1</b></em>' literal object.
+   * The '<em><b>Link</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #VALUE1_VALUE
+   * @see #LINK_VALUE
    * @generated
    * @ordered
    */
-  VALUE1(1, "value1", "Value1"),
+  LINK(1, "Link", "Link"),
 
   /**
-   * The '<em><b>Value2</b></em>' literal object.
+   * The '<em><b>Detail</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #VALUE2_VALUE
+   * @see #DETAIL_VALUE
    * @generated
    * @ordered
    */
-  VALUE2(2, "value2", "Value2"),
+  DETAIL(2, "Detail", "Detail"),
 
   /**
-   * The '<em><b>Subtitle</b></em>' literal object.
+   * The '<em><b>Check</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #SUBTITLE_VALUE
+   * @see #CHECK_VALUE
    * @generated
    * @ordered
    */
-  SUBTITLE(3, "subtitle", "Subtitle");
+  CHECK(3, "Check", "Check");
 
   /**
-   * The '<em><b>Default</b></em>' literal value.
+   * The '<em><b>None</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Default</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>None</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #DEFAULT
-   * @model name="default" literal="Default"
+   * @see #NONE
+   * @model name="None"
    * @generated
    * @ordered
    */
-  public static final int DEFAULT_VALUE = 0;
+  public static final int NONE_VALUE = 0;
 
   /**
-   * The '<em><b>Value1</b></em>' literal value.
+   * The '<em><b>Link</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Value1</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Link</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #VALUE1
-   * @model name="value1" literal="Value1"
+   * @see #LINK
+   * @model name="Link"
    * @generated
    * @ordered
    */
-  public static final int VALUE1_VALUE = 1;
+  public static final int LINK_VALUE = 1;
 
   /**
-   * The '<em><b>Value2</b></em>' literal value.
+   * The '<em><b>Detail</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Value2</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Detail</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #VALUE2
-   * @model name="value2" literal="Value2"
+   * @see #DETAIL
+   * @model name="Detail"
    * @generated
    * @ordered
    */
-  public static final int VALUE2_VALUE = 2;
+  public static final int DETAIL_VALUE = 2;
 
   /**
-   * The '<em><b>Subtitle</b></em>' literal value.
+   * The '<em><b>Check</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Subtitle</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>Check</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #SUBTITLE
-   * @model name="subtitle" literal="Subtitle"
+   * @see #CHECK
+   * @model name="Check"
    * @generated
    * @ordered
    */
-  public static final int SUBTITLE_VALUE = 3;
+  public static final int CHECK_VALUE = 3;
 
   /**
-   * An array of all the '<em><b>Cell Type</b></em>' enumerators.
+   * An array of all the '<em><b>Cell Accessory</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private static final CellType[] VALUES_ARRAY =
-    new CellType[]
+  private static final CellAccessory[] VALUES_ARRAY =
+    new CellAccessory[]
     {
-      DEFAULT,
-      VALUE1,
-      VALUE2,
-      SUBTITLE,
+      NONE,
+      LINK,
+      DETAIL,
+      CHECK,
     };
 
   /**
-   * A public read-only list of all the '<em><b>Cell Type</b></em>' enumerators.
+   * A public read-only list of all the '<em><b>Cell Accessory</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final List<CellType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  public static final List<CellAccessory> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Cell Type</b></em>' literal with the specified literal value.
+   * Returns the '<em><b>Cell Accessory</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static CellType get(String literal)
+  public static CellAccessory get(String literal)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      CellType result = VALUES_ARRAY[i];
+      CellAccessory result = VALUES_ARRAY[i];
       if (result.toString().equals(literal))
       {
         return result;
@@ -165,16 +165,16 @@ public enum CellType implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Cell Type</b></em>' literal with the specified name.
+   * Returns the '<em><b>Cell Accessory</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static CellType getByName(String name)
+  public static CellAccessory getByName(String name)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      CellType result = VALUES_ARRAY[i];
+      CellAccessory result = VALUES_ARRAY[i];
       if (result.getName().equals(name))
       {
         return result;
@@ -184,19 +184,19 @@ public enum CellType implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Cell Type</b></em>' literal with the specified integer value.
+   * Returns the '<em><b>Cell Accessory</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static CellType get(int value)
+  public static CellAccessory get(int value)
   {
     switch (value)
     {
-      case DEFAULT_VALUE: return DEFAULT;
-      case VALUE1_VALUE: return VALUE1;
-      case VALUE2_VALUE: return VALUE2;
-      case SUBTITLE_VALUE: return SUBTITLE;
+      case NONE_VALUE: return NONE;
+      case LINK_VALUE: return LINK;
+      case DETAIL_VALUE: return DETAIL;
+      case CHECK_VALUE: return CHECK;
     }
     return null;
   }
@@ -228,7 +228,7 @@ public enum CellType implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  private CellType(int value, String name, String literal)
+  private CellAccessory(int value, String name, String literal)
   {
     this.value = value;
     this.name = name;
@@ -277,4 +277,4 @@ public enum CellType implements Enumerator
     return literal;
   }
   
-} //CellType
+} //CellAccessory

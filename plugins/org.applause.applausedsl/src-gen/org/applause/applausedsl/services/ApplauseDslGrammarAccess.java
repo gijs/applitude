@@ -237,6 +237,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCollectionFunctionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cObjectReferenceParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
+		////TODO: could this be ScalarExpression | CollectionExpression? and simplify rootParameter extension
 		//Expression:
 		//	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
 		public ParserRule getRule() { return rule; }
@@ -1585,31 +1586,38 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIteratorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cIteratorCollectionIteratorParserRuleCall_2_1_0 = (RuleCall)cIteratorAssignment_2_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cTextKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cTextAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cTextScalarExpressionParserRuleCall_4_1_0 = (RuleCall)cTextAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cDetailsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cDetailsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDetailsScalarExpressionParserRuleCall_5_1_0 = (RuleCall)cDetailsAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cImageKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cImageAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cImageScalarExpressionParserRuleCall_6_1_0 = (RuleCall)cImageAssignment_6_1.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cActionKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cActionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cActionViewActionParserRuleCall_7_1_0 = (RuleCall)cActionAssignment_7_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cUnorderedGroup_4.eContents().get(0);
+		private final Keyword cTextKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
+		private final Assignment cTextAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
+		private final RuleCall cTextScalarExpressionParserRuleCall_4_0_1_0 = (RuleCall)cTextAssignment_4_0_1.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cUnorderedGroup_4.eContents().get(1);
+		private final Keyword cDetailsKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cDetailsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cDetailsScalarExpressionParserRuleCall_4_1_1_0 = (RuleCall)cDetailsAssignment_4_1_1.eContents().get(0);
+		private final Group cGroup_4_2 = (Group)cUnorderedGroup_4.eContents().get(2);
+		private final Keyword cImageKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Assignment cImageAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final RuleCall cImageScalarExpressionParserRuleCall_4_2_1_0 = (RuleCall)cImageAssignment_4_2_1.eContents().get(0);
+		private final Group cGroup_4_3 = (Group)cUnorderedGroup_4.eContents().get(3);
+		private final Keyword cActionKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Assignment cActionAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final RuleCall cActionViewActionParserRuleCall_4_3_1_0 = (RuleCall)cActionAssignment_4_3_1.eContents().get(0);
+		private final Group cGroup_4_4 = (Group)cUnorderedGroup_4.eContents().get(4);
+		private final Keyword cAccessoryKeyword_4_4_0 = (Keyword)cGroup_4_4.eContents().get(0);
+		private final Assignment cAccessoryAssignment_4_4_1 = (Assignment)cGroup_4_4.eContents().get(1);
+		private final RuleCall cAccessoryCellAccessoryEnumRuleCall_4_4_1_0 = (RuleCall)cAccessoryAssignment_4_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//SectionCell:
-		//	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text:" text=ScalarExpression)? ("details:"
-		//	details=ScalarExpression)? ("image:" image=ScalarExpression)? ("action:" action=ViewAction)? "}";
+		//	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" (("text:" text=ScalarExpression)? & ("details:"
+		//	details=ScalarExpression)? & ("image:" image=ScalarExpression)? & ("action:" action=ViewAction)? & ("accessory:"
+		//	accessory=CellAccessory)?) "}";
 		public ParserRule getRule() { return rule; }
 
-		//"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text:" text=ScalarExpression)? ("details:"
-		//details=ScalarExpression)? ("image:" image=ScalarExpression)? ("action:" action=ViewAction)? "}"
+		//"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" (("text:" text=ScalarExpression)? & ("details:"
+		//details=ScalarExpression)? & ("image:" image=ScalarExpression)? & ("action:" action=ViewAction)? & ("accessory:"
+		//accessory=CellAccessory)?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//"cell"
@@ -1636,56 +1644,72 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
+		//("text:" text=ScalarExpression)? & ("details:" details=ScalarExpression)? & ("image:" image=ScalarExpression)? &
+		//("action:" action=ViewAction)? & ("accessory:" accessory=CellAccessory)?
+		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
+
 		//("text:" text=ScalarExpression)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_4_0() { return cGroup_4_0; }
 
 		//"text:"
-		public Keyword getTextKeyword_4_0() { return cTextKeyword_4_0; }
+		public Keyword getTextKeyword_4_0_0() { return cTextKeyword_4_0_0; }
 
 		//text=ScalarExpression
-		public Assignment getTextAssignment_4_1() { return cTextAssignment_4_1; }
+		public Assignment getTextAssignment_4_0_1() { return cTextAssignment_4_0_1; }
 
 		//ScalarExpression
-		public RuleCall getTextScalarExpressionParserRuleCall_4_1_0() { return cTextScalarExpressionParserRuleCall_4_1_0; }
+		public RuleCall getTextScalarExpressionParserRuleCall_4_0_1_0() { return cTextScalarExpressionParserRuleCall_4_0_1_0; }
 
 		//("details:" details=ScalarExpression)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4_1() { return cGroup_4_1; }
 
 		//"details:"
-		public Keyword getDetailsKeyword_5_0() { return cDetailsKeyword_5_0; }
+		public Keyword getDetailsKeyword_4_1_0() { return cDetailsKeyword_4_1_0; }
 
 		//details=ScalarExpression
-		public Assignment getDetailsAssignment_5_1() { return cDetailsAssignment_5_1; }
+		public Assignment getDetailsAssignment_4_1_1() { return cDetailsAssignment_4_1_1; }
 
 		//ScalarExpression
-		public RuleCall getDetailsScalarExpressionParserRuleCall_5_1_0() { return cDetailsScalarExpressionParserRuleCall_5_1_0; }
+		public RuleCall getDetailsScalarExpressionParserRuleCall_4_1_1_0() { return cDetailsScalarExpressionParserRuleCall_4_1_1_0; }
 
 		//("image:" image=ScalarExpression)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_4_2() { return cGroup_4_2; }
 
 		//"image:"
-		public Keyword getImageKeyword_6_0() { return cImageKeyword_6_0; }
+		public Keyword getImageKeyword_4_2_0() { return cImageKeyword_4_2_0; }
 
 		//image=ScalarExpression
-		public Assignment getImageAssignment_6_1() { return cImageAssignment_6_1; }
+		public Assignment getImageAssignment_4_2_1() { return cImageAssignment_4_2_1; }
 
 		//ScalarExpression
-		public RuleCall getImageScalarExpressionParserRuleCall_6_1_0() { return cImageScalarExpressionParserRuleCall_6_1_0; }
+		public RuleCall getImageScalarExpressionParserRuleCall_4_2_1_0() { return cImageScalarExpressionParserRuleCall_4_2_1_0; }
 
 		//("action:" action=ViewAction)?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_4_3() { return cGroup_4_3; }
 
 		//"action:"
-		public Keyword getActionKeyword_7_0() { return cActionKeyword_7_0; }
+		public Keyword getActionKeyword_4_3_0() { return cActionKeyword_4_3_0; }
 
 		//action=ViewAction
-		public Assignment getActionAssignment_7_1() { return cActionAssignment_7_1; }
+		public Assignment getActionAssignment_4_3_1() { return cActionAssignment_4_3_1; }
 
 		//ViewAction
-		public RuleCall getActionViewActionParserRuleCall_7_1_0() { return cActionViewActionParserRuleCall_7_1_0; }
+		public RuleCall getActionViewActionParserRuleCall_4_3_1_0() { return cActionViewActionParserRuleCall_4_3_1_0; }
+
+		//("accessory:" accessory=CellAccessory)?
+		public Group getGroup_4_4() { return cGroup_4_4; }
+
+		//"accessory:"
+		public Keyword getAccessoryKeyword_4_4_0() { return cAccessoryKeyword_4_4_0; }
+
+		//accessory=CellAccessory
+		public Assignment getAccessoryAssignment_4_4_1() { return cAccessoryAssignment_4_4_1; }
+
+		//CellAccessory
+		public RuleCall getAccessoryCellAccessoryEnumRuleCall_4_4_1_0() { return cAccessoryCellAccessoryEnumRuleCall_4_4_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class CollectionIteratorElements extends AbstractParserRuleElementFinder {
@@ -1874,22 +1898,18 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cDefaultEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cDefaultDefaultKeyword_0_0 = (Keyword)cDefaultEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cDefaultWithDisclosureEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cDefaultWithDisclosureDefaultWithDisclosureKeyword_1_0 = (Keyword)cDefaultWithDisclosureEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cValue1EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cValue1Value1Keyword_1_0 = (Keyword)cValue1EnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cValue2EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cValue2Value2Keyword_2_0 = (Keyword)cValue2EnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cDoubleEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cDoubleDoubleKeyword_3_0 = (Keyword)cDoubleEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cSubtitleEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cSubtitleSubtitleKeyword_4_0 = (Keyword)cSubtitleEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cSubtitleEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cSubtitleSubtitleKeyword_3_0 = (Keyword)cSubtitleEnumLiteralDeclaration_3.eContents().get(0);
 		
 		//enum CellType:
-		//	default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2="Value2" | double="Double" |
-		//	subtitle="Subtitle";
+		//	default="Default" | value1="Value1" | value2="Value2" | subtitle="Subtitle";
 		public EnumRule getRule() { return rule; }
 
-		//default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2="Value2" | double="Double" |
-		//subtitle="Subtitle"
+		//default="Default" | value1="Value1" | value2="Value2" | subtitle="Subtitle"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//default="Default"
@@ -1898,11 +1918,11 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"Default"
 		public Keyword getDefaultDefaultKeyword_0_0() { return cDefaultDefaultKeyword_0_0; }
 
-		//defaultWithDisclosure="DefaultWithDisclosure"
-		public EnumLiteralDeclaration getDefaultWithDisclosureEnumLiteralDeclaration_1() { return cDefaultWithDisclosureEnumLiteralDeclaration_1; }
+		//value1="Value1"
+		public EnumLiteralDeclaration getValue1EnumLiteralDeclaration_1() { return cValue1EnumLiteralDeclaration_1; }
 
-		//"DefaultWithDisclosure"
-		public Keyword getDefaultWithDisclosureDefaultWithDisclosureKeyword_1_0() { return cDefaultWithDisclosureDefaultWithDisclosureKeyword_1_0; }
+		//"Value1"
+		public Keyword getValue1Value1Keyword_1_0() { return cValue1Value1Keyword_1_0; }
 
 		//value2="Value2"
 		public EnumLiteralDeclaration getValue2EnumLiteralDeclaration_2() { return cValue2EnumLiteralDeclaration_2; }
@@ -1910,17 +1930,55 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"Value2"
 		public Keyword getValue2Value2Keyword_2_0() { return cValue2Value2Keyword_2_0; }
 
-		//double="Double"
-		public EnumLiteralDeclaration getDoubleEnumLiteralDeclaration_3() { return cDoubleEnumLiteralDeclaration_3; }
-
-		//"Double"
-		public Keyword getDoubleDoubleKeyword_3_0() { return cDoubleDoubleKeyword_3_0; }
-
 		//subtitle="Subtitle"
-		public EnumLiteralDeclaration getSubtitleEnumLiteralDeclaration_4() { return cSubtitleEnumLiteralDeclaration_4; }
+		public EnumLiteralDeclaration getSubtitleEnumLiteralDeclaration_3() { return cSubtitleEnumLiteralDeclaration_3; }
 
 		//"Subtitle"
-		public Keyword getSubtitleSubtitleKeyword_4_0() { return cSubtitleSubtitleKeyword_4_0; }
+		public Keyword getSubtitleSubtitleKeyword_3_0() { return cSubtitleSubtitleKeyword_3_0; }
+	}
+
+	public class CellAccessoryElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "CellAccessory");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cNoneEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cNoneNoneKeyword_0_0 = (Keyword)cNoneEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cLinkEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cLinkLinkKeyword_1_0 = (Keyword)cLinkEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDetailEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDetailDetailKeyword_2_0 = (Keyword)cDetailEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cCheckEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cCheckCheckKeyword_3_0 = (Keyword)cCheckEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum CellAccessory:
+		//	None | Link | Detail | Check;
+		public EnumRule getRule() { return rule; }
+
+		//None | Link | Detail | Check
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//None
+		public EnumLiteralDeclaration getNoneEnumLiteralDeclaration_0() { return cNoneEnumLiteralDeclaration_0; }
+
+		//"None"
+		public Keyword getNoneNoneKeyword_0_0() { return cNoneNoneKeyword_0_0; }
+
+		//Link
+		public EnumLiteralDeclaration getLinkEnumLiteralDeclaration_1() { return cLinkEnumLiteralDeclaration_1; }
+
+		//"Link"
+		public Keyword getLinkLinkKeyword_1_0() { return cLinkLinkKeyword_1_0; }
+
+		//Detail
+		public EnumLiteralDeclaration getDetailEnumLiteralDeclaration_2() { return cDetailEnumLiteralDeclaration_2; }
+
+		//"Detail"
+		public Keyword getDetailDetailKeyword_2_0() { return cDetailDetailKeyword_2_0; }
+
+		//Check
+		public EnumLiteralDeclaration getCheckEnumLiteralDeclaration_3() { return cCheckEnumLiteralDeclaration_3; }
+
+		//"Check"
+		public Keyword getCheckCheckKeyword_3_0() { return cCheckCheckKeyword_3_0; }
 	}
 	
 	private ModelElements pModel;
@@ -1960,6 +2018,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private ViewSectionElements pViewSection;
 	private SectionCellElements pSectionCell;
 	private CellTypeElements unknownRuleCellType;
+	private CellAccessoryElements unknownRuleCellAccessory;
 	private CollectionIteratorElements pCollectionIterator;
 	private ViewActionElements pViewAction;
 	private ExternalOpenElements pExternalOpen;
@@ -2064,6 +2123,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getNestedObjectReferenceAccess().getRule();
 	}
 
+	////TODO: could this be ScalarExpression | CollectionExpression? and simplify rootParameter extension
 	//Expression:
 	//	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
 	public ExpressionElements getExpressionAccess() {
@@ -2360,8 +2420,9 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SectionCell:
-	//	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text:" text=ScalarExpression)? ("details:"
-	//	details=ScalarExpression)? ("image:" image=ScalarExpression)? ("action:" action=ViewAction)? "}";
+	//	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" (("text:" text=ScalarExpression)? & ("details:"
+	//	details=ScalarExpression)? & ("image:" image=ScalarExpression)? & ("action:" action=ViewAction)? & ("accessory:"
+	//	accessory=CellAccessory)?) "}";
 	public SectionCellElements getSectionCellAccess() {
 		return (pSectionCell != null) ? pSectionCell : (pSectionCell = new SectionCellElements());
 	}
@@ -2371,14 +2432,23 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum CellType:
-	//	default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2="Value2" | double="Double" |
-	//	subtitle="Subtitle";
+	//	default="Default" | value1="Value1" | value2="Value2" | subtitle="Subtitle";
 	public CellTypeElements getCellTypeAccess() {
 		return (unknownRuleCellType != null) ? unknownRuleCellType : (unknownRuleCellType = new CellTypeElements());
 	}
 	
 	public EnumRule getCellTypeRule() {
 		return getCellTypeAccess().getRule();
+	}
+
+	//enum CellAccessory:
+	//	None | Link | Detail | Check;
+	public CellAccessoryElements getCellAccessoryAccess() {
+		return (unknownRuleCellAccessory != null) ? unknownRuleCellAccessory : (unknownRuleCellAccessory = new CellAccessoryElements());
+	}
+	
+	public EnumRule getCellAccessoryRule() {
+		return getCellAccessoryAccess().getRule();
 	}
 
 	//CollectionIterator:

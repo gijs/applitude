@@ -8,6 +8,7 @@ package org.applause.applausedsl.applauseDsl.impl;
 import org.applause.applausedsl.applauseDsl.ApplauseDslFactory;
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.Application;
+import org.applause.applausedsl.applauseDsl.CellAccessory;
 import org.applause.applausedsl.applauseDsl.CellType;
 import org.applause.applausedsl.applauseDsl.CollectionExpression;
 import org.applause.applausedsl.applauseDsl.CollectionFunction;
@@ -399,6 +400,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EEnum cellTypeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum cellAccessoryEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -1308,6 +1316,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getSectionCell_Accessory()
+  {
+    return (EAttribute)sectionCellEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCollectionIterator()
   {
     return collectionIteratorEClass;
@@ -1598,6 +1616,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getCellAccessory()
+  {
+    return cellAccessoryEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ApplauseDslFactory getApplauseDslFactory()
   {
     return (ApplauseDslFactory)getEFactoryInstance();
@@ -1739,6 +1767,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(sectionCellEClass, SECTION_CELL__DETAILS);
     createEReference(sectionCellEClass, SECTION_CELL__IMAGE);
     createEReference(sectionCellEClass, SECTION_CELL__ACTION);
+    createEAttribute(sectionCellEClass, SECTION_CELL__ACCESSORY);
 
     collectionIteratorEClass = createEClass(COLLECTION_ITERATOR);
     createEReference(collectionIteratorEClass, COLLECTION_ITERATOR__COLLECTION);
@@ -1781,6 +1810,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     serializationFormatEEnum = createEEnum(SERIALIZATION_FORMAT);
     tableViewStyleEEnum = createEEnum(TABLE_VIEW_STYLE);
     cellTypeEEnum = createEEnum(CELL_TYPE);
+    cellAccessoryEEnum = createEEnum(CELL_ACCESSORY);
   }
 
   /**
@@ -1964,6 +1994,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getSectionCell_Details(), this.getScalarExpression(), null, "details", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Image(), this.getScalarExpression(), null, "image", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Action(), this.getViewAction(), null, "action", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSectionCell_Accessory(), this.getCellAccessory(), "accessory", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(collectionIteratorEClass, CollectionIterator.class, "CollectionIterator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCollectionIterator_Collection(), this.getCollectionExpression(), null, "collection", null, 0, 1, CollectionIterator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2013,10 +2044,15 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     initEEnum(cellTypeEEnum, CellType.class, "CellType");
     addEEnumLiteral(cellTypeEEnum, CellType.DEFAULT);
-    addEEnumLiteral(cellTypeEEnum, CellType.DEFAULT_WITH_DISCLOSURE);
+    addEEnumLiteral(cellTypeEEnum, CellType.VALUE1);
     addEEnumLiteral(cellTypeEEnum, CellType.VALUE2);
-    addEEnumLiteral(cellTypeEEnum, CellType.DOUBLE);
     addEEnumLiteral(cellTypeEEnum, CellType.SUBTITLE);
+
+    initEEnum(cellAccessoryEEnum, CellAccessory.class, "CellAccessory");
+    addEEnumLiteral(cellAccessoryEEnum, CellAccessory.NONE);
+    addEEnumLiteral(cellAccessoryEEnum, CellAccessory.LINK);
+    addEEnumLiteral(cellAccessoryEEnum, CellAccessory.DETAIL);
+    addEEnumLiteral(cellAccessoryEEnum, CellAccessory.CHECK);
 
     // Create resource
     createResource(eNS_URI);

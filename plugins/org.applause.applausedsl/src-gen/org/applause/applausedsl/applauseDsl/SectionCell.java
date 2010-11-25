@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getDetails <em>Details</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getImage <em>Image</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getAction <em>Action</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getAccessory <em>Accessory</em>}</li>
  * </ul>
  * </p>
  *
@@ -188,5 +189,34 @@ public interface SectionCell extends EObject
    * @generated
    */
   void setAction(ViewAction value);
+
+  /**
+   * Returns the value of the '<em><b>Accessory</b></em>' attribute.
+   * The literals are from the enumeration {@link org.applause.applausedsl.applauseDsl.CellAccessory}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Accessory</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Accessory</em>' attribute.
+   * @see org.applause.applausedsl.applauseDsl.CellAccessory
+   * @see #setAccessory(CellAccessory)
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell_Accessory()
+   * @model
+   * @generated
+   */
+  CellAccessory getAccessory();
+
+  /**
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.SectionCell#getAccessory <em>Accessory</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Accessory</em>' attribute.
+   * @see org.applause.applausedsl.applauseDsl.CellAccessory
+   * @see #getAccessory()
+   * @generated
+   */
+  void setAccessory(CellAccessory value);
 
 } // SectionCell

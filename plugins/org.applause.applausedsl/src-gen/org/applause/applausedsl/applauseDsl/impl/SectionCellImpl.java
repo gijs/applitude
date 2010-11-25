@@ -6,6 +6,7 @@
 package org.applause.applausedsl.applauseDsl.impl;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
+import org.applause.applausedsl.applauseDsl.CellAccessory;
 import org.applause.applausedsl.applauseDsl.CellType;
 import org.applause.applausedsl.applauseDsl.CollectionIterator;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getDetails <em>Details</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getImage <em>Image</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getAccessory <em>Accessory</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,6 +112,26 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * @ordered
    */
   protected ViewAction action;
+
+  /**
+   * The default value of the '{@link #getAccessory() <em>Accessory</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccessory()
+   * @generated
+   * @ordered
+   */
+  protected static final CellAccessory ACCESSORY_EDEFAULT = CellAccessory.NONE;
+
+  /**
+   * The cached value of the '{@link #getAccessory() <em>Accessory</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAccessory()
+   * @generated
+   * @ordered
+   */
+  protected CellAccessory accessory = ACCESSORY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -400,6 +422,29 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * <!-- end-user-doc -->
    * @generated
    */
+  public CellAccessory getAccessory()
+  {
+    return accessory;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAccessory(CellAccessory newAccessory)
+  {
+    CellAccessory oldAccessory = accessory;
+    accessory = newAccessory == null ? ACCESSORY_EDEFAULT : newAccessory;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__ACCESSORY, oldAccessory, accessory));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -441,6 +486,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return getImage();
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         return getAction();
+      case ApplauseDslPackage.SECTION_CELL__ACCESSORY:
+        return getAccessory();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -472,6 +519,9 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return;
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         setAction((ViewAction)newValue);
+        return;
+      case ApplauseDslPackage.SECTION_CELL__ACCESSORY:
+        setAccessory((CellAccessory)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -505,6 +555,9 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         setAction((ViewAction)null);
         return;
+      case ApplauseDslPackage.SECTION_CELL__ACCESSORY:
+        setAccessory(ACCESSORY_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -531,6 +584,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return image != null;
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         return action != null;
+      case ApplauseDslPackage.SECTION_CELL__ACCESSORY:
+        return accessory != ACCESSORY_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -548,6 +603,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (type: ");
     result.append(type);
+    result.append(", accessory: ");
+    result.append(accessory);
     result.append(')');
     return result.toString();
   }

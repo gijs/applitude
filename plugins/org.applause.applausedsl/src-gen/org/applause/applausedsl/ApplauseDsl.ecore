@@ -154,13 +154,19 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//ViewAction"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessory" eType="#//CellAccessory"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CellType">
     <eLiterals name="default" literal="Default"/>
-    <eLiterals name="defaultWithDisclosure" value="1" literal="DefaultWithDisclosure"/>
+    <eLiterals name="value1" value="1" literal="Value1"/>
     <eLiterals name="value2" value="2" literal="Value2"/>
-    <eLiterals name="double" value="3" literal="Double"/>
-    <eLiterals name="subtitle" value="4" literal="Subtitle"/>
+    <eLiterals name="subtitle" value="3" literal="Subtitle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CellAccessory">
+    <eLiterals name="None" literal="None"/>
+    <eLiterals name="Link" value="1" literal="Link"/>
+    <eLiterals name="Detail" value="2" literal="Detail"/>
+    <eLiterals name="Check" value="3" literal="Check"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CollectionIterator" eSuperTypes="#//VariableDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="collection" eType="#//CollectionExpression"

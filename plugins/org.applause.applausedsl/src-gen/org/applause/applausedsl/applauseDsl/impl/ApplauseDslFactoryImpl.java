@@ -133,6 +133,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
         return createTableViewStyleFromString(eDataType, initialValue);
       case ApplauseDslPackage.CELL_TYPE:
         return createCellTypeFromString(eDataType, initialValue);
+      case ApplauseDslPackage.CELL_ACCESSORY:
+        return createCellAccessoryFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -154,6 +156,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
         return convertTableViewStyleToString(eDataType, instanceValue);
       case ApplauseDslPackage.CELL_TYPE:
         return convertCellTypeToString(eDataType, instanceValue);
+      case ApplauseDslPackage.CELL_ACCESSORY:
+        return convertCellAccessoryToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -705,6 +709,28 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * @generated
    */
   public String convertCellTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CellAccessory createCellAccessoryFromString(EDataType eDataType, String initialValue)
+  {
+    CellAccessory result = CellAccessory.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertCellAccessoryToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

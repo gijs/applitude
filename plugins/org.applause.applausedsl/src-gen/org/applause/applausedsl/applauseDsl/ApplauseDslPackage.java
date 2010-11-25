@@ -1327,13 +1327,22 @@ public interface ApplauseDslPackage extends EPackage
   int SECTION_CELL__ACTION = 5;
 
   /**
+   * The feature id for the '<em><b>Accessory</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTION_CELL__ACCESSORY = 6;
+
+  /**
    * The number of structural features of the '<em>Section Cell</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SECTION_CELL_FEATURE_COUNT = 6;
+  int SECTION_CELL_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.CollectionIteratorImpl <em>Collection Iterator</em>}' class.
@@ -1717,6 +1726,16 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   int CELL_TYPE = 46;
+
+  /**
+   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.CellAccessory <em>Cell Accessory</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.applausedsl.applauseDsl.CellAccessory
+   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCellAccessory()
+   * @generated
+   */
+  int CELL_ACCESSORY = 47;
 
 
   /**
@@ -2611,6 +2630,17 @@ public interface ApplauseDslPackage extends EPackage
   EReference getSectionCell_Action();
 
   /**
+   * Returns the meta object for the attribute '{@link org.applause.applausedsl.applauseDsl.SectionCell#getAccessory <em>Accessory</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Accessory</em>'.
+   * @see org.applause.applausedsl.applauseDsl.SectionCell#getAccessory()
+   * @see #getSectionCell()
+   * @generated
+   */
+  EAttribute getSectionCell_Accessory();
+
+  /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.CollectionIterator <em>Collection Iterator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2914,6 +2944,16 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EEnum getCellType();
+
+  /**
+   * Returns the meta object for enum '{@link org.applause.applausedsl.applauseDsl.CellAccessory <em>Cell Accessory</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Cell Accessory</em>'.
+   * @see org.applause.applausedsl.applauseDsl.CellAccessory
+   * @generated
+   */
+  EEnum getCellAccessory();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -3677,6 +3717,14 @@ public interface ApplauseDslPackage extends EPackage
     EReference SECTION_CELL__ACTION = eINSTANCE.getSectionCell_Action();
 
     /**
+     * The meta object literal for the '<em><b>Accessory</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SECTION_CELL__ACCESSORY = eINSTANCE.getSectionCell_Accessory();
+
+    /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.CollectionIteratorImpl <em>Collection Iterator</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3935,6 +3983,16 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EEnum CELL_TYPE = eINSTANCE.getCellType();
+
+    /**
+     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.CellAccessory <em>Cell Accessory</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.applausedsl.applauseDsl.CellAccessory
+     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCellAccessory()
+     * @generated
+     */
+    EEnum CELL_ACCESSORY = eINSTANCE.getCellAccessory();
 
   }
 

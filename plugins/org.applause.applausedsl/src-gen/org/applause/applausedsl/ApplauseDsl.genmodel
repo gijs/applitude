@@ -19,10 +19,15 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//CellType">
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/default"/>
-      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/defaultWithDisclosure"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/value1"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/value2"/>
-      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/double"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/subtitle"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//CellAccessory">
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellAccessory/None"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellAccessory/Link"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellAccessory/Detail"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellAccessory/Check"/>
     </genEnums>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Model/application"/>
@@ -132,6 +137,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/details"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/image"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//SectionCell/accessory"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//CollectionIterator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//CollectionIterator/collection"/>
