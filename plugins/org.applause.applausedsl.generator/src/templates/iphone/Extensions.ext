@@ -108,6 +108,14 @@ constant(CellAccessory ac):
 		case 'Check' : 'UITableViewCellAccessoryCheckmark'
 		default : 'UITableViewCellAccessoryNone'
 	};
+	
+constructStatements(SectionCell cell, String kvcTarget):
+	{
+	 use('BoxCell') + ' *cell = [[BoxCell alloc] initWithStyle:' + cell.type.constant() + ' reuseIdentifier:nil]',
+	 cell.text.assignment('cell.textLabel', 'text', kvcTarget),
+	 cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget),
+	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null
+	};
 
 initSignature(TableView view):
 	"- (id) init" + (view.parameters().isEmpty ? "" : "With") + view.parameters().signature().toString(" ").toFirstUpper();
@@ -158,17 +166,19 @@ resolve(ScalarExpression expr):
 		: expr.expression('', '');
 
 
-bind(Void expr, String objectExpr, String property):
+
+assignment(Void expr, String targetObject, String targetProperty, String kvcTarget):
 	null;
 
-bind(ScalarExpression expr, String objectExpr, String property):
+assignment(ScalarExpression expr, String targetObject, String targetProperty, String kvcTarget):
 	throwError("Abstract " + expr);
 
-bind(StringLiteral expr, String objectExpr, String property):
-	objectExpr + "." + property + " = " + expr.expression('', '');
+assignment(StringLiteral expr, String targetObject, String targetProperty, String kvcTarget):
+	targetObject + "." + targetProperty + " = " + expr.expression(kvcTarget, '');
 
-bind(ObjectReference expr, String objectExpr, String property):
-	'[fBindings bind:' + expr.rootParameter().ivar() + ' property:@"' + expr.keyPath('content').toString('.') + '" to:' + objectExpr + ' property:@"' + property + '"]';
+assignment(ObjectReference expr, String targetObject, String targetProperty, String kvcTarget):
+	kvcTarget == null ? '[fBindings bind:' + expr.rootParameter().ivar() + ' property:@"' + expr.keyPath('content').toString('.') + '" to:' + targetObject + ' property:@"' + targetProperty + '"]'
+	                  : targetObject + "." + targetProperty + " = " + expr.expression(kvcTarget, '');
 
 
 

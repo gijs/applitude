@@ -55,10 +55,7 @@
 «IF cell.iterator!=null-»
 		[table cell:[[«use('ContentProviderPlaceholder')» alloc] initWithController:self cellFactorySelector:@selector(«cell.iterator.name»Cell:) contentProvider:«cell.iterator.rootParameter().ivar()»]];
 «ELSE-»
-«EXPAND constructCell FOR cell-»
-		«{cell.text.bind('cell.textLabel', 'text'),
-		  cell.details.bind('cell.detailTextLabel', 'text')
-		 }.statements("\n\t\t")»
+		«cell.constructStatements(null).statements("\n\t\t")»
 		[table cell:cell];
 		[cell release];
 «ENDIF-»
@@ -79,18 +76,11 @@
 «DEFINE cellProviderMethod FOR SectionCell-»
 «LET this.iterator AS it-»
 - (UITableViewCell *) «it.name»Cell:(«it.rootParameter().description.type.objcType()» *)«it.name» {
-«EXPAND constructCell FOR this-»
-«IF this.accessory.ordinal()>0»		cell.accessoryType = «this.accessory.constant()»;
-«ENDIF-»
-		cell.textLabel.text = «this.text.expression(it.name, '')»;
-		cell.data = «it.name»;
-		return cell;
+	«this.constructStatements(it.name).statements("\n\t")»
+	cell.data = «it.name»;
+	return cell;
 }
 «ENDLET»
-«ENDDEFINE»
-
-«DEFINE constructCell FOR SectionCell-»
-		«use('BoxCell')» *cell = [[BoxCell alloc] initWithStyle:«this.type.constant()» reuseIdentifier:nil];
 «ENDDEFINE»
 
 
