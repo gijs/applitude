@@ -6,7 +6,7 @@
 @class Binding;
 #import "BindingSettings.h"
 
-@interface Model : NSObject {
+@interface BindingContext : NSObject {
 
 	NSObject *fObject;
 	NSMutableArray *fBindings;

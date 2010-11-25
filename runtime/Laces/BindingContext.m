@@ -1,10 +1,10 @@
 // © 2010 Ralf Ebert
 // Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
 
-#import "Model.h"
+#import "BindingContext.h"
 #import "Binding.h"
 
-@implementation Model
+@implementation BindingContext
 
 @synthesize modelObject = fObject;
 

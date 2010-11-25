@@ -3,11 +3,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Model.h"
+#import "BindingContext.h"
 #import "BindingSettings.h"
 
 @interface Binding : NSObject {
-	Model *fModel;
+	BindingContext *fModel;
 	NSString *fModelProperty;
 
 	NSObject *fTarget;
@@ -16,7 +16,7 @@
 	BindingSettings *fSettings;
 }
 
-- (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
+- (id) initWithModel:(BindingContext *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
 - (void) updateModel;
 - (void) updateTarget;
 - (void) unbind;

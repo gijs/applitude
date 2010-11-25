@@ -11,7 +11,7 @@
 #define OBJECT_EQUAL(o1, o2) ((o1 == nil && o2 == nil) || (o1 != nil && o2 != nil && [o1 isEqual:o2]))
 
 // TODO: if this is called directly, the Binding is not registered with the Model
-- (id) initWithModel:(Model *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings {
+- (id) initWithModel:(BindingContext *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings {
 	self = [super init];
 	if (self != nil) {
 		fModel = model;
@@ -49,7 +49,7 @@
 			[fTarget removeObserver:self forKeyPath:fTargetProperty];
 		}
 		[fModel.modelObject removeObserver:self forKeyPath:fModelProperty];
-		Model *model = fModel;
+		BindingContext *model = fModel;
 		fModel = nil;
 		[model unbind:self];
 	}
