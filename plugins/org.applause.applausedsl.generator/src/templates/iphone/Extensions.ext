@@ -75,9 +75,6 @@ filenameModule(View this):
 viewFactory(Application app):
 	newProjectClass(app.name + "Views");
 
-neededImports(View this):
-	{ this.className() + ".h" };
-
 className(TabView view):
 	"UITabBarController";
 
@@ -193,12 +190,6 @@ providerFactory(Application app):
 
 applicationDelegate(Application app):
 	newProjectClass(app.name + "AppDelegate");
-	
-neededImports(SectionedView this):
-	sections.cells.action.reject(e|e==null).neededImports().flatten().toSet();
-	
-neededImports(ViewAction this):
-	{};	
 
 class(ContentProviderImplementation this):
 	Void;
@@ -223,30 +214,6 @@ objcType(SimpleType type):
 
 objcType(Entity type):
 	type.runtimeType ? type.name : "NSDictionary";
-
-
-
-
-
-neededClasses(Type this):
-	{};
-
-neededClasses(Entity this):
-	this.runtimeType ? { this.class() } : {}; 
-
-
-neededClasses(ViewCall this):
-	provider.neededClasses().union({view.className()});
-
-neededClasses(ContentProvider this):
-	this.type.neededClasses().addAll(this.implementation == null ? {} : {this.implementation.class()});
-	
-neededClasses(ProviderConstruction this):
-	{"IPContentProvider"};
-	
-neededClasses(ComplexProviderConstruction this):
-	{application().providerFactory()};
-
 
 
 
