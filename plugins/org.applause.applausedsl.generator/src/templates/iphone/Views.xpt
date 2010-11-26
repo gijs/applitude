@@ -44,7 +44,7 @@
 
 «DEFINE viewFactoryMethod FOR View»
 «factoryMethodSignature()» {
-	return [«class().allocInit()» autorelease];
+	return [[[«this.class().use()» alloc] init«this.initParametersForward()»] autorelease];
 }
 «ENDDEFINE»
 
@@ -53,7 +53,7 @@
 «factoryMethodSignature()» {
 	UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
 	«FOREACH tabs AS tab ITERATOR i»
-	UINavigationController *tab«i.counter1» = [[UINavigationController alloc] initWithRootViewController:«(tab.view != null) ? tab.view.factoryCall() : "nil"»];
+	UINavigationController *tab«i.counter1» = [[UINavigationController alloc] initWithRootViewController:«(tab.view != null) ? tab.view.factoryCall('', '') : "nil"»];
 	brandNavigationController(tab«i.counter1»);
 	tab«i.counter1».tabBarItem.title = «tab.title.expression('', '')»;
 	«IF tab.icon != null-»

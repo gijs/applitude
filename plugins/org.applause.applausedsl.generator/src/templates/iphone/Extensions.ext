@@ -76,16 +76,25 @@ viewFactory(Application app):
 class(TabView view):
 	"UITabBarController".use();
 
+initSignature(View view):
+	"- (id) init" + view.initParameters();
+
+initParameters(View view):
+	(view.parameters().isEmpty ? "" : "With") + view.parameters().signature().toString(" ").toFirstUpper();
+
+initParametersForward(View view):
+	(view.parameters().isEmpty ? "" : "With") + view.parameters().collect(param|param.name + ":" + param.name).toString(" ").toFirstUpper();
+
 factoryMethodSignature(View view):
 	"+ (" + view.class().use() + " *) " + view.factoryMethodName() + view.initParameters();
 
 factoryMethodName(View view):
 	"create" + view.name;
 
-factoryCall(ViewCall call):
+factoryCall(ViewCall call, String kvcTarget, String kvcPrefix):
 	//TODO: make sharedProviders the default for provider access
 	//TODO: support proper multiple parameters, bind parameters properly
-	"[" + use(application(call.view).viewFactory()) + " " + call.view.factoryMethodName() + (call.provider != null ? "With" + call.view.content.name.toFirstUpper() + ":" + call.provider.contentProvider("[" + call.view.application().providerFactory().use() + " sharedProviders]", '', '') : "") + "]";
+	"[" + use(application(call.view).viewFactory()) + " " + call.view.factoryMethodName() + (call.provider != null ? "With" + call.view.content.name.toFirstUpper() + ":" + call.provider.contentProvider("[" + call.view.application().providerFactory().use() + " sharedProviders]", kvcTarget, kvcPrefix) : "") + "]";
 
 /* TableView */
 
@@ -108,14 +117,9 @@ constructStatements(SectionCell cell, String kvcTarget):
 	 use('BoxCell') + ' *cell = [[BoxCell alloc] initWithStyle:' + cell.type.constant() + ' reuseIdentifier:nil]',
 	 cell.text.assignment('cell.textLabel', 'text', kvcTarget),
 	 cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget),
-	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null
+	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null,
+	 (cell.action != null) ? 'cell.onTouch = [' + "SelectorAction".use() + ' actionWithObject:self selector:@selector(' + kvcTarget + 'CellSelected:)];' : null
 	};
-
-initSignature(View view):
-	"- (id) init" + view.initParameters();
-
-initParameters(View view):
-	(view.parameters().isEmpty ? "" : "With") + view.parameters().signature().toString(" ").toFirstUpper();
 
 parameters(View view):
 	(List[Parameter]) (view.content != null ? { view.content } : {});
@@ -269,8 +273,7 @@ contentProvider(ProviderConstruction this, String providers, String kvcTarget, S
 
 contentProvider(SimpleProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
 	'[IPSimpleContentProvider providerWithContent:' +
-	expression.expression(kvcTarget, kvcPrefix) +
-	 ' andProviders:self.contentProvider.providers]';
+	expression.expression(kvcTarget, kvcPrefix) + ']';
 	 
 contentProvider(ComplexProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
 	'[' + providers + ' providerFor' + provider.name + 

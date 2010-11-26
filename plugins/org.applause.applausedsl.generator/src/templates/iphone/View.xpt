@@ -66,6 +66,7 @@
 }
 
 «EXPAND cellProviderMethod FOREACH sections.cells.select(e|e.iterator!=null)-»
+«EXPAND cellActionMethod FOREACH sections.cells.select(e|e.iterator!=null && e.action!=null)-»
 «EXPAND dealloc-»
 @end
 «ENDFILE»
@@ -83,6 +84,25 @@
 «ENDLET»
 «ENDDEFINE»
 
+
+
+«DEFINE cellActionMethod FOR SectionCell-»
+«LET this.iterator AS it-»
+- (void) «it.name»CellSelected:(BoxCell *)cell {
+	«it.rootParameter().description.type.objcType()» *«it.name» = cell.data;
+«EXPAND cellActionCode(it.name) FOR this.action-»
+}
+«ENDLET»
+«ENDDEFINE»
+
+«DEFINE cellActionCode(String kvcTarget) FOR ViewAction-»
+<Abstract «this»>
+«ENDDEFINE»
+
+«DEFINE cellActionCode(String kvcTarget) FOR ViewCall-»
+	UIViewController *controller = «this.factoryCall(kvcTarget, '')»;
+	[self.navigationController pushViewController:controller animated:YES];
+«ENDDEFINE»
 
 
 
