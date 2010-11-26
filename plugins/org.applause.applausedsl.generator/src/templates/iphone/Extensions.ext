@@ -15,7 +15,6 @@ String use(ProjectClass projectClass):
 Void useImportBag(Set[ProjectClass] bag):
 	JAVA templates.Extensions.useImportBag(java.util.Set);
 
-
 objcImports(Collection[String] classNames):
 	classNames.toSet().remove(null).remove("").collect(e|"#import \"" + e + '.h";').toString("\n");
 
@@ -25,11 +24,14 @@ create Set[ProjectClass] bagHeaderImports (ProjectClass class):
 create Set[ProjectClass] bagModuleImports (ProjectClass class):
 	((List[ProjectClass]) {}).toSet();
 
+Collection[ProjectClass] withoutBuiltIns(Collection[ProjectClass] classes):
+	classes.reject(e|e.name.startsWith("UI") || e.name.startsWith("NS"));
+
 List[ProjectClass] headerImports(ProjectClass class):
-	class.bagHeaderImports().without({class}).sortBy(e|e.name);
+	class.bagHeaderImports().withoutBuiltIns().without({class}).sortBy(e|e.name);
 
 List[ProjectClass] moduleImports(ProjectClass class):
-	{class, class.bagModuleImports().without(class.bagHeaderImports()).without({class}).sortBy(e|e.name)}.flatten();
+	{class, class.bagModuleImports().withoutBuiltIns().without(class.bagHeaderImports()).without({class}).sortBy(e|e.name)}.flatten();
 
 cached ProjectClass newProjectClass(String name):
 	JAVA templates.Extensions.createProjectClass(java.lang.String);
@@ -56,30 +58,26 @@ pointer(ProjectClass class):
 
 /* Views */
 
-className(View this):
-	use(this.name.toFirstUpper() + "ViewController");
+class(View this):
+	newProjectClass(this.name.toFirstUpper() + "ViewController");
 
-className(CustomView this):
-	use(this.className);
+class(CustomView this):
+	newProjectClass(this.className);
 
 class(Type this):
 	newProjectClass(this.name);
 
-filenameHeader(View this):
-	className() + ".h";
-	
-filenameModule(View this):
-	className() + ".m";
+
 
 /* View Accessor */
 viewFactory(Application app):
 	newProjectClass(app.name + "Views");
 
-className(TabView view):
-	"UITabBarController";
+class(TabView view):
+	"UITabBarController".use();
 
 factoryMethodSignature(View view):
-	"+ (" + view.className() + " *) " + view.factoryMethodName() + view.initParameters();
+	"+ (" + view.class().use() + " *) " + view.factoryMethodName() + view.initParameters();
 
 factoryMethodName(View view):
 	"create" + view.name;
@@ -90,9 +88,6 @@ factoryCall(ViewCall call):
 	"[" + use(application(call.view).viewFactory()) + " " + call.view.factoryMethodName() + (call.provider != null ? "With" + call.view.content.name.toFirstUpper() + ":" + call.provider.contentProvider("[" + call.view.application().providerFactory().use() + " sharedProviders]", '', '') : "") + "]";
 
 /* TableView */
-
-class(TableView view):
-	newProjectClass(view.className());
 
 constant(TableViewStyle style):
 	"UITableViewStyle" + style.name;
@@ -217,18 +212,6 @@ objcType(Entity type):
 
 
 
-
-baseClassName(View this):
-	"";
-	
-baseClassName(TableView this):
-	"IPTableViewController";
-
-baseClassName(DetailsView this):
-	"IPDetailsViewController";
-	
-baseClassFilenameHeader(View this):
-	baseClassName() + ".h";
 
 type(SectionCell this):
 	type.toString().toFirstUpper();

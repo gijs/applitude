@@ -256,7 +256,7 @@
 
 «DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewCall-»
 	IPContentProvider *provider = «provider.contentProvider('(' + application().providerFactory().name + '*)contentProvider.providers', kvcTarget, kvcPrefix)»;
-	«view.className()» *controller = [[«view.className()» alloc] init];
+	«view.class().use()» *controller = [[«view.class().use()» alloc] init];
 	controller.contentProvider = provider;
 	[self.navigationController pushViewController: controller animated: TRUE];
 	[controller release];

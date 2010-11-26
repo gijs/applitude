@@ -44,7 +44,7 @@
 
 «DEFINE viewFactoryMethod FOR View»
 «factoryMethodSignature()» {
-	return [[[«className()» alloc] init] autorelease];
+	return [«class().allocInit()» autorelease];
 }
 «ENDDEFINE»
 
