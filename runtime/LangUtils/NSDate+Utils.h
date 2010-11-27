@@ -6,5 +6,6 @@
 @interface NSDate (Utils)
 
 - (NSDate *) roundMinutes:(int)minutes;
+- (NSString *) iso8601String;
 
 @end
