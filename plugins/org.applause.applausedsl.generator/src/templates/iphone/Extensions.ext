@@ -111,14 +111,24 @@ constant(CellAccessory ac):
 		case 'Check' : 'UITableViewCellAccessoryCheckmark'
 		default : 'UITableViewCellAccessoryNone'
 	};
-	
+
+idname(SectionCell cell):
+	cell.iterator != null
+		? cell.iterator.name
+		// TODO: using the text is a hack, find a better way to derive a
+		// variable name for cells 
+		: ((StringLiteral.isInstance(cell.text))
+				? ((StringLiteral)cell.text).value.toLowerCase()
+				: "<none>");
+
+
 constructStatements(SectionCell cell, String kvcTarget):
 	{
 	 use('BoxCell') + ' *cell = [[BoxCell alloc] initWithStyle:' + cell.type.constant() + ' reuseIdentifier:nil]',
 	 cell.text.assignment('cell.textLabel', 'text', kvcTarget),
 	 cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget),
 	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null,
-	 (cell.action != null) ? 'cell.onTouch = [' + "SelectorAction".use() + ' actionWithObject:self selector:@selector(' + kvcTarget + 'CellSelected:)];' : null
+	 (cell.action != null) ? 'cell.onTouch = [' + "SelectorAction".use() + ' actionWithObject:self selector:@selector(' + cell.idname() + 'CellSelected:)]' : null
 	};
 
 parameters(View view):
