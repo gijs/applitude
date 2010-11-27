@@ -196,7 +196,6 @@
       <wizard
             category="org.eclipse.xtext.projectwiz"
             class="org.applause.applausedsl.ui.ApplauseDslExecutableExtensionFactory:org.applause.applausedsl.ui.wizard.ApplauseDslNewProjectWizard"
-            icon="icons/editor.gif"
             id="org.applause.applausedsl.ui.wizard.ApplauseDslNewProjectWizard"
             name="ApplauseDsl Project"
             project="true">
