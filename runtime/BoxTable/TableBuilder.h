@@ -21,7 +21,7 @@
 
 - (void) section:(NSString *) text;
 
-- (void) cell:(UITableViewCell *)cell;
+- (void) cell:(id)cell;
 - (BoxCell *) text:(NSString *) text;
 - (BoxCell *) link:(NSString *) text;
 - (TextFieldCell *) textFieldWithLabel:(NSString *) label;

@@ -28,7 +28,7 @@
 	[sections addObject:lastSection];
 }
 
-- (void) cell:(UITableViewCell *)cell {
+- (void) cell:(id)cell {
 	if (!lastSection) {
 		NSLog(@"No section!");
 		return;
