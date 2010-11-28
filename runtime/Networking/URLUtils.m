@@ -38,16 +38,5 @@ const CFStringRef kCharsToForceEscape = CFSTR("!*'();:@&=+$,/?%#[]");
 }
 
 // End of license exception
-
-+ (NSURL *) url:(NSString *)url withParameters:(NSDictionary *)parameters{
-	NSMutableString *urlString = [NSMutableString stringWithString:url];
-	NSString *value = nil;
-	for (id key in parameters) {
-		[urlString appendString:(value==nil ? @"?" : @"&")];
-		value = [URLUtils encodeURLParameter:[parameters valueForKey:key]];
-		[urlString appendFormat:@"%@=%@", key, value];
-	}
-	return [NSURL URLWithString:urlString];
-}
 																													
 @end

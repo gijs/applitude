@@ -9,6 +9,5 @@
 }
 
 + (NSString *)encodeURLParameter:(NSString *)str;
-+ (NSURL *) url:(NSString *)url withParameters:(NSDictionary *)parameters;
 
 @end
