@@ -30,7 +30,6 @@
 
 #import "TextFieldCell.h"
 
-#import "Row.h"
 #import "LogUtils.h"
 
 @implementation TextFieldCell

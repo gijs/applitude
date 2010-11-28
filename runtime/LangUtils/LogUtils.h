@@ -3,13 +3,13 @@
 
 #import <Foundation/Foundation.h>
 
-#define NSDebugLog(log...) NSLog(log);
-//#define NSDebugLog(log...)
+#define DebugLog(log...) NSLog(log);
+//#define DebugLog(log...)
 
-#define NSLogCGRect(rect) \
+#define LogCGRect(rect) \
 	NSLog(@"x=%f y=%f width=%f height=%f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 
-#define NSAlertLog(text) \
+#define Alert(text) \
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:text delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; \
 	[alert show]; \
 	[alert release];
