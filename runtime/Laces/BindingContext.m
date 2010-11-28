@@ -35,15 +35,19 @@
 	[fBindings removeObjectAtIndex:i];
 }
 
+- (void) unbindAll {
+	while([fBindings count] > 0) {
+		[[fBindings objectAtIndex:0] unbind];
+	}	
+}
+
 - (NSString *) description {
 	return [NSString stringWithFormat:@"BindingContext[%i bindings]", [fBindings count]];
 }
 
 - (void) dealloc {
 	NSLog(@"✝ %@", self);
-	while([fBindings count] > 0) {
-		[[fBindings objectAtIndex:0] unbind];
-	}
+	[self unbindAll];
 	[fBindings release];
 	[super dealloc];
 }

@@ -14,5 +14,6 @@
 - (Binding *) bind:(NSObject *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty settings:(BindingSettings *)settings;
 - (Binding *) bind:(NSObject *)model property:(NSString *)modelProperty to:(NSObject *)target property:(NSString *)targetProperty;
 - (void) unbind:(Binding *)binding;
+- (void) unbindAll;
 
 @end
