@@ -33,9 +33,7 @@
 #import "Branding.h"
 
 @implementation «use(viewFactory())»
-
 «EXPAND viewFactoryMethod FOREACH allViews()»
-
 @end
 «ENDFILE»
 «ENDDEFINE»

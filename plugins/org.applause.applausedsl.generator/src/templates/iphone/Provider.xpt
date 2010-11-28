@@ -42,8 +42,7 @@ static «use(providerFactory())» *sharedProviders = nil;
 	}
 	return sharedProviders;
 }
-
-«EXPAND providerMethodImplementation FOREACH allProviders()»
+«EXPAND providerMethodImplementation FOREACH allProviders()-»
 @end
 «ENDFILE»
 «ENDDEFINE»
@@ -53,13 +52,13 @@ static «use(providerFactory())» *sharedProviders = nil;
 «DEFINE providerMethodImplementation FOR ContentProvider»
 «methodSignature()» {
 	«IF !this.storing-»
-		return «EXPAND constructProvider-»;
-	«ELSE»
+	return [«EXPAND constructProvider-» autorelease];
+	«ELSE-»
 	if (!«this.ivar()») {
 		«this.ivar()» = «EXPAND constructProvider-»;
 	}
 	return «this.ivar()»;
-	«ENDIF»
+	«ENDIF-»
 }
 «ENDDEFINE»
 
@@ -67,10 +66,9 @@ static «use(providerFactory())» *sharedProviders = nil;
 
 «DEFINE constructProvider FOR ContentProvider-»
 «IF this.implementation == null-»
-[[IPSimpleContentProvider alloc] initWithContent:«type.class().allocInit()»]«ELSE-»
+[[IPSimpleContentProvider alloc] initWithContent:[«type.class().allocInit()» autorelease]]«ELSE-»
 «EXPAND constructProvider(this) FOR this.implementation-»
-«ENDIF-»
-«ENDDEFINE»
+«ENDIF-»«ENDDEFINE»
 
 
 
@@ -80,10 +78,7 @@ static «use(providerFactory())» *sharedProviders = nil;
 
 «DEFINE constructProvider(ContentProvider provider) FOR FetchingContentProviderImplementation-»
 «LET provider.parameter.name != null ? provider.parameter.name : '' AS kvcTarget-»
-[[«use(this.class())» alloc] initWithURL:[NSURL URLWithString:«url.expression(kvcTarget, '')»]]
-«ENDLET-»
-«ENDDEFINE»
+[[«use(this.class())» alloc] initWithURL:[NSURL URLWithString:«url.expression(kvcTarget, '')»]]«ENDLET-»«ENDDEFINE»
 
 «DEFINE constructProvider(ContentProvider provider) FOR CustomContentProviderImplementation-»
-«this.class().allocInit()»
-«ENDDEFINE»
+«this.class().allocInit()»«ENDDEFINE»

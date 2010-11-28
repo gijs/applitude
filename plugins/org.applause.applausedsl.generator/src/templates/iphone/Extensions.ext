@@ -244,9 +244,12 @@ expression(StringSplit s, String kvcTarget, String kvcPrefix):
 
 expression(ScalarExpression s, String kvcTarget, String kvcPrefix):
 	"<!ERROR!" + s.metaType + ">";
-	
+
+String replaceSettings(String string):
+	JAVA templates.Extensions.replaceSettings(java.lang.String);
+
 expression(StringLiteral this, String kvcTarget, String kvcPrefix):
-	'@"' + value + '"';
+	value.replaceSettings();
 	
 expression(StringConcat this, String kvcTarget, String kvcPrefix):
 	'[NSString stringWithFormat:@"' 
