@@ -90,23 +90,22 @@
 
 
 «DEFINE cellActionMethod FOR SectionCell-»
-«LET this.iterator AS it-»
-- (void) «this.idname()»CellSelected:(BoxCell *)cell {
+«EXPAND cellActionMethod(this) FOR this.action-»
+«ENDDEFINE»
+
+«DEFINE cellActionMethod(SectionCell cell) FOR ViewAction-»
+«ENDDEFINE»
+
+«DEFINE cellActionMethod(SectionCell cell) FOR ViewCall-»
+«LET cell.iterator AS it-»
+- (void) «cell.idname()»CellSelected:(BoxCell *)cell {
 «IF it!=null-»
-	«it.rootParameter().description.type.objcType()» *«this.idname()» = cell.data;
+	«it.rootParameter().description.type.objcType()» *«cell.idname()» = cell.data;
 «ENDIF-»
-«EXPAND cellActionCode(this.idname()) FOR this.action-»
+	UIViewController *controller = «this.factoryCall(cell.idname(), '')»;
+	[self.navigationController pushViewController:controller animated:YES];
 }
 «ENDLET»
-«ENDDEFINE»
-
-«DEFINE cellActionCode(String kvcTarget) FOR ViewAction-»
-<Abstract «this»>
-«ENDDEFINE»
-
-«DEFINE cellActionCode(String kvcTarget) FOR ViewCall-»
-	UIViewController *controller = «this.factoryCall(kvcTarget, '')»;
-	[self.navigationController pushViewController:controller animated:YES];
 «ENDDEFINE»
 
 

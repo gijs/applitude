@@ -121,6 +121,15 @@ idname(SectionCell cell):
 				? ((StringLiteral)cell.text).value.toLowerCase()
 				: "<none>");
 
+//TOOD: cell is handed in to calculate unique cell selector name for ViewCall - there has to be a better way
+action(ViewAction action, SectionCell cell):
+	"<Abstract " + action + ">";
+
+action(ViewCall call, SectionCell cell):
+	'[' + "SelectorAction".use() + ' actionWithObject:self selector:@selector(' + cell.idname() + 'CellSelected:)]';
+
+action(Selector sel, SectionCell cell):
+	'[' + "SelectorAction".use() + ' actionWithObject:self selector:@selector(' + sel.name + ')]';
 
 constructStatements(SectionCell cell, String kvcTarget):
 	{
@@ -128,7 +137,7 @@ constructStatements(SectionCell cell, String kvcTarget):
 	 cell.text.assignment('cell.textLabel', 'text', kvcTarget),
 	 cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget),
 	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null,
-	 (cell.action != null) ? 'cell.onTouch = [' + "SelectorAction".use() + ' actionWithObject:self selector:@selector(' + cell.idname() + 'CellSelected:)]' : null
+	 (cell.action != null) ? 'cell.onTouch = ' + action(cell.action, cell) : null
 	};
 
 parameters(View view):

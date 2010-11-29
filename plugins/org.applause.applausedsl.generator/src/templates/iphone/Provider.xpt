@@ -43,6 +43,7 @@ static «use(providerFactory())» *sharedProviders = nil;
 	return sharedProviders;
 }
 «EXPAND providerMethodImplementation FOREACH allProviders()-»
+
 @end
 «ENDFILE»
 «ENDDEFINE»
