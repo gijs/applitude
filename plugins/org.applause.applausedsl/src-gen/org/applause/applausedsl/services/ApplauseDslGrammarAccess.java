@@ -1749,12 +1749,13 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cViewCallParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cExternalOpenParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSelectorParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//ViewAction:
-		//	ViewCall | ExternalOpen;
+		//	ViewCall | ExternalOpen | Selector;
 		public ParserRule getRule() { return rule; }
 
-		//ViewCall | ExternalOpen
+		//ViewCall | ExternalOpen | Selector
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ViewCall
@@ -1762,6 +1763,73 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ExternalOpen
 		public RuleCall getExternalOpenParserRuleCall_1() { return cExternalOpenParserRuleCall_1; }
+
+		//Selector
+		public RuleCall getSelectorParserRuleCall_2() { return cSelectorParserRuleCall_2; }
+	}
+
+	public class SelectorNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SelectorName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cColonKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//SelectorName returns ecore::EString:
+		//	ID (":" ID)* ":"?;
+		public ParserRule getRule() { return rule; }
+
+		//ID (":" ID)* ":"?
+		public Group getGroup() { return cGroup; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//(":" ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//":"
+		public Keyword getColonKeyword_1_0() { return cColonKeyword_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+
+		//":"?
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+	}
+
+	public class SelectorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Selector");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSelectorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameSelectorNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Selector:
+		//	"@selector" "(" name=SelectorName ")";
+		public ParserRule getRule() { return rule; }
+
+		//"@selector" "(" name=SelectorName ")"
+		public Group getGroup() { return cGroup; }
+
+		//"@selector"
+		public Keyword getSelectorKeyword_0() { return cSelectorKeyword_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+
+		//name=SelectorName
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//SelectorName
+		public RuleCall getNameSelectorNameParserRuleCall_2_0() { return cNameSelectorNameParserRuleCall_2_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 
 	public class ExternalOpenElements extends AbstractParserRuleElementFinder {
@@ -2021,6 +2089,8 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private CellAccessoryElements unknownRuleCellAccessory;
 	private CollectionIteratorElements pCollectionIterator;
 	private ViewActionElements pViewAction;
+	private SelectorNameElements pSelectorName;
+	private SelectorElements pSelector;
 	private ExternalOpenElements pExternalOpen;
 	private ViewCallElements pViewCall;
 	private ProjectClassElements pProjectClass;
@@ -2462,13 +2532,33 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ViewAction:
-	//	ViewCall | ExternalOpen;
+	//	ViewCall | ExternalOpen | Selector;
 	public ViewActionElements getViewActionAccess() {
 		return (pViewAction != null) ? pViewAction : (pViewAction = new ViewActionElements());
 	}
 	
 	public ParserRule getViewActionRule() {
 		return getViewActionAccess().getRule();
+	}
+
+	//SelectorName returns ecore::EString:
+	//	ID (":" ID)* ":"?;
+	public SelectorNameElements getSelectorNameAccess() {
+		return (pSelectorName != null) ? pSelectorName : (pSelectorName = new SelectorNameElements());
+	}
+	
+	public ParserRule getSelectorNameRule() {
+		return getSelectorNameAccess().getRule();
+	}
+
+	//Selector:
+	//	"@selector" "(" name=SelectorName ")";
+	public SelectorElements getSelectorAccess() {
+		return (pSelector != null) ? pSelector : (pSelector = new SelectorElements());
+	}
+	
+	public ParserRule getSelectorRule() {
+		return getSelectorAccess().getRule();
 	}
 
 	//ExternalOpen:

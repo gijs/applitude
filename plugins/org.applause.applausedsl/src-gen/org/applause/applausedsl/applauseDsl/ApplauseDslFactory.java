@@ -341,6 +341,15 @@ public interface ApplauseDslFactory extends EFactory
   ViewAction createViewAction();
 
   /**
+   * Returns a new object of class '<em>Selector</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Selector</em>'.
+   * @generated
+   */
+  Selector createSelector();
+
+  /**
    * Returns a new object of class '<em>External Open</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

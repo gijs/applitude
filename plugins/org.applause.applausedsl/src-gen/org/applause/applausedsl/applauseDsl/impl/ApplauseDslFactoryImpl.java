@@ -103,6 +103,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.SECTION_CELL: return createSectionCell();
       case ApplauseDslPackage.COLLECTION_ITERATOR: return createCollectionIterator();
       case ApplauseDslPackage.VIEW_ACTION: return createViewAction();
+      case ApplauseDslPackage.SELECTOR: return createSelector();
       case ApplauseDslPackage.EXTERNAL_OPEN: return createExternalOpen();
       case ApplauseDslPackage.VIEW_CALL: return createViewCall();
       case ApplauseDslPackage.PROJECT_CLASS: return createProjectClass();
@@ -546,6 +547,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     ViewActionImpl viewAction = new ViewActionImpl();
     return viewAction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Selector createSelector()
+  {
+    SelectorImpl selector = new SelectorImpl();
+    return selector;
   }
 
   /**

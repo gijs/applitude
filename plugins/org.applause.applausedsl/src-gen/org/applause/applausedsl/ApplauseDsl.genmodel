@@ -143,6 +143,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//CollectionIterator/collection"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ViewAction"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Selector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Selector/name"/>
+    </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ExternalOpen">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ExternalOpen/url"/>
     </genClasses>

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext">
   <xtext:Grammar name="org.applause.applausedsl.ApplauseDsl" usedGrammars="/1">
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="ecore">
+      <ePackage href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    </metamodelDeclarations>
     <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="applauseDsl">
       <ePackage href="http://www.applause.org/applausedsl/ApplauseDsl#/"/>
     </metamodelDeclarations>
     <rules xsi:type="xtext:ParserRule" name="Model">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Model"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -18,7 +21,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ModelElement">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ModelElement"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -28,7 +31,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="VariableDeclaration">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//VariableDeclaration"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -38,13 +41,13 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="TypeDescription">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//TypeDescription"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Type"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -56,7 +59,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Parameter">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Parameter"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -69,13 +72,13 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ObjectReference">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ObjectReference"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="object" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//VariableDeclaration"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -87,14 +90,14 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="NestedObjectReference">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ObjectReference"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="."/>
         <elements xsi:type="xtext:Assignment" feature="object" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//VariableDeclaration"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -106,7 +109,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Expression">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Expression"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -118,7 +121,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ScalarExpression">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ScalarExpression"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -128,7 +131,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CollectionExpression">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//CollectionExpression"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -138,7 +141,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="StringLiteral">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//StringLiteral"/>
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
@@ -146,13 +149,13 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="StringFunction">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//StringFunction"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Action">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//StringConcat"/>
             </type>
           </elements>
@@ -164,7 +167,7 @@
         </elements>
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Action">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//StringReplace"/>
             </type>
           </elements>
@@ -184,7 +187,7 @@
         </elements>
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Action">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//StringUrlConform"/>
             </type>
           </elements>
@@ -197,7 +200,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CollectionLiteral">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//CollectionLiteral"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -215,12 +218,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CollectionFunction">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//CollectionFunction"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.0">
+          <type metamodel="/0/@metamodelDeclarations.1">
             <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//StringSplit"/>
           </type>
         </elements>
@@ -236,7 +239,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Application">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Application"/>
       </type>
       <alternatives xsi:type="xtext:UnorderedGroup">
@@ -257,7 +260,7 @@
           <elements xsi:type="xtext:Group">
             <elements xsi:type="xtext:Keyword" value="view:"/>
             <elements xsi:type="xtext:Assignment" feature="startView" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.43"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Keyword" value="}"/>
@@ -265,7 +268,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Type">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Type"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -274,7 +277,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SimpleType">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//SimpleType"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -289,7 +292,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Entity">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Entity"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -304,7 +307,7 @@
           <elements xsi:type="xtext:Keyword" value="extends"/>
           <elements xsi:type="xtext:Assignment" feature="extends" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
+              <type metamodel="/0/@metamodelDeclarations.1">
                 <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Entity"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -319,7 +322,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Property">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Property"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -335,7 +338,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ContentProvider">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ContentProvider"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -358,7 +361,7 @@
         </elements>
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Type"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -373,7 +376,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ContentProviderImplementation">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ContentProviderImplementation"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -382,7 +385,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:EnumRule" name="SerializationFormat">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EEnum" href="http://www.applause.org/applausedsl/ApplauseDsl#//SerializationFormat"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -397,7 +400,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="FetchingContentProviderImplementation">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//FetchingContentProviderImplementation"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -416,30 +419,30 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CustomContentProviderImplementation">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//CustomContentProviderImplementation"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="class"/>
         <elements xsi:type="xtext:Assignment" feature="providerClass" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.42"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.44"/>
         </elements>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ProviderConstruction">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ProviderConstruction"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Action">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ComplexProviderConstruction"/>
             </type>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="provider" operator="=">
             <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
+              <type metamodel="/0/@metamodelDeclarations.1">
                 <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ContentProvider"/>
               </type>
               <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -453,7 +456,7 @@
         </elements>
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Action">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//SimpleProviderConstruction"/>
             </type>
           </elements>
@@ -464,7 +467,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="View">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//View"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -474,7 +477,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="TabView">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//TabView"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -497,7 +500,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Tab">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Tab"/>
       </type>
       <alternatives xsi:type="xtext:UnorderedGroup">
@@ -521,7 +524,7 @@
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="view:"/>
             <elements xsi:type="xtext:Assignment" feature="view" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.43"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Keyword" value="}"/>
@@ -529,7 +532,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SectionedView">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//SectionedView"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -538,7 +541,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:EnumRule" name="TableViewStyle">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EEnum" href="http://www.applause.org/applausedsl/ApplauseDsl#//TableViewStyle"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -553,7 +556,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="TableView">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//TableView"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -590,7 +593,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="DetailsView">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//DetailsView"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -620,7 +623,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CustomView">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//CustomView"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -642,12 +645,12 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ViewHeader">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewHeader"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.0">
+          <type metamodel="/0/@metamodelDeclarations.1">
             <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewHeader"/>
           </type>
         </elements>
@@ -681,7 +684,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ViewSection">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewSection"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -700,7 +703,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SectionCell">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//SectionCell"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -751,7 +754,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:EnumRule" name="CellType">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EEnum" href="http://www.applause.org/applausedsl/ApplauseDsl#//CellType"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -774,7 +777,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:EnumRule" name="CellAccessory">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EEnum" href="http://www.applause.org/applausedsl/ApplauseDsl#//CellAccessory"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
@@ -797,7 +800,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CollectionIterator">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//CollectionIterator"/>
       </type>
       <alternatives xsi:type="xtext:Group">
@@ -811,16 +814,43 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ViewAction">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewAction"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.43"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.42"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.40"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SelectorName">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        <elements xsi:type="xtext:Group" cardinality="*">
+          <elements xsi:type="xtext:Keyword" value=":"/>
+          <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" cardinality="?" value=":"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Selector">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Selector"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="@selector"/>
+        <elements xsi:type="xtext:Keyword" value="("/>
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.40"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value=")"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ExternalOpen">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ExternalOpen"/>
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="url" operator="=">
@@ -828,13 +858,13 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ViewCall">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewCall"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="view" operator="=">
           <terminal xsi:type="xtext:CrossReference">
-            <type metamodel="/0/@metamodelDeclarations.0">
+            <type metamodel="/0/@metamodelDeclarations.1">
               <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//View"/>
             </type>
             <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -848,7 +878,7 @@
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ProjectClass">
-      <type metamodel="/0/@metamodelDeclarations.0">
+      <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ProjectClass"/>
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="name" operator="=">

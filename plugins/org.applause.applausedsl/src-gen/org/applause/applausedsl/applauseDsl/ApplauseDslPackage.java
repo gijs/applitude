@@ -1401,6 +1401,34 @@ public interface ApplauseDslPackage extends EPackage
   int VIEW_ACTION_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.SelectorImpl <em>Selector</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.applausedsl.applauseDsl.impl.SelectorImpl
+   * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getSelector()
+   * @generated
+   */
+  int SELECTOR = 35;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR__NAME = VIEW_ACTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Selector</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTOR_FEATURE_COUNT = VIEW_ACTION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.ExternalOpenImpl <em>External Open</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1408,7 +1436,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getExternalOpen()
    * @generated
    */
-  int EXTERNAL_OPEN = 35;
+  int EXTERNAL_OPEN = 36;
 
   /**
    * The feature id for the '<em><b>Url</b></em>' containment reference.
@@ -1436,7 +1464,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getViewCall()
    * @generated
    */
-  int VIEW_CALL = 36;
+  int VIEW_CALL = 37;
 
   /**
    * The feature id for the '<em><b>View</b></em>' reference.
@@ -1473,7 +1501,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getProjectClass()
    * @generated
    */
-  int PROJECT_CLASS = 37;
+  int PROJECT_CLASS = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1501,7 +1529,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringConcat()
    * @generated
    */
-  int STRING_CONCAT = 38;
+  int STRING_CONCAT = 39;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -1529,7 +1557,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringReplace()
    * @generated
    */
-  int STRING_REPLACE = 39;
+  int STRING_REPLACE = 40;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1575,7 +1603,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringUrlConform()
    * @generated
    */
-  int STRING_URL_CONFORM = 40;
+  int STRING_URL_CONFORM = 41;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1603,7 +1631,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getStringSplit()
    * @generated
    */
-  int STRING_SPLIT = 41;
+  int STRING_SPLIT = 42;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1640,7 +1668,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getComplexProviderConstruction()
    * @generated
    */
-  int COMPLEX_PROVIDER_CONSTRUCTION = 42;
+  int COMPLEX_PROVIDER_CONSTRUCTION = 43;
 
   /**
    * The feature id for the '<em><b>Provider</b></em>' reference.
@@ -1677,7 +1705,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getSimpleProviderConstruction()
    * @generated
    */
-  int SIMPLE_PROVIDER_CONSTRUCTION = 43;
+  int SIMPLE_PROVIDER_CONSTRUCTION = 44;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1705,7 +1733,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getSerializationFormat()
    * @generated
    */
-  int SERIALIZATION_FORMAT = 44;
+  int SERIALIZATION_FORMAT = 45;
 
   /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.TableViewStyle <em>Table View Style</em>}' enum.
@@ -1715,7 +1743,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getTableViewStyle()
    * @generated
    */
-  int TABLE_VIEW_STYLE = 45;
+  int TABLE_VIEW_STYLE = 46;
 
   /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.CellType <em>Cell Type</em>}' enum.
@@ -1725,7 +1753,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCellType()
    * @generated
    */
-  int CELL_TYPE = 46;
+  int CELL_TYPE = 47;
 
   /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.CellAccessory <em>Cell Accessory</em>}' enum.
@@ -1735,7 +1763,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getCellAccessory()
    * @generated
    */
-  int CELL_ACCESSORY = 47;
+  int CELL_ACCESSORY = 48;
 
 
   /**
@@ -2670,6 +2698,27 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EClass getViewAction();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.Selector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Selector</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Selector
+   * @generated
+   */
+  EClass getSelector();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.applausedsl.applauseDsl.Selector#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.applausedsl.applauseDsl.Selector#getName()
+   * @see #getSelector()
+   * @generated
+   */
+  EAttribute getSelector_Name();
 
   /**
    * Returns the meta object for class '{@link org.applause.applausedsl.applauseDsl.ExternalOpen <em>External Open</em>}'.
@@ -3751,6 +3800,24 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EClass VIEW_ACTION = eINSTANCE.getViewAction();
+
+    /**
+     * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.SelectorImpl <em>Selector</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.applausedsl.applauseDsl.impl.SelectorImpl
+     * @see org.applause.applausedsl.applauseDsl.impl.ApplauseDslPackageImpl#getSelector()
+     * @generated
+     */
+    EClass SELECTOR = eINSTANCE.getSelector();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SELECTOR__NAME = eINSTANCE.getSelector_Name();
 
     /**
      * The meta object literal for the '{@link org.applause.applausedsl.applauseDsl.impl.ExternalOpenImpl <em>External Open</em>}' class.

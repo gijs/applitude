@@ -173,6 +173,9 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Selector" eSuperTypes="#//ViewAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalOpen" eSuperTypes="#//ViewAction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="url" eType="#//ScalarExpression"
         containment="true"/>

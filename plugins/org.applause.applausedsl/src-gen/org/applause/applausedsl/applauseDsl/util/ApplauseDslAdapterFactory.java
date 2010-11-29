@@ -253,6 +253,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createViewActionAdapter();
       }
       @Override
+      public Adapter caseSelector(Selector object)
+      {
+        return createSelectorAdapter();
+      }
+      @Override
       public Adapter caseExternalOpen(ExternalOpen object)
       {
         return createExternalOpenAdapter();
@@ -840,6 +845,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createViewActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Selector <em>Selector</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.Selector
+   * @generated
+   */
+  public Adapter createSelectorAdapter()
   {
     return null;
   }

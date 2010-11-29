@@ -34,6 +34,7 @@ import org.applause.applausedsl.applauseDsl.ProviderConstruction;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
 import org.applause.applausedsl.applauseDsl.SectionCell;
 import org.applause.applausedsl.applauseDsl.SectionedView;
+import org.applause.applausedsl.applauseDsl.Selector;
 import org.applause.applausedsl.applauseDsl.SerializationFormat;
 import org.applause.applausedsl.applauseDsl.SimpleProviderConstruction;
 import org.applause.applausedsl.applauseDsl.SimpleType;
@@ -316,6 +317,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EClass viewActionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selectorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1356,6 +1364,26 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getSelector()
+  {
+    return selectorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSelector_Name()
+  {
+    return (EAttribute)selectorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExternalOpen()
   {
     return externalOpenEClass;
@@ -1774,6 +1802,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     viewActionEClass = createEClass(VIEW_ACTION);
 
+    selectorEClass = createEClass(SELECTOR);
+    createEAttribute(selectorEClass, SELECTOR__NAME);
+
     externalOpenEClass = createEClass(EXTERNAL_OPEN);
     createEReference(externalOpenEClass, EXTERNAL_OPEN__URL);
 
@@ -1868,6 +1899,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     detailsViewEClass.getESuperTypes().add(this.getSectionedView());
     customViewEClass.getESuperTypes().add(this.getView());
     collectionIteratorEClass.getESuperTypes().add(this.getVariableDeclaration());
+    selectorEClass.getESuperTypes().add(this.getViewAction());
     externalOpenEClass.getESuperTypes().add(this.getViewAction());
     viewCallEClass.getESuperTypes().add(this.getViewAction());
     stringConcatEClass.getESuperTypes().add(this.getStringFunction());
@@ -2000,6 +2032,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getCollectionIterator_Collection(), this.getCollectionExpression(), null, "collection", null, 0, 1, CollectionIterator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewActionEClass, ViewAction.class, "ViewAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSelector_Name(), ecorePackage.getEString(), "name", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(externalOpenEClass, ExternalOpen.class, "ExternalOpen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExternalOpen_Url(), this.getScalarExpression(), null, "url", null, 0, 1, ExternalOpen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
