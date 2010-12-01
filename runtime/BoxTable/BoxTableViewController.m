@@ -41,6 +41,11 @@
 	return count;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	NSObject<Section> *s = [fSections objectAtIndex:section];
+	return [s text];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)i {
 	[self checkInitialized];
 
