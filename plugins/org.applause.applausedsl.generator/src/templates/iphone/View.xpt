@@ -82,7 +82,7 @@
 - (UITableViewCell *) «it.name»Cell:(«it.rootParameter().description.type.objcType()» *)«it.name» {
 	«this.constructStatements(it.name).statements("\n\t")»
 	cell.data = «it.name»;
-	return cell;
+	return [cell autorelease];
 }
 «ENDLET»
 «ENDDEFINE»

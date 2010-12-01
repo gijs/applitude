@@ -15,6 +15,8 @@
 	NSObject<Placeholder> *fSections;
 }
 
+@property (retain) NSObject<Placeholder> *sections;
+
 - (NSArray *) buildSections;
 - (void) updateAndReload;
 

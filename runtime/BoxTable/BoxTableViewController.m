@@ -15,15 +15,13 @@
 
 @implementation BoxTableViewController
 
-- (void) checkInitialized {
-	if (!fSections) {
-		fSections = [[PlaceholderResolver alloc] initWithArray:[self buildSections]];
-	}
-}
+@synthesize sections = fSections;
 
-- (void) clear {
-	[fSections release];
-	fSections = nil;
+- (void) checkInitialized {
+	if (!self.sections) {
+		self.sections = [[PlaceholderResolver alloc] initWithArray:[self buildSections]];
+		[self.sections release];
+	}
 }
 
 - (NSArray *) buildSections {
@@ -32,7 +30,7 @@
 }
 
 - (void) updateAndReload {
-	[self clear];
+	self.sections = nil;
 	[self checkInitialized];
 	[self.tableView reloadData];
 }
@@ -67,11 +65,11 @@
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
-	[self clear];
+	self.sections = nil;
 }
 
 - (void)dealloc {
-	[self clear];
+	self.sections = nil;
 	[super dealloc];
 }
 

@@ -9,12 +9,12 @@
 
 @implementation TableBuilder
 
-@synthesize sections;
+@synthesize sections = fSections;
 
 - (id) init {
 	self = [super init];
 	if (self != nil) {
-		sections = [[NSMutableArray alloc] init];
+		fSections = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -25,7 +25,7 @@
 
 - (void) section:(NSString *) text {
 	lastSection = [StaticSection forText:text];
-	[sections addObject:lastSection];
+	[fSections addObject:lastSection];
 }
 
 - (void) cell:(id)cell {
@@ -68,7 +68,7 @@
 }
 
 - (void) dealloc {
-	[sections release];
+	[fSections release];
 	[super dealloc];
 }
 

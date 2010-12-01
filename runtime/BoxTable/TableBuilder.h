@@ -11,7 +11,7 @@
 @interface TableBuilder : NSObject {
 
 	StaticSection *lastSection;
-	NSMutableArray *sections;
+	NSMutableArray *fSections;
 
 }
 
