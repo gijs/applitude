@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Action.h"
+
 @interface IPContentProvider : NSObject {
 	id fContent;
 	BOOL fLoading;
+	NSObject<Action> *fOnContent;
 }
 
 - (void) requestContent;
@@ -21,6 +24,7 @@
 
 @property (nonatomic, retain) id content;
 @property (nonatomic, assign) BOOL loading;
+@property (nonatomic, retain) NSObject<Action> *onContent;
 
 @end
 

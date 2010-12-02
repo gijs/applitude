@@ -8,10 +8,9 @@
 
 #import "IPContentProvider.h"
 
-
 @implementation IPContentProvider
 
-@synthesize content = fContent, loading = fLoading;
+@synthesize content = fContent, loading = fLoading, onContent = fOnContent;
 
 - (void) requestContent {
 	[NSException raise:NSInternalInconsistencyException
@@ -31,11 +30,20 @@
 	return self;
 }
 
+- (void) setContent:(id)content {
+	if (fContent != content) {
+		[fContent release];
+		fContent = [content retain];
+		[fOnContent performWithObject:content];
+	}
+}
+
 + (id) providerWithContent: (id)aContent {
 	return [[[self alloc] initWithContent:aContent] autorelease];
 }
 
 - (void) dealloc {
+	self.onContent = nil;
 	self.content = nil;
 	[super dealloc];
 }
