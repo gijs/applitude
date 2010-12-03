@@ -1,5 +1,5 @@
 //
-// Copyright 2009-2010 Facebook
+// Copyright 2009-2010 Facebook, 2010 Ralf Ebert
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,7 +18,25 @@
 
 @interface UIView (Coordinates)
 
-- (CGFloat)ttScreenX;
-- (CGFloat)ttScreenY;
+/**
+ * Shortcuts for frame coordinates
+ */
+@property (nonatomic) CGFloat left;
+@property (nonatomic) CGFloat top;
+@property (nonatomic) CGFloat right;
+@property (nonatomic) CGFloat bottom;
+@property (nonatomic) CGFloat width;
+@property (nonatomic) CGFloat height;
+
+/**
+ * Return the absolute coordinate on the screen.
+ */
+@property (nonatomic, readonly) CGFloat ttScreenX;
+@property (nonatomic, readonly) CGFloat ttScreenY;
+
+/**
+ * Sets this frame's size to size and centers the frame to frame
+ */
+- (void) centerTo:(CGRect)frame size:(CGSize)size;
 
 @end

@@ -4,6 +4,7 @@
 #import "ContentProviderPlaceholder.h"
 
 #import "BoxCell.h"
+#import "CommonCells.h"
 
 @implementation ContentProviderPlaceholder
 
@@ -32,15 +33,7 @@
 
 - (id) objectAtIndex:(int) index {
 	if (fContent == nil) {
-		BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-		indicator.frame = CGRectMake(150.0, 13.0, 40.0, 40.0);
-		[indicator startAnimating];
-		[indicator sizeToFit];
-		[cell addSubview:indicator];
-		[indicator release];
-		[cell autorelease];
-		return cell;
+		return [CommonCells activityIndicator];
 	}
 	
 	return [fController performSelector:fCellFactorySelector withObject:[fContent objectAtIndex:index]];
