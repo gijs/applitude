@@ -13,7 +13,8 @@
 @interface IPContentProvider : NSObject {
 	id fContent;
 	BOOL fLoading;
-	NSObject<Action> *fOnContent;
+	NSMutableSet *fOnContentActions;
+	NSObject<Action> *fOnError;
 }
 
 - (void) requestContent;
@@ -21,10 +22,12 @@
 
 - (id) initWithContent:(id)aContent;
 + (id) providerWithContent: (id)aContent;
+- (void) addOnContentAction:(NSObject<Action> *)action;
+- (void) removeOnContentAction:(NSObject<Action> *)action;
 
 @property (nonatomic, retain) id content;
 @property (nonatomic, assign) BOOL loading;
-@property (nonatomic, retain) NSObject<Action> *onContent;
+@property (nonatomic, retain) NSObject<Action> *onError;
 
 @end
 

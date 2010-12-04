@@ -10,7 +10,7 @@
 
 @implementation IPContentProvider
 
-@synthesize content = fContent, loading = fLoading, onContent = fOnContent;
+@synthesize content = fContent, loading = fLoading, onError = fOnError;
 
 - (void) requestContent {
 	[NSException raise:NSInternalInconsistencyException
@@ -30,11 +30,30 @@
 	return self;
 }
 
+//NP: rename to ContentAvailable to make clear that it is not fired when content = nil
+- (void) addOnContentAction:(NSObject<Action> *)action {
+	if (fOnContentActions == nil)
+		fOnContentActions = [[NSMutableSet alloc] initWithCapacity:1];
+	
+	[fOnContentActions addObject:action];
+	
+}
+
+- (void) removeOnContentAction:(NSObject<Action> *)action {
+	if (fOnContentActions == nil)
+		return;
+	[fOnContentActions removeObject:action];
+}
+
 - (void) setContent:(id)content {
 	if (fContent != content) {
 		[fContent release];
 		fContent = [content retain];
-		[fOnContent performWithObject:content];
+		if (content!=nil) {
+			for(NSObject<Action> *action in fOnContentActions) {
+				[action performWithObject:content];
+			}
+		}
 	}
 }
 
@@ -43,7 +62,8 @@
 }
 
 - (void) dealloc {
-	self.onContent = nil;
+	[fOnContentActions release];
+	self.onError = nil;
 	self.content = nil;
 	[super dealloc];
 }
