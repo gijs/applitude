@@ -13,7 +13,7 @@
 @interface IPContentProvider : NSObject {
 	id fContent;
 	BOOL fLoading;
-	NSMutableSet *fOnContentActions;
+	NSMutableArray *fOnContentActions;
 	NSObject<Action> *fOnError;
 }
 

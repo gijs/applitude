@@ -33,7 +33,7 @@
 //NP: rename to ContentAvailable to make clear that it is not fired when content = nil
 - (void) addOnContentAction:(NSObject<Action> *)action {
 	if (fOnContentActions == nil)
-		fOnContentActions = [[NSMutableSet alloc] initWithCapacity:1];
+		fOnContentActions = [[NSMutableArray alloc] initWithCapacity:1];
 	
 	[fOnContentActions addObject:action];
 	
