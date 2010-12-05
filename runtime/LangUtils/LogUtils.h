@@ -3,8 +3,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define DebugLog(log...) NSLog(log);
-//#define DebugLog(log...)
+//#define DebugLog(log...) NSLog(log);
+#define DebugLog(log...)
 
 #define LogCGRect(rect) \
 	NSLog(@"x=%f y=%f width=%f height=%f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);

@@ -3,6 +3,8 @@
 
 #import "Binding.h"
 
+#import "LogUtils.h"
+
 @implementation Binding
 
 @synthesize modelProperty = fModelProperty;
@@ -39,13 +41,13 @@
 		fModelProperty = [modelProperty retain];
 		[self updateTarget];
 		[fModel addObserver:self forKeyPath:fModelProperty options:NSKeyValueObservingOptionNew context:NULL];
-		NSLog(@"Rebound: %@", self);
+		DebugLog(@"Rebound: %@", self);
 	}
 }
 
 - (void) unbind {
 	if (fContext != nil) {
-		NSLog(@"Unbind %@", self);
+		DebugLog(@"Unbind %@", self);
 		if (!fSettings.readonly) {
 			[fTarget removeObserver:self forKeyPath:fTargetProperty];
 		}
@@ -61,7 +63,7 @@
 	id newValue = [fTarget valueForKeyPath:fTargetProperty];
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
-		NSLog(@"  %@.%@ := %@", [fModel class], fModelProperty, newValue);
+		DebugLog(@"  %@.%@ := %@", [fModel class], fModelProperty, newValue);
 		[fModel setValue:newValue forKeyPath:fModelProperty];
 	}
 }
@@ -77,13 +79,13 @@
 	}
 
 	if (!OBJECT_EQUAL(oldValue, newValue)) {
-		NSLog(@"  %@.%@ := %@", [fTarget class], fTargetProperty, newValue);
+		DebugLog(@"  %@.%@ := %@", [fTarget class], fTargetProperty, newValue);
 		[fTarget setValue:newValue forKeyPath:fTargetProperty];
 	}
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	NSLog(@"  observed change: %@.%@ -> %@", [object class], keyPath, [change valueForKey:NSKeyValueChangeNewKey]);
+	DebugLog(@"  observed change: %@.%@ -> %@", [object class], keyPath, [change valueForKey:NSKeyValueChangeNewKey]);
 	if (object == fModel) {
 		[self updateTarget];
 	}
@@ -97,7 +99,7 @@
 }
 
 - (void) dealloc {
-	NSLog(@"✝ %@", self);
+	DebugLog(@"✝ %@", self);
 	[self unbind];
 	[fModelProperty release];
 	[fTargetProperty release];
