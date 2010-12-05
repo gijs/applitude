@@ -13,7 +13,6 @@
 @interface IPContentProvider : NSObject {
 	id fContent;
 	BOOL fLoading;
-	NSMutableArray *fOnContentActions;
 	NSObject<Action> *fOnError;
 }
 
@@ -22,8 +21,7 @@
 
 - (id) initWithContent:(id)aContent;
 + (id) providerWithContent: (id)aContent;
-- (void) addOnContentAction:(NSObject<Action> *)action;
-- (void) removeOnContentAction:(NSObject<Action> *)action;
+- (void) contentAvailable:(id)content;
 
 @property (nonatomic, retain) id content;
 @property (nonatomic, assign) BOOL loading;

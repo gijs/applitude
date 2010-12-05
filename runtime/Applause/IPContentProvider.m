@@ -30,31 +30,18 @@
 	return self;
 }
 
-//NP: rename to ContentAvailable to make clear that it is not fired when content = nil
-- (void) addOnContentAction:(NSObject<Action> *)action {
-	if (fOnContentActions == nil)
-		fOnContentActions = [[NSMutableArray alloc] initWithCapacity:1];
-	
-	[fOnContentActions addObject:action];
-	
-}
-
-- (void) removeOnContentAction:(NSObject<Action> *)action {
-	if (fOnContentActions == nil)
-		return;
-	[fOnContentActions removeObject:action];
-}
-
 - (void) setContent:(id)content {
 	if (fContent != content) {
 		[fContent release];
 		fContent = [content retain];
-		if (content!=nil) {
-			for(NSObject<Action> *action in fOnContentActions) {
-				[action performWithObject:content];
-			}
+		if (content != nil) {
+			[self contentAvailable:content];
 		}
 	}
+}
+
+- (void) contentAvailable:(id)content {
+	// hook to be overwritten by custom content providers
 }
 
 + (id) providerWithContent: (id)aContent {
@@ -62,7 +49,6 @@
 }
 
 - (void) dealloc {
-	[fOnContentActions release];
 	self.onError = nil;
 	self.content = nil;
 	[super dealloc];
