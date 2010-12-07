@@ -22,9 +22,11 @@
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	[fContent release];
-	fContent = [fContentProvider.content retain];
-	[fController.tableView reloadData];
+	if (fContent != fContentProvider.content) {
+		[fContent release];
+		fContent = [fContentProvider.content retain];
+		[fController.tableView reloadData];
+	}
 }
 
 - (int) count {
