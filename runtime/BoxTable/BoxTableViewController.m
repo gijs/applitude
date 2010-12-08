@@ -29,31 +29,30 @@
 	return nil;
 }
 
-- (void) updateAndReload {
+- (void) rebuild {
 	self.sections = nil;
 	[self checkInitialized];
 	[self.tableView reloadData];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
 	[self checkInitialized];
-	int count = [fSections count];
-	return count;
+	return [fSections count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	NSObject<Section> *s = [fSections objectAtIndex:section];
-	return [s text];
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex {
+	NSObject<Section> *section = [fSections objectAtIndex:sectionIndex];
+	return [section text];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)i {
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)i {
 	[self checkInitialized];
 
 	NSObject<Section> *section = [fSections objectAtIndex:i];
 	return [[section rows] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	[self checkInitialized];
 	NSObject<Section> *section = [fSections objectAtIndex:indexPath.section];
 	UITableViewCell *cell = [[section rows] objectAtIndex:indexPath.row];
@@ -61,19 +60,19 @@
 	return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
 	if ([cell conformsToProtocol:@protocol(Cell)]) {
 		[(NSObject<Cell> *)cell didSelect];
 	}
 }
 
-- (void)didReceiveMemoryWarning {
+- (void) didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	self.sections = nil;
 }
 
-- (void)dealloc {
+- (void) dealloc {
 	self.sections = nil;
 	[super dealloc];
 }
