@@ -13,6 +13,10 @@
 #import "Cell.h"
 #import "Branding.h"
 
+@interface BoxTableViewController ()
+@property (retain) NSObject<Placeholder> *sections;
+@end
+
 @implementation BoxTableViewController
 
 @synthesize sections = fSections;
