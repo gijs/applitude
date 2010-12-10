@@ -11,10 +11,10 @@
 #import "Placeholder.h";
 
 @interface BoxTableViewController : UITableViewController {
-	NSObject<Placeholder> *fSections;
+	NSObject<Placeholder> *fSectionPlaceholder;
 }
 
-- (NSArray *) buildSections;
-- (void) rebuild;
+- (void) setSections:(NSArray *)sections;
+- (void) update;
 
 @end

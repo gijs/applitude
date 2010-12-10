@@ -14,51 +14,38 @@
 #import "Branding.h"
 
 @interface BoxTableViewController ()
-@property (retain) NSObject<Placeholder> *sections;
+@property (retain) NSObject<Placeholder> *sectionPlaceholder;
 @end
 
 @implementation BoxTableViewController
 
-@synthesize sections = fSections;
+@synthesize sectionPlaceholder = fSectionPlaceholder;
 
-- (void) checkInitialized {
-	if (!self.sections) {
-		self.sections = [[PlaceholderResolver alloc] initWithArray:[self buildSections]];
-		[self.sections release];
+- (void) setSections:(NSArray *)sections {
+	if (sections == nil) {
+		self.sectionPlaceholder = nil;
 	}
-}
-
-- (NSArray *) buildSections {
-	NSLog(@"Method [%@ buildSections] not overwritten", self);
-	return nil;
-}
-
-- (void) rebuild {
-	self.sections = nil;
-	[self checkInitialized];
+	else {
+		self.sectionPlaceholder = [[PlaceholderResolver alloc] initWithArray:sections];
+		[self.sectionPlaceholder release];	
+	}
 	[self.tableView reloadData];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-	[self checkInitialized];
-	return [fSections count];
+	return [self.sectionPlaceholder count];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex {
-	NSObject<Section> *section = [fSections objectAtIndex:sectionIndex];
-	return [section text];
+	return [[self.sectionPlaceholder objectAtIndex:sectionIndex] text];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)i {
-	[self checkInitialized];
-
-	NSObject<Section> *section = [fSections objectAtIndex:i];
-	return [[section rows] count];
+	return [[[self.sectionPlaceholder objectAtIndex:i] rows] count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	[self checkInitialized];
-	NSObject<Section> *section = [fSections objectAtIndex:indexPath.section];
+	NSObject<Section> *section = [self.sectionPlaceholder objectAtIndex:indexPath.section];
 	UITableViewCell *cell = [[section rows] objectAtIndex:indexPath.row];
 	brandCell(tableView, cell, indexPath);
 	return cell;
@@ -71,13 +58,24 @@
 	}
 }
 
-- (void) didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning];
-	self.sections = nil;
+- (void) update {
+	// should be overwritten, call setSection to fill table with data
+}
+
+- (void) viewDidLoad {
+	[super viewDidLoad];
+	[self update];
+}
+
+- (void) viewDidUnload {
+	NSLog(@"[%@ viewDidUnload]", [self class]);
+	[super viewDidUnload];
+	self.sectionPlaceholder = nil;
 }
 
 - (void) dealloc {
-	self.sections = nil;
+	NSLog(@"✝ %@", [self class]);
+	self.sectionPlaceholder = nil;
 	[super dealloc];
 }
 
