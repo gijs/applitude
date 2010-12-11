@@ -15,11 +15,6 @@
 @property (nonatomic, retain) id content;
 @property (nonatomic, assign) NSError *error;
 
-// fireContentChange sends a change event even if the content property was
-// not actually changed. Used to inform requesters about errors and to deliver
-// initial change events when content is requested and already available.
-- (void) fireContentChange;
-
 // processContent processes added content filters. It can be overwritten by
 // custom content provider implementations to process the loaded content or
 // perform additional steps on successful content retrieval. Any content provider

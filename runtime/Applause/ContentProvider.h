@@ -11,9 +11,9 @@
 }
 
 // Call 'request' to state need for the content provided by this content provider.
-// If the content is already available, a change event should be triggered by
-// implementing content providers so the requester doesn't have to handle this
-// case specifically.
+// If the content is not already available, implementing content providers should
+// retrieve it asynchronously then. Implementing content providers might clear
+// f.e. old content on request time.
 - (void) request;
 
 // addObserver is a convenience method to add an observer to the content provider.

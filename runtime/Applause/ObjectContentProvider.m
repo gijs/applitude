@@ -38,14 +38,14 @@
 
 - (void) setError:(NSError *)error {
 	if (error != fContent) {
+		[self willChangeValueForKey:@"content"];
 		[fContent release];
 		fContent = [error retain];
-		[self fireContentChange];
+		[self didChangeValueForKey:@"content"];
 	}
 }
 
 - (void) request {
-	[self fireContentChange];
 }
 
 - (void) clear {

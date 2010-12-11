@@ -21,7 +21,6 @@
 - (void) request {
 	@synchronized(self) {
 		if (fContent != nil) {
-			[self fireContentChange];
 			return;
 		}
 		if (self.loading) {

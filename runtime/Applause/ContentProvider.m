@@ -56,11 +56,6 @@
 	return self;
 }
 
-- (void) fireContentChange {
-	[self willChangeValueForKey:@"content"];
-    [self didChangeValueForKey:@"content"];
-}
-
 - (NSString *) description {
 	return [NSString stringWithFormat:@"%@", [self class]];
 }
