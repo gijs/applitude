@@ -6,6 +6,8 @@
 //#define DebugLog(log...) NSLog(log);
 #define DebugLog(log...)
 
+#define LogRip NSLog(@"✝ %@", [self class]);
+
 #define LogCGRect(rect) \
 	NSLog(@"x=%f y=%f width=%f height=%f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 

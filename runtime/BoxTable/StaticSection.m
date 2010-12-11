@@ -17,8 +17,17 @@
 	return self;
 }
 
+//TODO:deprecate
 + (StaticSection *) forText:text {
 	return [[[self alloc] initWithText:text] autorelease];
+}
+
++ (StaticSection *) sectionWithTitle:title {
+	return [[[self alloc] initWithText:title] autorelease];
+}
+
++ (StaticSection *) section {
+	return [[[self alloc] initWithText:nil] autorelease];
 }
 
 - (NSString *) text {

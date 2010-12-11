@@ -12,6 +12,7 @@
 #import "PlaceholderResolver.h"
 #import "Cell.h"
 #import "Branding.h"
+#import "LogUtils.h"
 
 @interface BoxTableViewController ()
 @property (retain) NSObject<Placeholder> *sectionPlaceholder;
@@ -74,7 +75,7 @@
 }
 
 - (void) dealloc {
-	NSLog(@"✝ %@", [self class]);
+	LogRip;
 	self.sectionPlaceholder = nil;
 	[super dealloc];
 }

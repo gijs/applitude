@@ -49,4 +49,4 @@ typedef enum {
 	HTTP_Server_GatewayTimeout               = 504,
 	HTTP_Server_VersionNotSupported          = 505,
 		
-} HTTPStatusCodes;
+} HTTPStatusCode;

@@ -5,15 +5,21 @@
 
 #import "BoxTableViewController.h"
 #import "Placeholder.h"
-#import "IPContentProvider.h"
+#import "ContentProvider.h"
 
 @interface ContentProviderPlaceholder : NSObject<Placeholder> {
 	BoxTableViewController *fController; // weak
+	//TODO: rename to factorySelector
 	SEL fCellFactorySelector;
-	IPContentProvider *fContentProvider;
-	NSArray *fContent;
+	ContentProvider *fContentProvider;
+	UIView *fActivityView;
+	BOOL fForSection;
+	id fSection;
 }
 
-- (id) initWithController:(BoxTableViewController *)controller cellFactorySelector:(SEL)cellFactorySelector contentProvider:(IPContentProvider *)contentProvider;
+- (id) initWithController:(BoxTableViewController *)controller cellFactorySelector:(SEL)cellFactorySelector contentProvider:(ContentProvider *)contentProvider;
+- (id) initWithController:(BoxTableViewController *)controller sectionFactorySelector:(SEL)factorySelector contentProvider:(ContentProvider *)contentProvider;
+
+@property (nonatomic, retain) UIView *activityView;
 
 @end
