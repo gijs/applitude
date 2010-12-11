@@ -1,14 +1,15 @@
 #import <UIKit/UIKit.h>
 
-#import "LoadingContentProvider.h"
+#import "BaseContentProvider.h"
 #import "ASIHTTPRequest.h"
 
-@interface UrlContentProvider : LoadingContentProvider {
+@interface UrlContentProvider : BaseContentProvider {
 	NSURL *fUrl;
+	NSURL *fLoadUrl;
 	ASIHTTPRequest *fRequest;
 }
 
-@property (nonatomic, readonly) NSURL *url;
+@property (nonatomic, retain) NSURL *url;
 
 - (id) initWithURL:(NSURL *)url;
 

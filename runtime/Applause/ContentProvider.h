@@ -8,6 +8,7 @@
 
 @interface ContentProvider : NSObject {
 	NSMutableArray *fFilters;
+	NSMutableArray *fDependencies;
 }
 
 // Call 'request' to state need for the content provided by this content provider.
@@ -37,6 +38,24 @@
 // Filters should be configured before any content is requested, errors or
 // inconsistent content might be encountered otherwise.
 - (void) addFilter:(NSObject<ContentFilter> *)filter;
+
+// Dependencies can be added to a content provider using this method. This
+// content provider will only load content if all dependencies are met
+// (= have content available). The dependencies will be observed,
+// so that if all dependencies get available, this content provider will retrieve
+// its content automatically. If one of the required content providers has an error, it will
+// be set on this content provider as well.
+//
+// Dependencies should be configured before any content is requested, errors or
+// inconsistent content might be encountered otherwise.
+//
+// This can be used to configure content providers so that they will wait for other content
+// providers, f.e. to wait for a login session to be available before performing requests. It also
+// can be used in custom content provider implementations to wait for other content providers.
+- (void) addDependency:(ContentProvider *)contentProvider;
+
+// Returns true if the content provider currently works on retrieving the content.
+@property (readonly) BOOL loading;
 
 // Returns the content for this content provider or nil of no content is
 // available (yet) or if an error occured.

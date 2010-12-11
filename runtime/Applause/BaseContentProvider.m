@@ -1,25 +1,13 @@
 // © 2010 Ralf Ebert
 // Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
 
-#import "ObjectContentProvider.h"
+#import "BaseContentProvider.h"
 
 #import "ContentProviderProtected.h"
 
-@implementation ObjectContentProvider
+@implementation BaseContentProvider
 
 @synthesize content = fContent;
-
-- (id) initWithContent:(id)content {
-	self = [super init];
-	if(self) {
-		self.content = content;
-	}
-	return self;
-}
-
-+ (id) providerWithContent:(id)content {
-	return [[[self alloc] initWithContent:content] autorelease];
-}
 
 - (id) content {
 	return ([fContent isKindOfClass:[NSError class]]) ? nil : fContent;
@@ -45,12 +33,8 @@
 	}
 }
 
-- (void) request {
-}
-
 - (void) clear {
-	[fContent release];
-	fContent = nil;
+	self.content = nil;
 }
 
 - (void) dealloc {

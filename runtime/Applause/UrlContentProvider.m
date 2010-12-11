@@ -13,13 +13,13 @@
 - (id) initWithURL:(NSURL *)url {
 	self = [super init];
 	if(self) {
-		fUrl = [url retain];
+		self.url = url;
 	}
 	return self;
 }
 
 - (ASIHTTPRequest *) configureRequest {
-	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.url];
+	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:fLoadUrl];
 	[request setTimeOutSeconds:30];
 	return request;
 }
@@ -35,8 +35,18 @@
 	fRequest.delegate = self;
 }
 
+- (void) setUrl:(NSURL *)url {
+	if (fUrl != url) {
+		[fUrl release];
+		fUrl = [url retain];
+		[self clear];
+	}
+}
+
 - (void) load {
 	NSLog(@"%@ starting asynchronous HTTP request", [self description]);
+	[fLoadUrl release];
+	fLoadUrl = [self.url copy];
 	[self setRequest:[self configureRequest]];
 	TTNetworkRequestStarted();
 	[fRequest startAsynchronous];
@@ -64,6 +74,24 @@
 	fRequest = nil;
 }
 
+- (void) request {
+	NSString *loadedUrl = [fLoadUrl absoluteString];
+	NSString *urlToLoad = [self.url absoluteString];
+	if (loadedUrl && ![loadedUrl isEqualToString:urlToLoad]) {
+		NSLog(@"Loaded URL %@ doesn't match current URL %@, clearing", loadedUrl, urlToLoad);
+		[self clear];
+	}
+	
+	[super request];
+}
+
+- (void) clear {
+	[fLoadUrl release];
+	fLoadUrl = nil;
+	[self setRequest:nil];
+	[super clear];
+}
+
 - (void) requestFailed:(ASIHTTPRequest *)req {
 	TTNetworkRequestStopped();
 	NSLog(@"%@ request failed, status %i, error %@", [self description], req.responseStatusCode, req.error);
@@ -73,11 +101,12 @@
 }
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"%@(%@url %@)", [self class], (self.loading ? @"loading " : @""), self.url];
+	return [NSString stringWithFormat:@"%@(%@%@)", [self class], (self.loading ? @"loading " : @""), self.url];
 }
 
 - (void) dealloc {
-	[fUrl release];
+	self.url = nil;
+	[fLoadUrl release];
 	[fRequest cancel];
 	[fRequest release];
 	[super dealloc];

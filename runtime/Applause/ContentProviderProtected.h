@@ -4,7 +4,6 @@
 #import <UIKit/UIKit.h>
 
 #import "ContentProvider.h"
-#import "LoadingContentProvider.h"
 #import "UrlContentProvider.h"
 
 // Protected methods/properties only to be used by content provider implementions are added
@@ -21,13 +20,6 @@
 // that doesn't extend ObjectContentProvider (which handles this automatically)
 // should call this and set the result instead of the content to self.content.
 - (id) processContent:(id)content;
-
-@end
-
-@interface LoadingContentProvider (Protected)
-
-- (void) load;
-- (BOOL) loading;
 
 @end
 

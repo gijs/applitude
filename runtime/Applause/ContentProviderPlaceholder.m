@@ -38,6 +38,11 @@
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	if (fActivityView) {
+		ContentProvider *provider = object;
+		fActivityView.hidden = !(provider.content == nil && provider.error == nil);
+		NSLog(@"activity view: hidden:%i error:%@ content:%@", fActivityView.hidden, provider.error, [provider.content class]);
+	}
 	self.section = nil;
 	[fController.tableView reloadData];
 }
@@ -45,7 +50,6 @@
 - (int) count {
 	id error = fContentProvider.error;
 	id content = fContentProvider.content;
-	fActivityView.hidden = (content != nil || error != nil);
 	if (error != nil)
 		return 1;
 	if (content == nil)
