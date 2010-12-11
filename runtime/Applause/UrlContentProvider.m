@@ -5,6 +5,7 @@
 #import "HTTPStatus.h"
 #import "HTTPError.h"
 #import "ContentProviderProtected.h"
+#import "URLUtils.h"
 
 @implementation UrlContentProvider
 
@@ -101,7 +102,7 @@
 }
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"%@(%@%@)", [self class], (self.loading ? @"loading " : @""), self.url];
+	return [NSString stringWithFormat:@"%@(%@%@)", [self class], (self.loading ? @"loading " : @""), [URLUtils decodeURLParameter:[self.url absoluteString]]];
 }
 
 - (void) dealloc {

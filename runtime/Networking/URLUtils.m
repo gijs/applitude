@@ -38,5 +38,10 @@ const CFStringRef kCharsToForceEscape = CFSTR("!*'();:@&=+$,/?%#[]");
 }
 
 // End of license exception
+
++ (NSString *)decodeURLParameter:(NSString *)str {
+	NSString *decodedStr = (NSString *) CFURLCreateStringByReplacingPercentEscapes(kCFAllocatorDefault, (CFStringRef) str, CFSTR(" "));
+	return [decodedStr autorelease];
+}
 																													
 @end
