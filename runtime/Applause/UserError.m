@@ -3,6 +3,8 @@
 
 #import "UserError.h"
 
+#import "SelectorActionDelegate.h"
+
 @implementation UserError
 
 @synthesize title = fTitle, message = fMessage;
@@ -25,6 +27,14 @@ NSString* const UserErrorDomain = @"UserErrorDomain";
 - (NSString *)localizedDescription {
 	return self.message;
 }
+
+- (void) alertWithAction:(SelectorAction *)action {
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:self.title message:self.message
+												   delegate:[SelectorActionDelegate alertViewDelegate:action] 
+										  cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}	
 
 - (void) dealloc {
 	self.title = nil;

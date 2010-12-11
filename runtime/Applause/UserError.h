@@ -3,6 +3,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SelectorAction.h"
+
 extern NSString* const UserErrorDomain;
 
 @interface UserError : NSError {
@@ -14,5 +16,6 @@ extern NSString* const UserErrorDomain;
 @property (nonatomic, copy) NSString *message;
 
 + (id) userErrorWithTitle:(NSString *)title message:(NSString *)message;
+- (void) alertWithAction:(SelectorAction *)action;
 
 @end
