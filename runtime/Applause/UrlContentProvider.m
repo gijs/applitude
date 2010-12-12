@@ -78,7 +78,7 @@
 		NSLog(@"Loaded URL %@ doesn't match current URL %@, clearing", loadedUrl, urlToLoad);
 		[self clear];
 	}
-	
+
 	[super request];
 }
 
@@ -92,7 +92,7 @@
 - (void) requestFailed:(ASIHTTPRequest *)req {
 	TTNetworkRequestStopped();
 	NSLog(@"%@ request failed, status %i, error %@", [self description], req.responseStatusCode, req.error);
-	self.error = req.error;	
+	self.error = (req.responseStatusCode > 0) ? [HTTPError httpErrorWithRequest:req] : req.error;
 	[fRequest release];
 	fRequest = nil;
 }

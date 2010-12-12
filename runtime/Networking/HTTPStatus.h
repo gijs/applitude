@@ -6,7 +6,7 @@
 typedef enum {
 	HTTP_Informational_Continue              = 100,
 	HTTP_Informational_SwitchingProtocols    = 101,
-	
+
 	HTTP_Success_OK                          = 200,
 	HTTP_Success_Created                     = 201,
 	HTTP_Success_Accepted                    = 202,
@@ -14,7 +14,7 @@ typedef enum {
 	HTTP_Success_NoContent                   = 204,
 	HTTP_Success_ResetContent                = 205,
 	HTTP_Success_PartialContent              = 206,
-	
+
 	HTTP_Redirect_MultipleChoices            = 300,
 	HTTP_Redirect_MovedPermanently           = 301,
 	HTTP_Redirect_MovedTemporarily           = 302,
@@ -22,7 +22,7 @@ typedef enum {
 	HTTP_Redirect_NotModified                = 304,
 	HTTP_Redirect_UseProxy                   = 305,
 	HTTP_Redirect_TemporaryRedirect          = 307,
-	
+
 	HTTP_Client_BadRequest                   = 400,
 	HTTP_Client_Unauthorized                 = 401,
 	HTTP_Client_PaymentRequired              = 402,
@@ -41,12 +41,12 @@ typedef enum {
 	HTTP_Client_UnsupportedMediaType         = 415,
 	HTTP_Client_RequestedRangeNotSatisfiable = 416,
 	HTTP_Client_ExpectationFailed            = 417,
-	
+
 	HTTP_Server_InternalServerError          = 500,
 	HTTP_Server_NotImplemented               = 501,
 	HTTP_Server_BadGateway                   = 502,
 	HTTP_Server_ServiceUnavailable           = 503,
 	HTTP_Server_GatewayTimeout               = 504,
 	HTTP_Server_VersionNotSupported          = 505,
-		
+
 } HTTPStatusCode;
