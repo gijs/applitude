@@ -106,6 +106,9 @@
 }
 
 - (id) processContent:(id)content {
+	if (content == nil)
+		return nil;
+	
 	id processedContent = content;
 	for(NSObject<ContentFilter> *filter in fFilters) {
 		processedContent = [filter filter:processedContent];
