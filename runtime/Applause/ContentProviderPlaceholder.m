@@ -7,6 +7,7 @@
 #import "CommonCells.h"
 #import "SelectorAction.h"
 #import "StaticSection.h"
+#import "Branding.h"
 
 @interface ContentProviderPlaceholder ()
 @property (nonatomic, retain) id section;
@@ -62,7 +63,7 @@
 
 - (BoxCell *) cellForError:(NSError *)error {
 	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-	cell.textLabel.text = [error description];
+	cell.textLabel.text = [error localizedDescription];
 	cell.textLabel.font = [UIFont systemFontOfSize:14];
 	cell.textLabel.textColor = [UIColor blackColor];
 	cell.textLabel.numberOfLines = 2;
@@ -83,7 +84,7 @@
 - (id) objectAtIndex:(int) index {
 	id error = fContentProvider.error;
 	if (error) {
-		return [self wrapCell:[self cellForError:error]];
+		return [self wrapCell:[self cellForError:brandError(error)]];
 	}
 
 	id content = fContentProvider.content;
