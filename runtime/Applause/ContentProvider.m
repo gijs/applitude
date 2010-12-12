@@ -106,7 +106,13 @@
 }
 
 - (id) processContent:(id)content {
-	return content;
+	id processedContent = content;
+	for(NSObject<ContentFilter> *filter in fFilters) {
+		processedContent = [filter filter:processedContent];
+		if ([processedContent isKindOfClass:[NSError class]])
+			return processedContent;
+	}
+	return processedContent;
 }
 
 - (ContentProvider *) addObserver:(id)observer {

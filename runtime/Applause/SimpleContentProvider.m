@@ -24,7 +24,14 @@
 }
 
 - (void) load {
-	// do nothing
+	if ([fDependencies count] > 1) {
+		[NSException raise:NSInternalInconsistencyException
+					format:@"SimpleContentProvider can only have one dependency", [self class]];
+	}
+	if ([fDependencies count] == 1) {
+		ContentProvider *dependency = [fDependencies objectAtIndex:0];
+		self.content = dependency.content;
+	}
 }
 
 @end
