@@ -3,6 +3,7 @@
 
 #import "PlaceholderResolver.h"
 
+
 @implementation PlaceholderResolver
 
 - (id) initWithArray:(NSArray *)array {
@@ -46,7 +47,7 @@
 			i++;
 		}
 	}
-	NSLog(@"Item %i not available, has only %i entries", i);
+	LogError(@"Item %i not available, has only %i entries", i);
 	return nil;
 }
 

@@ -27,7 +27,7 @@
 
 - (void) setRequest:(ASIHTTPRequest*)request {
 	if (fRequest != nil && fRequest.inProgress) {
-		NSLog(@"%@ cancel in progress request %@", [self description], request);
+		LogInfo(@"%@ cancel in progress request %@", [self description], request);
 		[fRequest cancel];
 	}
 	fRequest.delegate = nil;
@@ -45,7 +45,7 @@
 }
 
 - (void) load {
-	NSLog(@"%@ starting asynchronous HTTP request", [self description]);
+	LogDebug(@"%@ starting asynchronous HTTP request", [self description]);
 	[fLoadUrl release];
 	fLoadUrl = [self.url copy];
 	[self setRequest:[self configureRequest]];
@@ -58,7 +58,7 @@
 }
 
 - (void) requestFinished:(ASIHTTPRequest *)req {
-	NSLog(@"%@ request finished, %@, got %i bytes", [self description], req.responseStatusMessage, [req.rawResponseData length]);
+	LogDebug(@"%@ request finished, %@, got %i bytes", [self description], req.responseStatusMessage, [req.rawResponseData length]);
 	TTNetworkRequestStopped();
 	//NP: this might be a bit to narrow, can this be fixed or should it be configurable?
 	if ([req responseStatusCode] == HTTP_Success_OK) {
@@ -75,7 +75,7 @@
 	NSString *loadedUrl = [fLoadUrl absoluteString];
 	NSString *urlToLoad = [self.url absoluteString];
 	if (loadedUrl && ![loadedUrl isEqualToString:urlToLoad]) {
-		NSLog(@"Loaded URL %@ doesn't match current URL %@, clearing", loadedUrl, urlToLoad);
+		LogDebug(@"Loaded URL %@ doesn't match current URL %@, clearing", loadedUrl, urlToLoad);
 		[self clear];
 	}
 
@@ -91,7 +91,7 @@
 
 - (void) requestFailed:(ASIHTTPRequest *)req {
 	TTNetworkRequestStopped();
-	NSLog(@"%@ request failed, status %i, error %@", [self description], req.responseStatusCode, req.error);
+	LogError(@"%@ request failed, status %i, error %@", [self description], req.responseStatusCode, req.error);
 	self.error = (req.responseStatusCode > 0) ? [HTTPError httpErrorWithRequest:req] : req.error;
 	[fRequest release];
 	fRequest = nil;

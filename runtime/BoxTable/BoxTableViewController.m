@@ -12,7 +12,6 @@
 #import "PlaceholderResolver.h"
 #import "Cell.h"
 #import "Branding.h"
-#import "LogUtils.h"
 
 @interface BoxTableViewController ()
 @property (retain) NSObject<Placeholder> *sectionPlaceholder;
@@ -28,7 +27,7 @@
 	}
 	else {
 		self.sectionPlaceholder = [[PlaceholderResolver alloc] initWithArray:sections];
-		[self.sectionPlaceholder release];	
+		[self.sectionPlaceholder release];
 	}
 	[self.tableView reloadData];
 }
@@ -69,13 +68,13 @@
 }
 
 - (void) viewDidUnload {
-	NSLog(@"[%@ viewDidUnload]", [self class]);
+	LogDebug(@"[%@ viewDidUnload]", [self class]);
 	[super viewDidUnload];
 	self.sectionPlaceholder = nil;
 }
 
 - (void) dealloc {
-	LogRip;
+	LogDealloc;
 	self.sectionPlaceholder = nil;
 	[super dealloc];
 }

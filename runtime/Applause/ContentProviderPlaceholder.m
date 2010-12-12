@@ -43,7 +43,6 @@
 	if (fActivityView) {
 		ContentProvider *provider = object;
 		fActivityView.hidden = !(provider.content == nil && provider.error == nil);
-		// NSLog(@"activity view: hidden:%i error:%@ content:%@", fActivityView.hidden, provider.error, [provider.content class]);
 	}
 	self.section = nil;
 	[fController.tableView reloadData];

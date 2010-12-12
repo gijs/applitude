@@ -30,7 +30,6 @@
 
 #import "TextFieldCell.h"
 
-#import "LogUtils.h"
 
 @implementation TextFieldCell
 @synthesize textField = _textField, onReturn = _onReturn;
@@ -75,7 +74,7 @@
 }
 
 - (void)dealloc {
-	NSLog(@"✝ %@", self);
+	LogDealloc;
 	self.onReturn = nil;
 	self.textField = nil;
 	[super dealloc];

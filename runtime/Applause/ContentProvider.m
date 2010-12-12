@@ -4,7 +4,6 @@
 #import "ContentProvider.h"
 
 #import "ContentProviderProtected.h"
-#import "LogUtils.h"
 
 @implementation ContentProvider
 
@@ -75,13 +74,13 @@
 				return;
 			}
 			if (provider.content == nil) {
-				NSLog(@"%@ waiting for %@", [self description], [provider description]);
+				LogDebug(@"%@ waiting for %@", [self description], [provider description]);
 				return;
 			}
 		}
 
 		// load content when all required content providers are available
-		NSLog(@"%@ %i required content providers available, loading content", [self description], [fDependencies count]);
+		LogDebug(@"%@ %i required content providers available, loading content", [self description], [fDependencies count]);
 		[self load];
 	}
 }
@@ -134,7 +133,7 @@
 }
 
 - (void) dealloc {
-	LogRip;
+	LogDealloc;
 	for(ContentProvider *provider in fDependencies) {
 		[provider removeObserver:self];
 	}

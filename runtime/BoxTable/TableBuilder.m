@@ -30,7 +30,7 @@
 
 - (void) cell:(id)cell {
 	if (!lastSection) {
-		NSLog(@"No section!");
+		LogError(@"No section!");
 		return;
 	}
 	[lastSection add:cell];
@@ -61,7 +61,7 @@
 
 - (void) dynamic:(NSObject<Placeholder> *) placeholder {
 	if (!lastSection) {
-		NSLog(@"No section!");
+		LogError(@"No section!");
 		return;
 	}
 	[lastSection add:placeholder];

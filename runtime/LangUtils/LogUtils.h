@@ -3,10 +3,25 @@
 
 #import <Foundation/Foundation.h>
 
-//#define DebugLog(log...) NSLog(log);
-#define DebugLog(log...)
+#ifdef LOG_DEBUG
+#define LogDebug(log...) NSLog(log);
+#else
+#define LogDebug(log...)
+#endif
 
-#define LogRip NSLog(@"✝ %@", [self class]);
+#ifdef LOG_DEALLOC
+#define LogDealloc NSLog(@"✝ %@", [self class]);
+#else
+#define LogDealloc
+#endif
+
+#ifdef LOG_INFO
+#define LogInfo NSLog(log);
+#else
+#define LogInfo
+#endif
+
+#define LogError(log...) NSLog(log);
 
 #define LogCGRect(rect) \
 	NSLog(@"x=%f y=%f width=%f height=%f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);

@@ -18,7 +18,7 @@
 	Binding *binding = [[Binding alloc] initWithContext:self model:model property:modelProperty to:target property:targetProperty settings:settings];
 	[fBindings addObject:binding];
 	[binding release];
-	NSLog(@"Created %@", binding);
+	LogDebug(@"Created %@", binding);
 	return binding;
 }
 
@@ -30,7 +30,7 @@
 - (void) unbind:(Binding *)binding {
 	int i = [fBindings indexOfObject:binding];
 	if (i < 0) {
-		NSLog(@"Error: Binding %@ was not bound, cannot unbind!");
+		LogError(@"Error: Binding %@ was not bound, cannot unbind!");
 	}
 	[fBindings removeObjectAtIndex:i];
 }
@@ -38,7 +38,7 @@
 - (void) unbindAll {
 	while([fBindings count] > 0) {
 		[[fBindings objectAtIndex:0] unbind];
-	}	
+	}
 }
 
 - (NSString *) description {
@@ -46,7 +46,7 @@
 }
 
 - (void) dealloc {
-	NSLog(@"✝ %@", self);
+	LogDealloc;
 	[self unbindAll];
 	[fBindings release];
 	[super dealloc];
