@@ -39,11 +39,8 @@
 }
 
 - (void) clear {
-	if (self.content) {
+	if (fContent) {
 		self.content = nil;
-	} else {
-		[fContent release];
-		fContent = nil;
 	}
 }
 
