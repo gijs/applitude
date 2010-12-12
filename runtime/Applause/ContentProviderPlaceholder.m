@@ -6,6 +6,7 @@
 #import "BoxCell.h"
 #import "CommonCells.h"
 #import "SelectorAction.h"
+#import "StaticSection.h"
 
 @interface ContentProviderPlaceholder ()
 @property (nonatomic, retain) id section;
@@ -59,23 +60,37 @@
 	return 1;
 }
 
+- (BoxCell *) cellForError:(NSError *)error {
+	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+	cell.textLabel.text = [error description];
+	cell.textLabel.font = [UIFont systemFontOfSize:14];
+	cell.textLabel.textColor = [UIColor blackColor];
+	cell.textLabel.numberOfLines = 2;
+	cell.userInteractionEnabled = NO;
+	return [cell autorelease];
+}
+
+- (id) objectForError:(NSError *)error {
+	if (fForSection) {
+		StaticSection *section = [StaticSection section];
+		[section add:[self cellForError:error]];
+		return section;
+	} else {
+		return [self cellForError:error];
+	}
+}
+
 - (id) objectAtIndex:(int) index {
 	id error = fContentProvider.error;
 	if (error) {
-		BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-		cell.textLabel.text = [error description];
-		cell.textLabel.font = [UIFont systemFontOfSize:14];
-		cell.textLabel.textColor = [UIColor blackColor];
-		cell.textLabel.numberOfLines = 2;
-		cell.userInteractionEnabled = NO;
-		return [cell autorelease];
+		return [self objectForError:error];
 	}
-	
+
 	id content = fContentProvider.content;
-	
+
 	if (!content)
 		return [CommonCells activityIndicator];
-	
+
 	if ([content isKindOfClass:[NSArray class]])
 		return [fController performSelector:fCellFactorySelector withObject:[content objectAtIndex:index]];
 	else {
