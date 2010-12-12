@@ -39,7 +39,12 @@
 }
 
 - (void) clear {
-	self.content = nil;
+	if (self.content) {
+		self.content = nil;
+	} else {
+		[fContent release];
+		fContent = nil;
+	}
 }
 
 - (void) dealloc {
