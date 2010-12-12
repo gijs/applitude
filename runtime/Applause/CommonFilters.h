@@ -8,5 +8,6 @@
 @interface CommonFilters : NSObject
 
 + (id) filterForKeyPath:(NSString *)keyPath makeMutable:(BOOL)makeMutable;
++ (id) filterForJSON;
 
 @end
