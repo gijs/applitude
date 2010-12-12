@@ -21,6 +21,8 @@
 // should call this and set the result instead of the content to self.content.
 - (id) processContent:(id)content;
 
+- (void) load;
+
 @end
 
 @interface UrlContentProvider (Protected)
