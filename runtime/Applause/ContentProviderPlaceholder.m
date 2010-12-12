@@ -70,26 +70,26 @@
 	return [cell autorelease];
 }
 
-- (id) objectForError:(NSError *)error {
+- (id) wrapCell:(UITableViewCell *)cell {
 	if (fForSection) {
 		StaticSection *section = [StaticSection section];
-		[section add:[self cellForError:error]];
+		[section add:cell];
 		return section;
 	} else {
-		return [self cellForError:error];
+		return cell;
 	}
 }
 
 - (id) objectAtIndex:(int) index {
 	id error = fContentProvider.error;
 	if (error) {
-		return [self objectForError:error];
+		return [self wrapCell:[self cellForError:error]];
 	}
 
 	id content = fContentProvider.content;
 
 	if (!content)
-		return [CommonCells activityIndicator];
+		return [self wrapCell:[CommonCells activityIndicator]];
 
 	if ([content isKindOfClass:[NSArray class]])
 		return [fController performSelector:fCellFactorySelector withObject:[content objectAtIndex:index]];
