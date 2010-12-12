@@ -16,7 +16,11 @@
 - (void) setContent:(id)content {
 	if (content != fContent) {
 		[fContent release];
-		fContent = [[self processContent:content] retain];
+		id result = [self processContent:content];
+		if ([result isKindOfClass:[NSError class]]) {
+			NSLog(@"Error %@ for %@", result, [self description]);
+		}
+		fContent = [result retain];
 	}
 }
 
@@ -25,6 +29,7 @@
 }
 
 - (void) setError:(NSError *)error {
+	NSLog(@"Error %@ for %@", error, [self description]);
 	if (error != fContent) {
 		[self willChangeValueForKey:@"content"];
 		[fContent release];
