@@ -4,6 +4,7 @@
 #import "ContentProvider.h"
 
 #import "ContentProviderProtected.h"
+#import "LogUtils.h"
 
 @implementation ContentProvider
 
@@ -78,7 +79,7 @@
 				return;
 			}
 		}
-		
+
 		// load content when all required content providers are available
 		NSLog(@"%@ %i required content providers available, loading content", [self description], [fDependencies count]);
 		[self load];
@@ -93,14 +94,14 @@
 	// if content/error is available or loading is in progress do nothing
 	if (self.content || self.error || self.loading)
 		return;
-	
+
 	// if not, request all required content providers
 	if (fDependencies != nil) {
 		for(ContentProvider *provider in fDependencies) {
 			[provider request];
 		}
 	}
-	
+
 	// and load if all requirements are met
 	[self loadIfRequirementsAvailable];
 }
@@ -108,7 +109,7 @@
 - (id) processContent:(id)content {
 	if (content == nil)
 		return nil;
-	
+
 	id processedContent = content;
 	for(NSObject<ContentFilter> *filter in fFilters) {
 		processedContent = [filter filter:processedContent];
@@ -133,6 +134,7 @@
 }
 
 - (void) dealloc {
+	LogRip;
 	for(ContentProvider *provider in fDependencies) {
 		[provider removeObserver:self];
 	}
