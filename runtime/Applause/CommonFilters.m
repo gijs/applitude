@@ -63,7 +63,49 @@
 	[fKeyPath release];
 	[super dealloc];
 }
-		 
+
+@end
+
+
+
+#pragma mark -
+#pragma mark BuildDictionaryFilter
+
+@interface BuildDictionaryFilter : NSObject<ContentFilter> {
+	NSString *fKeyPath;
+}
+@end
+
+@implementation BuildDictionaryFilter
+
+- (id) initWithKeyPath:(NSString *)keyPath {
+	self = [super init];
+	if (self != nil) {
+		fKeyPath = [keyPath copy];
+	}
+	return self;
+}
+
+- (id) filter:(id)content {
+	if (![content isKindOfClass:[NSArray class]]) {
+		LogError(@"Input for %@ needs to be NSArray, but was %@", [self class], [content class]);
+		return [NSDictionary dictionary];
+	}
+
+	NSArray *items = (NSArray *)content;
+	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:[items count]];
+	for(id item in items) {
+		NSObject *key = [item valueForKeyPath:fKeyPath];
+		[dict setObject:item forKey:key];
+	}
+	return dict;
+}
+
+- (void) dealloc {
+	[fKeyPath release];
+	[super dealloc];
+}
+
 @end
 
 
@@ -95,6 +137,10 @@
 
 + (id) filterForJSON {
 	return [[[JSONFilter alloc] init] autorelease];
+}
+
++ (id) filterBuildDictionaryWithKeyPath:(NSString *)keyPath {
+	return [[[BuildDictionaryFilter alloc] initWithKeyPath:keyPath] autorelease];
 }
 
 @end
