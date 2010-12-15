@@ -3,20 +3,20 @@
 
 #import <Foundation/Foundation.h>
 
-#ifdef LOG_DEBUG
+#if LOG_DEBUG
 #define LogDebug(log...) NSLog(log);
 #else
 #define LogDebug(log...)
 #endif
 
-#ifdef LOG_DEALLOC
+#if LOG_DEALLOC
 #define LogDealloc NSLog(@"✝ %@", [self class]);
 #else
 #define LogDealloc
 #endif
 
-#ifdef LOG_INFO
-#define LogInfo NSLog(log);
+#if LOG_INFO
+#define LogInfo(log...) NSLog(log);
 #else
 #define LogInfo
 #endif

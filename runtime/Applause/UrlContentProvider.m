@@ -45,7 +45,7 @@
 }
 
 - (void) load {
-	LogDebug(@"%@ starting asynchronous HTTP request", [self description]);
+	LogInfo(@"%@ starting asynchronous HTTP request", [self description]);
 	[fLoadUrl release];
 	fLoadUrl = [self.url copy];
 	[self setRequest:[self configureRequest]];
