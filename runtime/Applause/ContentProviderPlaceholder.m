@@ -48,6 +48,12 @@
 	[fController.tableView reloadData];
 }
 
+- (void) initializeSections {
+	if (fForSection && self.section == nil) {
+		self.section = [fController performSelector:fCellFactorySelector withObject:fContentProvider.content];
+	}
+}
+
 - (int) count {
 	id error = fContentProvider.error;
 	id content = fContentProvider.content;
@@ -57,6 +63,12 @@
 		return (fActivityView == nil) ? 1 : 0;
 	if ([content isKindOfClass:[NSArray class]])
 		return [content count];
+	if (fForSection) {
+		[self initializeSections];
+		if ([fSection isKindOfClass:[NSArray class]]) {
+			return [fSection count];
+		}
+	}
 	return 1;
 }
 
@@ -96,11 +108,12 @@
 	else {
 		// sections are not managed by the TableViewController, so we need to track them for
 		// repeated calls
-		// TODO: do this for cells as well, support this for multiple sections
-		if (self.section == nil) {
-			self.section = [fController performSelector:fCellFactorySelector withObject:content];
-		}
-		return self.section;
+		// TODO: do this for cells as well
+		[self initializeSections];
+		if ([self.section isKindOfClass:[NSArray class]])
+			return [self.section objectAtIndex:index];
+		else
+			return self.section;
 	}
 }
 
