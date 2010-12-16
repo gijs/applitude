@@ -10,5 +10,7 @@
 }
 
 + (UITableViewCell *) activityIndicator;
++ (UITableViewCell *) textCellWithString:(NSString *)error;
++ (UITableViewCell *) textCellWithError:(NSError *)error;
 
 @end
