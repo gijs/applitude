@@ -4,18 +4,12 @@
 #import "CommonCells.h"
 
 #import "UIView+Coordinates.h"
+#import "ActivityCell.h"
 
 @implementation CommonCells
 
 + (UITableViewCell *) activityIndicator {
-	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-	UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	[indicator startAnimating];
-	[indicator sizeToFit];
-	[cell addSubview:indicator];
-	[indicator release];
-	[indicator centerTo:cell.frame size:indicator.frame.size];
-	return [cell autorelease];
+	return [[[ActivityCell alloc] init] autorelease];
 }
 
 @end
