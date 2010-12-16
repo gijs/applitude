@@ -13,12 +13,20 @@
 	return ([fContent isKindOfClass:[NSError class]]) ? nil : fContent;
 }
 
+- (void) contentAvailable:(id)content {
+	// hook for implementors to overwrite when content (not an error) is available
+}
+
 - (void) setContent:(id)content {
 	if (content != fContent) {
 		[fContent release];
 		id result = [self processContent:content];
 		if ([result isKindOfClass:[NSError class]]) {
 			LogError(@"%@ for %@", result, [self description]);
+		} else {
+			if (result) {
+				[self contentAvailable:result];
+			}
 		}
 		fContent = [result retain];
 	}
