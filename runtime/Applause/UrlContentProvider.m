@@ -74,10 +74,8 @@
 - (void) requestFinished:(ASIHTTPRequest *)req {
 	LogDebug(@"%@ request finished, %@, got %i bytes", [self description], req.responseStatusMessage, [req.rawResponseData length]);
 	TTNetworkRequestStopped();
-	//NP: this might be a bit to narrow, can this be fixed or should it be configurable?
 	if ([req responseStatusCode] == HTTP_Success_OK) {
-		//TODO: this fails if responseData is used directly - probably encoding issue - find out why.
-		self.content = [[req responseString] dataUsingEncoding:NSUTF8StringEncoding];
+		self.content = [req responseData];
 	} else {
 		self.error = [HTTPError httpErrorWithRequest:req];
 	}
