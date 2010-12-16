@@ -161,6 +161,21 @@
 
 
 #pragma mark -
+#pragma mark ImageFilter
+
+@interface ImageFilter : NSObject<ContentFilter>
+@end
+
+@implementation ImageFilter
+
+- (id) filter:(id)content {
+	return [UIImage imageWithData:content];
+}
+
+@end
+
+
+#pragma mark -
 #pragma mark CommonFilters
 
 @implementation CommonFilters
@@ -171,6 +186,10 @@
 
 + (id) filterForJSON {
 	return [[[JSONFilter alloc] init] autorelease];
+}
+
++ (id) filterForImage {
+	return [[[ImageFilter alloc] init] autorelease];
 }
 
 // makes the content mutable. if content is a NSArray that contains NSArray/NSDictionary, these
