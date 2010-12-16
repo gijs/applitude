@@ -10,5 +10,6 @@
 + (id) filterForKeyPath:(NSString *)keyPath makeMutable:(BOOL)makeMutable;
 + (id) filterBuildDictionaryWithKeyPath:(NSString *)keyPath;
 + (id) filterForJSON;
++ (id) filterForMutable;
 
 @end

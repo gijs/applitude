@@ -69,6 +69,40 @@
 
 
 #pragma mark -
+#pragma mark MakeMutableFilter
+
+@interface MakeMutableFilter : NSObject<ContentFilter>
+@end
+
+@implementation MakeMutableFilter
+
+- (id) filter:(id)content {
+	if ([content isKindOfClass:[NSArray class]]) {
+		NSMutableArray *array = [NSMutableArray array];
+		for(id item in content) {
+			if ([item isKindOfClass:[NSDictionary class]]) {
+				[array addObject:[self filter:item]];
+			} else {
+				[array addObject:item];
+			}
+		}
+		return array;
+	}
+	else if ([content conformsToProtocol:@protocol(NSMutableCopying)]) {
+		content = [((NSObject<NSMutableCopying> *) content) mutableCopyWithZone:nil];
+		return [content autorelease];
+	} else {
+		LogError(@"%@ doesn't conform to NSMutableCopying, cannot make a mutable copy", [content class]);
+		return content;
+	}
+}
+
+@end
+
+
+
+
+#pragma mark -
 #pragma mark BuildDictionaryFilter
 
 @interface BuildDictionaryFilter : NSObject<ContentFilter> {
@@ -137,6 +171,12 @@
 
 + (id) filterForJSON {
 	return [[[JSONFilter alloc] init] autorelease];
+}
+
+// makes the content mutable. if content is a NSArray that contains NSArray/NSDictionary, these
+// are made mutable as well
++ (id) filterForMutable {
+	return [[[MakeMutableFilter alloc] init] autorelease];
 }
 
 + (id) filterBuildDictionaryWithKeyPath:(NSString *)keyPath {
