@@ -6,10 +6,11 @@
 #import "HTTPError.h"
 #import "ContentProviderProtected.h"
 #import "URLUtils.h"
+#import "ASIDownloadCache.h"
 
 @implementation UrlContentProvider
 
-@synthesize url = fUrl;
+@synthesize url = fUrl, cachePolicy = fCachePolicy;
 
 - (id) initWithURL:(NSURL *)url {
 	self = [super init];
@@ -22,6 +23,16 @@
 - (ASIHTTPRequest *) configureRequest {
 	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:fLoadUrl];
 	[request setTimeOutSeconds:30];
+	if (self.cachePolicy != CachePolicyNone) {
+		ASIDownloadCache *cache = [ASIDownloadCache sharedCache];
+		LogDebug(@"Cache storage path: %@", cache.storagePath);
+		[request setDownloadCache:cache];
+		[request setCacheStoragePolicy:ASICachePermanentlyCacheStoragePolicy];
+		if (self.cachePolicy == CachePolicyDefault)
+			[request setCachePolicy:ASIAskServerIfModifiedWhenStaleCachePolicy];
+		else if (self.cachePolicy == CachePolicyOffline)
+			[request setCachePolicy:ASIAskServerIfModifiedWhenStaleCachePolicy|ASIFallbackToCacheIfLoadFailsCachePolicy];
+	}
 	return request;
 }
 
