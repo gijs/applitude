@@ -5,6 +5,25 @@
 
 #import "CJSONDeserializer.h"
 
+id makeMutable(id obj) {
+	if ([obj isKindOfClass:[NSArray class]] && ![obj isKindOfClass:[NSMutableArray class]]) {
+		NSMutableArray *array = [NSMutableArray array];
+		for(id item in obj) {
+			if ([item isKindOfClass:[NSDictionary class]]) {
+				[array addObject:makeMutable(item)];
+			} else {
+				[array addObject:item];
+			}
+		}
+		return array;
+	}
+	if ([obj isKindOfClass:[NSDictionary class]] && (![obj isKindOfClass:[NSMutableDictionary class]] || CFGetTypeID(obj) == CFDictionaryGetTypeID())) {
+		return [NSMutableDictionary dictionaryWithDictionary:obj];
+	}
+	return obj;
+}
+
+
 #pragma mark -
 #pragma mark SelectorFilter
 
@@ -27,14 +46,7 @@
 
 - (void) addObject:(id)obj toList:(NSMutableArray *)array {
 	if (fMakeMutable) {
-		if ([obj conformsToProtocol:@protocol(NSMutableCopying)]) {
-			obj = [((NSObject<NSMutableCopying> *) obj) mutableCopyWithZone:nil];
-			[array addObject:obj];
-			[obj release];
-		} else {
-			[NSException raise:NSInternalInconsistencyException
-						format:@"%@ doesn't conform to NSMutableCopying, cannot make a mutable copy", [obj class]];
-		}
+		[array addObject:makeMutable(obj)];
 	} else {
 		[array addObject:obj];
 	}
@@ -77,24 +89,7 @@
 @implementation MakeMutableFilter
 
 - (id) filter:(id)content {
-	if ([content isKindOfClass:[NSArray class]]) {
-		NSMutableArray *array = [NSMutableArray array];
-		for(id item in content) {
-			if ([item isKindOfClass:[NSDictionary class]]) {
-				[array addObject:[self filter:item]];
-			} else {
-				[array addObject:item];
-			}
-		}
-		return array;
-	}
-	else if ([content conformsToProtocol:@protocol(NSMutableCopying)]) {
-		content = [((NSObject<NSMutableCopying> *) content) mutableCopyWithZone:nil];
-		return [content autorelease];
-	} else {
-		LogError(@"%@ doesn't conform to NSMutableCopying, cannot make a mutable copy", [content class]);
-		return content;
-	}
+	return makeMutable(content);
 }
 
 @end
