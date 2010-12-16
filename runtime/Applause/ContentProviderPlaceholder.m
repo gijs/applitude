@@ -39,11 +39,14 @@
 	return self;
 }
 
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (void) updateActivityView {
 	if (fActivityView) {
-		ContentProvider *provider = object;
-		fActivityView.hidden = !(provider.content == nil && provider.error == nil);
+		fActivityView.hidden = !(fContentProvider.content == nil && fContentProvider.error == nil);
 	}
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	[self updateActivityView];
 	self.section = nil;
 	[fController.tableView reloadData];
 }
@@ -55,6 +58,7 @@
 }
 
 - (int) count {
+	[self updateActivityView];
 	id error = fContentProvider.error;
 	id content = fContentProvider.content;
 	if (error != nil)
