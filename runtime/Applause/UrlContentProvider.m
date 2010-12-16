@@ -27,11 +27,14 @@
 		ASIDownloadCache *cache = [ASIDownloadCache sharedCache];
 		LogDebug(@"Cache storage path: %@", cache.storagePath);
 		[request setDownloadCache:cache];
-		[request setCacheStoragePolicy:ASICachePermanentlyCacheStoragePolicy];
-		if (self.cachePolicy == CachePolicyDefault)
-			[request setCachePolicy:ASIAskServerIfModifiedWhenStaleCachePolicy];
-		else if (self.cachePolicy == CachePolicyOffline)
+		[request setCacheStoragePolicy: (self.cachePolicy == CachePolicySession)
+											? ASICacheForSessionDurationCacheStoragePolicy
+											: ASICachePermanentlyCacheStoragePolicy];
+		if (self.cachePolicy == CachePolicyOffline) {
 			[request setCachePolicy:ASIAskServerIfModifiedWhenStaleCachePolicy|ASIFallbackToCacheIfLoadFailsCachePolicy];
+		} else {
+			[request setCachePolicy:ASIAskServerIfModifiedWhenStaleCachePolicy];
+		}
 	}
 	return request;
 }

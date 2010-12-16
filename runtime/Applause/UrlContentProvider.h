@@ -4,8 +4,14 @@
 #import "ASIHTTPRequest.h"
 
 typedef enum {
+	// by default: no caching
 	CachePolicyNone,
-	CachePolicyDefault,
+
+	// cache according to server headers (cache-control maxage, etag) in session or persistently
+	CachePolicySession,
+	CachePolicyPersistent,
+
+	// same as CachePolicyPersistent, but use cached responses in case of errors
 	CachePolicyOffline
 } CachePolicy;
 
