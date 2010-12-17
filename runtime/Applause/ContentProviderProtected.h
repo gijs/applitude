@@ -22,6 +22,7 @@
 - (id) processContent:(id)content;
 
 - (void) load;
+- (void) loadIfRequirementsAvailable;
 
 @end
 

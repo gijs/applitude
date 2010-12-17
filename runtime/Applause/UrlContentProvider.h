@@ -12,7 +12,10 @@ typedef enum {
 	CachePolicyPersistent,
 
 	// same as CachePolicyPersistent, but use cached responses in case of errors
-	CachePolicyOffline
+	CachePolicyOffline,
+
+	// same as CachePolicyOffline, but also ignore the server and cache content for 7 days
+	CachePolicyStatic
 } CachePolicy;
 
 @interface UrlContentProvider : BaseContentProvider {

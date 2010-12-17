@@ -30,7 +30,11 @@
 		[request setCacheStoragePolicy: (self.cachePolicy == CachePolicySession)
 											? ASICacheForSessionDurationCacheStoragePolicy
 											: ASICachePermanentlyCacheStoragePolicy];
-		if (self.cachePolicy == CachePolicyOffline) {
+		if (self.cachePolicy == CachePolicyStatic) {
+			[request setSecondsToCache:60*60*24*7];
+		}
+
+		if (self.cachePolicy == CachePolicyOffline || self.cachePolicy == CachePolicyStatic) {
 			[request setCachePolicy:ASIAskServerIfModifiedWhenStaleCachePolicy|ASIFallbackToCacheIfLoadFailsCachePolicy];
 		} else {
 			[request setCachePolicy:ASIAskServerIfModifiedWhenStaleCachePolicy];
@@ -83,15 +87,23 @@
 	fRequest = nil;
 }
 
-- (void) request {
+- (void) checkUrl {
 	NSString *loadedUrl = [fLoadUrl absoluteString];
 	NSString *urlToLoad = [self.url absoluteString];
-	if (loadedUrl && ![loadedUrl isEqualToString:urlToLoad]) {
+	if (urlToLoad && loadedUrl && ![loadedUrl isEqualToString:urlToLoad]) {
 		LogDebug(@"Loaded URL %@ doesn't match current URL %@, clearing", loadedUrl, urlToLoad);
 		[self clear];
 	}
+}
 
+- (void) request {
+	[self checkUrl];
 	[super request];
+}
+
+- (void) loadIfRequirementsAvailable {
+	[self checkUrl];
+	[super loadIfRequirementsAvailable];
 }
 
 - (void) clear {
