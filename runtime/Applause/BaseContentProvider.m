@@ -39,6 +39,8 @@
 - (void) setError:(NSError *)error {
 	LogError(@"%@ for %@", error, [self description]);
 	if (error != fContent) {
+		if (error == nil && !self.error)
+			return;
 		[self willChangeValueForKey:@"content"];
 		[fContent release];
 		fContent = [error retain];

@@ -28,7 +28,7 @@
 // Call 'clear' to throw away content that has already been loaded.
 - (void) clear;
 
-// Refresh is a shortcut for clear + request
+// Call 'refresh' to re-request the content even if content is already available.
 - (void) refresh;
 
 // A content filter chain can be configured for a content provider to post-process the

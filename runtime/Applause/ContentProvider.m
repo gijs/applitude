@@ -31,8 +31,15 @@
 }
 
 - (void) refresh {
-	[self clear];
-	[self request];
+	// request all required content providers
+	if (fDependencies != nil) {
+		for(ContentProvider *provider in fDependencies) {
+			[provider request];
+		}
+	}
+
+	// and load if all requirements are met
+	[self loadIfRequirementsAvailable];
 }
 
 - (void) addFilter:(NSObject<ContentFilter> *)filter {
@@ -59,8 +66,8 @@
 
 - (void) loadIfRequirementsAvailable {
 	@synchronized(self) {
-		// if content/error is available or content load is in progress do nothing
-		if (self.content || self.error || self.loading)
+		// if content load is already in progress do nothing
+		if (self.loading)
 			return;
 
 		// check if all content providers are available / have no errors
@@ -88,19 +95,16 @@
 }
 
 - (void) request {
-	// if content/error is available or loading is in progress do nothing
-	if (self.content || self.error || self.loading)
-		return;
-
-	// if not, request all required content providers
-	if (fDependencies != nil) {
-		for(ContentProvider *provider in fDependencies) {
-			[provider request];
-		}
+	// if an error occured the last time, re-try on request by clearing the error
+	if (self.error) {
+		self.error = nil;
 	}
 
-	// and load if all requirements are met
-	[self loadIfRequirementsAvailable];
+	// if content is available or loading is in progress do nothing
+	if (self.content || self.loading)
+		return;
+
+	[self refresh];
 }
 
 - (id) processContent:(id)content {
