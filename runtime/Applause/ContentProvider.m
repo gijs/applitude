@@ -7,8 +7,6 @@
 
 @implementation ContentProvider
 
-@synthesize onError = fOnError;
-
 - (id) content {
 	[NSException raise:NSInternalInconsistencyException
 				format:@"You must implement [%@ content]", [self class]];

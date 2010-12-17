@@ -68,7 +68,4 @@
 // errors' can be handled in one swoop.
 @property (nonatomic, readonly) NSError *error;
 
-//TODO: remove, deprecated
-@property (nonatomic, retain) NSObject<Action> *onError;
-
 @end
