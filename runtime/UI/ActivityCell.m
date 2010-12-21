@@ -12,6 +12,7 @@
 		fIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 		[fIndicator startAnimating];
 		[fIndicator sizeToFit];
+		self.userInteractionEnabled = NO;
 		[self addSubview:fIndicator];
     }
     return self;
