@@ -128,7 +128,10 @@
 - (void) dealloc {
 	self.url = nil;
 	[fLoadUrl release];
-	[fRequest cancel];
+	if (fRequest) {
+		[fRequest clearDelegatesAndCancel];
+		TTNetworkRequestStopped();
+	}
 	[fRequest release];
 	[super dealloc];
 }
