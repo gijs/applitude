@@ -70,22 +70,24 @@
 		if (self.loading)
 			return;
 
-		// check if all content providers are available / have no errors
-		for(ContentProvider *provider in fDependencies) {
-			// errors of requirements are errors for this content provider
-			// as well
-			if (provider.error) {
-				self.error = provider.error;
-				return;
+		if (fDependencies) {
+			// check if all content providers are available / have no errors
+			for(ContentProvider *provider in fDependencies) {
+				// errors of requirements are errors for this content provider
+				// as well
+				if (provider.error) {
+					self.error = provider.error;
+					return;
+				}
+				if (provider.content == nil) {
+					LogDebug(@"%@ waiting for %@", [self description], [provider description]);
+					return;
+				}
 			}
-			if (provider.content == nil) {
-				LogDebug(@"%@ waiting for %@", [self description], [provider description]);
-				return;
-			}
-		}
 
-		// load content when all required content providers are available
-		LogDebug(@"%@ %i required content providers available, loading content", [self description], [fDependencies count]);
+			// load content when all required content providers are available
+			LogDebug(@"%@ %i required content providers available, loading content", [self description], [fDependencies count]);
+		}
 		[self load];
 	}
 }

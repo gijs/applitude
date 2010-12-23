@@ -14,7 +14,7 @@ typedef enum {
 	// same as CachePolicyPersistent, but use cached responses in case of errors
 	CachePolicyOffline,
 
-	// same as CachePolicyOffline, but also ignore the server and cache content for 7 days
+	// same as CachePolicyOffline, but ignore the server headers and cache content for 7 days
 	CachePolicyStatic
 } CachePolicy;
 

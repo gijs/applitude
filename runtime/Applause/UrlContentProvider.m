@@ -44,11 +44,10 @@
 }
 
 - (void) setRequest:(ASIHTTPRequest*)request {
-	if (fRequest != nil && fRequest.inProgress) {
+	if (fRequest) {
 		LogInfo(@"%@ cancel in progress request %@", [self description], request);
-		[fRequest cancel];
+		[fRequest clearDelegatesAndCancel];
 	}
-	fRequest.delegate = nil;
 	[fRequest release];
 	fRequest = [request retain];
 	fRequest.delegate = self;
@@ -68,7 +67,12 @@
 	fLoadUrl = [self.url copy];
 	[self setRequest:[self configureRequest]];
 	TTNetworkRequestStarted();
-	[fRequest startAsynchronous];
+	// check synchronously for cached content
+	// see http://groups.google.com/group/asihttprequest/browse_thread/thread/65a0ef103a36fd30
+	if (self.cachePolicy != CachePolicyNone && [fRequest.requestMethod isEqualToString:@"GET"] && [[ASIDownloadCache sharedCache] canUseCachedDataForRequest:fRequest])
+		self.content = [[ASIDownloadCache sharedCache] cachedResponseDataForURL:fRequest.url];
+	else
+		[fRequest startAsynchronous];
 }
 
 - (BOOL) loading {
