@@ -13,6 +13,6 @@
 + (id) filterForImage;
 + (id) filterForMutable;
 
-id makeMutable(id obj);
+id createMutableCopy(id obj);
 
 @end

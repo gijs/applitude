@@ -5,22 +5,23 @@
 
 #import "CJSONDeserializer.h"
 
-id makeMutable(id obj) {
-	if ([obj isKindOfClass:[NSArray class]] && ![obj isKindOfClass:[NSMutableArray class]]) {
+id createMutableCopy(id obj) {
+	if ([obj isKindOfClass:[NSArray class]]) {
 		NSMutableArray *array = [NSMutableArray array];
 		for(id item in obj) {
-			if ([item isKindOfClass:[NSDictionary class]]) {
-				[array addObject:makeMutable(item)];
-			} else {
-				[array addObject:item];
-			}
+			[array addObject:createMutableCopy(item)];
 		}
 		return array;
 	}
-	if ([obj isKindOfClass:[NSDictionary class]] && (![obj isKindOfClass:[NSMutableDictionary class]] || CFGetTypeID(obj) == CFDictionaryGetTypeID())) {
+	if ([obj isKindOfClass:[NSDictionary class]]) {
+		NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+		for(id key in [dictionary keyEnumerator]) {
+			[dictionary setValue:createMutableCopy([dictionary objectForKey:key]) forKey:key];
+		}
+
 		return [NSMutableDictionary dictionaryWithDictionary:obj];
 	}
-	return obj;
+	return [[obj copy] autorelease];
 }
 
 
@@ -46,7 +47,7 @@ id makeMutable(id obj) {
 
 - (void) addObject:(id)obj toList:(NSMutableArray *)array {
 	if (fMakeMutable) {
-		[array addObject:makeMutable(obj)];
+		[array addObject:createMutableCopy(obj)];
 	} else {
 		[array addObject:obj];
 	}
@@ -89,7 +90,7 @@ id makeMutable(id obj) {
 @implementation MakeMutableFilter
 
 - (id) filter:(id)content {
-	return makeMutable(content);
+	return createMutableCopy(content);
 }
 
 @end
