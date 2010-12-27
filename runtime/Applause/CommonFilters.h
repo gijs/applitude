@@ -13,4 +13,6 @@
 + (id) filterForImage;
 + (id) filterForMutable;
 
+id makeMutable(id obj);
+
 @end
