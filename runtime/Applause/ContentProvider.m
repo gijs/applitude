@@ -93,6 +93,7 @@
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	[self clear];
 	[self loadIfRequirementsAvailable];
 }
 
