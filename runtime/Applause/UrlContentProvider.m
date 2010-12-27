@@ -45,7 +45,9 @@
 
 - (void) setRequest:(ASIHTTPRequest*)request {
 	if (fRequest) {
-		LogInfo(@"%@ cancel in progress request %@", [self description], request);
+		if (fRequest.inProgress) {
+			LogInfo(@"%@ canceling in progress request %@", [self description], [fRequest url]);
+		}
 		[fRequest clearDelegatesAndCancel];
 	}
 	[fRequest release];
@@ -62,17 +64,20 @@
 }
 
 - (void) load {
-	LogInfo(@"%@ starting asynchronous HTTP request", [self description]);
 	[fLoadUrl release];
 	fLoadUrl = [self.url copy];
-	[self setRequest:[self configureRequest]];
-	TTNetworkRequestStarted();
+	ASIHTTPRequest *request = [self configureRequest];
 	// check synchronously for cached content
 	// see http://groups.google.com/group/asihttprequest/browse_thread/thread/65a0ef103a36fd30
-	if (self.cachePolicy != CachePolicyNone && [fRequest.requestMethod isEqualToString:@"GET"] && [[ASIDownloadCache sharedCache] canUseCachedDataForRequest:fRequest])
-		self.content = [[ASIDownloadCache sharedCache] cachedResponseDataForURL:fRequest.url];
-	else
+	if (self.cachePolicy != CachePolicyNone && [request.requestMethod isEqualToString:@"GET"] && [[ASIDownloadCache sharedCache] canUseCachedDataForRequest:request]) {
+		LogInfo(@"%@ using cached content", [self description]);
+		self.content = [[ASIDownloadCache sharedCache] cachedResponseDataForURL:request.url];
+	} else {
+		LogInfo(@"%@ starting asynchronous HTTP request", [self description]);
+		TTNetworkRequestStarted();
+		[self setRequest:request];
 		[fRequest startAsynchronous];
+	}
 }
 
 - (BOOL) loading {
