@@ -12,9 +12,11 @@
 @interface Counter : SimpleContentProvider {
 	int c;
 	BOOL fIncrementOnRequest;
+	BOOL fClearOnRequest;
 }
 
 - (void) activateIncrementOnRequest;
+- (void) activateClearOnRequest;
 
 @end
 
@@ -22,6 +24,10 @@
 
 - (void) activateIncrementOnRequest {
 	fIncrementOnRequest = YES;
+}
+
+- (void) activateClearOnRequest {
+	fClearOnRequest = YES;
 }
 
 - (void) load {
@@ -36,6 +42,9 @@
 }
 
 - (void) request {
+	if (fClearOnRequest) {
+		[self clear];
+	}
 	if (fIncrementOnRequest) {
 		self.content = [NSNumber numberWithInt:++c];
 	}
@@ -261,7 +270,7 @@
 }
 
 - (void) testContentChangeOnRequest {
-	Counter *counter = [Counter providerWithContent:nil name:@"counter1"];
+	Counter *counter = [Counter providerWithContent:nil name:@"counter"];
 	[counter activateIncrementOnRequest];
 	ContentProvider *counterValue = [DontClearWhenContentChangesContentProvider providerWithContent:nil name:@"counterValue"];
 	[counterValue addDependency:counter];
@@ -286,7 +295,24 @@
 
 	[counter clear];
 	[self checkProviderValues:allProviders value:[NSNumber numberWithInt:1]];
-
 }
+
+- (void) testContentClearOnRequest {
+	Counter *counter1 = [Counter providerWithContent:nil name:@"counter1"];
+	[counter1 activateIncrementOnRequest];
+	Counter *counter2 = [Counter providerWithContent:nil name:@"counter2"];
+	[counter2 activateClearOnRequest];
+	ContentProvider *adder = [Adder providerWithContent:nil name:@"adder"];
+	[adder addDependency:counter1];
+	[adder addDependency:counter2];
+
+	[adder request];
+    GHAssertEqualObjects([NSNumber numberWithInt:2], adder.content, @"" );
+	[adder request];
+    GHAssertEqualObjects([NSNumber numberWithInt:3], adder.content, @"" );
+	[counter2 request];
+    GHAssertEqualObjects([NSNumber numberWithInt:3], adder.content, @"" );
+}
+
 
 @end
