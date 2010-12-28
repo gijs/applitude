@@ -21,6 +21,12 @@
 // should call this and set the result instead of the content to self.content.
 - (id) processContent:(id)content;
 
+// onDependencyChanged defines the behaviour of a content provider when the
+// content of a dependency is changed. By default, the dependant content provider
+// clears is content, custom content providers can disable/customize this
+// behaviour by overwriting onDependencyChanged.
+- (void) onDependencyChanged:(ContentProvider *)contentProvider;
+
 - (void) load;
 - (void) loadIfRequirementsAvailable;
 
