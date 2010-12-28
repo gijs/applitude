@@ -7,16 +7,17 @@
 
 @implementation SimpleContentProvider
 
-- (id) initWithContent:(id)content {
+- (id) initWithContent:(id)content name:(NSString *)name {
 	self = [super init];
 	if(self) {
 		self.content = content;
+		fName = [name retain];
 	}
 	return self;
 }
 
-+ (id) providerWithContent:(id)content {
-	return [[[self alloc] initWithContent:content] autorelease];
++ (id) providerWithContent:(id)content name:(NSString *)name {
+	return [[[self alloc] initWithContent:content name:name] autorelease];
 }
 
 - (BOOL) loading {
@@ -33,5 +34,15 @@
 		self.content = dependency.content;
 	}
 }
+
+- (NSString *) description {
+	return [NSString stringWithFormat:@"%@[%@]", [self class], fName];
+}
+
+- (void) dealloc {
+	[fName release];
+	[super dealloc];
+}
+
 
 @end

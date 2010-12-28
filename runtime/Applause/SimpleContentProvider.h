@@ -6,13 +6,13 @@
 #import "BaseContentProvider.h"
 
 // SimpleContentProvider is a content provider that stores static content
-// that is already available and doesn't need to be retrieved. 
+// that is already available and doesn't need to be retrieved.
 
 @interface SimpleContentProvider : BaseContentProvider {
-
+	NSString *fName;
 }
 
-- (id) initWithContent:(id)content;
-+ (id) providerWithContent:(id)content;
+- (id) initWithContent:(id)content name:(NSString *)name;
++ (id) providerWithContent:(id)content name:(NSString *)name;
 
 @end

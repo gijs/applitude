@@ -89,20 +89,23 @@
 					return;
 				}
 				if (provider.content == nil) {
-					LogDebug(@"%@ waiting for %@", [self description], [provider description]);
+					LogDebug(@"%@ waiting for %@", self, provider);
 					return;
 				}
 			}
 
 			// load content when all required content providers are available
-			LogDebug(@"%@ %i required content providers available, loading content", [self description], [fDependencies count]);
+			LogDebug(@"%@ all dependencies (%i) available, loading", self, [fDependencies count]);
 		}
 		[self load];
 	}
 }
 
 - (void) onDependencyChanged:(ContentProvider *)contentProvider {
-	LogDebug(@"%@: Dependency %@ changed, clearing", [self class], [contentProvider class]);
+	#if LOG_DEBUG
+	if (self.content || self.error)
+		LogDebug(@"%@: Dependency %@ changed, clearing", self, contentProvider);
+	#endif
 	[self clear];
 }
 

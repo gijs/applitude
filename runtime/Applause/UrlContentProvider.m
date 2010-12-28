@@ -25,7 +25,6 @@
 	[request setTimeOutSeconds:30];
 	if (self.cachePolicy != CachePolicyNone) {
 		ASIDownloadCache *cache = [ASIDownloadCache sharedCache];
-		LogDebug(@"Cache storage path: %@", cache.storagePath);
 		[request setDownloadCache:cache];
 		[request setCacheStoragePolicy: (self.cachePolicy == CachePolicySession)
 											? ASICacheForSessionDurationCacheStoragePolicy
@@ -70,7 +69,7 @@
 	// check synchronously for cached content
 	// see http://groups.google.com/group/asihttprequest/browse_thread/thread/65a0ef103a36fd30
 	if (self.cachePolicy != CachePolicyNone && [request.requestMethod isEqualToString:@"GET"] && [[ASIDownloadCache sharedCache] canUseCachedDataForRequest:request]) {
-		LogInfo(@"%@ using cached content", [self description]);
+		LogInfo(@"%@ loaded from cache", self);
 		self.content = [[ASIDownloadCache sharedCache] cachedResponseDataForURL:request.url];
 	} else {
 		LogInfo(@"%@ starting asynchronous HTTP request", [self description]);
