@@ -31,30 +31,6 @@
 				format:@"You must implement [%@ clear]", [self class]];
 }
 
-- (void) refresh {
-	@try {
-		// requesting a content provider might deliver content immediately
-		// this would trigger unneccessary loads; we are loading the content
-		// anyway after all content providers have been requested
-		// fDependencyRequestsInProgress makes sure that these events are ignored/
-		// don't trigger a load
-		fDependencyRequestsInProgress = YES;
-
-		// request all required content providers
-		if (fDependencies != nil) {
-			for(ContentProvider *provider in fDependencies) {
-				[provider request];
-			}
-		}
-	}
-	@finally {
-		fDependencyRequestsInProgress = NO;
-	}
-
-	// and load if all requirements are met
-	[self loadIfRequirementsAvailable];
-}
-
 - (void) addFilter:(NSObject<ContentFilter> *)filter {
 	if (fFilters == nil) {
 		fFilters = [[NSMutableArray alloc] initWithObjects:filter, nil];
@@ -140,17 +116,43 @@
 	[self loadIfRequirementsAvailable];
 }
 
+- (void) requestAllDependencies {
+	@try {
+		// requesting a content provider might deliver content immediately
+		// this would trigger unneccessary loads; we are loading the content
+		// anyway after all content providers have been requested
+		// fDependencyRequestsInProgress makes sure that these events are ignored/
+		// don't trigger a load
+		fDependencyRequestsInProgress = YES;
+
+		// request all required content providers
+		if (fDependencies != nil) {
+			for(ContentProvider *provider in fDependencies) {
+				[provider request];
+			}
+		}
+	}
+	@finally {
+		fDependencyRequestsInProgress = NO;
+	}
+}
+
 - (void) request {
 	// if an error occured the last time, re-try on request by clearing the error
 	if (self.error) {
 		self.error = nil;
 	}
 
-	// if no content is available and not already loading, refresh
+	// if content already available or already loading, do nothing
 	if (self.content || self.loading)
 		return;
 
 	[self refresh];
+}
+
+- (void) refresh {
+	[self requestAllDependencies];
+	[self loadIfRequirementsAvailable];
 }
 
 - (id) processContent:(id)content {
