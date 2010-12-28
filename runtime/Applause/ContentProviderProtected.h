@@ -29,9 +29,9 @@
 
 // onDependencyChanged defines the behaviour of a content provider when the
 // content of a dependency is changed. By default, the dependant content provider
-// clears is content, custom content providers can disable/customize this
+// clears its content, custom content providers can disable/customize this
 // behaviour by overwriting onDependencyChanged.
-- (void) onDependencyChanged:(ContentProvider *)contentProvider;
+- (void) onDependencyChanged:(ContentProvider *)provider;
 
 - (void) load;
 - (void) loadIfRequirementsAvailable;

@@ -99,7 +99,7 @@
 	NSString *loadedUrl = [fLoadUrl absoluteString];
 	NSString *urlToLoad = [self.url absoluteString];
 	if (urlToLoad && loadedUrl && ![loadedUrl isEqualToString:urlToLoad]) {
-		LogDebug(@"Loaded URL %@ doesn't match current URL %@, clearing", loadedUrl, urlToLoad);
+		LogDebug(@"%@: Loaded URL %@ doesn't match current URL %@, clearing", [self class], loadedUrl, urlToLoad);
 		[self clear];
 	}
 }

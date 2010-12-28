@@ -4,6 +4,7 @@
 #import "ContentProvider.h"
 
 #import "ContentProviderProtected.h"
+#import "LogUtils.h"
 
 @implementation ContentProvider
 
@@ -31,11 +32,23 @@
 }
 
 - (void) refresh {
-	// request all required content providers
-	if (fDependencies != nil) {
-		for(ContentProvider *provider in fDependencies) {
-			[provider request];
+	@try {
+		// requesting a content provider might deliver content immediately
+		// this would trigger unneccessary loads; we are loading the content
+		// anyway after all content providers have been requested
+		// fDependencyRequestsInProgress makes sure that these events are ignored/
+		// don't trigger a load
+		fDependencyRequestsInProgress = YES;
+
+		// request all required content providers
+		if (fDependencies != nil) {
+			for(ContentProvider *provider in fDependencies) {
+				[provider request];
+			}
 		}
+	}
+	@finally {
+		fDependencyRequestsInProgress = NO;
 	}
 
 	// and load if all requirements are met
@@ -74,43 +87,56 @@
 }
 
 - (void) loadIfRequirementsAvailable {
-	@synchronized(self) {
-		// if content load is already in progress do nothing
-		if (self.loading)
-			return;
+	// if we're currently requesting our dependencies or if a content load is already in progress
+	// ignore and don't load
+	if (fDependencyRequestsInProgress || self.loading)
+		return;
 
-		if (fDependencies) {
-			// check if all content providers are available / have no errors
-			for(ContentProvider *provider in fDependencies) {
-				// errors of requirements are errors for this content provider
-				// as well
-				if (provider.error) {
-					self.error = provider.error;
-					return;
-				}
-				if (provider.content == nil) {
-					LogDebug(@"%@ waiting for %@", self, provider);
-					return;
-				}
+	if (fDependencies) {
+		// check if all content providers are available / have no errors
+		for(ContentProvider *provider in fDependencies) {
+			// errors of requirements are errors for this content provider
+			// as well
+			if (provider.error) {
+				self.error = provider.error;
+				return;
 			}
-
-			// load content when all required content providers are available
-			LogDebug(@"%@ all dependencies (%i) available, loading", self, [fDependencies count]);
+			if (provider.content == nil) {
+				LogDebug(@"%@ -waiting-> %@", self, provider);
+				return;
+			}
 		}
-		[self load];
 	}
+	LogDebug(@"Loading %@", self);
+
+	[self load];
 }
 
-- (void) onDependencyChanged:(ContentProvider *)contentProvider {
-	#if LOG_DEBUG
-	if (self.content || self.error)
-		LogDebug(@"%@: Dependency %@ changed, clearing", self, contentProvider);
-	#endif
+- (void) onDependencyChanged:(ContentProvider *)provider {
+	// clear contents by default on dependency change
 	[self clear];
 }
 
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	[self onDependencyChanged:object];
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(ContentProvider *)provider change:(NSDictionary *)change context:(void *)context {
+	LogDebug(@"%@ -dependency changed-> %@", self, provider);
+
+	// if dependency has an error, this also means an error for us
+	if (provider.error) {
+		self.error = provider.error;
+		return;
+	}
+
+	// allow content provider implementations to handle dependency change
+	// (by default, clear)
+	[self onDependencyChanged:provider];
+
+	// if dependency was cleared, re-request it
+	if (!provider.content) {
+		[provider request];
+		return;
+	}
+
+	// load content if possible
 	[self loadIfRequirementsAvailable];
 }
 
@@ -120,7 +146,7 @@
 		self.error = nil;
 	}
 
-	// if content is available or loading is in progress do nothing
+	// if no content is available and not already loading, refresh
 	if (self.content || self.loading)
 		return;
 

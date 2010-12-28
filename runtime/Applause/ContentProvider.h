@@ -6,9 +6,37 @@
 #import "Action.h"
 #import "ContentFilter.h"
 
+/**
+ * A content provider loads content upon [provider request]. Loading the actual content
+ * is handled by subclasses of ContentProvider in the load method. Once content was
+ * loaded, it is only reloaded if the content is cleared with [provider clear] or refreshed
+ * with [provider refresh].
+ *
+ * The content might be available immediately or later, depending on the concrete provider
+ * class. Users should always observe the content property to get notified when content
+ * gets available therefore.
+ *
+ * If an error occurs while loading, a content := nil change event will be fired and provider.error
+ * will be set to the NSError object. Before using the content, this should be checked and handled.
+ *
+ * Content can be processed using filters (see addFilter:).
+ * Content providers can have dependencies to other content providers (see addDependency:). Only
+ * when all dependencies have content available, the content provider is loaded. Errors from
+ * dependencies are also errors for the content provider. If content of a dependency changes,
+ * the content provider is cleared and reloaded. This behaviour can be changed by overwriting
+ * onDependencyChanged: in custom implementations.
+ *
+ * Content provider implementors should subclass BaseContentProvider or SimpleContentProvider.
+ * Protected methods for use in subclasses only provided by ContentProviderProtected.h. This
+ * interface should be imported only by content provider implementors.
+ *
+ * Warning: Content providers are not thread-safe. All calls to content providers (requesting, refreshing,
+ * providing content, ...) are supposed to happen from the same thread.
+ */
 @interface ContentProvider : NSObject {
 	NSMutableArray *fFilters;
 	NSMutableArray *fDependencies;
+	BOOL fDependencyRequestsInProgress;
 }
 
 // Call 'request' to state need for the content provided by this content provider.

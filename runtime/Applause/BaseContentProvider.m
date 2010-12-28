@@ -4,6 +4,7 @@
 #import "BaseContentProvider.h"
 
 #import "ContentProviderProtected.h"
+#import "LogUtils.h"
 
 @implementation BaseContentProvider
 
@@ -50,6 +51,7 @@
 
 - (void) clear {
 	if (fContent) {
+		LogDebug(@"Clearing %@", self);
 		self.content = nil;
 	}
 }
