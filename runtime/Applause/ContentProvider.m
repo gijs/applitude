@@ -3,8 +3,8 @@
 
 #import "ContentProvider.h"
 
-#import "ContentProviderProtected.h"
 #import "LogUtils.h"
+#import "ContentProviderProtected.h"
 
 @implementation ContentProvider
 
@@ -63,9 +63,15 @@
 }
 
 - (void) loadIfRequirementsAvailable {
-	// if we're currently requesting our dependencies or if a content load is already in progress
-	// ignore and don't load
-	if (fDependencyRequestsInProgress || self.loading)
+	// if we're currently requesting dependencies, just record the fact
+	// that a change was observed
+	if (fDependencyRequestStatus != DependencyRequestStatusNone) {
+		fDependencyRequestStatus = DependencyRequestStatusChanged;
+		return;
+	}
+
+	// if a content load is already in progress, ignore
+	if (self.loading)
 		return;
 
 	if (fDependencies) {
@@ -106,8 +112,8 @@
 	// (by default, clear)
 	[self onDependencyChanged:provider];
 
-	// if dependency was cleared, re-request it
-	if (!provider.content) {
+	// if a dependency was cleared, re-request it when we're not currently requesting dependencies anyway
+	if (!provider.content && fDependencyRequestStatus == DependencyRequestStatusNone) {
 		[provider request];
 		return;
 	}
@@ -116,14 +122,14 @@
 	[self loadIfRequirementsAvailable];
 }
 
-- (void) requestAllDependencies {
+- (BOOL) requestAllDependencies {
 	@try {
 		// requesting a content provider might deliver content immediately
 		// this would trigger unneccessary loads; we are loading the content
 		// anyway after all content providers have been requested
-		// fDependencyRequestsInProgress makes sure that these events are ignored/
-		// don't trigger a load
-		fDependencyRequestsInProgress = YES;
+		// fDependencyRequestsInProgress makes sure that these events are only
+		// recorded and don't trigger an immediate load
+		fDependencyRequestStatus = DependencyRequestStatusStarted;
 
 		// request all required content providers
 		if (fDependencies != nil) {
@@ -133,7 +139,9 @@
 		}
 	}
 	@finally {
-		fDependencyRequestsInProgress = NO;
+		BOOL changeObserved = (fDependencyRequestStatus == DependencyRequestStatusChanged);
+		fDependencyRequestStatus = DependencyRequestStatusNone;
+		return changeObserved;
 	}
 }
 
@@ -143,11 +151,14 @@
 		self.error = nil;
 	}
 
-	// if content already available or already loading, do nothing
-	if (self.content || self.loading)
+	BOOL changeObserved = [self requestAllDependencies];
+
+	// if no dependency change was observed while requesting, and content is available
+	// or already loading, do nothing
+	if (!changeObserved && (self.content || self.loading))
 		return;
 
-	[self refresh];
+	[self loadIfRequirementsAvailable];
 }
 
 - (void) refresh {

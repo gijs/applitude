@@ -7,7 +7,7 @@
 #import "UrlContentProvider.h"
 
 // Protected methods/properties only to be used by content provider implementions are added
-// by this category. This header file should only be imported by content provider implementations.
+// by these categories. This header file should only be imported by content provider implementations.
 
 @interface ContentProvider (Protected)
 

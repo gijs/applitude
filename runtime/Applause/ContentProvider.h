@@ -6,6 +6,12 @@
 #import "Action.h"
 #import "ContentFilter.h"
 
+typedef enum {
+    DependencyRequestStatusNone,
+    DependencyRequestStatusStarted,
+	DependencyRequestStatusChanged
+} DependencyRequestStatus;
+
 /**
  * A content provider loads content upon [provider request]. Loading the actual content
  * is handled by subclasses of ContentProvider in the load method. Once content was
@@ -36,7 +42,7 @@
 @interface ContentProvider : NSObject {
 	NSMutableArray *fFilters;
 	NSMutableArray *fDependencies;
-	BOOL fDependencyRequestsInProgress;
+	DependencyRequestStatus fDependencyRequestStatus;
 }
 
 // Call 'request' to state need for the content provided by this content provider.

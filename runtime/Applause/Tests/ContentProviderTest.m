@@ -11,13 +11,21 @@
 
 @interface Counter : SimpleContentProvider {
 	int c;
+	BOOL fIncrementOnRequest;
 }
+
+- (void) activateIncrementOnRequest;
+
 @end
 
 @implementation Counter
 
+- (void) activateIncrementOnRequest {
+	fIncrementOnRequest = YES;
+}
+
 - (void) load {
-	NSNumber *number = [NSNumber numberWithInt:++c];
+	NSNumber *number = [NSNumber numberWithInt:(fIncrementOnRequest ? c : ++c)];
 	NSLog(@"load %@.content := %@", self, number);
 	self.content = number;
 }
@@ -25,6 +33,13 @@
 - (void) clear {
 	c = 0;
 	[super clear];
+}
+
+- (void) request {
+	if (fIncrementOnRequest) {
+		self.content = [NSNumber numberWithInt:++c];
+	}
+	[super request];
 }
 
 - (NSString *) description {
@@ -49,6 +64,22 @@
 }
 
 @end
+
+
+
+#pragma mark DontClearWhenContentChangesContentProvider
+#pragma mark -
+
+@interface DontClearWhenContentChangesContentProvider : SimpleContentProvider { } @end
+
+@implementation DontClearWhenContentChangesContentProvider
+
+- (void) onDependencyChanged:(ContentProvider *)provider {
+	// don't clear even if dependency changes
+}
+
+@end
+
 
 
 
@@ -138,12 +169,12 @@
 	ContentProvider *adder12 = [Adder providerWithContent:nil name:@"adder12"];
 	[adder12 addDependency:counter1];
 	[adder12 addDependency:counter2];
-	
+
 	ContentProvider *counter3 = [Counter providerWithContent:nil name:@"counter3"];
 	ContentProvider *adder123 = [Adder providerWithContent:nil name:@"adder123"];
 	[adder123 addDependency:adder12];
 	[adder123 addDependency:counter3];
-	
+
 	// Nothing loaded initially
     GHAssertNil(adder123.content, @"");
     GHAssertNil(adder12.content, @"");
@@ -151,19 +182,19 @@
 	// Requesting a content provider with dependencies (adder) triggers loading its dependencies (counter)
 	[adder123 request];
     GHAssertEqualObjects([NSNumber numberWithInt:3], adder123.content, @"" );
-	
+
 	// Refreshing counter also refreshes/reloads the adder
 	[counter1 refresh];
     GHAssertEqualObjects([NSNumber numberWithInt:4], adder123.content, @"" );
 	[counter3 refresh];
     GHAssertEqualObjects([NSNumber numberWithInt:5], adder123.content, @"" );
-	
+
 	// re-requesting counters should not cause any loads
 	[counter1 request];
     GHAssertEqualObjects([NSNumber numberWithInt:5], adder123.content, @"" );
 	[counter3 request];
     GHAssertEqualObjects([NSNumber numberWithInt:5], adder123.content, @"" );
-	
+
 	// re-requesting / refreshing the adder should not cause any loads
 	[adder12 request];
     GHAssertEqualObjects([NSNumber numberWithInt:5], adder123.content, @"" );
@@ -173,7 +204,7 @@
     GHAssertEqualObjects([NSNumber numberWithInt:5], adder123.content, @"" );
 	[adder123 refresh];
     GHAssertEqualObjects([NSNumber numberWithInt:5], adder123.content, @"" );
-	
+
 	// errors in counters ripple through to the adders
 	NSError *error = [NSError errorWithDomain:@"Test" code:0 userInfo:nil];
 	counter1.error = error;
@@ -183,7 +214,7 @@
 	// recovery from counter errors by re-requesting the adder
 	[adder123 request];
     GHAssertEqualObjects([NSNumber numberWithInt:6], adder123.content, @"" );
-	
+
 	[counter1 refresh];
     GHAssertEqualObjects([NSNumber numberWithInt:7], adder123.content, @"" );
 
@@ -196,11 +227,11 @@
 	ContentProvider *counter1 = [Counter providerWithContent:nil name:@"counter1"];
 	[counter1 addFilter:[MultiplyFilter multiplyWith:5]];
 	[counter1 addFilter:[MultiplyFilter multiplyWith:3]];
-	
+
 	ContentProvider *counter1Times10 = [SimpleContentProvider providerWithContent:nil name:@"counter1Times10"];
 	[counter1Times10 addDependency:counter1];
 	[counter1Times10 addFilter:[MultiplyFilter multiplyWith:10]];
-	
+
 	[counter1Times10 request];
     GHAssertEqualObjects([NSNumber numberWithInt:5*3], counter1.content, @"" );
 	GHAssertEqualObjects([NSNumber numberWithInt:5*3*10], counter1Times10.content, @"" );
@@ -214,14 +245,48 @@
 }
 
 - (void) testNoDuplicateLoadsWhenContentImmediatelyAvailable {
-	ContentProvider *counter1 = [Counter providerWithContent:nil name:@"counter1"];
-	
+	ContentProvider *counter = [Counter providerWithContent:nil name:@"counter"];
 	ContentProvider *counterValue = [NoDuplicateLoadContentProvider providerWithContent:nil name:@"counterValue"];
-	[counterValue addDependency:counter1];
-	
+	[counterValue addDependency:counter];
+
 	[counterValue request];
-	GHAssertEqualObjects([NSNumber numberWithInt:1], counter1.content, @"" );
+	GHAssertEqualObjects([NSNumber numberWithInt:1], counter.content, @"" );
 	GHAssertEqualObjects([NSNumber numberWithInt:1], counterValue.content, @"" );
+}
+
+- (void) checkProviderValues:(NSArray *)providers value:(id)value {
+	for(ContentProvider *provider in providers) {
+		GHAssertEqualObjects(value, provider.content, @"" );
+	}
+}
+
+- (void) testContentChangeOnRequest {
+	Counter *counter = [Counter providerWithContent:nil name:@"counter1"];
+	[counter activateIncrementOnRequest];
+	ContentProvider *counterValue = [DontClearWhenContentChangesContentProvider providerWithContent:nil name:@"counterValue"];
+	[counterValue addDependency:counter];
+	ContentProvider *counterValue2 = [SimpleContentProvider providerWithContent:nil name:@"counterValue"];
+	[counterValue2 addDependency:counter];
+
+	NSArray *allProviders = [NSArray arrayWithObjects:counter, counterValue, counterValue2, nil];
+
+	[counter request];
+	[self checkProviderValues:allProviders value:[NSNumber numberWithInt:1]];
+
+	[counter request];
+	[self checkProviderValues:allProviders value:[NSNumber numberWithInt:2]];
+
+	// check that dependant content providers are requested on request
+	// and show changed value
+	[counterValue request];
+	[self checkProviderValues:allProviders value:[NSNumber numberWithInt:3]];
+
+	[counterValue2 request];
+	[self checkProviderValues:allProviders value:[NSNumber numberWithInt:4]];
+
+	[counter clear];
+	[self checkProviderValues:allProviders value:[NSNumber numberWithInt:1]];
+
 }
 
 @end
