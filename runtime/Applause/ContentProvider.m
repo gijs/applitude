@@ -50,6 +50,15 @@
 	}
 }
 
+- (BOOL) hasDependency:(ContentProvider *)contentProvider {
+	return (fDependencies != nil && [fDependencies containsObject:contentProvider]);
+}
+
+- (void) removeDependency:(ContentProvider *)contentProvider {
+	[contentProvider removeObserver:self];
+	[fDependencies removeObject:contentProvider];
+}
+
 - (void) addDependency:(ContentProvider *)contentProvider {
 	[contentProvider addObserver:self];
 	if (fDependencies == nil) {

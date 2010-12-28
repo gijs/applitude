@@ -14,6 +14,12 @@
 @property (nonatomic, retain) id content;
 @property (nonatomic, assign) NSError *error;
 
+// Support for removing dependencies is currently experimental and for content
+// provider implementations only - the only safe place to do this is in the
+// request method
+- (BOOL) hasDependency:(ContentProvider *)contentProvider;
+- (void) removeDependency:(ContentProvider *)contentProvider;
+
 // processContent processes added content filters. It can be overwritten by
 // custom content provider implementations to process the loaded content or
 // perform additional steps on successful content retrieval. Any content provider
