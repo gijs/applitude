@@ -93,6 +93,7 @@
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+	LogDebug(@"%@: Dependency %@ changed, clearing", [self class], [object class]);
 	[self clear];
 	[self loadIfRequirementsAvailable];
 }

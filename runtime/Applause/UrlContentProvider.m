@@ -131,7 +131,7 @@
 }
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"%@(%@%@)", [self class], (self.loading ? @"loading " : @""), [URLUtils decodeURLParameter:[self.url absoluteString]]];
+	return [NSString stringWithFormat:@"%@(%@%@)", [self class], (self.loading ? @"loading " : @""), [URLUtils decodeURLParameter:[[self url] absoluteString]]];
 }
 
 - (void) dealloc {
