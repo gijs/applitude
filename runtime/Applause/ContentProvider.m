@@ -112,12 +112,6 @@
 	// (by default, clear)
 	[self onDependencyChanged:provider];
 
-	// if a dependency was cleared, re-request it when we're not currently requesting dependencies anyway
-	if (!provider.content && fDependencyRequestStatus == DependencyRequestStatusNone) {
-		[provider request];
-		return;
-	}
-
 	// load content if possible
 	[self loadIfRequirementsAvailable];
 }

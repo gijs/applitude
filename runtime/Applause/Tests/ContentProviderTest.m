@@ -6,8 +6,8 @@
 
 
 
-#pragma mark Counter content provider
 #pragma mark -
+#pragma mark Counter content provider
 
 @interface Counter : SimpleContentProvider {
 	int c;
@@ -52,14 +52,14 @@
 }
 
 - (NSString *) description {
-	return [NSString stringWithFormat:@"Counter[%@]", self.content];
+	return [NSString stringWithFormat:@"Counter[%@, value:%@]", fName, self.content];
 }
 
 @end
 
 
-#pragma mark NoDuplicateLoadContentProvider
 #pragma mark -
+#pragma mark NoDuplicateLoadContentProvider
 
 @interface NoDuplicateLoadContentProvider : SimpleContentProvider { } @end
 
@@ -76,8 +76,8 @@
 
 
 
-#pragma mark DontClearWhenContentChangesContentProvider
 #pragma mark -
+#pragma mark DontClearWhenContentChangesContentProvider
 
 @interface DontClearWhenContentChangesContentProvider : SimpleContentProvider { } @end
 
@@ -93,8 +93,8 @@
 
 
 
-#pragma mark Adder content provider
 #pragma mark -
+#pragma mark Adder content provider
 
 @interface Adder : SimpleContentProvider {} @end
 @implementation Adder
@@ -104,6 +104,8 @@
 	for(ContentProvider *provider in fDependencies) {
 		value += [provider.content intValue];
 	}
+	NSLog(@"load %@.content := %i", self, value);
+
 	self.content = [NSNumber numberWithInt:value];
 }
 
@@ -119,8 +121,8 @@
 
 
 
-#pragma mark MultiplyFilter content provider
 #pragma mark -
+#pragma mark MultiplyFilter
 
 @implementation MultiplyFilter
 
@@ -144,8 +146,8 @@
 
 
 
-#pragma mark Test
 #pragma mark -
+#pragma mark Test
 
 @interface ContentProviderTest : GHTestCase { }
 @end
@@ -227,8 +229,10 @@
 	[counter1 refresh];
     GHAssertEqualObjects([NSNumber numberWithInt:7], adder123.content, @"" );
 
-	// clearing a counter should trigger a load because of the dependency
+	// clearing a dependency causes the dependant content providers to be cleared as well
 	[counter1 clear];
+    GHAssertNil(adder123.content, @"" );
+	[adder123 request];
     GHAssertEqualObjects([NSNumber numberWithInt:4], adder123.content, @"" );
 }
 
@@ -294,6 +298,7 @@
 	[self checkProviderValues:allProviders value:[NSNumber numberWithInt:4]];
 
 	[counter clear];
+	[counterValue2 request];
 	[self checkProviderValues:allProviders value:[NSNumber numberWithInt:1]];
 }
 
