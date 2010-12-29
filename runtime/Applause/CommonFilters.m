@@ -4,6 +4,7 @@
 #import "CommonFilters.h"
 
 #import "CJSONDeserializer.h"
+#import "LogUtils.h"
 
 id createMutableCopy(id obj) {
 	if ([obj isKindOfClass:[NSArray class]]) {

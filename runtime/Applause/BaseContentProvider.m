@@ -23,7 +23,7 @@
 		[fContent release];
 		id result = [self processContent:content];
 		if ([result isKindOfClass:[NSError class]]) {
-			LogError(@"%@ for %@", result, [self description]);
+			LogError(@"Error %@ for %@", result, [self description]);
 		} else {
 			if (result) {
 				[self contentAvailable:result];
@@ -38,7 +38,7 @@
 }
 
 - (void) setError:(NSError *)error {
-	LogError(@"%@ for %@", error, [self description]);
+	LogError(@"Error %@ for %@", error, [self description]);
 	if (error != fContent) {
 		if (error == nil && !self.error)
 			return;
