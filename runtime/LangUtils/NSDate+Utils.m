@@ -17,6 +17,13 @@
 	return roundedDate;
 }
 
+- (BOOL) isToday {
+	NSCalendar *cal = [NSCalendar currentCalendar];
+	NSDateComponents *comp1 = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self];
+	NSDateComponents *comp2 = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+	return ([comp1 year] == [comp2 year] && [comp1 month] == [comp2 month] && [comp1 day] == [comp2 day]);
+}
+
 // License exception
 // 4-clause license (original "BSD License")
 // Copyright 2006 Peter Hosey. All rights reserved.

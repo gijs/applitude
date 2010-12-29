@@ -7,5 +7,6 @@
 
 - (NSDate *) roundMinutes:(int)minutes;
 - (NSString *) iso8601String;
+- (BOOL) isToday;
 
 @end
