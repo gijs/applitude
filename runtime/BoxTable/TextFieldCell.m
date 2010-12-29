@@ -30,9 +30,10 @@
 
 #import "TextFieldCell.h"
 
+#import "LogUtils.h"
 
 @implementation TextFieldCell
-@synthesize textField = _textField, onReturn = _onReturn;
+@synthesize textField = fTextField, onReturn = fOnReturn;
 
 - (id) init {
 	if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil]) {

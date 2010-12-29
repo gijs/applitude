@@ -31,8 +31,8 @@
 #import "Action.h"
 
 @interface TextFieldCell : UITableViewCell<UITextFieldDelegate> {
-	UITextField *_textField;
-	NSObject<Action> *_onReturn;
+	UITextField *fTextField;
+	NSObject<Action> *fOnReturn;
 }
 
 @property (retain, nonatomic) UITextField *textField;

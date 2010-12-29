@@ -7,6 +7,7 @@
 #import "ContentProviderProtected.h"
 #import "URLUtils.h"
 #import "ASIDownloadCache.h"
+#import "LogUtils.h"
 
 @implementation UrlContentProvider
 

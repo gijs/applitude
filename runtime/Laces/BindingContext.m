@@ -3,6 +3,7 @@
 
 #import "BindingContext.h"
 #import "Binding.h"
+#import "LogUtils.h"
 
 @implementation BindingContext
 

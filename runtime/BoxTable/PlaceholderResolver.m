@@ -3,6 +3,7 @@
 
 #import "PlaceholderResolver.h"
 
+#import "LogUtils.h"
 
 @implementation PlaceholderResolver
 
