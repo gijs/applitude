@@ -17,11 +17,28 @@
 	return roundedDate;
 }
 
-- (BOOL) isToday {
+- (BOOL) isSameDate:(NSDate *)date {
 	NSCalendar *cal = [NSCalendar currentCalendar];
 	NSDateComponents *comp1 = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self];
-	NSDateComponents *comp2 = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+	NSDateComponents *comp2 = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
 	return ([comp1 year] == [comp2 year] && [comp1 month] == [comp2 month] && [comp1 day] == [comp2 day]);
+}
+
+- (BOOL) isToday {
+	return [self isSameDate:[NSDate date]];
+}
+
++ (NSDate *) dateForYear:(int)year month:(int)month day:(int)day hour:(int)hour minute:(int)minute {
+	NSDateComponents *comps = [[NSDateComponents alloc] init];
+	[comps setYear:year];
+	[comps setMonth:month];
+	[comps setDay:day];
+	[comps setHour:hour];
+	[comps setMinute:minute];
+	[comps setSecond:0];
+	NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comps];
+	[comps release];
+	return date;
 }
 
 // License exception

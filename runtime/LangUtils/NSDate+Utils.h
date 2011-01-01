@@ -7,6 +7,8 @@
 
 - (NSDate *) roundMinutes:(int)minutes;
 - (NSString *) iso8601String;
+- (BOOL) isSameDate:(NSDate *)date;
 - (BOOL) isToday;
++ (NSDate *) dateForYear:(int)year month:(int)month day:(int)day hour:(int)hour minute:(int)minute;
 
 @end
