@@ -3,59 +3,77 @@
 
 #import "ActivityBezel.h"
 
+#import "Branding.h"
+
 @implementation ActivityBezel
 
-- (id) initForView:(UIView *)view text:(NSString*)text bezelColor:(UIColor*)bezelColor {
+@synthesize bezelColor = fBezelColor, borderColor = fBorderColor, activityIndicator = fActivityIndicator, textLabel = fTextLabel;
+
+- (id) initForView:(UIView *)view text:(NSString*)text {
 	self = [super initWithFrame:CGRectZero];
 	if (self != nil) {
 		self.backgroundColor = [UIColor clearColor];
-		fBezelColor = [bezelColor retain];
-		
-		UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-		activityIndicator.frame = CGRectMake(15, 12, 20, 20);
-		[activityIndicator startAnimating];
-		[self addSubview:activityIndicator];
-		[activityIndicator release];
+		fBezelColor = [UIColor grayColor];
 
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(45, 14, 0, 0)];
-		label.text = text;
-		label.textColor = [UIColor whiteColor];
-		label.backgroundColor = [UIColor clearColor];
-		label.font = [UIFont systemFontOfSize:14];
-		[label sizeToFit];
-		[self addSubview:label];
-		[label release];
-		
-		[self centerTo:view.frame size:CGSizeMake(60 + label.width, 45)];
-		
+		fActivityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+		fActivityIndicator.frame = CGRectMake(15, 12, 20, 20);
+		[fActivityIndicator startAnimating];
+		[self addSubview:fActivityIndicator];
+
+		fTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 14, 0, 0)];
+		fTextLabel.text = text;
+		fTextLabel.textColor = [UIColor whiteColor];
+		fTextLabel.backgroundColor = [UIColor clearColor];
+		fTextLabel.font = [UIFont systemFontOfSize:14];
+		[fTextLabel sizeToFit];
+		[self addSubview:fTextLabel];
+
+		[self centerTo:view.frame size:CGSizeMake(51 + fTextLabel.width + (fTextLabel.text ? 9 : 0), 45)];
+
+		brandActivityBezel(self);
 		[view addSubview:self];
 	}
 	return self;
 }
 
-+ (id) activityBezelForView:(UIView *)view text:(NSString*)text bezelColor:(UIColor*)bezelColor {
-	return [[[self alloc] initForView:view text:text bezelColor:bezelColor] autorelease];
++ (id) activityBezelForView:(UIView *)view text:(NSString*)text {
+	return [[[self alloc] initForView:view text:text] autorelease];
+}
+
+void AddRoundedRect(CGContextRef context, CGRect rect, CGFloat radius) {
+	CGFloat x = rect.origin.x;
+	CGFloat y = rect.origin.y;
+	CGFloat w = rect.size.width;
+	CGFloat h = rect.size.height;
+
+	CGContextBeginPath(context);
+	CGContextMoveToPoint(context, x + w, y + floor(h / 2));
+	CGContextAddArcToPoint(context, x + w, y + h, x + floor(w / 2), y + h, radius);
+	CGContextAddArcToPoint(context, x, y + h, x, y + floor(h / 2), radius);
+	CGContextAddArcToPoint(context, x, y, x + floor(w / 2), y, radius);
+	CGContextAddArcToPoint(context, x + w, y, x + w, y + floor(h / 2), radius);
+	CGContextClosePath(context);
 }
 
 - (void) drawRect:(CGRect)rect {
-	CGFloat width = rect.size.width;
-	CGFloat height = rect.size.height;
-	
-	int radius = 10;
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextBeginPath(context);
-	CGContextMoveToPoint(context, width, floor(height / 2));
-	CGContextAddArcToPoint(context, width, height, floor(width / 2), height, radius);
-	CGContextAddArcToPoint(context, 0, height, 0, floor(height / 2), radius);
-	CGContextAddArcToPoint(context, 0, 0, floor(width / 2), 0, radius);
-	CGContextAddArcToPoint(context, width, 0, width, floor(height / 2), radius);
+
+	if(fBorderColor) {
+		CGContextSetFillColorWithColor(context, fBorderColor.CGColor);
+		AddRoundedRect(context, rect, 10);
+		CGContextFillPath(context);
+	}
+
 	CGContextSetFillColorWithColor(context, fBezelColor.CGColor);
-	CGContextClosePath(context);
+	AddRoundedRect(context, CGRectInset(rect, 1, 1), 9);
 	CGContextFillPath(context);
 }
 
 - (void) dealloc {
-	[fBezelColor dealloc];
+	[fBezelColor release];
+	[fBorderColor release];
+	[fActivityIndicator release];
+	[fTextLabel release];
 	[super dealloc];
 }
 

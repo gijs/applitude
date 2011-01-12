@@ -7,10 +7,18 @@
 
 @interface ActivityBezel : UIView {
 	UIColor *fBezelColor;
+	UIColor *fBorderColor;
+	UIActivityIndicatorView *fActivityIndicator;
+	UILabel *fTextLabel;
 }
 
-- (id) initForView:(UIView *)view text:(NSString*)text bezelColor:(UIColor*)bezelColor;
+@property (nonatomic, retain) UIColor *bezelColor;
+@property (nonatomic, retain) UIColor *borderColor;
+@property (nonatomic, readonly) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, readonly) UILabel *textLabel;
 
-+ (id) activityBezelForView:(UIView *)view text:(NSString*)text bezelColor:(UIColor*)bezelColor;
+- (id) initForView:(UIView *)view text:(NSString*)text;
+
++ (id) activityBezelForView:(UIView *)view text:(NSString*)text;
 
 @end
