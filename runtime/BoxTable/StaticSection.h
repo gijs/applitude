@@ -17,7 +17,6 @@
 - (id) initWithText:(NSString *)aText;
 + (StaticSection *) section;
 + (StaticSection *) sectionWithTitle:title;
-+ (StaticSection *) forText:text;
 - (NSObject<Placeholder> *) rows;
 - (void) add:(id) item;
 

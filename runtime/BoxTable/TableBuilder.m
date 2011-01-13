@@ -25,7 +25,12 @@
 }
 
 - (void) section:(NSString *) text {
-	lastSection = [StaticSection forText:text];
+	lastSection = [StaticSection sectionWithTitle:text];
+	[fSections addObject:lastSection];
+}
+
+- (void) section {
+	lastSection = [StaticSection section];
 	[fSections addObject:lastSection];
 }
 

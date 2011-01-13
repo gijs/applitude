@@ -20,6 +20,7 @@
 + (TableBuilder *) builder;
 
 - (void) section:(NSString *) text;
+- (void) section;
 
 - (void) cell:(id)cell;
 - (BoxCell *) text:(NSString *) text;
