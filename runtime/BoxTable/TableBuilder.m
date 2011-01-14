@@ -34,12 +34,25 @@
 	[fSections addObject:lastSection];
 }
 
+- (void) sections:(NSObject<Placeholder> *)placeholder {
+	lastSection = nil;
+	[fSections addObject:placeholder];
+}
+
 - (void) cell:(id)cell {
 	if (!lastSection) {
 		LogError(@"No section!");
 		return;
 	}
 	[lastSection add:cell];
+}
+
+- (void) cells:(NSObject<Placeholder> *)placeholder {
+	if (!lastSection) {
+		LogError(@"No section!");
+		return;
+	}
+	[lastSection add:placeholder];
 }
 
 - (BoxCell *) text:(NSString *) text {
@@ -63,14 +76,6 @@
 	[cell release];
 
 	return cell;
-}
-
-- (void) dynamic:(NSObject<Placeholder> *) placeholder {
-	if (!lastSection) {
-		LogError(@"No section!");
-		return;
-	}
-	[lastSection add:placeholder];
 }
 
 - (void) dealloc {

@@ -21,11 +21,13 @@
 
 - (void) section:(NSString *) text;
 - (void) section;
+- (void) sections:(NSObject<Placeholder> *)placeholder;
 
 - (void) cell:(id)cell;
+- (void) cells:(NSObject<Placeholder> *)placeholder;
+
 - (BoxCell *) text:(NSString *) text;
 - (BoxCell *) link:(NSString *) text;
 - (TextFieldCell *) textFieldWithLabel:(NSString *) label;
-- (void) dynamic:(NSObject<Placeholder> *) placeholder;
 
 @end
