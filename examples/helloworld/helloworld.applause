@@ -1,20 +1,26 @@
 application HelloWorld {
+	view:Tabs()
+}
+
+tabview Tabs {
 	tab {
-		title: "Hello World"
+		title: "Devices"
 		icon: "chat.png"
-		view: HelloWorld()
-	}
-	tab {
-		title: "Empty"
-		view: HelloWorld()
+		view: Devices()
 	}
 }
 
-tableview HelloWorld {
-	title: "Hello World"
+tableview Devices {
+	title: "iOS Devices"
+	style: Grouped
 	section {
-		cell Default {
-			text: "Hello"
-		}
+		cell Default { text: "iPhone" }
+		cell Default { text: "iPhone 3G" }
+		cell Default { text: "iPhone 3GS" }
+		cell Default { text: "iPhone 4" }
+	}
+	section {
+		cell Default { text: "iPod Touch" }
+		cell Default { text: "iPad" }
 	}
 }

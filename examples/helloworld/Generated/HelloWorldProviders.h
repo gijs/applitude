@@ -1,9 +1,10 @@
 
-#import "IPContentProvider.h"
-
 @interface HelloWorldProviders : NSObject {
-
+	
 }
+
++ (HelloWorldProviders *) sharedProviders;
+
 
 
 @end
