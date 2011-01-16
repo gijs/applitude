@@ -11,7 +11,7 @@
 #import "Section.h"
 #import "PlaceholderResolver.h"
 #import "Cell.h"
-#import "UIFactory.h"
+#import "BrandedUIFactory.h"
 #import "LogUtils.h"
 
 @interface BoxTableViewController ()
@@ -48,7 +48,7 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSObject<Section> *section = [self.sectionPlaceholder objectAtIndex:indexPath.section];
 	UITableViewCell *cell = [[section rows] objectAtIndex:indexPath.row];
-	brandCell(tableView, cell, indexPath);
+	[BrandedUIFactory brandCell:cell tableView:tableView indexPath:indexPath];
 	return cell;
 }
 

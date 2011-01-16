@@ -50,20 +50,16 @@
 «DEFINE viewFactoryMethod FOR TabView»
 «factoryMethodSignature()» {
 	UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
-	«FOREACH tabs AS tab ITERATOR i»
-	UINavigationController *tab«i.counter1» = [[UINavigationController alloc] initWithRootViewController:«(tab.view != null) ? tab.view.factoryCall('', '') : "nil"»];
-	brandNavigationController(tab«i.counter1»);
+
+«FOREACH tabs AS tab ITERATOR i-»
+	UINavigationController *tab«i.counter1» = [«use("BrandedUIFactory")» createUINavigationControllerWithRootViewController:«(tab.view != null) ? tab.view.factoryCall('', '') : "nil"»];
 	tab«i.counter1».tabBarItem.title = «tab.title.expression('', '')»;
 	«IF tab.icon != null-»
 	tab«i.counter1».tabBarItem.image = [UIImage imageNamed:«tab.icon.expression('','')»];
 	«ENDIF-»
-	«ENDFOREACH-»
 
+«ENDFOREACH-»
 	tabController.viewControllers = [NSArray arrayWithObjects:«FOREACH tabs AS tab ITERATOR i SEPARATOR ", "»tab«i.counter1»«ENDFOREACH», nil];
-
-	«FOREACH tabs AS tab ITERATOR i-»
-	[tab«i.counter1» release];
-	«ENDFOREACH-»
 
 	return tabController;
 }

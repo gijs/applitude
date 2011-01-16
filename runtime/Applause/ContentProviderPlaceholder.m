@@ -7,7 +7,7 @@
 #import "CommonCells.h"
 #import "SelectorAction.h"
 #import "StaticSection.h"
-#import "UIFactory.h"
+#import "BrandedUIFactory.h"
 
 @interface ContentProviderPlaceholder ()
 @property (nonatomic, retain) id section;
