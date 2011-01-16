@@ -42,13 +42,10 @@
 	return self;
 }
 
-- (void) viewDidLoad {
+- (void) update {
 	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
-	«parameters().collect(p|"[" + p.ivar() + " request]").statements()»
-	[super viewDidLoad];
-}
+	«parameters().collect(p|"[" + p.ivar() + " request]").statements()-»
 
-- (NSArray *) buildSections {
 	«use('TableBuilder')» *table = [TableBuilder builder];
 «FOREACH sections AS section-»
 
@@ -65,7 +62,7 @@
 	}
 «ENDFOREACH-»
 «ENDFOREACH-»
-	return table.sections;
+	[self setSections:table.sections];
 }
 
 «EXPAND cellProviderMethod FOREACH sections.cells.select(e|e.iterator!=null)-»

@@ -30,7 +30,6 @@
 «DEFINE moduleFile FOR Application»
 «FILE viewFactory().m()-»
 «EXPAND ObjC::Import FOREACH viewFactory().moduleImports() ONFILECLOSE-»
-#import "Branding.h"
 
 @implementation «use(viewFactory())»
 «EXPAND viewFactoryMethod FOREACH allViews()»
