@@ -44,12 +44,12 @@
 
 - (void) update {
 	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
-	«parameters().collect(p|"[" + p.ivar() + " request]").statements()-»
+	«parameters().collect(p|"[" + p.ivar() + " request]").statements()»
 
 	«use('TableBuilder')» *table = [TableBuilder builder];
 «FOREACH sections AS section-»
 
-	[table section:«section.title==null ? 'nil' : section.title.expression('', '')»];
+	[table section«section.title==null ? '' : ':' + section.title.expression('', '')»];
 «FOREACH section.cells AS cell ITERATOR i-»
 	{
 «IF cell.iterator!=null-»
