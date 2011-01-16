@@ -16,6 +16,5 @@ extern NSString* const UserErrorDomain;
 @property (nonatomic, copy) NSString *message;
 
 + (id) userErrorWithTitle:(NSString *)title message:(NSString *)message;
-- (void) alertWithAction:(SelectorAction *)action;
 
 @end

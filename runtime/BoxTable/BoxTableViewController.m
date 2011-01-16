@@ -11,7 +11,7 @@
 #import "Section.h"
 #import "PlaceholderResolver.h"
 #import "Cell.h"
-#import "Branding.h"
+#import "UIFactory.h"
 #import "LogUtils.h"
 
 @interface BoxTableViewController ()

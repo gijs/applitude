@@ -5,7 +5,6 @@
 
 #import "StaticSection.h"
 #import "TextFieldCell.h"
-#import "Branding.h"
 #import "LogUtils.h"
 
 @implementation TableBuilder

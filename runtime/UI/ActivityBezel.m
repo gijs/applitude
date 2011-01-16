@@ -3,7 +3,21 @@
 
 #import "ActivityBezel.h"
 
+#ifdef BRANDING
 #import "Branding.h"
+#endif
+
+#ifndef Branding_ActivityBezel_bezelColor
+#define Branding_ActivityBezel_bezelColor [UIColor grayColor]
+#endif
+
+#ifndef Branding_ActivityBezel_padding
+#define Branding_ActivityBezel_padding 13
+#endif
+
+#ifndef Branding_ActivityBezel_activityIndicatorViewStyle
+#define Branding_ActivityBezel_activityIndicatorViewStyle UIActivityIndicatorViewStyleWhite
+#endif
 
 @implementation ActivityBezel
 
@@ -13,24 +27,32 @@
 	self = [super initWithFrame:CGRectZero];
 	if (self != nil) {
 		self.backgroundColor = [UIColor clearColor];
-		fBezelColor = [UIColor grayColor];
+
+		const int p = Branding_ActivityBezel_padding;
+		self.bezelColor = Branding_ActivityBezel_bezelColor;
+#ifdef Branding_ActivityBezel_borderColor
+		self.borderColor = Branding_ActivityBezel_borderColor;
+#endif
 
 		fActivityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-		fActivityIndicator.frame = CGRectMake(15, 12, 20, 20);
+		fActivityIndicator.frame = CGRectMake(p, p, 20, 20);
+		fActivityIndicator.activityIndicatorViewStyle = Branding_ActivityBezel_activityIndicatorViewStyle;
 		[fActivityIndicator startAnimating];
 		[self addSubview:fActivityIndicator];
 
-		fTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(45, 14, 0, 0)];
+		fTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(fActivityIndicator.right + p, fActivityIndicator.top + 2, 0, 0)];
 		fTextLabel.text = text;
 		fTextLabel.textColor = [UIColor whiteColor];
 		fTextLabel.backgroundColor = [UIColor clearColor];
 		fTextLabel.font = [UIFont systemFontOfSize:14];
+		if (Branding_ActivityBezel_activityIndicatorViewStyle == UIActivityIndicatorViewStyleGray) {
+			fTextLabel.textColor = [UIColor grayColor];
+		}
 		[fTextLabel sizeToFit];
 		[self addSubview:fTextLabel];
 
-		[self centerTo:view.frame size:CGSizeMake(51 + fTextLabel.width + (fTextLabel.text ? 9 : 0), 45)];
+		[self centerTo:view.frame size:CGSizeMake((fTextLabel.text ? fTextLabel.right : fActivityIndicator.right) + p, fActivityIndicator.height + p * 2)];
 
-		brandActivityBezel(self);
 		[view addSubview:self];
 	}
 	return self;

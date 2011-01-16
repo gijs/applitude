@@ -7,7 +7,7 @@
 #import "CommonCells.h"
 #import "SelectorAction.h"
 #import "StaticSection.h"
-#import "Branding.h"
+#import "UIFactory.h"
 
 @interface ContentProviderPlaceholder ()
 @property (nonatomic, retain) id section;
@@ -89,7 +89,7 @@
 - (id) objectAtIndex:(int) index {
 	id error = fContentProvider.error;
 	if (error) {
-		return [self wrapCell:[CommonCells textCellWithError:brandError(error)]];
+		return [self wrapCell:[CommonCells textCellWithError:Branding_Error(error)]];
 	}
 
 	id content = fContentProvider.content;
