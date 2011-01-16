@@ -294,7 +294,7 @@ contentProvider(ProviderConstruction this, String providers, String kvcTarget, S
 	"<!ERROR!" + metaType + ">";
 
 contentProvider(SimpleProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
-	'[SimpleContentProvider providerWithContent:' +
+	'[' + use('SimpleContentProvider') + ' providerWithContent:' +
 	expression.expression(kvcTarget, kvcPrefix) + ']';
 	 
 contentProvider(ComplexProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
