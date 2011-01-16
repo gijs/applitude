@@ -288,7 +288,7 @@ expression(ObjectReference this, String kvcTarget, String kvcPrefix):
 	let keyPath = keyPath(kvcPrefix):
 		keyPath.isEmpty ? 
 			kvcTarget : 
-			'[' + kvcTarget + ' valueForKeyPath:@"' + keyPath.toString('.') + '"]';
+			'[' + kvcTarget + ' ' + (keyPath.contains('.') ? 'valueForKeyPath' : 'valueForKey') + ':@"' + keyPath.toString('.') + '"]';
 	
 contentProvider(ProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
 	"<!ERROR!" + metaType + ">";
