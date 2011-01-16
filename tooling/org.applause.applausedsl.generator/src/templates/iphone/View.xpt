@@ -44,7 +44,7 @@
 
 - (void) viewDidLoad {
 	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
-	«parameters().collect(p|"[" + p.ivar() + " requestContentIfEmpty]").statements()»
+	«parameters().collect(p|"[" + p.ivar() + " request]").statements()»
 	[super viewDidLoad];
 }
 
@@ -279,7 +279,7 @@
 «DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewAction»«this.metaType»«ENDDEFINE»
 
 «DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewCall-»
-	IPContentProvider *provider = «provider.contentProvider('(' + application().providerFactory().name + '*)contentProvider.providers', kvcTarget, kvcPrefix)»;
+	ContentProvider *provider = «provider.contentProvider('(' + application().providerFactory().name + '*)contentProvider.providers', kvcTarget, kvcPrefix)»;
 	«view.class().use()» *controller = [[«view.class().use()» alloc] init];
 	controller.contentProvider = provider;
 	[self.navigationController pushViewController: controller animated: TRUE];

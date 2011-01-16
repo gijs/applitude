@@ -2,5 +2,5 @@
 
 «EXTENSION templates::iphone::Extensions»
 
-«DEFINE Import FOR ProjectClass»#import "«this.name».h";
+«DEFINE Import FOR ProjectClass»#import "«this.name».h"
 «ENDDEFINE»

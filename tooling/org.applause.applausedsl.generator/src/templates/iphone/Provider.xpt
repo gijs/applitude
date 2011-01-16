@@ -13,7 +13,7 @@
 «EXPAND ObjC::Import FOREACH providerFactory().headerImports() ONFILECLOSE-»
 
 @interface «use(providerFactory())» : NSObject {
-	«allProviders().select(e|e.storing).collect(e|use("IPContentProvider")+" *"+e.ivar()+";").toString("\n\t")»
+	«allProviders().select(e|e.storing).collect(e|use("ContentProvider")+" *"+e.ivar()+";").toString("\n\t")»
 }
 
 + («use(providerFactory())» *) sharedProviders;
@@ -67,7 +67,7 @@ static «use(providerFactory())» *sharedProviders = nil;
 
 «DEFINE constructProvider FOR ContentProvider-»
 «IF this.implementation == null-»
-[[IPSimpleContentProvider alloc] initWithContent:[«type.class().allocInit()» autorelease]]«ELSE-»
+[SimpleContentProvider alloc] providerWithContent:[«type.class().allocInit()»]«ELSE-»
 «EXPAND constructProvider(this) FOR this.implementation-»
 «ENDIF-»«ENDDEFINE»
 

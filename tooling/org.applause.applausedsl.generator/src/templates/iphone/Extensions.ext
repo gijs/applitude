@@ -147,7 +147,7 @@ signature(Parameter param):
 	param.name + ":(" + param.type() + ")" + param.name;
 
 type(Parameter param):
-	newProjectClass('IPContentProvider').pointer();
+	newProjectClass('ContentProvider').pointer();
 
 ivar(Parameter param):
 	"f" + param.name.toFirstUpper();
@@ -294,7 +294,7 @@ contentProvider(ProviderConstruction this, String providers, String kvcTarget, S
 	"<!ERROR!" + metaType + ">";
 
 contentProvider(SimpleProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
-	'[IPSimpleContentProvider providerWithContent:' +
+	'[SimpleContentProvider providerWithContent:' +
 	expression.expression(kvcTarget, kvcPrefix) + ']';
 	 
 contentProvider(ComplexProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
@@ -306,7 +306,7 @@ rowCount(SectionCell this):
 	iterator == null ? 1 : '[[' + iterator.collection.expression('contentProvider', 'content') +' asArray] count]'; 
 	
 methodSignature(ContentProvider p):
-	"- (IPContentProvider *) providerFor" + p.name + (
+	"- (ContentProvider *) providerFor" + p.name + (
 		p.parameter != null ? ':(id)' + p.parameter.name : '') 
 	;
 	
