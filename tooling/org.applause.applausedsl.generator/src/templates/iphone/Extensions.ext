@@ -140,6 +140,12 @@ constructStatements(SectionCell cell, String kvcTarget):
 	 (cell.action != null) ? 'cell.onTouch = ' + action(cell.action, cell) : null
 	};
 
+providers(View view):
+	view.parameters();
+	
+providers(TableView view):
+	{ view.parameters(), view.variables }.flatten();
+
 parameters(View view):
 	(List[Parameter]) (view.content != null ? { view.content } : {});
 

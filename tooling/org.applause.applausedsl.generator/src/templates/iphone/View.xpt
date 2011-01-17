@@ -18,7 +18,7 @@
 
 @interface «class().name» : «use("BoxTableViewController")» {
 	«use('BindingContext')» *fBindings;
-«parameters().collect(p|"\t" + p.type() + p.ivar()).statements()»
+«providers().collect(p|"\t" + p.type() + p.ivar()).statements()»
 }
 
 «initSignature()»;
@@ -38,13 +38,14 @@
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
 		«parameters().collect(p|p.ivar() + " = [" + p.name + " retain]").statements()»
+		«variables.collect(p|p.ivar() + " = [" + p.value.contentProvider("[" + application().providerFactory().use() + " sharedProviders]", '', '') + " retain]").statements("\n\t\t")»
 	}
 	return self;
 }
 
 - (void) update {
 	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
-	«parameters().collect(p|"[" + p.ivar() + " request]").statements()»
+	«providers().collect(p|"[" + p.ivar() + " request]").statements("\n\t")»
 
 	«use('TableBuilder')» *table = [TableBuilder builder];
 «FOREACH sections AS section-»
@@ -110,7 +111,7 @@
 «DEFINE dealloc FOR TableView-»
 - (void) dealloc {
 	[fBindings release];
-	«parameters().collect(p|"[" + p.ivar() + " release]").statements()»
+	«providers().collect(p|"[" + p.ivar() + " release]").statements("\n\t")»
 	[super dealloc];
 }
 

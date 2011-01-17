@@ -24,6 +24,9 @@ TypeDescription:
 Parameter:
 	description=TypeDescription name=ID;
 
+Variable returns Parameter:
+	description=TypeDescription name=ID '=' value=ProviderConstruction;
+
 ObjectReference:
 	object=[VariableDeclaration] tail=NestedObjectReference?;
 	
@@ -135,6 +138,8 @@ enum TableViewStyle:
 
 TableView:
 	'tableview' name=ID ('(' content=Parameter ')')? '{'
+		(variables += Variable)*
+		
 		( ('title:' title=ScalarExpression)?
 		& ('style:' style=TableViewStyle)?     )
 		

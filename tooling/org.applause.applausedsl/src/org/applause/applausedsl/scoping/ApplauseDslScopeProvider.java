@@ -3,20 +3,11 @@
  */
 package org.applause.applausedsl.scoping;
 
-import static org.eclipse.xtext.scoping.Scopes.scopeFor;
-
-import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.ObjectReference;
-import org.applause.applausedsl.applauseDsl.Parameter;
-import org.applause.applausedsl.applauseDsl.SectionCell;
-import org.applause.applausedsl.applauseDsl.TableView;
-import org.applause.applausedsl.applauseDsl.ViewSection;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
-
-import com.google.common.collect.Lists;
 
 /**
  * This class contains custom scoping description.
@@ -27,22 +18,7 @@ import com.google.common.collect.Lists;
  */
 public class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
 	
-	IScope _scope_ObjectReference_object(SectionCell context, EReference ref) {
-		ViewSection section = (ViewSection) context.eContainer();
-		TableView tableView = (TableView) section.eContainer();
-		Parameter parameter = tableView.getContent();
-		return scopeFor(Lists.newArrayList(parameter));
-	}
-	
-	@Override
-	public IScope getScope(EObject context, EReference reference) {
-		if (ApplauseDslPackage.Literals.VARIABLE_DECLARATION == reference.getEReferenceType()) {
-			return getVariableDeclarationScope(context);
-		}
-		return super.getScope(context, reference);
-	}
-	
-	private IScope getVariableDeclarationScope(EObject context) {
+	public IScope scope_VariableDeclaration(EObject context, EReference ref) {
 		if(context.eContainer() instanceof ObjectReference)
 			return new NestedDeclarationScope((ObjectReference) context.eContainer());
 		else
