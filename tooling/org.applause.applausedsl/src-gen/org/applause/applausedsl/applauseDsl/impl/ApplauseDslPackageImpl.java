@@ -19,7 +19,6 @@ import org.applause.applausedsl.applauseDsl.ContentProvider;
 import org.applause.applausedsl.applauseDsl.ContentProviderImplementation;
 import org.applause.applausedsl.applauseDsl.CustomContentProviderImplementation;
 import org.applause.applausedsl.applauseDsl.CustomView;
-import org.applause.applausedsl.applauseDsl.DetailsView;
 import org.applause.applausedsl.applauseDsl.Entity;
 import org.applause.applausedsl.applauseDsl.Expression;
 import org.applause.applausedsl.applauseDsl.ExternalOpen;
@@ -33,7 +32,6 @@ import org.applause.applausedsl.applauseDsl.Property;
 import org.applause.applausedsl.applauseDsl.ProviderConstruction;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
 import org.applause.applausedsl.applauseDsl.SectionCell;
-import org.applause.applausedsl.applauseDsl.SectionedView;
 import org.applause.applausedsl.applauseDsl.Selector;
 import org.applause.applausedsl.applauseDsl.SerializationFormat;
 import org.applause.applausedsl.applauseDsl.SimpleProviderConstruction;
@@ -54,7 +52,6 @@ import org.applause.applausedsl.applauseDsl.VariableDeclaration;
 import org.applause.applausedsl.applauseDsl.View;
 import org.applause.applausedsl.applauseDsl.ViewAction;
 import org.applause.applausedsl.applauseDsl.ViewCall;
-import org.applause.applausedsl.applauseDsl.ViewHeader;
 import org.applause.applausedsl.applauseDsl.ViewSection;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -260,13 +257,6 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sectionedViewEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass tableViewEClass = null;
 
   /**
@@ -274,21 +264,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass detailsViewEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass customViewEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass viewHeaderEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -597,6 +573,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
   public EReference getParameter_Description()
   {
     return (EReference)parameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameter_Value()
+  {
+    return (EReference)parameterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1084,36 +1070,6 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSectionedView()
-  {
-    return sectionedViewEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSectionedView_Title()
-  {
-    return (EReference)sectionedViewEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSectionedView_Sections()
-  {
-    return (EReference)sectionedViewEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getTableView()
   {
     return tableViewEClass;
@@ -1124,9 +1080,29 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTableView_Variables()
+  {
+    return (EReference)tableViewEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTableView_Title()
+  {
+    return (EReference)tableViewEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getTableView_Style()
   {
-    return (EAttribute)tableViewEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)tableViewEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1134,19 +1110,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDetailsView()
+  public EReference getTableView_Sections()
   {
-    return detailsViewEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDetailsView_Header()
-  {
-    return (EReference)detailsViewEClass.getEStructuralFeatures().get(0);
+    return (EReference)tableViewEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1167,56 +1133,6 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
   public EAttribute getCustomView_ClassName()
   {
     return (EAttribute)customViewEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getViewHeader()
-  {
-    return viewHeaderEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getViewHeader_Title()
-  {
-    return (EReference)viewHeaderEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getViewHeader_Subtitle()
-  {
-    return (EReference)viewHeaderEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getViewHeader_Details()
-  {
-    return (EReference)viewHeaderEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getViewHeader_Image()
-  {
-    return (EReference)viewHeaderEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1695,6 +1611,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     parameterEClass = createEClass(PARAMETER);
     createEReference(parameterEClass, PARAMETER__DESCRIPTION);
+    createEReference(parameterEClass, PARAMETER__VALUE);
 
     objectReferenceEClass = createEClass(OBJECT_REFERENCE);
     createEReference(objectReferenceEClass, OBJECT_REFERENCE__OBJECT);
@@ -1765,24 +1682,14 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(tabEClass, TAB__ICON);
     createEReference(tabEClass, TAB__VIEW);
 
-    sectionedViewEClass = createEClass(SECTIONED_VIEW);
-    createEReference(sectionedViewEClass, SECTIONED_VIEW__TITLE);
-    createEReference(sectionedViewEClass, SECTIONED_VIEW__SECTIONS);
-
     tableViewEClass = createEClass(TABLE_VIEW);
+    createEReference(tableViewEClass, TABLE_VIEW__VARIABLES);
+    createEReference(tableViewEClass, TABLE_VIEW__TITLE);
     createEAttribute(tableViewEClass, TABLE_VIEW__STYLE);
-
-    detailsViewEClass = createEClass(DETAILS_VIEW);
-    createEReference(detailsViewEClass, DETAILS_VIEW__HEADER);
+    createEReference(tableViewEClass, TABLE_VIEW__SECTIONS);
 
     customViewEClass = createEClass(CUSTOM_VIEW);
     createEAttribute(customViewEClass, CUSTOM_VIEW__CLASS_NAME);
-
-    viewHeaderEClass = createEClass(VIEW_HEADER);
-    createEReference(viewHeaderEClass, VIEW_HEADER__TITLE);
-    createEReference(viewHeaderEClass, VIEW_HEADER__SUBTITLE);
-    createEReference(viewHeaderEClass, VIEW_HEADER__DETAILS);
-    createEReference(viewHeaderEClass, VIEW_HEADER__IMAGE);
 
     viewSectionEClass = createEClass(VIEW_SECTION);
     createEReference(viewSectionEClass, VIEW_SECTION__TITLE);
@@ -1894,9 +1801,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     customContentProviderImplementationEClass.getESuperTypes().add(this.getContentProviderImplementation());
     viewEClass.getESuperTypes().add(this.getModelElement());
     tabViewEClass.getESuperTypes().add(this.getView());
-    sectionedViewEClass.getESuperTypes().add(this.getView());
-    tableViewEClass.getESuperTypes().add(this.getSectionedView());
-    detailsViewEClass.getESuperTypes().add(this.getSectionedView());
+    tableViewEClass.getESuperTypes().add(this.getView());
     customViewEClass.getESuperTypes().add(this.getView());
     collectionIteratorEClass.getESuperTypes().add(this.getVariableDeclaration());
     selectorEClass.getESuperTypes().add(this.getViewAction());
@@ -1926,6 +1831,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameter_Description(), this.getTypeDescription(), null, "description", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameter_Value(), this.getProviderConstruction(), null, "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(objectReferenceEClass, ObjectReference.class, "ObjectReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getObjectReference_Object(), this.getVariableDeclaration(), null, "object", null, 0, 1, ObjectReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1996,24 +1902,14 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getTab_Icon(), this.getScalarExpression(), null, "icon", null, 0, 1, Tab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTab_View(), this.getViewCall(), null, "view", null, 0, 1, Tab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sectionedViewEClass, SectionedView.class, "SectionedView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSectionedView_Title(), this.getScalarExpression(), null, "title", null, 0, 1, SectionedView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSectionedView_Sections(), this.getViewSection(), null, "sections", null, 0, -1, SectionedView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(tableViewEClass, TableView.class, "TableView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTableView_Variables(), this.getParameter(), null, "variables", null, 0, -1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTableView_Title(), this.getScalarExpression(), null, "title", null, 0, 1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTableView_Style(), this.getTableViewStyle(), "style", null, 0, 1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(detailsViewEClass, DetailsView.class, "DetailsView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDetailsView_Header(), this.getViewHeader(), null, "header", null, 0, 1, DetailsView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTableView_Sections(), this.getViewSection(), null, "sections", null, 0, -1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(customViewEClass, CustomView.class, "CustomView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCustomView_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, CustomView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(viewHeaderEClass, ViewHeader.class, "ViewHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getViewHeader_Title(), this.getScalarExpression(), null, "title", null, 0, 1, ViewHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getViewHeader_Subtitle(), this.getScalarExpression(), null, "subtitle", null, 0, 1, ViewHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getViewHeader_Details(), this.getScalarExpression(), null, "details", null, 0, 1, ViewHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getViewHeader_Image(), this.getScalarExpression(), null, "image", null, 0, 1, ViewHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(viewSectionEClass, ViewSection.class, "ViewSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getViewSection_Title(), this.getScalarExpression(), null, "title", null, 0, 1, ViewSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

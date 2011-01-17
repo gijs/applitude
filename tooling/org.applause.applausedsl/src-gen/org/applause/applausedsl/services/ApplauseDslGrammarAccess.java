@@ -156,6 +156,46 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 
+	public class VariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Variable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDescriptionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDescriptionTypeDescriptionParserRuleCall_0_0 = (RuleCall)cDescriptionAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueProviderConstructionParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		
+		//Variable returns Parameter:
+		//	description=TypeDescription name=ID "=" value=ProviderConstruction;
+		public ParserRule getRule() { return rule; }
+
+		//description=TypeDescription name=ID "=" value=ProviderConstruction
+		public Group getGroup() { return cGroup; }
+
+		//description=TypeDescription
+		public Assignment getDescriptionAssignment_0() { return cDescriptionAssignment_0; }
+
+		//TypeDescription
+		public RuleCall getDescriptionTypeDescriptionParserRuleCall_0_0() { return cDescriptionTypeDescriptionParserRuleCall_0_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+
+		//value=ProviderConstruction
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+
+		//ProviderConstruction
+		public RuleCall getValueProviderConstructionParserRuleCall_3_0() { return cValueProviderConstructionParserRuleCall_3_0; }
+	}
+
 	public class ObjectReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ObjectReference");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1015,23 +1055,23 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "View");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cTabViewParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSectionedViewParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTableViewParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cCustomViewParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//// -------------------------------------------
 		//// views
 		//View:
-		//	TabView | SectionedView | CustomView;
+		//	TabView | TableView | CustomView;
 		public ParserRule getRule() { return rule; }
 
-		//TabView | SectionedView | CustomView
+		//TabView | TableView | CustomView
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//TabView
 		public RuleCall getTabViewParserRuleCall_0() { return cTabViewParserRuleCall_0; }
 
-		//SectionedView
-		public RuleCall getSectionedViewParserRuleCall_1() { return cSectionedViewParserRuleCall_1; }
+		//TableView
+		public RuleCall getTableViewParserRuleCall_1() { return cTableViewParserRuleCall_1; }
 
 		//CustomView
 		public RuleCall getCustomViewParserRuleCall_2() { return cCustomViewParserRuleCall_2; }
@@ -1177,26 +1217,6 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_2_1() { return cRightCurlyBracketKeyword_2_1; }
 	}
 
-	public class SectionedViewElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SectionedView");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTableViewParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDetailsViewParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//SectionedView:
-		//	TableView | DetailsView;
-		public ParserRule getRule() { return rule; }
-
-		//TableView | DetailsView
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//TableView
-		public RuleCall getTableViewParserRuleCall_0() { return cTableViewParserRuleCall_0; }
-
-		//DetailsView
-		public RuleCall getDetailsViewParserRuleCall_1() { return cDetailsViewParserRuleCall_1; }
-	}
-
 	public class TableViewElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TableView");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1209,26 +1229,28 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cContentParameterParserRuleCall_2_1_0 = (RuleCall)cContentAssignment_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
-		private final Group cGroup_4_0 = (Group)cUnorderedGroup_4.eContents().get(0);
-		private final Keyword cTitleKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
-		private final Assignment cTitleAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
-		private final RuleCall cTitleScalarExpressionParserRuleCall_4_0_1_0 = (RuleCall)cTitleAssignment_4_0_1.eContents().get(0);
-		private final Group cGroup_4_1 = (Group)cUnorderedGroup_4.eContents().get(1);
-		private final Keyword cStyleKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cStyleAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cStyleTableViewStyleEnumRuleCall_4_1_1_0 = (RuleCall)cStyleAssignment_4_1_1.eContents().get(0);
-		private final Assignment cSectionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cSectionsViewSectionParserRuleCall_5_0 = (RuleCall)cSectionsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cVariablesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cVariablesVariableParserRuleCall_4_0 = (RuleCall)cVariablesAssignment_4.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_5 = (UnorderedGroup)cGroup.eContents().get(5);
+		private final Group cGroup_5_0 = (Group)cUnorderedGroup_5.eContents().get(0);
+		private final Keyword cTitleKeyword_5_0_0 = (Keyword)cGroup_5_0.eContents().get(0);
+		private final Assignment cTitleAssignment_5_0_1 = (Assignment)cGroup_5_0.eContents().get(1);
+		private final RuleCall cTitleScalarExpressionParserRuleCall_5_0_1_0 = (RuleCall)cTitleAssignment_5_0_1.eContents().get(0);
+		private final Group cGroup_5_1 = (Group)cUnorderedGroup_5.eContents().get(1);
+		private final Keyword cStyleKeyword_5_1_0 = (Keyword)cGroup_5_1.eContents().get(0);
+		private final Assignment cStyleAssignment_5_1_1 = (Assignment)cGroup_5_1.eContents().get(1);
+		private final RuleCall cStyleTableViewStyleEnumRuleCall_5_1_1_0 = (RuleCall)cStyleAssignment_5_1_1.eContents().get(0);
+		private final Assignment cSectionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cSectionsViewSectionParserRuleCall_6_0 = (RuleCall)cSectionsAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//TableView:
-		//	"tableview" name=ID ("(" content=Parameter ")")? "{" (("title:" title=ScalarExpression)? & ("style:"
-		//	style=TableViewStyle)?) sections+=ViewSection* "}";
+		//	"tableview" name=ID ("(" content=Parameter ")")? "{" variables+=Variable* (("title:" title=ScalarExpression)? &
+		//	("style:" style=TableViewStyle)?) sections+=ViewSection* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"tableview" name=ID ("(" content=Parameter ")")? "{" (("title:" title=ScalarExpression)? & ("style:"
-		//style=TableViewStyle)?) sections+=ViewSection* "}"
+		//"tableview" name=ID ("(" content=Parameter ")")? "{" variables+=Variable* (("title:" title=ScalarExpression)? &
+		//("style:" style=TableViewStyle)?) sections+=ViewSection* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"tableview"
@@ -1258,123 +1280,47 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
+		//variables+=Variable*
+		public Assignment getVariablesAssignment_4() { return cVariablesAssignment_4; }
+
+		//Variable
+		public RuleCall getVariablesVariableParserRuleCall_4_0() { return cVariablesVariableParserRuleCall_4_0; }
+
 		//("title:" title=ScalarExpression)? & ("style:" style=TableViewStyle)?
-		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
+		public UnorderedGroup getUnorderedGroup_5() { return cUnorderedGroup_5; }
 
 		//("title:" title=ScalarExpression)?
-		public Group getGroup_4_0() { return cGroup_4_0; }
+		public Group getGroup_5_0() { return cGroup_5_0; }
 
 		//"title:"
-		public Keyword getTitleKeyword_4_0_0() { return cTitleKeyword_4_0_0; }
+		public Keyword getTitleKeyword_5_0_0() { return cTitleKeyword_5_0_0; }
 
 		//title=ScalarExpression
-		public Assignment getTitleAssignment_4_0_1() { return cTitleAssignment_4_0_1; }
+		public Assignment getTitleAssignment_5_0_1() { return cTitleAssignment_5_0_1; }
 
 		//ScalarExpression
-		public RuleCall getTitleScalarExpressionParserRuleCall_4_0_1_0() { return cTitleScalarExpressionParserRuleCall_4_0_1_0; }
+		public RuleCall getTitleScalarExpressionParserRuleCall_5_0_1_0() { return cTitleScalarExpressionParserRuleCall_5_0_1_0; }
 
 		//("style:" style=TableViewStyle)?
-		public Group getGroup_4_1() { return cGroup_4_1; }
+		public Group getGroup_5_1() { return cGroup_5_1; }
 
 		//"style:"
-		public Keyword getStyleKeyword_4_1_0() { return cStyleKeyword_4_1_0; }
+		public Keyword getStyleKeyword_5_1_0() { return cStyleKeyword_5_1_0; }
 
 		//style=TableViewStyle
-		public Assignment getStyleAssignment_4_1_1() { return cStyleAssignment_4_1_1; }
+		public Assignment getStyleAssignment_5_1_1() { return cStyleAssignment_5_1_1; }
 
 		//TableViewStyle
-		public RuleCall getStyleTableViewStyleEnumRuleCall_4_1_1_0() { return cStyleTableViewStyleEnumRuleCall_4_1_1_0; }
+		public RuleCall getStyleTableViewStyleEnumRuleCall_5_1_1_0() { return cStyleTableViewStyleEnumRuleCall_5_1_1_0; }
 
 		//sections+=ViewSection*
-		public Assignment getSectionsAssignment_5() { return cSectionsAssignment_5; }
+		public Assignment getSectionsAssignment_6() { return cSectionsAssignment_6; }
 
 		//ViewSection
-		public RuleCall getSectionsViewSectionParserRuleCall_5_0() { return cSectionsViewSectionParserRuleCall_5_0; }
+		public RuleCall getSectionsViewSectionParserRuleCall_6_0() { return cSectionsViewSectionParserRuleCall_6_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
-	}
-
-	public class DetailsViewElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DetailsView");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDetailsviewKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cContentAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cContentParameterParserRuleCall_2_1_0 = (RuleCall)cContentAssignment_2_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cTitleKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cTitleAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cTitleScalarExpressionParserRuleCall_5_0 = (RuleCall)cTitleAssignment_5.eContents().get(0);
-		private final Assignment cHeaderAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cHeaderViewHeaderParserRuleCall_6_0 = (RuleCall)cHeaderAssignment_6.eContents().get(0);
-		private final Assignment cSectionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cSectionsViewSectionParserRuleCall_7_0 = (RuleCall)cSectionsAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		
-		//DetailsView:
-		//	"detailsview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression header=ViewHeader?
-		//	sections+=ViewSection* "}";
-		public ParserRule getRule() { return rule; }
-
-		//"detailsview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression header=ViewHeader?
-		//sections+=ViewSection* "}"
-		public Group getGroup() { return cGroup; }
-
-		//"detailsview"
-		public Keyword getDetailsviewKeyword_0() { return cDetailsviewKeyword_0; }
-
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-
-		//("(" content=Parameter ")")?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//"("
-		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
-
-		//content=Parameter
-		public Assignment getContentAssignment_2_1() { return cContentAssignment_2_1; }
-
-		//Parameter
-		public RuleCall getContentParameterParserRuleCall_2_1_0() { return cContentParameterParserRuleCall_2_1_0; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
-
-		//"title:"
-		public Keyword getTitleKeyword_4() { return cTitleKeyword_4; }
-
-		//title=ScalarExpression
-		public Assignment getTitleAssignment_5() { return cTitleAssignment_5; }
-
-		//ScalarExpression
-		public RuleCall getTitleScalarExpressionParserRuleCall_5_0() { return cTitleScalarExpressionParserRuleCall_5_0; }
-
-		//header=ViewHeader?
-		public Assignment getHeaderAssignment_6() { return cHeaderAssignment_6; }
-
-		//ViewHeader
-		public RuleCall getHeaderViewHeaderParserRuleCall_6_0() { return cHeaderViewHeaderParserRuleCall_6_0; }
-
-		//sections+=ViewSection*
-		public Assignment getSectionsAssignment_7() { return cSectionsAssignment_7; }
-
-		//ViewSection
-		public RuleCall getSectionsViewSectionParserRuleCall_7_0() { return cSectionsViewSectionParserRuleCall_7_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
 	public class CustomViewElements extends AbstractParserRuleElementFinder {
@@ -1431,100 +1377,6 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//STRING
 		public RuleCall getClassNameSTRINGTerminalRuleCall_4_0() { return cClassNameSTRINGTerminalRuleCall_4_0; }
-	}
-
-	public class ViewHeaderElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ViewHeader");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cViewHeaderAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cHeaderKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cTitleKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cTitleAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cTitleScalarExpressionParserRuleCall_3_1_0 = (RuleCall)cTitleAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cSubtitleKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cSubtitleAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cSubtitleScalarExpressionParserRuleCall_4_1_0 = (RuleCall)cSubtitleAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cDetailsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cDetailsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cDetailsScalarExpressionParserRuleCall_5_1_0 = (RuleCall)cDetailsAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cImageKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cImageAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cImageScalarExpressionParserRuleCall_6_1_0 = (RuleCall)cImageAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		
-		//ViewHeader:
-		//	{ViewHeader} "header" "{" ("title:" title=ScalarExpression)? ("subtitle:" subtitle=ScalarExpression)? ("details:"
-		//	details=ScalarExpression)? ("image:" image=ScalarExpression)? "}";
-		public ParserRule getRule() { return rule; }
-
-		//{ViewHeader} "header" "{" ("title:" title=ScalarExpression)? ("subtitle:" subtitle=ScalarExpression)? ("details:"
-		//details=ScalarExpression)? ("image:" image=ScalarExpression)? "}"
-		public Group getGroup() { return cGroup; }
-
-		//{ViewHeader}
-		public Action getViewHeaderAction_0() { return cViewHeaderAction_0; }
-
-		//"header"
-		public Keyword getHeaderKeyword_1() { return cHeaderKeyword_1; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-
-		//("title:" title=ScalarExpression)?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"title:"
-		public Keyword getTitleKeyword_3_0() { return cTitleKeyword_3_0; }
-
-		//title=ScalarExpression
-		public Assignment getTitleAssignment_3_1() { return cTitleAssignment_3_1; }
-
-		//ScalarExpression
-		public RuleCall getTitleScalarExpressionParserRuleCall_3_1_0() { return cTitleScalarExpressionParserRuleCall_3_1_0; }
-
-		//("subtitle:" subtitle=ScalarExpression)?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//"subtitle:"
-		public Keyword getSubtitleKeyword_4_0() { return cSubtitleKeyword_4_0; }
-
-		//subtitle=ScalarExpression
-		public Assignment getSubtitleAssignment_4_1() { return cSubtitleAssignment_4_1; }
-
-		//ScalarExpression
-		public RuleCall getSubtitleScalarExpressionParserRuleCall_4_1_0() { return cSubtitleScalarExpressionParserRuleCall_4_1_0; }
-
-		//("details:" details=ScalarExpression)?
-		public Group getGroup_5() { return cGroup_5; }
-
-		//"details:"
-		public Keyword getDetailsKeyword_5_0() { return cDetailsKeyword_5_0; }
-
-		//details=ScalarExpression
-		public Assignment getDetailsAssignment_5_1() { return cDetailsAssignment_5_1; }
-
-		//ScalarExpression
-		public RuleCall getDetailsScalarExpressionParserRuleCall_5_1_0() { return cDetailsScalarExpressionParserRuleCall_5_1_0; }
-
-		//("image:" image=ScalarExpression)?
-		public Group getGroup_6() { return cGroup_6; }
-
-		//"image:"
-		public Keyword getImageKeyword_6_0() { return cImageKeyword_6_0; }
-
-		//image=ScalarExpression
-		public Assignment getImageAssignment_6_1() { return cImageAssignment_6_1; }
-
-		//ScalarExpression
-		public RuleCall getImageScalarExpressionParserRuleCall_6_1_0() { return cImageScalarExpressionParserRuleCall_6_1_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
 	public class ViewSectionElements extends AbstractParserRuleElementFinder {
@@ -2054,6 +1906,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private VariableDeclarationElements pVariableDeclaration;
 	private TypeDescriptionElements pTypeDescription;
 	private ParameterElements pParameter;
+	private VariableElements pVariable;
 	private ObjectReferenceElements pObjectReference;
 	private NestedObjectReferenceElements pNestedObjectReference;
 	private ExpressionElements pExpression;
@@ -2077,12 +1930,9 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private ViewElements pView;
 	private TabViewElements pTabView;
 	private TabElements pTab;
-	private SectionedViewElements pSectionedView;
 	private TableViewStyleElements unknownRuleTableViewStyle;
 	private TableViewElements pTableView;
-	private DetailsViewElements pDetailsView;
 	private CustomViewElements pCustomView;
-	private ViewHeaderElements pViewHeader;
 	private ViewSectionElements pViewSection;
 	private SectionCellElements pSectionCell;
 	private CellTypeElements unknownRuleCellType;
@@ -2167,6 +2017,16 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getParameterRule() {
 		return getParameterAccess().getRule();
+	}
+
+	//Variable returns Parameter:
+	//	description=TypeDescription name=ID "=" value=ProviderConstruction;
+	public VariableElements getVariableAccess() {
+		return (pVariable != null) ? pVariable : (pVariable = new VariableElements());
+	}
+	
+	public ParserRule getVariableRule() {
+		return getVariableAccess().getRule();
 	}
 
 	//ObjectReference:
@@ -2387,7 +2247,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	//// -------------------------------------------
 	//// views
 	//View:
-	//	TabView | SectionedView | CustomView;
+	//	TabView | TableView | CustomView;
 	public ViewElements getViewAccess() {
 		return (pView != null) ? pView : (pView = new ViewElements());
 	}
@@ -2416,16 +2276,6 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTabAccess().getRule();
 	}
 
-	//SectionedView:
-	//	TableView | DetailsView;
-	public SectionedViewElements getSectionedViewAccess() {
-		return (pSectionedView != null) ? pSectionedView : (pSectionedView = new SectionedViewElements());
-	}
-	
-	public ParserRule getSectionedViewRule() {
-		return getSectionedViewAccess().getRule();
-	}
-
 	//enum TableViewStyle:
 	//	Plain | Grouped;
 	public TableViewStyleElements getTableViewStyleAccess() {
@@ -2437,25 +2287,14 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TableView:
-	//	"tableview" name=ID ("(" content=Parameter ")")? "{" (("title:" title=ScalarExpression)? & ("style:"
-	//	style=TableViewStyle)?) sections+=ViewSection* "}";
+	//	"tableview" name=ID ("(" content=Parameter ")")? "{" variables+=Variable* (("title:" title=ScalarExpression)? &
+	//	("style:" style=TableViewStyle)?) sections+=ViewSection* "}";
 	public TableViewElements getTableViewAccess() {
 		return (pTableView != null) ? pTableView : (pTableView = new TableViewElements());
 	}
 	
 	public ParserRule getTableViewRule() {
 		return getTableViewAccess().getRule();
-	}
-
-	//DetailsView:
-	//	"detailsview" name=ID ("(" content=Parameter ")")? "{" "title:" title=ScalarExpression header=ViewHeader?
-	//	sections+=ViewSection* "}";
-	public DetailsViewElements getDetailsViewAccess() {
-		return (pDetailsView != null) ? pDetailsView : (pDetailsView = new DetailsViewElements());
-	}
-	
-	public ParserRule getDetailsViewRule() {
-		return getDetailsViewAccess().getRule();
 	}
 
 	//CustomView:
@@ -2466,17 +2305,6 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCustomViewRule() {
 		return getCustomViewAccess().getRule();
-	}
-
-	//ViewHeader:
-	//	{ViewHeader} "header" "{" ("title:" title=ScalarExpression)? ("subtitle:" subtitle=ScalarExpression)? ("details:"
-	//	details=ScalarExpression)? ("image:" image=ScalarExpression)? "}";
-	public ViewHeaderElements getViewHeaderAccess() {
-		return (pViewHeader != null) ? pViewHeader : (pViewHeader = new ViewHeaderElements());
-	}
-	
-	public ParserRule getViewHeaderRule() {
-		return getViewHeaderAccess().getRule();
 	}
 
 	//ViewSection:

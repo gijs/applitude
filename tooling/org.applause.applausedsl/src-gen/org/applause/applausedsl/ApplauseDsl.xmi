@@ -13,7 +13,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="application" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="*" feature="elements" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
@@ -25,9 +25,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ModelElement"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="VariableDeclaration">
@@ -36,8 +36,8 @@
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.38"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.36"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="TypeDescription">
@@ -71,6 +71,23 @@
         </elements>
       </alternatives>
     </rules>
+    <rules xsi:type="xtext:ParserRule" name="Variable">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Parameter"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="description" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="="/>
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+        </elements>
+      </alternatives>
+    </rules>
     <rules xsi:type="xtext:ParserRule" name="ObjectReference">
       <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ObjectReference"/>
@@ -85,7 +102,7 @@
           </terminal>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="tail" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
         </elements>
       </alternatives>
     </rules>
@@ -104,7 +121,7 @@
           </terminal>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="tail" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
         </elements>
       </alternatives>
     </rules>
@@ -113,11 +130,11 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Expression"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ScalarExpression">
@@ -125,9 +142,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ScalarExpression"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="CollectionExpression">
@@ -135,9 +152,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//CollectionExpression"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="StringLiteral">
@@ -161,7 +178,7 @@
           </elements>
           <elements xsi:type="xtext:Keyword" value="("/>
           <elements xsi:type="xtext:Assignment" cardinality="+" feature="values" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
@@ -173,15 +190,15 @@
           </elements>
           <elements xsi:type="xtext:Keyword" value="replace("/>
           <elements xsi:type="xtext:Assignment" feature="value" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value=","/>
           <elements xsi:type="xtext:Assignment" feature="match" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value=","/>
           <elements xsi:type="xtext:Assignment" feature="replacement" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
@@ -193,7 +210,7 @@
           </elements>
           <elements xsi:type="xtext:Keyword" value="urlconform("/>
           <elements xsi:type="xtext:Assignment" feature="value" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
@@ -206,12 +223,12 @@
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="["/>
         <elements xsi:type="xtext:Assignment" feature="items" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="*">
           <elements xsi:type="xtext:Keyword" value=","/>
           <elements xsi:type="xtext:Assignment" feature="items" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Keyword" value="]"/>
@@ -229,11 +246,11 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="split("/>
         <elements xsi:type="xtext:Assignment" feature="value" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=","/>
         <elements xsi:type="xtext:Assignment" feature="delimiter" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=")"/>
       </alternatives>
@@ -252,7 +269,7 @@
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="background:"/>
             <elements xsi:type="xtext:Assignment" feature="background" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
             </elements>
           </elements>
         </elements>
@@ -260,7 +277,7 @@
           <elements xsi:type="xtext:Group">
             <elements xsi:type="xtext:Keyword" value="view:"/>
             <elements xsi:type="xtext:Assignment" feature="startView" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.43"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Keyword" value="}"/>
@@ -272,8 +289,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//Type"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SimpleType">
@@ -316,7 +333,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Assignment" cardinality="*" feature="properties" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -371,7 +388,7 @@
           <terminal xsi:type="xtext:Keyword" value="[]"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="implementation" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
         </elements>
       </alternatives>
     </rules>
@@ -380,8 +397,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ContentProviderImplementation"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:EnumRule" name="SerializationFormat">
@@ -406,15 +423,15 @@
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="fetches"/>
         <elements xsi:type="xtext:Assignment" feature="format" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="from"/>
         <elements xsi:type="xtext:Assignment" feature="url" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="selects"/>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="selection" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
         </elements>
       </alternatives>
     </rules>
@@ -425,7 +442,7 @@
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="class"/>
         <elements xsi:type="xtext:Assignment" feature="providerClass" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.44"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.42"/>
         </elements>
       </alternatives>
     </rules>
@@ -450,7 +467,7 @@
           </elements>
           <elements xsi:type="xtext:Keyword" value="("/>
           <elements xsi:type="xtext:Assignment" cardinality="?" feature="argument" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
@@ -461,7 +478,7 @@
             </type>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="expression" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
           </elements>
         </elements>
       </alternatives>
@@ -471,9 +488,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//View"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.30"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.31"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="TabView">
@@ -494,7 +511,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Assignment" cardinality="*" feature="tabs" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -510,34 +527,25 @@
           <elements xsi:type="xtext:Group">
             <elements xsi:type="xtext:Keyword" value="title:"/>
             <elements xsi:type="xtext:Assignment" feature="title" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
             </elements>
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="icon:"/>
           <elements xsi:type="xtext:Assignment" feature="icon" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="view:"/>
             <elements xsi:type="xtext:Assignment" feature="view" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.43"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Keyword" value="}"/>
         </elements>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="SectionedView">
-      <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//SectionedView"/>
-      </type>
-      <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.30"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.31"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:EnumRule" name="TableViewStyle">
@@ -572,11 +580,14 @@
           <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="variables" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        </elements>
         <elements xsi:type="xtext:UnorderedGroup">
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="title:"/>
             <elements xsi:type="xtext:Assignment" feature="title" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
@@ -587,37 +598,7 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="*" feature="sections" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="}"/>
-      </alternatives>
-    </rules>
-    <rules xsi:type="xtext:ParserRule" name="DetailsView">
-      <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//DetailsView"/>
-      </type>
-      <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="detailsview"/>
-        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        </elements>
-        <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="("/>
-          <elements xsi:type="xtext:Assignment" feature="content" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
-          </elements>
-          <elements xsi:type="xtext:Keyword" value=")"/>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="{"/>
-        <elements xsi:type="xtext:Keyword" value="title:"/>
-        <elements xsi:type="xtext:Assignment" feature="title" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
-        </elements>
-        <elements xsi:type="xtext:Assignment" cardinality="?" feature="header" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.33"/>
-        </elements>
-        <elements xsi:type="xtext:Assignment" cardinality="*" feature="sections" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -644,45 +625,6 @@
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="ViewHeader">
-      <type metamodel="/0/@metamodelDeclarations.1">
-        <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewHeader"/>
-      </type>
-      <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Action">
-          <type metamodel="/0/@metamodelDeclarations.1">
-            <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewHeader"/>
-          </type>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="header"/>
-        <elements xsi:type="xtext:Keyword" value="{"/>
-        <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="title:"/>
-          <elements xsi:type="xtext:Assignment" feature="title" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="subtitle:"/>
-          <elements xsi:type="xtext:Assignment" feature="subtitle" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="details:"/>
-          <elements xsi:type="xtext:Assignment" feature="details" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Group" cardinality="?">
-          <elements xsi:type="xtext:Keyword" value="image:"/>
-          <elements xsi:type="xtext:Assignment" feature="image" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Keyword" value="}"/>
-      </alternatives>
-    </rules>
     <rules xsi:type="xtext:ParserRule" name="ViewSection">
       <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewSection"/>
@@ -693,11 +635,11 @@
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="title:"/>
           <elements xsi:type="xtext:Assignment" feature="title" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="+" feature="cells" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.35"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.33"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="}"/>
       </alternatives>
@@ -709,12 +651,12 @@
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="cell"/>
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.36"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="foreach"/>
           <elements xsi:type="xtext:Assignment" feature="iterator" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.38"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.36"/>
           </elements>
         </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
@@ -722,31 +664,31 @@
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="text:"/>
             <elements xsi:type="xtext:Assignment" feature="text" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="details:"/>
             <elements xsi:type="xtext:Assignment" feature="details" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="image:"/>
             <elements xsi:type="xtext:Assignment" feature="image" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="action:"/>
             <elements xsi:type="xtext:Assignment" feature="action" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.39"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.37"/>
             </elements>
           </elements>
           <elements xsi:type="xtext:Group" cardinality="?">
             <elements xsi:type="xtext:Keyword" value="accessory:"/>
             <elements xsi:type="xtext:Assignment" feature="accessory" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.37"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.35"/>
             </elements>
           </elements>
         </elements>
@@ -805,7 +747,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="collection" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="as"/>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
@@ -818,9 +760,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ViewAction"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.43"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.42"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.41"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.40"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.39"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="SelectorName">
@@ -844,7 +786,7 @@
         <elements xsi:type="xtext:Keyword" value="@selector"/>
         <elements xsi:type="xtext:Keyword" value="("/>
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.40"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.38"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=")"/>
       </alternatives>
@@ -854,7 +796,7 @@
         <classifier xsi:type="ecore:EClass" href="http://www.applause.org/applausedsl/ApplauseDsl#//ExternalOpen"/>
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="url" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="ViewCall">
@@ -872,7 +814,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="("/>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="provider" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=")"/>
       </alternatives>

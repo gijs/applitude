@@ -45,6 +45,7 @@
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Parameter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Parameter/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Parameter/value"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ObjectReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ObjectReference/object"/>
@@ -107,24 +108,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Tab/icon"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Tab/view"/>
     </genClasses>
-    <genClasses ecoreClass="ApplauseDsl.ecore#//SectionedView">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionedView/title"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionedView/sections"/>
-    </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//TableView">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TableView/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TableView/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//TableView/style"/>
-    </genClasses>
-    <genClasses ecoreClass="ApplauseDsl.ecore#//DetailsView">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//DetailsView/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TableView/sections"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//CustomView">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//CustomView/className"/>
-    </genClasses>
-    <genClasses ecoreClass="ApplauseDsl.ecore#//ViewHeader">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewHeader/title"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewHeader/subtitle"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewHeader/details"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewHeader/image"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ViewSection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ViewSection/title"/>

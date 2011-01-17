@@ -7,6 +7,7 @@ package org.applause.applausedsl.applauseDsl.impl;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.Parameter;
+import org.applause.applausedsl.applauseDsl.ProviderConstruction;
 import org.applause.applausedsl.applauseDsl.TypeDescription;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ParameterImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +43,16 @@ public class ParameterImpl extends VariableDeclarationImpl implements Parameter
    * @ordered
    */
   protected TypeDescription description;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected ProviderConstruction value;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,6 +128,54 @@ public class ParameterImpl extends VariableDeclarationImpl implements Parameter
    * <!-- end-user-doc -->
    * @generated
    */
+  public ProviderConstruction getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetValue(ProviderConstruction newValue, NotificationChain msgs)
+  {
+    ProviderConstruction oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.PARAMETER__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(ProviderConstruction newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.PARAMETER__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.PARAMETER__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.PARAMETER__VALUE, newValue, newValue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -123,6 +183,8 @@ public class ParameterImpl extends VariableDeclarationImpl implements Parameter
     {
       case ApplauseDslPackage.PARAMETER__DESCRIPTION:
         return basicSetDescription(null, msgs);
+      case ApplauseDslPackage.PARAMETER__VALUE:
+        return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -139,6 +201,8 @@ public class ParameterImpl extends VariableDeclarationImpl implements Parameter
     {
       case ApplauseDslPackage.PARAMETER__DESCRIPTION:
         return getDescription();
+      case ApplauseDslPackage.PARAMETER__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -155,6 +219,9 @@ public class ParameterImpl extends VariableDeclarationImpl implements Parameter
     {
       case ApplauseDslPackage.PARAMETER__DESCRIPTION:
         setDescription((TypeDescription)newValue);
+        return;
+      case ApplauseDslPackage.PARAMETER__VALUE:
+        setValue((ProviderConstruction)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -173,6 +240,9 @@ public class ParameterImpl extends VariableDeclarationImpl implements Parameter
       case ApplauseDslPackage.PARAMETER__DESCRIPTION:
         setDescription((TypeDescription)null);
         return;
+      case ApplauseDslPackage.PARAMETER__VALUE:
+        setValue((ProviderConstruction)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -189,6 +259,8 @@ public class ParameterImpl extends VariableDeclarationImpl implements Parameter
     {
       case ApplauseDslPackage.PARAMETER__DESCRIPTION:
         return description != null;
+      case ApplauseDslPackage.PARAMETER__VALUE:
+        return value != null;
     }
     return super.eIsSet(featureID);
   }

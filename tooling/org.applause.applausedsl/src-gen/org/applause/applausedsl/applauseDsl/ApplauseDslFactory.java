@@ -260,15 +260,6 @@ public interface ApplauseDslFactory extends EFactory
   Tab createTab();
 
   /**
-   * Returns a new object of class '<em>Sectioned View</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sectioned View</em>'.
-   * @generated
-   */
-  SectionedView createSectionedView();
-
-  /**
    * Returns a new object of class '<em>Table View</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -278,15 +269,6 @@ public interface ApplauseDslFactory extends EFactory
   TableView createTableView();
 
   /**
-   * Returns a new object of class '<em>Details View</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Details View</em>'.
-   * @generated
-   */
-  DetailsView createDetailsView();
-
-  /**
    * Returns a new object of class '<em>Custom View</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -294,15 +276,6 @@ public interface ApplauseDslFactory extends EFactory
    * @generated
    */
   CustomView createCustomView();
-
-  /**
-   * Returns a new object of class '<em>View Header</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>View Header</em>'.
-   * @generated
-   */
-  ViewHeader createViewHeader();
 
   /**
    * Returns a new object of class '<em>View Section</em>'.

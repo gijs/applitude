@@ -301,32 +301,12 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ApplauseDslPackage.SECTIONED_VIEW:
-      {
-        SectionedView sectionedView = (SectionedView)theEObject;
-        T result = caseSectionedView(sectionedView);
-        if (result == null) result = caseView(sectionedView);
-        if (result == null) result = caseModelElement(sectionedView);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ApplauseDslPackage.TABLE_VIEW:
       {
         TableView tableView = (TableView)theEObject;
         T result = caseTableView(tableView);
-        if (result == null) result = caseSectionedView(tableView);
         if (result == null) result = caseView(tableView);
         if (result == null) result = caseModelElement(tableView);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ApplauseDslPackage.DETAILS_VIEW:
-      {
-        DetailsView detailsView = (DetailsView)theEObject;
-        T result = caseDetailsView(detailsView);
-        if (result == null) result = caseSectionedView(detailsView);
-        if (result == null) result = caseView(detailsView);
-        if (result == null) result = caseModelElement(detailsView);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -336,13 +316,6 @@ public class ApplauseDslSwitch<T>
         T result = caseCustomView(customView);
         if (result == null) result = caseView(customView);
         if (result == null) result = caseModelElement(customView);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ApplauseDslPackage.VIEW_HEADER:
-      {
-        ViewHeader viewHeader = (ViewHeader)theEObject;
-        T result = caseViewHeader(viewHeader);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -883,22 +856,6 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sectioned View</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sectioned View</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSectionedView(SectionedView object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Table View</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -915,22 +872,6 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Details View</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Details View</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDetailsView(DetailsView object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Custom View</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -942,22 +883,6 @@ public class ApplauseDslSwitch<T>
    * @generated
    */
   public T caseCustomView(CustomView object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>View Header</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>View Header</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseViewHeader(ViewHeader object)
   {
     return null;
   }

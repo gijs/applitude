@@ -208,29 +208,14 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createTabAdapter();
       }
       @Override
-      public Adapter caseSectionedView(SectionedView object)
-      {
-        return createSectionedViewAdapter();
-      }
-      @Override
       public Adapter caseTableView(TableView object)
       {
         return createTableViewAdapter();
       }
       @Override
-      public Adapter caseDetailsView(DetailsView object)
-      {
-        return createDetailsViewAdapter();
-      }
-      @Override
       public Adapter caseCustomView(CustomView object)
       {
         return createCustomViewAdapter();
-      }
-      @Override
-      public Adapter caseViewHeader(ViewHeader object)
-      {
-        return createViewHeaderAdapter();
       }
       @Override
       public Adapter caseViewSection(ViewSection object)
@@ -715,21 +700,6 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.SectionedView <em>Sectioned View</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.SectionedView
-   * @generated
-   */
-  public Adapter createSectionedViewAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.TableView <em>Table View</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -745,21 +715,6 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.DetailsView <em>Details View</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.DetailsView
-   * @generated
-   */
-  public Adapter createDetailsViewAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.CustomView <em>Custom View</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -770,21 +725,6 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCustomViewAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.ViewHeader <em>View Header</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.ViewHeader
-   * @generated
-   */
-  public Adapter createViewHeaderAdapter()
   {
     return null;
   }

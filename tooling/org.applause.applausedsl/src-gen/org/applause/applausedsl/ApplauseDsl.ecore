@@ -22,6 +22,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//VariableDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//TypeDescription"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ProviderConstruction"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectReference" eSuperTypes="#//Expression #//ScalarExpression #//CollectionExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//VariableDeclaration"/>
@@ -106,35 +108,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//ViewCall"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SectionedView" eSuperTypes="#//View">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
-        eType="#//ViewSection" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TableViewStyle">
     <eLiterals name="Plain" literal="Plain"/>
     <eLiterals name="Grouped" value="1" literal="Grouped"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableView" eSuperTypes="#//SectionedView">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="#//TableViewStyle"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DetailsView" eSuperTypes="#//SectionedView">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="#//ViewHeader"
+  <eClassifiers xsi:type="ecore:EClass" name="TableView" eSuperTypes="#//View">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="#//TableViewStyle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
+        eType="#//ViewSection" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomView" eSuperTypes="#//View">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewHeader">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subtitle" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="details" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//ScalarExpression"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewSection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"

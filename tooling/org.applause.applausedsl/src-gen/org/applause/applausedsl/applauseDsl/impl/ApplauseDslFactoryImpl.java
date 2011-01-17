@@ -94,11 +94,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.VIEW: return createView();
       case ApplauseDslPackage.TAB_VIEW: return createTabView();
       case ApplauseDslPackage.TAB: return createTab();
-      case ApplauseDslPackage.SECTIONED_VIEW: return createSectionedView();
       case ApplauseDslPackage.TABLE_VIEW: return createTableView();
-      case ApplauseDslPackage.DETAILS_VIEW: return createDetailsView();
       case ApplauseDslPackage.CUSTOM_VIEW: return createCustomView();
-      case ApplauseDslPackage.VIEW_HEADER: return createViewHeader();
       case ApplauseDslPackage.VIEW_SECTION: return createViewSection();
       case ApplauseDslPackage.SECTION_CELL: return createSectionCell();
       case ApplauseDslPackage.COLLECTION_ITERATOR: return createCollectionIterator();
@@ -455,17 +452,6 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public SectionedView createSectionedView()
-  {
-    SectionedViewImpl sectionedView = new SectionedViewImpl();
-    return sectionedView;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public TableView createTableView()
   {
     TableViewImpl tableView = new TableViewImpl();
@@ -477,32 +463,10 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public DetailsView createDetailsView()
-  {
-    DetailsViewImpl detailsView = new DetailsViewImpl();
-    return detailsView;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public CustomView createCustomView()
   {
     CustomViewImpl customView = new CustomViewImpl();
     return customView;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ViewHeader createViewHeader()
-  {
-    ViewHeaderImpl viewHeader = new ViewHeaderImpl();
-    return viewHeader;
   }
 
   /**
