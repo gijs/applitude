@@ -119,7 +119,7 @@
 
 
 
-«DEFINE sectionCount FOR SectionedView»«IF sections.size != 1»
+«DEFINE sectionCount FOR TableView»«IF sections.size != 1»
 /*
  * Return the number of sections in this table.
  */
@@ -133,7 +133,7 @@
 }
 «ENDIF»«ENDDEFINE»
 
-«DEFINE sectionTitleHeader FOR SectionedView»«IF sections.reject(e|e.title == null).size > 0-»
+«DEFINE sectionTitleHeader FOR TableView»«IF sections.reject(e|e.title == null).size > 0-»
 /*
  * Return the number of rows in this section.
  */
@@ -148,7 +148,7 @@
 }
 «ENDIF-»«ENDDEFINE»
 
-«DEFINE rowCounts FOR SectionedView»
+«DEFINE rowCounts FOR TableView»
 /*
  * Return the number of sections in this table.
  */
@@ -190,34 +190,6 @@
 «ELSE»indexPath.section == «section»«ENDIF-»
 «ENDDEFINE»
 
-«DEFINE cellDescriptions FOR DetailsView»
-/*
- * Specify the NIB which contains the custom cell we want to use.
- */
-- (NSString *)tableView:(UITableView *)tableView nibNameForRowAtIndexPath:(NSIndexPath *)indexPath {
-«FOREACH sections AS s ITERATOR si-»
-«FOREACH s.cells AS c ITERATOR ci-»
-	if(«EXPAND cellConstraint(si.counter0, ci.counter0) FOR c») {
-		return @"«c.type()»CustomCell2";
-	}
-«ENDFOREACH-»
-«ENDFOREACH-»
-	return @"DefaultCustomCell2";
-}
-
-/*
- * Configure the contents of the current cell, i.e. fill it with data.
- */
-- (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-«FOREACH sections AS s ITERATOR si-»
-«FOREACH s.cells AS c ITERATOR ci-»
-	if(«EXPAND cellConstraint(si.counter0, ci.counter0) FOR c») {
-		«EXPAND cellContent('	') FOR c»
-	}
-«ENDFOREACH-»
-«ENDFOREACH-»
-}
-«ENDDEFINE»
 
 «DEFINE cellContent(String indent) FOR SectionCell-»
 	«IF iterator!=null-»
@@ -256,23 +228,6 @@
 	«ENDIF-»
 «ENDDEFINE»
 
-
-«DEFINE cellSelections FOR DetailsView»
-/*
- * User tapped a table cell, navigate to the next screen.
- */
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-«FOREACH sections AS s ITERATOR si»
-«FOREACH s.cells AS c ITERATOR ci»
-	if(«EXPAND cellConstraint(si.counter0, ci.counter0) FOR c») {
-	«EXPAND cellAction FOR c»	
-	} else
-«ENDFOREACH-»
-«ENDFOREACH-»
-		return;
-}
-«ENDDEFINE»
-
 «DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewAction»«this.metaType»«ENDDEFINE»
 
 «DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewCall-»
@@ -288,7 +243,7 @@
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 «ENDDEFINE»
 
-«DEFINE staticData FOR SectionedView-»
+«DEFINE staticData FOR TableView-»
 /*
  * Update the data displayed in this table.
  */
@@ -299,15 +254,3 @@
 «ENDDEFINE»
 
 «DEFINE staticData2 FOR View»«ENDDEFINE»
-«DEFINE staticData2 FOR DetailsView»
-	if(contentProvider && contentProvider.content && !contentProvider.loading) {
-		«IF header!=null && header.title!=null»self.headerView.titleLabel.text = «header.title.expression('contentProvider', 'content')»;«ENDIF»
-		«IF header!=null && header.subtitle!=null»self.headerView.subtitleLabel.text = «header.subtitle.expression('contentProvider', 'content')»;«ENDIF»
-		«IF header!=null && header.details!=null»self.headerView.detailsLabel.text = «header.details.expression('contentProvider', 'content')»;«ENDIF»
-		«IF header!=null && header.image!=null»NSString *imageURL = «header.image.expression('contentProvider', 'content')»;
-		self.headerView.image.image = [self 
-										getImage: imageURL 
-										withLoadingImage:@"personLoading.png" 
-										andErrorImage:@"personUnknown.png"];«ENDIF»
-	}	
-«ENDDEFINE»

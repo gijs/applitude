@@ -116,7 +116,7 @@ ProviderConstruction:
 
 
 View:
-	TabView | SectionedView | CustomView;
+	TabView | TableView | CustomView;
 
 TabView:
 	'tabview' name=ID ('(' content=Parameter ')')? '{'
@@ -130,9 +130,6 @@ Tab:
 		& ('view:' view=ViewCall)?
 	'}';
 
-SectionedView: 
-	TableView | DetailsView;
-
 enum TableViewStyle:
 	Plain | Grouped;
 
@@ -144,25 +141,9 @@ TableView:
 		(sections+=ViewSection)*
 	'}';
 	
-DetailsView:
-	'detailsview' name=ID ('(' content=Parameter ')')? '{'
-		'title:' title=ScalarExpression
-		(header=ViewHeader)?
-		(sections+=ViewSection)*
-	'}';
-	
 CustomView:
 	'customview' name=ID ('(' content=Parameter ')')? 'class' className=STRING;
-	
-ViewHeader:
-	{ViewHeader}
-	'header' '{'
-		('title:' title=ScalarExpression)?
-		('subtitle:' subtitle=ScalarExpression)?
-		('details:' details=ScalarExpression)?
-		('image:' image=ScalarExpression)?
-	'}';
-	
+
 ViewSection:
 	'section' '{'
 		('title:' title=ScalarExpression)?

@@ -19,11 +19,5 @@ entities(Application this):
 listViews(Application this):
 	model().elements.typeSelect(TableView);
 
-detailViews(Application this):
-	model().elements.typeSelect(DetailsView);
-
-sectionedViews(Application this):
-	model().elements.typeSelect(SectionedView);
-	
-type(SectionedView this):
+type(TableView this):
 	this.content.description.type.name;
