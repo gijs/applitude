@@ -94,7 +94,7 @@ factoryMethodName(View view):
 factoryCall(ViewCall call, String kvcTarget, String kvcPrefix):
 	//TODO: make sharedProviders the default for provider access
 	//TODO: support proper multiple parameters, bind parameters properly
-	"[" + use(application(call.view).viewFactory()) + " " + call.view.factoryMethodName() + (call.provider != null ? "With" + call.view.content.name.toFirstUpper() + ":" + call.provider.contentProvider("[" + call.view.application().providerFactory().use() + " sharedProviders]", kvcTarget, kvcPrefix) : "") + "]";
+	"[" + use(application(call.view).viewFactory()) + " " + call.view.factoryMethodName() + (call.provider != null ? "With" + call.view.content.name.toFirstUpper() + ":" + call.provider.contentProvider(kvcTarget, kvcPrefix) : "") + "]";
 
 /* TableView */
 
@@ -212,6 +212,9 @@ assignment(ObjectReference expr, String targetObject, String targetProperty, Str
 providerFactory(Application app):
 	newProjectClass(app.name + "Providers");
 
+sharedProviderFactory(Application app):
+	"[" + app.providerFactory().use() + " sharedProviders]";
+
 applicationDelegate(Application app):
 	newProjectClass(app.name + "AppDelegate");
 
@@ -296,15 +299,15 @@ expression(ObjectReference this, String kvcTarget, String kvcPrefix):
 			kvcTarget : 
 			'[' + kvcTarget + ' ' + (keyPath.contains('.') ? 'valueForKeyPath' : 'valueForKey') + ':@"' + keyPath.toString('.') + '"]';
 	
-contentProvider(ProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
+contentProvider(ProviderConstruction this, String kvcTarget, String kvcPrefix):
 	"<!ERROR!" + metaType + ">";
 
-contentProvider(SimpleProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
+contentProvider(SimpleProviderConstruction this, String kvcTarget, String kvcPrefix):
 	'[' + use('SimpleContentProvider') + ' providerWithContent:' +
 	expression.expression(kvcTarget, kvcPrefix) + ']';
 	 
-contentProvider(ComplexProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
-	'[' + providers + ' providerFor' + provider.name + 
+contentProvider(ComplexProviderConstruction this, String kvcTarget, String kvcPrefix):
+	'[' + this.application().sharedProviderFactory() + ' providerFor' + provider.name + 
 		(argument == null ? '' : ': ' + argument.expression(kvcTarget, kvcPrefix) )
 	+ ']';
 	
