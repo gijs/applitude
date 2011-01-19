@@ -72,7 +72,7 @@ And there is a code generator which generates iPhone applications from such DSL 
 
 The project currently is very much work in progress and therefore not very well documented; you will find loose ends and corners. You'll only get something out of it if you're seriously into Xtext DSLs and iPhone development with Objective C.
 
-It works great for my own projects and I'm making it open source because I'm standing on the shoulders of giants here; I would never have taken that road without the Xtext project and the Applause code being open source; both very much spurred my interest in using DSL languages for my day-to-day development work. I'm making it open source to ease collaboration with other developers on the same road.
+It works great for my own projects and I'm standing on the shoulders of giants here; I would never have taken that road without the Xtext project and the Applause code being open source; both very much spurred my interest in using DSL languages for my day-to-day development work. I'm making my own enhancements open source as well to ease collaboration with other developers on the same road.
 
 ## Getting started
 
@@ -80,7 +80,7 @@ I recommend learning about Xtext first, for example by reading the [Xtext Gettin
 
 I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for iApplause.
 
-There also is a working example project at `examples/helloworld/helloworld.applause`.
+There also is a working example project at [`examples/demo/`](https://github.com/ralfebert/iApplause/tree/master/examples/demo).
 
 ## Download
 
