@@ -5,11 +5,11 @@ layout: default
 
 # iApplause
 
-iApplause is an iPhone-centric version of the [Applause](http://code.google.com/p/applause/) Xtext DSL for mobile development, very much extended and tailored to suit my own needs.
+iApplause is an iPhone-centric version of the [Applause](http://code.google.com/p/applause/) Xtext DSL for mobile development, extended and very much tailored to suit my own needs.
 
 ## Introduction
 
-iApplause provides a short, crisp domain specific language to describe the boring parts of iPhone applications, which usually are manually coded over and over again, like this:
+iApplause provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way:
 
 	application HelloWorld {
 		view:DeviceList(Devices())
@@ -32,11 +32,11 @@ iApplause is developed using the marvelous [Xtext language development framework
 
 ## How to get started
 
-At first, a warning: the project currently is very much work in progress and therefore not very well documented yet; you will find loose ends and corners. You'll only get something out of it if you're seriously into Xtext DSLs and iPhone development; if you're looking for an out-of-the-box solution to generate iPhone apps I recommend looking elsewhere.
+At first, a warning: the project currently is very much work in progress and therefore not very well documented; you will find loose ends and corners. You'll only get something out of it if you're seriously into Xtext DSLs and iPhone development; if you're looking for an out-of-the-box solution to generate iPhone apps I recommend looking elsewhere.
 
 It works great for my own projects and I'm making it open source because I'm standing on the shoulders of giants here; I would never have taken that road without the Xtext project and the initial Applause code being open source; both very much spurred my interest in using DSL languages for my day-to-day development work.
 
-I recommend learning about the Xtext framework first, for example by reading the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
+I recommend learning about Xtext first, for example by reading the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
 
 I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for iApplause.
 
@@ -62,3 +62,5 @@ Or get the source code on the [GitHub project page](http://github.com/ralfebert/
 ## License
 
 Mostly BSD / EPL, see source headers
+
+This document is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a>
