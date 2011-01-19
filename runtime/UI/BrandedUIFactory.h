@@ -15,5 +15,6 @@
 
 + (UINavigationController *) createUINavigationControllerWithRootViewController:(UIViewController *)rootViewController;
 + (void) brandCell:(UITableViewCell *)cell tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
++ (void) brandApplication:(UIApplication *)application;
 
 @end

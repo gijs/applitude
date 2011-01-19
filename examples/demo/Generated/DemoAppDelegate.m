@@ -1,4 +1,5 @@
 #import "DemoAppDelegate.h"
+#import "BrandedUIFactory.h"
 #import "DemoViews.h"
 
 @implementation DemoAppDelegate
@@ -11,7 +12,7 @@
 		self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 		[self.window release];
 	}
-
+	[BrandedUIFactory brandApplication:application];
 	self.rootController = [DemoViews createTabs];
 	[window makeKeyAndVisible];
 }

@@ -53,7 +53,7 @@
 		self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 		[self.window release];
 	}
-
+	[«use('BrandedUIFactory')» brandApplication:application];
 	self.rootController = «this.startView.factoryCall('', '')»;
 	[window makeKeyAndVisible];
 }
@@ -84,9 +84,3 @@
 @end
 «ENDFILE»
 «ENDDEFINE»
-
-«REM»
-TODO: Branding properties:
-application.statusBarStyle = UIStatusBarStyleBlackOpaque;
-navController.navigationBar.barStyle = UIBarStyleBlack;
-«ENDREM»	
