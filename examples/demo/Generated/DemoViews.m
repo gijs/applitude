@@ -8,6 +8,7 @@
 
 	UINavigationController *tab1 = [BrandedUIFactory createUINavigationControllerWithRootViewController:[DemoViews createSchedule]];
 	tab1.tabBarItem.title = @"Schedule";
+	tab1.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
 
 	tabController.viewControllers = [NSArray arrayWithObjects:tab1, nil];
 

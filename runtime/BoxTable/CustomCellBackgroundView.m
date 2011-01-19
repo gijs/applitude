@@ -1,5 +1,5 @@
 // © 2010 Ralf Ebert
-// Made available under Simplified BSD License, http://www.opensource.org/licenses/bsd-license.php
+// Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
 
 #import "CustomCellBackgroundView.h"
 
@@ -25,7 +25,7 @@
 	if (aTableView.style == UITableViewStyleGrouped) {
 		CustomCellBackgroundView *roundedView = [[CustomCellBackgroundView alloc] initWithFrame:CGRectZero first:anIndexPath.row==0 last:anIndexPath.row==rowCount-1];
 		roundedView.fillColor = aColor;
-		roundedView.borderColor = RGBX(0x909090);
+		roundedView.borderColor = [UIColor darkGrayColor];
 		selectedBackgroundView = roundedView;
 	} else {
 		selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];

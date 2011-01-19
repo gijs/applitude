@@ -1,3 +1,6 @@
+// © 2010 Ralf Ebert
+// Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
+
 application Demo {
 	view:Tabs()
 }
@@ -22,13 +25,14 @@ contentprovider AllPresentations
 tabview Tabs {
 	tab {
 		title: "Schedule"
+		icon: "calendar.png"
 		view: Schedule()
 	}
 }
 
 tableview Schedule {
 	Presentation[] allPresentations = AllPresentations()
-	
+
 	title: "Schedule"
 	section {
 		cell Default foreach allPresentations as presentation {
@@ -42,7 +46,7 @@ tableview Schedule {
 tableview PresentationDetails(Presentation presentation) {
 	title: presentation.title
 	style: Grouped
-	
+
 	section {
 		title:"Speakers"
 		cell Default foreach presentation.speakers as speaker {
