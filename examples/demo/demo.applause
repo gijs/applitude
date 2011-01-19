@@ -11,7 +11,7 @@ entity Device {
 	String memory
 }
 
-contentprovider Devices
+contentprovider AllDevices
 	returns Device[]
 	fetches JSON from "http://ralfebert.github.com/iApplause/demo/devices.json"
 	selects ""
@@ -19,11 +19,13 @@ contentprovider Devices
 tabview Tabs {
 	tab {
 		title: "Devices"
-		view: DeviceList(Devices())
+		view: DeviceList()
 	}
 }
 
-tableview DeviceList(Device[] devices) {
+tableview DeviceList {
+	Device[] devices = AllDevices()
+	
 	title: "iOS Devices"
 	section {
 		cell Default foreach devices as device {

@@ -7,7 +7,7 @@
 }
 
 + (UITabBarController *) createTabs;
-+ (DeviceListViewController *) createDeviceListWithDevices:(ContentProvider *)devices;
++ (DeviceListViewController *) createDeviceList;
 + (DeviceViewViewController *) createDeviceViewWithDevice:(ContentProvider *)device;
 
 

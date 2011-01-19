@@ -14,7 +14,7 @@ static DemoProviders *sharedProviders = nil;
 	return sharedProviders;
 }
 
-- (ContentProvider *) providerForDevices {
+- (ContentProvider *) providerForAllDevices {
 	UrlContentProvider *provider = [[UrlContentProvider alloc] initWithURL:[NSURL URLWithString:@"http://ralfebert.github.com/iApplause/demo/devices.json"]];
 	[provider addFilter:[CommonFilters filterForJSON]];
 	return [provider autorelease];

@@ -7,6 +7,6 @@
 	ContentProvider *fDevices;
 }
 
-- (id) initWithDevices:(ContentProvider *)devices;
+- (id) init;
 
 @end

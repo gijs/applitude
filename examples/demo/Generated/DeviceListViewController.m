@@ -1,6 +1,7 @@
 #import "DeviceListViewController.h"
 #import "BoxCell.h"
 #import "ContentProviderPlaceholder.h"
+#import "DemoProviders.h"
 #import "DemoViews.h"
 #import "SelectorAction.h"
 #import "SimpleContentProvider.h"
@@ -8,12 +9,12 @@
 
 @implementation DeviceListViewController
 
-- (id) initWithDevices:(ContentProvider *)devices {
+- (id) init {
 	self = [super initWithStyle:UITableViewStylePlain];
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
-		fDevices = [devices retain];
 		
+		fDevices = [[[DemoProviders sharedProviders] providerForAllDevices] retain];
 	}
 	return self;
 }
