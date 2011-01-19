@@ -9,7 +9,7 @@ layout: default
 
 # iApplause
 
-iApplause is a runtime framework accompanied by a DSL for developing data-centric iPhone applications. It is an iPhone-only version of the [Applause](http://code.google.com/p/applause/) Xtext DSL, extended and very much customized to suit my own needs.
+iApplause is a runtime framework accompanied by a DSL for developing data-centric iPhone applications. It is an iPhone-only version of the [Applause](http://code.google.com/p/applause/) Xtext DSL, extended and very much customized to my own needs.
 
 ## Overview
 
@@ -25,46 +25,50 @@ This application can be generated from [`demo.applause`](https://github.com/ralf
 
 	type String mapsTo "NSString"
 
-	entity Device {
-		String name
-		String latest_os
-		String resolution
-		String memory
+	entity Speaker {
+		String speaker
+		String speakerUri
 	}
 
-	contentprovider AllDevices
-		returns Device[]
-		fetches JSON from "http://ralfebert.github.com/iApplause/demo/devices.json"
+	entity Presentation {
+		String title
+		Speaker[] speakers
+	}
+
+	contentprovider AllPresentations
+		returns Presentation[]
+		fetches JSON from "http://cfp.devoxx.com/rest/v1/events/1/presentations"
 		selects ""
 
 	tabview Tabs {
 		tab {
-			title: "Devices"
-			view: DeviceList()
+			title: "Schedule"
+			view: Schedule()
 		}
 	}
 
-	tableview DeviceList {
-		Device[] devices = AllDevices()
+	tableview Schedule {
+		Presentation[] allPresentations = AllPresentations()
 
-		title: "iOS Devices"
+		title: "Schedule"
 		section {
-			cell Default foreach devices as device {
-				text: device.name
+			cell Default foreach allPresentations as presentation {
+				text: presentation.title
 				accessory: Link
-				action: DeviceView(device)
+				action: PresentationDetails(presentation)
 			}
 		}
 	}
 
-	tableview DeviceView(Device device) {
-		title: device.name
+	tableview PresentationDetails(Presentation presentation) {
+		title: presentation.title
 		style: Grouped
+
 		section {
-			title: "Specification"
-			cell Value2 { text:"Latest OS" details:device.latest_os }
-			cell Value2 { text:"Resolution" details:device.resolution }
-			cell Value2 { text:"Memory" details:device.memory }
+			title:"Speakers"
+			cell Default foreach presentation.speakers as speaker {
+				text: speaker.speaker
+			}
 		}
 	}
 
@@ -78,7 +82,7 @@ And there is a code generator which generates iPhone applications from such DSL 
 
 The project currently is very much work in progress and therefore not very well documented; you will find loose ends and corners. You'll only get something out of it if you're seriously into Xtext DSLs and iPhone development with Objective C.
 
-It works great for my own projects and I'm standing on the shoulders of giants here; I would never have taken that road without the Xtext project and the Applause code being open source; both very much spurred my interest in using DSL languages for my day-to-day development work. I'm making my own enhancements open source as well to ease collaboration with other developers on the same road.
+It works great for my own projects and I'm standing on the shoulders of giants here; I would never have taken that road without the Xtext project and the Applause code being open source; both very much spurred my interest in using DSL languages for my day-to-day development work. I'm making my own enhancements open source to ease collaboration with other developers on the same road.
 
 ## Getting started
 
