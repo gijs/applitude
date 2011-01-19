@@ -1,7 +1,7 @@
-#import "HelloWorldAppDelegate.h"
-#import "HelloWorldViews.h"
+#import "DemoAppDelegate.h"
+#import "DemoViews.h"
 
-@implementation HelloWorldAppDelegate
+@implementation DemoAppDelegate
 
 @synthesize window, rootController;
 
@@ -12,7 +12,7 @@
 		[self.window release];
 	}
 
-	self.rootController = [HelloWorldViews createTabs];
+	self.rootController = [DemoViews createTabs];
 	[window makeKeyAndVisible];
 }
 

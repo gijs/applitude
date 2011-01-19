@@ -52,11 +52,12 @@ static «use(providerFactory())» *sharedProviders = nil;
 
 «DEFINE providerMethodImplementation FOR ContentProvider»
 «methodSignature()» {
+«EXPAND constructProvider-»
 	«IF !this.storing-»
-	return [«EXPAND constructProvider-» autorelease];
+	return [provider autorelease];
 	«ELSE-»
 	if (!«this.ivar()») {
-		«this.ivar()» = «EXPAND constructProvider-»;
+		«this.ivar()» = provider;
 	}
 	return «this.ivar()»;
 	«ENDIF-»
@@ -67,7 +68,7 @@ static «use(providerFactory())» *sharedProviders = nil;
 
 «DEFINE constructProvider FOR ContentProvider-»
 «IF this.implementation == null-»
-[SimpleContentProvider alloc] providerWithContent:[«type.class().allocInit()»]«ELSE-»
+	SimpleContentProvider *provider = [SimpleContentProvider alloc] providerWithContent:[«type.class().allocInit()»];«ELSE-»
 «EXPAND constructProvider(this) FOR this.implementation-»
 «ENDIF-»«ENDDEFINE»
 
@@ -79,7 +80,9 @@ static «use(providerFactory())» *sharedProviders = nil;
 
 «DEFINE constructProvider(ContentProvider provider) FOR FetchingContentProviderImplementation-»
 «LET provider.parameter.name != null ? provider.parameter.name : '' AS kvcTarget-»
-[[«use(this.class())» alloc] initWithURL:[NSURL URLWithString:«url.expression(kvcTarget, '')»]]«ENDLET-»«ENDDEFINE»
+	«use(this.class())» *provider = [[«use(this.class())» alloc] initWithURL:[NSURL URLWithString:«url.expression(kvcTarget, '')»]];
+	[provider addFilter:[«use('CommonFilters')» filterFor«this.format.name»]];
+«ENDLET-»«ENDDEFINE»
 
 «DEFINE constructProvider(ContentProvider provider) FOR CustomContentProviderImplementation-»
 «this.class().allocInit()»«ENDDEFINE»

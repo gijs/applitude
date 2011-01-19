@@ -222,7 +222,7 @@ class(ContentProviderImplementation this):
 	Void;
 
 class(FetchingContentProviderImplementation this):
-	newProjectClass("IP" + this.format.name + "ContentProvider");
+	newProjectClass("UrlContentProvider");
 
 class(CustomContentProviderImplementation this):
 	newProjectClass(this.providerClass.name);
@@ -297,14 +297,14 @@ expression(ObjectReference this, String kvcTarget, String kvcPrefix):
 	let keyPath = keyPath(kvcPrefix):
 		keyPath.isEmpty ? 
 			kvcTarget : 
-			'[' + kvcTarget + ' ' + (keyPath.contains('.') ? 'valueForKeyPath' : 'valueForKey') + ':@"' + keyPath.toString('.') + '"]';
+			'[' + kvcTarget + ' ' + ((keyPath.size > 1) ? 'valueForKeyPath' : 'valueForKey') + ':@"' + keyPath.toString('.') + '"]';
 	
 contentProvider(ProviderConstruction this, String kvcTarget, String kvcPrefix):
 	"<!ERROR!" + metaType + ">";
 
 contentProvider(SimpleProviderConstruction this, String kvcTarget, String kvcPrefix):
 	'[' + use('SimpleContentProvider') + ' providerWithContent:' +
-	expression.expression(kvcTarget, kvcPrefix) + ']';
+	expression.expression(kvcTarget, kvcPrefix) + ' name:@""]';
 	 
 contentProvider(ComplexProviderConstruction this, String kvcTarget, String kvcPrefix):
 	'[' + this.application().sharedProviderFactory() + ' providerFor' + provider.name + 
@@ -315,7 +315,7 @@ rowCount(SectionCell this):
 	iterator == null ? 1 : '[[' + iterator.collection.expression('contentProvider', 'content') +' asArray] count]'; 
 	
 methodSignature(ContentProvider p):
-	"- (ContentProvider *) providerFor" + p.name + (
+	'- (' + use('ContentProvider') + ' *) providerFor' + p.name + (
 		p.parameter != null ? ':(id)' + p.parameter.name : '') 
 	;
 	

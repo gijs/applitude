@@ -1,5 +1,5 @@
 
-@interface HelloWorldAppDelegate : NSObject <UIApplicationDelegate> {
+@interface DemoAppDelegate : NSObject <UIApplicationDelegate> {
 	UIWindow *window;
 	UIViewController *rootController;
 }

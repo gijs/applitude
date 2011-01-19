@@ -1,0 +1,46 @@
+application Demo {
+	view:Tabs()
+}
+
+type String mapsTo "NSString"
+
+entity Device {
+	String name
+	String latest_os
+	String resolution
+	String memory
+}
+
+contentprovider Devices
+	returns Device[]
+	fetches JSON from "http://ralfebert.github.com/iApplause/demo/devices.json"
+	selects ""
+
+tabview Tabs {
+	tab {
+		title: "Devices"
+		view: DeviceList(Devices())
+	}
+}
+
+tableview DeviceList(Device[] devices) {
+	title: "iOS Devices"
+	section {
+		cell Default foreach devices as device {
+			text: device.name
+			accessory: Link
+			action: DeviceView(device)
+		}
+	}
+}
+
+tableview DeviceView(Device device) {
+	title: device.name
+	style: Grouped
+	section {
+		title: "Specification"
+		cell Value2 { text:"Latest OS" details:device.latest_os }
+		cell Value2 { text:"Resolution" details:device.resolution }
+		cell Value2 { text:"Memory" details:device.memory }
+	}
+}
