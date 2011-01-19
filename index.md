@@ -111,8 +111,15 @@ You can also clone the project with [Git](http://git-scm.com) by running:
 
 Or get the source code on the [GitHub project page](http://github.com/ralfebert/iApplause)
 
-## License
+## Licenses
 
-Mostly BSD / EPL, see source headers
+[Eclipse Public License v1.0](http://www.eclipse.org/legal/epl-v10.html)
+
+Some runtime components have other licenses:
+
+* ASIHTTPRequest, TouchXML, Reachability, parts of NSDate+Utils: BSD license
+* TouchJSON, GHUnit, TextFieldCell: MIT license
+* TTGlobalNetwork, UIView+Coordinates, parts of URLUtils: Apache License
+* UIImage+Alpha: Other licenses
 
 This document is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a>
