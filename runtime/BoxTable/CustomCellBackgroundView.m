@@ -25,7 +25,7 @@
 	if (aTableView.style == UITableViewStyleGrouped) {
 		CustomCellBackgroundView *roundedView = [[CustomCellBackgroundView alloc] initWithFrame:CGRectZero first:anIndexPath.row==0 last:anIndexPath.row==rowCount-1];
 		roundedView.fillColor = aColor;
-		roundedView.borderColor = [UIColor darkGrayColor];
+		roundedView.borderColor = [UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:0];
 		selectedBackgroundView = roundedView;
 	} else {
 		selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
