@@ -9,7 +9,7 @@ iApplause is a runtime framework accompanied by a DSL for developing data-centri
 
 ## Overview
 
-iApplause provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way. For example, this application loads data from a URL, parses the [JSON document](http://ralfebert.github.com/iApplause/demo/devices.json) and shows it using generated `UITableViewController` classes:
+iApplause provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way. For example, this application loads data from a URL, parses a [JSON document](https://github.com/ralfebert/iApplause/blob/gh-pages/demo/devices.json) and shows it using generated `UITableViewController` classes:
 
 ![iApplause demo application](demo.png)
 
