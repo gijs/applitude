@@ -97,9 +97,7 @@
 	if (!content)
 		return [self wrapCell:[CommonCells activityIndicator]];
 
-	if ([content isKindOfClass:[NSArray class]])
-		return [fController performSelector:fCellFactorySelector withObject:[content objectAtIndex:index]];
-	else {
+	if (fForSection) {
 		// sections are not managed by the TableViewController, so we need to track them for
 		// repeated calls
 		// TODO: do this for cells as well
@@ -109,6 +107,9 @@
 		else
 			return self.section;
 	}
+
+	NSObject *object = [content isKindOfClass:[NSArray class]] ? [content objectAtIndex:index] : content;
+	return [fController performSelector:fCellFactorySelector withObject:object];
 }
 
 - (void) dealloc {

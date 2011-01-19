@@ -2,9 +2,9 @@
 #import "BoxTableViewController.h"
 #import "ContentProvider.h"
 
-@interface DeviceListViewController : BoxTableViewController {
+@interface ScheduleViewController : BoxTableViewController {
 	BindingContext *fBindings;
-	ContentProvider *fDevices;
+	ContentProvider *fAllPresentations;
 }
 
 - (id) init;

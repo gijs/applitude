@@ -6,20 +6,20 @@
 + (UITabBarController *) createTabs {
 	UITabBarController *tabController = [[[UITabBarController alloc] init] autorelease];
 
-	UINavigationController *tab1 = [BrandedUIFactory createUINavigationControllerWithRootViewController:[DemoViews createDeviceList]];
-	tab1.tabBarItem.title = @"Devices";
+	UINavigationController *tab1 = [BrandedUIFactory createUINavigationControllerWithRootViewController:[DemoViews createSchedule]];
+	tab1.tabBarItem.title = @"Schedule";
 
 	tabController.viewControllers = [NSArray arrayWithObjects:tab1, nil];
 
 	return tabController;
 }
 
-+ (DeviceListViewController *) createDeviceList {
-	return [[[DeviceListViewController alloc] init] autorelease];
++ (ScheduleViewController *) createSchedule {
+	return [[[ScheduleViewController alloc] init] autorelease];
 }
 
-+ (DeviceViewViewController *) createDeviceViewWithDevice:(ContentProvider *)device {
-	return [[[DeviceViewViewController alloc] initWithDevice:device] autorelease];
++ (PresentationDetailsViewController *) createPresentationDetailsWithPresentation:(ContentProvider *)presentation {
+	return [[[PresentationDetailsViewController alloc] initWithPresentation:presentation] autorelease];
 }
 
 @end

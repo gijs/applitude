@@ -14,8 +14,8 @@ static DemoProviders *sharedProviders = nil;
 	return sharedProviders;
 }
 
-- (ContentProvider *) providerForAllDevices {
-	UrlContentProvider *provider = [[UrlContentProvider alloc] initWithURL:[NSURL URLWithString:@"http://ralfebert.github.com/iApplause/demo/devices.json"]];
+- (ContentProvider *) providerForAllPresentations {
+	UrlContentProvider *provider = [[UrlContentProvider alloc] initWithURL:[NSURL URLWithString:@"http://cfp.devoxx.com/rest/v1/events/1/presentations"]];
 	[provider addFilter:[CommonFilters filterForJSON]];
 	return [provider autorelease];
 }

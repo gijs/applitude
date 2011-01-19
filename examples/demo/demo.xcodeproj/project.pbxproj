@@ -32,10 +32,6 @@
 		BFA84BE012E39B4300F0BBC2 /* TableBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA84BD712E39B4300F0BBC2 /* TableBuilder.m */; };
 		BFA84BE112E39B4300F0BBC2 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA84BD912E39B4300F0BBC2 /* TextFieldCell.m */; };
 		BFA84BFA12E39B6800F0BBC2 /* BrandedUIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA84BF512E39B6800F0BBC2 /* BrandedUIFactory.m */; };
-		BFF1E3F512E676CA00CB5B5B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E3EE12E676CA00CB5B5B /* DemoAppDelegate.m */; };
-		BFF1E3F612E676CA00CB5B5B /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E3F012E676CA00CB5B5B /* DemoProviders.m */; };
-		BFF1E3F712E676CA00CB5B5B /* DemoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E3F212E676CA00CB5B5B /* DemoViews.m */; };
-		BFF1E3F812E676CA00CB5B5B /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E3F412E676CA00CB5B5B /* DeviceListViewController.m */; };
 		BFF1E42512E6771B00CB5B5B /* BaseContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E3FE12E6771B00CB5B5B /* BaseContentProvider.m */; };
 		BFF1E42612E6771B00CB5B5B /* CommonFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E40012E6771B00CB5B5B /* CommonFilters.m */; };
 		BFF1E42712E6771B00CB5B5B /* ContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E40312E6771B00CB5B5B /* ContentProvider.m */; };
@@ -70,7 +66,11 @@
 		BFF1E4E412E67B4700CB5B5B /* URLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E4E312E67B4700CB5B5B /* URLUtils.m */; };
 		BFF1E4E912E67B5700CB5B5B /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E4E812E67B5700CB5B5B /* ActivityCell.m */; };
 		BFF1E62712E67BB600CB5B5B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF1E62612E67BB600CB5B5B /* MobileCoreServices.framework */; };
-		BFF1E65C12E67D0700CB5B5B /* DeviceViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E65B12E67D0700CB5B5B /* DeviceViewViewController.m */; };
+		BFF1E7F912E71C4300CB5B5B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E7F012E71C4300CB5B5B /* DemoAppDelegate.m */; };
+		BFF1E7FA12E71C4300CB5B5B /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E7F212E71C4300CB5B5B /* DemoProviders.m */; };
+		BFF1E7FB12E71C4300CB5B5B /* DemoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E7F412E71C4300CB5B5B /* DemoViews.m */; };
+		BFF1E7FD12E71C4300CB5B5B /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E7F812E71C4300CB5B5B /* ScheduleViewController.m */; };
+		BFF1E85012E7201900CB5B5B /* PresentationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1E84F12E7201900CB5B5B /* PresentationDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,14 +124,6 @@
 		BFA84BE612E39B4F00F0BBC2 /* LogUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogUtils.h; sourceTree = "<group>"; };
 		BFA84BF412E39B6800F0BBC2 /* BrandedUIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandedUIFactory.h; sourceTree = "<group>"; };
 		BFA84BF512E39B6800F0BBC2 /* BrandedUIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandedUIFactory.m; sourceTree = "<group>"; };
-		BFF1E3ED12E676CA00CB5B5B /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
-		BFF1E3EE12E676CA00CB5B5B /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
-		BFF1E3EF12E676CA00CB5B5B /* DemoProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProviders.h; sourceTree = "<group>"; };
-		BFF1E3F012E676CA00CB5B5B /* DemoProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoProviders.m; sourceTree = "<group>"; };
-		BFF1E3F112E676CA00CB5B5B /* DemoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViews.h; sourceTree = "<group>"; };
-		BFF1E3F212E676CA00CB5B5B /* DemoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViews.m; sourceTree = "<group>"; };
-		BFF1E3F312E676CA00CB5B5B /* DeviceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListViewController.h; sourceTree = "<group>"; };
-		BFF1E3F412E676CA00CB5B5B /* DeviceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListViewController.m; sourceTree = "<group>"; };
 		BFF1E3FD12E6771B00CB5B5B /* BaseContentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseContentProvider.h; sourceTree = "<group>"; };
 		BFF1E3FE12E6771B00CB5B5B /* BaseContentProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseContentProvider.m; sourceTree = "<group>"; };
 		BFF1E3FF12E6771B00CB5B5B /* CommonFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFilters.h; sourceTree = "<group>"; };
@@ -207,8 +199,16 @@
 		BFF1E4E712E67B5700CB5B5B /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
 		BFF1E4E812E67B5700CB5B5B /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
 		BFF1E62612E67BB600CB5B5B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		BFF1E65A12E67D0700CB5B5B /* DeviceViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewViewController.h; sourceTree = "<group>"; };
-		BFF1E65B12E67D0700CB5B5B /* DeviceViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewViewController.m; sourceTree = "<group>"; };
+		BFF1E7EF12E71C4300CB5B5B /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
+		BFF1E7F012E71C4300CB5B5B /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
+		BFF1E7F112E71C4300CB5B5B /* DemoProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProviders.h; sourceTree = "<group>"; };
+		BFF1E7F212E71C4300CB5B5B /* DemoProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoProviders.m; sourceTree = "<group>"; };
+		BFF1E7F312E71C4300CB5B5B /* DemoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViews.h; sourceTree = "<group>"; };
+		BFF1E7F412E71C4300CB5B5B /* DemoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViews.m; sourceTree = "<group>"; };
+		BFF1E7F712E71C4300CB5B5B /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		BFF1E7F812E71C4300CB5B5B /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		BFF1E84E12E7201900CB5B5B /* PresentationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationDetailsViewController.h; sourceTree = "<group>"; };
+		BFF1E84F12E7201900CB5B5B /* PresentationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +241,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				BFF1E3EC12E676CA00CB5B5B /* Generated */,
+				BFF1E7EE12E71C4300CB5B5B /* Generated */,
 				BF7184091286E00D0087E86D /* runtime */,
 				BF325E651286C9160027A83A /* Images */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -373,23 +373,6 @@
 				BFA84BF512E39B6800F0BBC2 /* BrandedUIFactory.m */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		BFF1E3EC12E676CA00CB5B5B /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				BFF1E3ED12E676CA00CB5B5B /* DemoAppDelegate.h */,
-				BFF1E3EE12E676CA00CB5B5B /* DemoAppDelegate.m */,
-				BFF1E3EF12E676CA00CB5B5B /* DemoProviders.h */,
-				BFF1E3F012E676CA00CB5B5B /* DemoProviders.m */,
-				BFF1E3F112E676CA00CB5B5B /* DemoViews.h */,
-				BFF1E3F212E676CA00CB5B5B /* DemoViews.m */,
-				BFF1E3F312E676CA00CB5B5B /* DeviceListViewController.h */,
-				BFF1E3F412E676CA00CB5B5B /* DeviceListViewController.m */,
-				BFF1E65A12E67D0700CB5B5B /* DeviceViewViewController.h */,
-				BFF1E65B12E67D0700CB5B5B /* DeviceViewViewController.m */,
-			);
-			path = Generated;
 			sourceTree = "<group>";
 		};
 		BFF1E3FC12E6771B00CB5B5B /* Applause */ = {
@@ -525,6 +508,23 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		BFF1E7EE12E71C4300CB5B5B /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				BFF1E7EF12E71C4300CB5B5B /* DemoAppDelegate.h */,
+				BFF1E7F012E71C4300CB5B5B /* DemoAppDelegate.m */,
+				BFF1E7F112E71C4300CB5B5B /* DemoProviders.h */,
+				BFF1E7F212E71C4300CB5B5B /* DemoProviders.m */,
+				BFF1E7F312E71C4300CB5B5B /* DemoViews.h */,
+				BFF1E7F412E71C4300CB5B5B /* DemoViews.m */,
+				BFF1E84E12E7201900CB5B5B /* PresentationDetailsViewController.h */,
+				BFF1E84F12E7201900CB5B5B /* PresentationDetailsViewController.m */,
+				BFF1E7F712E71C4300CB5B5B /* ScheduleViewController.h */,
+				BFF1E7F812E71C4300CB5B5B /* ScheduleViewController.m */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -602,10 +602,6 @@
 				BFA84BE012E39B4300F0BBC2 /* TableBuilder.m in Sources */,
 				BFA84BE112E39B4300F0BBC2 /* TextFieldCell.m in Sources */,
 				BFA84BFA12E39B6800F0BBC2 /* BrandedUIFactory.m in Sources */,
-				BFF1E3F512E676CA00CB5B5B /* DemoAppDelegate.m in Sources */,
-				BFF1E3F612E676CA00CB5B5B /* DemoProviders.m in Sources */,
-				BFF1E3F712E676CA00CB5B5B /* DemoViews.m in Sources */,
-				BFF1E3F812E676CA00CB5B5B /* DeviceListViewController.m in Sources */,
 				BFF1E42512E6771B00CB5B5B /* BaseContentProvider.m in Sources */,
 				BFF1E42612E6771B00CB5B5B /* CommonFilters.m in Sources */,
 				BFF1E42712E6771B00CB5B5B /* ContentProvider.m in Sources */,
@@ -639,7 +635,11 @@
 				BFF1E4C312E67B1C00CB5B5B /* UIView+Coordinates.m in Sources */,
 				BFF1E4E412E67B4700CB5B5B /* URLUtils.m in Sources */,
 				BFF1E4E912E67B5700CB5B5B /* ActivityCell.m in Sources */,
-				BFF1E65C12E67D0700CB5B5B /* DeviceViewViewController.m in Sources */,
+				BFF1E7F912E71C4300CB5B5B /* DemoAppDelegate.m in Sources */,
+				BFF1E7FA12E71C4300CB5B5B /* DemoProviders.m in Sources */,
+				BFF1E7FB12E71C4300CB5B5B /* DemoViews.m in Sources */,
+				BFF1E7FD12E71C4300CB5B5B /* ScheduleViewController.m in Sources */,
+				BFF1E85012E7201900CB5B5B /* PresentationDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,6 @@
 
 + (DemoProviders *) sharedProviders;
 
-- (ContentProvider *) providerForAllDevices;
+- (ContentProvider *) providerForAllPresentations;
 
 @end
