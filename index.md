@@ -5,7 +5,7 @@ layout: default
 
 # iApplause
 
-iApplause is an iPhone-centric version of the [Applause](http://code.google.com/p/applause/) Xtext DSL for mobile development, extended and very much tailored to suit my own needs.
+iApplause is a runtime framework accompanied by a DSL for developing data-centric iPhone applications. It is an iPhone-only version of the [Applause](http://code.google.com/p/applause/) Xtext DSL, extended and very much customized to suit my own needs.
 
 ## Introduction
 
@@ -28,7 +28,9 @@ iApplause provides a domain specific language to describe iPhone applications, e
 		}
 	}
 
-iApplause is developed using the marvelous [Xtext language development framework](http://www.eclipse.org/Xtext/), so it comes with an Eclipse IDE plug-in to edit these documents. And there is a code generator which generates iPhone applications from such a DSL document.
+iApplause is developed using the marvelous [Xtext language development framework](http://www.eclipse.org/Xtext/), so it comes with an Eclipse IDE plug-in to edit such documents.
+
+And there is a code generator which generates iPhone applications from such DSL documents. The generated code is kept small and tidied up by making use of the iApplause runtime components wherever possible.
 
 ## How to get started
 
