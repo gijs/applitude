@@ -3,6 +3,10 @@ title: iApplause
 layout: default
 ---
 
+[Source](https://github.com/ralfebert/iApplause/) |
+[Issues](http://ralfebert.lighthouseapp.com/projects/67904-iapplause/tickets) |
+[Downloads](#downloads)
+
 # iApplause
 
 iApplause is a runtime framework accompanied by a DSL for developing data-centric iPhone applications. It is an iPhone-only version of the [Applause](http://code.google.com/p/applause/) Xtext DSL, extended and very much customized to suit my own needs.
@@ -28,7 +32,7 @@ This application can be generated from [`demo.applause`](https://github.com/ralf
 		String memory
 	}
 
-	contentprovider Devices
+	contentprovider AllDevices
 		returns Device[]
 		fetches JSON from "http://ralfebert.github.com/iApplause/demo/devices.json"
 		selects ""
@@ -36,11 +40,13 @@ This application can be generated from [`demo.applause`](https://github.com/ralf
 	tabview Tabs {
 		tab {
 			title: "Devices"
-			view: DeviceList(Devices())
+			view: DeviceList()
 		}
 	}
 
-	tableview DeviceList(Device[] devices) {
+	tableview DeviceList {
+		Device[] devices = AllDevices()
+
 		title: "iOS Devices"
 		section {
 			cell Default foreach devices as device {
@@ -82,7 +88,9 @@ I wrote a tutorial for the original Applause project which shows [how to install
 
 There also is a working example project at [`examples/demo/`](https://github.com/ralfebert/iApplause/tree/master/examples/demo).
 
-## Download
+<a name="download"/>
+
+## Downloads
 
 You can download the project in either:
 
