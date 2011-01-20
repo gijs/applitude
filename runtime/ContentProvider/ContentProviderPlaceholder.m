@@ -98,6 +98,10 @@
 		return [self wrapCell:[CommonCells activityIndicator]];
 
 	if (fForSection) {
+		// temporary workaround, sections for arrays are not cached at the moment
+		if ([content isKindOfClass:[NSArray class]]) {
+			return [fController performSelector:fCellFactorySelector withObject:[content objectAtIndex:index]];
+		}
 		// sections are not managed by the TableViewController, so we need to track them for
 		// repeated calls
 		// TODO: do this for cells as well
