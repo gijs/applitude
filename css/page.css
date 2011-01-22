@@ -16,6 +16,11 @@ pre {
 	color:#444444;
 }
 
+code {
+  font-family:Georgia;
+	font-style:italic;
+}
+
 h2 {
 	margin-top:2em;
 }

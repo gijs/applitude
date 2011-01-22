@@ -15,7 +15,7 @@ iApplause is a runtime framework accompanied by a DSL for developing data-centri
 
 iApplause provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way. For example, this application loads data from a URL, parses a [JSON document](https://github.com/ralfebert/iApplause/blob/gh-pages/demo/devices.json) and shows it using generated `UITableViewController` classes:
 
-![iApplause demo application](demo.png)
+![Screenshots iApplause demo application](demo.png)
 
 This application can be generated from [`demo.applause`](https://github.com/ralfebert/iApplause/blob/master/examples/demo/demo.applause):
 
@@ -82,15 +82,28 @@ And there is a code generator which generates iPhone applications from such DSL 
 
 The project currently is very much work in progress and therefore not very well documented; you will find loose ends and corners. You'll only get something out of it if you're seriously into Xtext DSLs and iPhone development with Objective C.
 
-It works great for my own projects and I'm standing on the shoulders of giants here; I would never have taken that road without the Xtext project and the Applause code being open source; both very much spurred my interest in using DSL languages for my day-to-day development work. I'm making my own enhancements open source to ease collaboration with other developers on the same road.
-
 ## Getting started
 
-I recommend learning about Xtext first, for example by reading the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
+* At first, learn about building DSLs with Xtext, for example by following the tutorial in the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
+* I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for iApplause.
+* Import the example projects in Eclipse, inspect the `*.applause` documents, run the projects from Xcode, inspect the generated code.
 
-I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for iApplause.
+## Example projects
 
-There also is a working example project at [`examples/demo/`](https://github.com/ralfebert/iApplause/tree/master/examples/demo).
+### Demo
+
+[`examples/demo/`](https://github.com/ralfebert/iApplause/tree/master/examples/demo) is a working example project demonstrating how to fetch JSON content via HTTP and how to show it using table views:
+
+![Screenshots iApplause demo application](demo.png)
+
+### TestApp, Running unit tests
+
+[`examples/testapp/`](https://github.com/ralfebert/iApplause/tree/master/examples/testapp) is a reference application showing the language features (target testapp). It also contains a [GHUnit](https://github.com/gabriel/gh-unit/) test suite (target Tests):
+
+![testapp Screenshots](testapp.png)
+
+
+
 
 <a name="download"/>
 
