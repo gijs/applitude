@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: iApplause Tests
+Bundle-SymbolicName: org.applause.applausedsl.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit;bundle-version="4.8.1",
+ org.applause.applausedsl.generator;bundle-version="1.0.0",
+ org.applause.applausedsl;bundle-version="1.0.0",
+ org.eclipse.xtext.junit;bundle-version="1.0.1"

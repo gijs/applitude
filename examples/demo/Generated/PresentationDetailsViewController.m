@@ -2,6 +2,7 @@
 #import "ActivityCell.h"
 #import "BoxCell.h"
 #import "CommonCells.h"
+#import "ContentProvider+Nested.h"
 #import "ContentProviderPlaceholder.h"
 #import "SelectorAction.h"
 #import "TableBuilder.h"
@@ -26,7 +27,8 @@
 
 	[table section:@"Speakers"];
 	{
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:fPresentation mapping:[SelectorAction actionWithObject:self selector:@selector(speakerCell:)]];
+		ContentProvider *content = [ContentProvider nestedContentProviderWithContentProvider:fPresentation keyPath:@"speakers"];
+		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(speakerCell:)]];
 		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
 		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
 		[table cell:cell];

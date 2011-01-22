@@ -9,6 +9,9 @@ extension templates::MetamodelExtensions;
 String use(String name):
 	use(newProjectClass(name));
 
+String silentUse(String name):
+	use(newProjectClass(name)) != null ? "" : "";
+
 String use(ProjectClass projectClass):
 	JAVA templates.Extensions.use(org.applause.applausedsl.applauseDsl.ProjectClass);
 
@@ -161,6 +164,34 @@ ivar(Parameter param):
 
 
 
+// providerExpression returns the obj c code to resolve an expression
+// to a content provider that contains the expression result. This is work
+// in progress, currently only straightforward cases are supported.
+// See http://ralfebert.github.com/iApplause/#model_expressions
+
+providerExpression(CollectionExpression expr):
+	throwError("providerExpression not supported for " + expr);
+
+providerExpression(ObjectReference expr):
+	expr.tail == null
+		? expr.object.providerExpression()
+		: silentUse("ContentProvider+Nested") + "[ContentProvider nestedContentProviderWithContentProvider:" + expr.object.providerExpression() +
+		                  " keyPath:@\"" + expr.tail.keyPath().toString(".") + "\"]";
+
+providerExpression(VariableDeclaration declaration):
+	throwError("providerExpression not supported for " + declaration);
+
+providerExpression(Parameter parameter):
+	parameter.ivar();
+
+
+
+
+
+// going straight for the root parameter was a quick hack and is almost
+// always wrong -> this is deprecated, will be removed, extensions
+// that truly resolve the expression, like expression or providerExpression
+// should be used instead
 
 Parameter rootParameter(CollectionExpression expr):
 	throwError("abstract " + expr);

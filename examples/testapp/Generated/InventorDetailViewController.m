@@ -2,6 +2,7 @@
 #import "ActivityCell.h"
 #import "BoxCell.h"
 #import "CommonCells.h"
+#import "ContentProvider+Nested.h"
 #import "ContentProviderPlaceholder.h"
 #import "SelectorAction.h"
 #import "TableBuilder.h"
@@ -26,7 +27,8 @@
 
 	[table section];
 	{
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:fInventor mapping:[SelectorAction actionWithObject:self selector:@selector(inventionCell:)]];
+		ContentProvider *content = [ContentProvider nestedContentProviderWithContentProvider:fInventor keyPath:@"inventions"];
+		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventionCell:)]];
 		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
 		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
 		[table cell:cell];

@@ -29,7 +29,8 @@
 
 	[table section];
 	{
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:fAllPresentations mapping:[SelectorAction actionWithObject:self selector:@selector(presentationCell:)]];
+		ContentProvider *content = fAllPresentations;
+		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(presentationCell:)]];
 		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
 		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
 		[table cell:cell];

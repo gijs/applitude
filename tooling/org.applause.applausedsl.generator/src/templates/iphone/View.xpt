@@ -54,7 +54,8 @@
 «FOREACH section.cells AS cell ITERATOR i-»
 	{
 «IF cell.iterator!=null-»
-		ContentProviderPlaceholder *cell = [[«use('ContentProviderPlaceholder')» alloc] initWithContentProvider:«cell.iterator.rootParameter().ivar()» mapping:[SelectorAction actionWithObject:self selector:@selector(«cell.iterator.name»Cell:)]];
+		ContentProvider *content = «cell.iterator.collection.providerExpression()»;
+		ContentProviderPlaceholder *cell = [[«use('ContentProviderPlaceholder')» alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(«cell.iterator.name»Cell:)]];
 		cell.loadingCurtainItems = [NSArray arrayWithObject:[«use('ActivityCell')» activityCell]];
 		cell.errorMapping = [«use('SelectorAction')» actionWithObject:[«use('CommonCells')» class] selector:@selector(textCellWithError:)];
 «ELSE-»

@@ -60,7 +60,8 @@
 
 	[table section:@"cell foreach"];
 	{
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:fInventors mapping:[SelectorAction actionWithObject:self selector:@selector(inventorCell:)]];
+		ContentProvider *content = fInventors;
+		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventorCell:)]];
 		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
 		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
 		[table cell:cell];
@@ -69,7 +70,8 @@
 
 	[table section:@"error handling"];
 	{
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:fErrorInventors mapping:[SelectorAction actionWithObject:self selector:@selector(inventor2Cell:)]];
+		ContentProvider *content = fErrorInventors;
+		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventor2Cell:)]];
 		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
 		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
 		[table cell:cell];

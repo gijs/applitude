@@ -1,0 +1,28 @@
+// © 2011 Ralf Ebert
+// Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
+
+application ExtensionsTest {
+	view:Table()
+}
+
+type String mapsTo "NSString"
+
+entity Inventor {
+	String name
+	Inventor inspiredBy
+	Inventor[] knows
+}
+
+contentprovider AllInventors returns Inventor[] fetches JSON from "..." selects ""
+contentprovider OneInventor returns Inventor fetches JSON from "..." selects ""
+
+tableview Table {
+	Inventor[] inventors = AllInventors()
+	Inventor[] inventor = OneInventor()
+	
+	section {
+		cell Default foreach inventors as i1 { text: i1 }	
+		cell Default foreach inventor.knows as i2 { text: i2 }	
+		cell Default foreach inventor.inspiredBy.knows as i3 { text: i3 }	
+	}
+}
