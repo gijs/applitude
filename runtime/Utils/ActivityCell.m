@@ -18,6 +18,10 @@
     return self;
 }
 
++ (ActivityCell *) activityCell {
+	return [[[ActivityCell alloc] init] autorelease];
+}
+
 - (void) layoutSubviews {
 	[super layoutSubviews];
 	[fIndicator centerTo:self.frame size:fIndicator.frame.size];

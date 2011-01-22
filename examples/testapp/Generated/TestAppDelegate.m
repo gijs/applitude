@@ -13,7 +13,7 @@
 		[self.window release];
 	}
 	[BrandedUIFactory brandApplication:application];
-	self.rootController = [TestViews createTables];
+	self.rootController = [TestViews createTabs];
 	[window makeKeyAndVisible];
 }
 

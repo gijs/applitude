@@ -7,4 +7,6 @@
 	UIActivityIndicatorView *fIndicator;
 }
 
++ (ActivityCell *) activityCell;
+
 @end

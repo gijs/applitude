@@ -1,5 +1,7 @@
 #import "ScheduleViewController.h"
+#import "ActivityCell.h"
 #import "BoxCell.h"
+#import "CommonCells.h"
 #import "ContentProviderPlaceholder.h"
 #import "DemoProviders.h"
 #import "DemoViews.h"
@@ -27,7 +29,9 @@
 
 	[table section];
 	{
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithController:self cellFactorySelector:@selector(presentationCell:) contentProvider:fAllPresentations];
+		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:fAllPresentations mapping:[SelectorAction actionWithObject:self selector:@selector(presentationCell:)]];
+		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
+		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
 		[table cell:cell];
 		[cell release];
 	}

@@ -1,4 +1,4 @@
-#import "PresentationDetailsViewController.h"
+#import "InventorDetailViewController.h"
 #import "ActivityCell.h"
 #import "BoxCell.h"
 #import "CommonCells.h"
@@ -6,27 +6,27 @@
 #import "SelectorAction.h"
 #import "TableBuilder.h"
 
-@implementation PresentationDetailsViewController
+@implementation InventorDetailViewController
 
-- (id) initWithPresentation:(ContentProvider *)presentation {
+- (id) initWithInventor:(ContentProvider *)inventor {
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
-		fPresentation = [presentation retain];
+		fInventor = [inventor retain];
 		
 	}
 	return self;
 }
 
 - (void) update {
-	self.title = [fPresentation valueForKeyPath:@"content.title"];
-	[fPresentation request];
+	self.title = [fInventor valueForKeyPath:@"content.name"];
+	[fInventor request];
 
 	TableBuilder *table = [TableBuilder builder];
 
-	[table section:@"Speakers"];
+	[table section];
 	{
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:fPresentation mapping:[SelectorAction actionWithObject:self selector:@selector(speakerCell:)]];
+		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:fInventor mapping:[SelectorAction actionWithObject:self selector:@selector(inventionCell:)]];
 		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
 		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
 		[table cell:cell];
@@ -35,16 +35,16 @@
 	[self setSections:table.sections];
 }
 
-- (UITableViewCell *) speakerCell:(NSDictionary *)speaker {
+- (UITableViewCell *) inventionCell:(NSDictionary *)invention {
 	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-	cell.textLabel.text = [speaker valueForKey:@"speaker"];
-	cell.data = speaker;
+	cell.textLabel.text = [invention valueForKey:@"name"];
+	cell.data = invention;
 	return [cell autorelease];
 }
 
 - (void) dealloc {
 	[fBindings release];
-	[fPresentation release];
+	[fInventor release];
 	[super dealloc];
 }
 

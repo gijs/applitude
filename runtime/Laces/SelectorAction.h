@@ -6,13 +6,13 @@
 #import "Action.h"
 
 @interface SelectorAction : NSObject<Action> {
-	NSObject *fObject;
+	id fObject;
 	SEL fSelector;
 }
 
 @property (nonatomic, readonly) NSObject *object;
 
-+ (id) actionWithObject:(NSObject *) object selector:(SEL) selector;
-- (id) performWithObject:(NSObject *) object;
++ (id) actionWithObject:(id) object selector:(SEL) selector;
+- (id) performWithObject:(id) object;
 
 @end

@@ -9,7 +9,7 @@
 @implementation CommonCells
 
 + (UITableViewCell *) activityIndicator {
-	return [[[ActivityCell alloc] init] autorelease];
+	return [ActivityCell activityCell];
 }
 
 + (UITableViewCell *) textCellWithString:(NSString *)error {

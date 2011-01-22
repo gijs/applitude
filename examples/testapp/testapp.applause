@@ -2,16 +2,68 @@
 // Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
 
 application Test {
-	view:Tables()
+	view:Tabs()
 }
 
+tabview Tabs {
+	tab {
+		title: "Tables"
+		view: Tables()
+	}
+}
+
+type String mapsTo "NSString"
+
+entity Inventor {
+	String name
+	Invention[] inventions
+}
+
+entity Invention {
+	String name
+}
+
+contentprovider AllInventors returns Inventor[] fetches JSON from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
+contentprovider AllErrorneousInventors returns Inventor[] fetches JSON from "http://localhost/none.json" selects ""
+
 tableview Tables {
+	Inventor[] inventors = AllInventors()
+	Inventor[] errorInventors = AllErrorneousInventors()
+	
 	title: "Tables"
+	style: Grouped
 	section {
-		title: "Section"
+		title: "Cell styles"
 		cell Default { text: "Style Default" }
 		cell Subtitle { text: "Style" details: "Subtitle" }
 		cell Value1 { text: "Style" details: "Value1" }
 		cell Value2 { text: "Style" details: "Value2" }
+	}
+	
+	section {
+		title: "cell foreach"
+		cell Default foreach inventors as inventor {
+			text: inventor.name
+			accessory: Link
+			action: InventorDetail(inventor)
+		}	
+	}
+
+	section {
+		title: "error handling"
+		cell Default foreach errorInventors as inventor2 {
+			text: inventor2.name
+		}
+	}
+
+}
+
+tableview InventorDetail(Inventor inventor) {
+	title: inventor.name
+	style: Grouped
+	section {
+		cell Default foreach inventor.inventions as invention {
+			text: invention.name
+		}
 	}
 }

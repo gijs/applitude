@@ -7,7 +7,7 @@
 
 @synthesize object = fObject;
 
-- (id) initWithObject:(NSObject *) object selector:(SEL) selector {
+- (id) initWithObject:(id) object selector:(SEL) selector {
 	self = [super init];
 	if (self != nil) {
 		// referred object is not retained to break cycles
@@ -21,11 +21,11 @@
 	[super dealloc];
 }
 
-- (id) performWithObject:(NSObject *) object {
+- (id) performWithObject:(id) object {
 	return [fObject performSelector:fSelector withObject:object];
 }
 
-+ (id) actionWithObject:(NSObject *) object selector:(SEL) selector {
++ (id) actionWithObject:(id) object selector:(SEL) selector {
 	return [[[SelectorAction alloc] initWithObject:object selector:selector] autorelease];
 }
 
