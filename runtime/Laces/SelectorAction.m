@@ -5,6 +5,8 @@
 
 @implementation SelectorAction
 
+@synthesize object = fObject;
+
 - (id) initWithObject:(NSObject *) object selector:(SEL) selector {
 	self = [super init];
 	if (self != nil) {
@@ -19,8 +21,8 @@
 	[super dealloc];
 }
 
-- (void) performWithObject:(NSObject *) object {
-	[fObject performSelector:fSelector withObject:object];
+- (id) performWithObject:(NSObject *) object {
+	return [fObject performSelector:fSelector withObject:object];
 }
 
 + (id) actionWithObject:(NSObject *) object selector:(SEL) selector {

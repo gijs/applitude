@@ -9,119 +9,98 @@
 #import "StaticSection.h"
 #import "BrandedUIFactory.h"
 
-@interface ContentProviderPlaceholder ()
-@property (nonatomic, retain) id section;
-@end
-
 @implementation ContentProviderPlaceholder
 
-@synthesize activityView = fActivityView, section = fSection;
+@synthesize loadingCurtainItems = fLoadingCurtainItems, loadingView = fLoadingView,
+	errorMapping = fErrorMapping;
 
-- (id) initWithDelegate:(id)delegate factorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
+- (id) initWithContentProvider:(ContentProvider *)contentProvider mapping:(SelectorAction *)mapping {
 	self = [super init];
 	if (self != nil) {
-		fDelegate = delegate; // weak
-		fFactorySelector = selector;
+		fMapping = [mapping retain];
 		fContentProvider = [contentProvider retain];
 		[fContentProvider addObserver:self];
 		[fContentProvider request];
+		self.loadingCurtainItems = [NSArray array];
 	}
 	return self;
 }
 
-- (id) initWithDelegate:(id)delegate cellFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
-	return [self initWithDelegate:delegate factorySelector:selector contentProvider:contentProvider];
-}
-
-- (id) initWithDelegate:(id)delegate sectionFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
-	[self initWithDelegate:delegate factorySelector:selector contentProvider:contentProvider];
-	fForSection = YES;
-	return self;
-}
-
-- (void) updateActivityView {
-	if (fActivityView) {
-		fActivityView.hidden = !(fContentProvider.content == nil && fContentProvider.error == nil);
+- (void) updateLoadingView {
+	if (fLoadingView) {
+		fLoadingView.hidden = !(fContentProvider.content == nil && fContentProvider.error == nil);
 	}
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	[self updateActivityView];
-	self.section = nil;
-	if ([fDelegate isKindOfClass:[UITableViewController class]]) {
-		[((UITableViewController *)fDelegate).tableView reloadData];
-	}
-}
-
-- (void) initializeSections {
-	if (fForSection && self.section == nil) {
-		self.section = [fDelegate performSelector:fFactorySelector withObject:fContentProvider.content];
+	[self updateLoadingView];
+	[fItemStore removeAllObjects];
+	if ([fMapping.object isKindOfClass:[UITableViewController class]]) {
+		[((UITableViewController *)fMapping.object).tableView reloadData];
 	}
 }
 
 - (int) count {
-	[self updateActivityView];
+	[self updateLoadingView];
 	id error = fContentProvider.error;
-	id content = fContentProvider.content;
 	if (error != nil)
-		return 1;
+		return fErrorMapping ? 1 : 0;
+	id content = fContentProvider.content;
 	if (content == nil)
-		return (fActivityView == nil) ? 1 : 0;
+		return [fLoadingCurtainItems count];
 	if ([content isKindOfClass:[NSArray class]])
 		return [content count];
-	if (fForSection) {
-		[self initializeSections];
-		if ([fSection isKindOfClass:[NSArray class]]) {
-			return [fSection count];
-		}
-	}
 	return 1;
-}
-
-- (id) wrapCell:(UITableViewCell *)cell {
-	if (fForSection) {
-		StaticSection *section = [StaticSection section];
-		[section add:cell];
-		return section;
-	} else {
-		return cell;
-	}
 }
 
 - (id) objectAtIndex:(int) index {
 	id error = fContentProvider.error;
 	if (error) {
-		return [self wrapCell:[CommonCells textCellWithError:Branding_Error(error)]];
+		return [fErrorMapping performWithObject:error];
 	}
 
 	id content = fContentProvider.content;
 
 	if (!content)
-		return [self wrapCell:[CommonCells activityIndicator]];
+		return [fLoadingCurtainItems objectAtIndex:index];
 
-	if (fForSection) {
-		// temporary workaround, sections for arrays are not cached at the moment
-		if ([content isKindOfClass:[NSArray class]]) {
-			return [fDelegate performSelector:fFactorySelector withObject:[content objectAtIndex:index]];
-		}
-		// sections are not managed by the TableViewController, so we need to track them for
-		// repeated calls
-		// TODO: do this for cells as well
-		[self initializeSections];
-		if ([self.section isKindOfClass:[NSArray class]])
-			return [self.section objectAtIndex:index];
-		else
-			return self.section;
+	NSNumber *key = [NSNumber numberWithInt:index];
+	id result = nil;
+
+	if (fItemStore) {
+		result = [fItemStore objectForKey:key];
+		if (result)
+			return result;
 	}
 
-	NSObject *object = [content isKindOfClass:[NSArray class]] ? [content objectAtIndex:index] : content;
-	return [fDelegate performSelector:fFactorySelector withObject:object];
+	content = [content isKindOfClass:[NSArray class]] ? [content objectAtIndex:index] : content;
+	result = [fMapping performWithObject:content];
+
+	if (fItemStore)
+		[fItemStore setObject:result forKey:key];
+
+	return result;
+}
+
+- (BOOL) storeItems {
+	return fItemStore != nil;
+}
+
+- (void) setStoreItems:(BOOL) store {
+	if (store && fItemStore == nil) {
+		fItemStore = [[NSMutableDictionary alloc] init];
+	} else {
+		[fItemStore release];
+		fItemStore = nil;
+	}
 }
 
 - (void) dealloc {
-	self.activityView = nil;
-	self.section = nil;
 	[fContentProvider removeObserver:self];
+	[fMapping release];
+	self.loadingView = nil;
+	self.loadingCurtainItems = nil;
+	[fItemStore release];
 	[fContentProvider release];
 	[super dealloc];
 }

@@ -10,7 +10,9 @@
 	SEL fSelector;
 }
 
+@property (nonatomic, readonly) NSObject *object;
+
 + (id) actionWithObject:(NSObject *) object selector:(SEL) selector;
-- (void) performWithObject:(NSObject *) object;
+- (id) performWithObject:(NSObject *) object;
 
 @end
