@@ -4,7 +4,6 @@
 #import <UIKit/UIKit.h>
 
 #import "ContentProvider.h"
-#import "UrlContentProvider.h"
 
 // Protected methods/properties only to be used by content provider implementions are added
 // by these categories. This header file should only be imported by content provider implementations.
@@ -35,12 +34,5 @@
 
 - (void) load;
 - (void) loadIfRequirementsAvailable;
-
-@end
-
-@interface UrlContentProvider (Protected)
-
-- (void) handleData:(NSData*)data;
-- (ASIHTTPRequest *) configureRequest;
 
 @end
