@@ -124,6 +124,15 @@ You can also clone the project with [Git](http://git-scm.com) by running:
 
 Or get the source code on the [GitHub project page](http://github.com/ralfebert/iApplause)
 
+
+## Appendix
+
+### Expression Model Objects
+
+<a name="model_expressions"/>
+
+![Expression Model Objects](reference_expressions.png)
+
 ## Licenses
 
 [Eclipse Public License v1.0](http://www.eclipse.org/legal/epl-v10.html)
