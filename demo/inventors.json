@@ -1,0 +1,23 @@
+[
+	{
+		"name" : "Thomas Edison",
+		"inventions" : [
+			{ "name" : "Light bulb" },
+			{ "name" : "Motion picture" },
+			{ "name" : "Phonograph" }
+		]
+	},
+	{
+		"name" : "Alexander Graham Bell",
+		"inventions" : [
+			{ "name" : "Telephone" }
+		]
+	},
+	{
+		"name" : "Nikola Tesla",
+		"inventions" : [
+			{ "name" : "Tesla coil" },
+			{ "name" : "Alternating current" }
+		]
+	}
+]
