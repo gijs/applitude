@@ -53,6 +53,7 @@
 		BF4DCC1D12EA6ED80005E01C /* BoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9BC12EA6A310005E01C /* BoxCell.m */; };
 		BF4DCC1E12EA6ED80005E01C /* PlaceholderResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */; };
 		BF4DCC1F12EA6ED80005E01C /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCACA12EA6BB70005E01C /* ActivityCell.m */; };
+		BF4DCC4112EA77E60005E01C /* ContentProviderPlaceholderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCC4012EA77E60005E01C /* ContentProviderPlaceholderTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		BF4DCC0412EA6E870005E01C /* DateAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAdditionsTest.m; sourceTree = "<group>"; };
 		BF4DCC0D12EA6EA70005E01C /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		BF4DCC0E12EA6EA70005E01C /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		BF4DCC4012EA77E60005E01C /* ContentProviderPlaceholderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentProviderPlaceholderTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4DCC0112EA6E870005E01C /* ContentProviderTest.m */,
+				BF4DCC4012EA77E60005E01C /* ContentProviderPlaceholderTest.m */,
 			);
 			path = ContentProvider;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				BF4DCC1D12EA6ED80005E01C /* BoxCell.m in Sources */,
 				BF4DCC1E12EA6ED80005E01C /* PlaceholderResolver.m in Sources */,
 				BF4DCC1F12EA6ED80005E01C /* ActivityCell.m in Sources */,
+				BF4DCC4112EA77E60005E01C /* ContentProviderPlaceholderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

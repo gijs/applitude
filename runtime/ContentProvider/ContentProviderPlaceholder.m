@@ -17,7 +17,7 @@
 
 @synthesize activityView = fActivityView, section = fSection;
 
-- (id) initWithController:(BoxTableViewController *)controller factorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
+- (id) initWithController:(id)controller factorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
 	self = [super init];
 	if (self != nil) {
 		fController = controller; // weak
@@ -29,11 +29,11 @@
 	return self;
 }
 
-- (id) initWithController:(BoxTableViewController *)controller cellFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
+- (id) initWithController:(id)controller cellFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
 	return [self initWithController:controller factorySelector:selector contentProvider:contentProvider];
 }
 
-- (id) initWithController:(BoxTableViewController *)controller sectionFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
+- (id) initWithController:(id)controller sectionFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
 	[self initWithController:controller factorySelector:selector contentProvider:contentProvider];
 	fForSection = YES;
 	return self;
@@ -48,7 +48,9 @@
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	[self updateActivityView];
 	self.section = nil;
-	[fController.tableView reloadData];
+	if ([fController isKindOfClass:[UITableViewController class]]) {
+		[((UITableViewController *)fController).tableView reloadData];
+	}
 }
 
 - (void) initializeSections {
