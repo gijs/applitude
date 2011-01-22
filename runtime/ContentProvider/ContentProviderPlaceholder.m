@@ -17,11 +17,11 @@
 
 @synthesize activityView = fActivityView, section = fSection;
 
-- (id) initWithController:(id)controller factorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
+- (id) initWithDelegate:(id)delegate factorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
 	self = [super init];
 	if (self != nil) {
-		fController = controller; // weak
-		fCellFactorySelector = selector;
+		fDelegate = delegate; // weak
+		fFactorySelector = selector;
 		fContentProvider = [contentProvider retain];
 		[fContentProvider addObserver:self];
 		[fContentProvider request];
@@ -29,12 +29,12 @@
 	return self;
 }
 
-- (id) initWithController:(id)controller cellFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
-	return [self initWithController:controller factorySelector:selector contentProvider:contentProvider];
+- (id) initWithDelegate:(id)delegate cellFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
+	return [self initWithDelegate:delegate factorySelector:selector contentProvider:contentProvider];
 }
 
-- (id) initWithController:(id)controller sectionFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
-	[self initWithController:controller factorySelector:selector contentProvider:contentProvider];
+- (id) initWithDelegate:(id)delegate sectionFactorySelector:(SEL)selector contentProvider:(ContentProvider *)contentProvider {
+	[self initWithDelegate:delegate factorySelector:selector contentProvider:contentProvider];
 	fForSection = YES;
 	return self;
 }
@@ -48,14 +48,14 @@
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	[self updateActivityView];
 	self.section = nil;
-	if ([fController isKindOfClass:[UITableViewController class]]) {
-		[((UITableViewController *)fController).tableView reloadData];
+	if ([fDelegate isKindOfClass:[UITableViewController class]]) {
+		[((UITableViewController *)fDelegate).tableView reloadData];
 	}
 }
 
 - (void) initializeSections {
 	if (fForSection && self.section == nil) {
-		self.section = [fController performSelector:fCellFactorySelector withObject:fContentProvider.content];
+		self.section = [fDelegate performSelector:fFactorySelector withObject:fContentProvider.content];
 	}
 }
 
@@ -102,7 +102,7 @@
 	if (fForSection) {
 		// temporary workaround, sections for arrays are not cached at the moment
 		if ([content isKindOfClass:[NSArray class]]) {
-			return [fController performSelector:fCellFactorySelector withObject:[content objectAtIndex:index]];
+			return [fDelegate performSelector:fFactorySelector withObject:[content objectAtIndex:index]];
 		}
 		// sections are not managed by the TableViewController, so we need to track them for
 		// repeated calls
@@ -115,7 +115,7 @@
 	}
 
 	NSObject *object = [content isKindOfClass:[NSArray class]] ? [content objectAtIndex:index] : content;
-	return [fController performSelector:fCellFactorySelector withObject:object];
+	return [fDelegate performSelector:fFactorySelector withObject:object];
 }
 
 - (void) dealloc {

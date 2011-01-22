@@ -8,17 +8,16 @@
 #import "ContentProvider.h"
 
 @interface ContentProviderPlaceholder : NSObject<Placeholder> {
-	id fController; // weak
-	//TODO: rename to factorySelector
-	SEL fCellFactorySelector;
+	id fDelegate; // weak
+	SEL fFactorySelector;
 	ContentProvider *fContentProvider;
 	UIView *fActivityView;
 	BOOL fForSection;
 	id fSection;
 }
 
-- (id) initWithController:(id)controller cellFactorySelector:(SEL)cellFactorySelector contentProvider:(ContentProvider *)contentProvider;
-- (id) initWithController:(id)controller sectionFactorySelector:(SEL)factorySelector contentProvider:(ContentProvider *)contentProvider;
+- (id) initWithDelegate:(id)delegate cellFactorySelector:(SEL)cellFactorySelector contentProvider:(ContentProvider *)contentProvider;
+- (id) initWithDelegate:(id)delegate sectionFactorySelector:(SEL)factorySelector contentProvider:(ContentProvider *)contentProvider;
 
 @property (nonatomic, retain) UIView *activityView;
 

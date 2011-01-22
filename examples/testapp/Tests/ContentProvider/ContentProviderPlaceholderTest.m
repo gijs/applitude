@@ -13,10 +13,7 @@
 
 - (void) testEmpty {
 	ContentProvider *provider = [SimpleContentProvider providerWithContent:[NSArray array] name:@"empty"];
-
-	//TODO: rename controller -> delegate
-	ContentProviderPlaceholder *placeholder = [[ContentProviderPlaceholder alloc] initWithController:self cellFactorySelector:@selector(cell:) contentProvider:provider];
-
+	ContentProviderPlaceholder *placeholder = [[ContentProviderPlaceholder alloc] initWithDelegate:self cellFactorySelector:@selector(cell:) contentProvider:provider];
 	GHAssertEquals(0, [placeholder count], nil);
 }
 
