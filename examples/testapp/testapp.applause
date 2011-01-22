@@ -1,0 +1,17 @@
+// © 2011 Ralf Ebert
+// Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
+
+application Test {
+	view:Tables()
+}
+
+tableview Tables {
+	title: "Tables"
+	section {
+		title: "Section"
+		cell Default { text: "Style Default" }
+		cell Subtitle { text: "Style" details: "Subtitle" }
+		cell Value1 { text: "Style" details: "Value1" }
+		cell Value2 { text: "Style" details: "Value2" }
+	}
+}
