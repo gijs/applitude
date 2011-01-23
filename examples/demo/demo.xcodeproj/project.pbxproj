@@ -96,11 +96,12 @@
 		BF4DCF1B12EB230E0005E01C /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCF0212EB230E0005E01C /* CJSONDeserializer.m */; };
 		BF4DCF1C12EB230E0005E01C /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCF0412EB230E0005E01C /* CJSONScanner.m */; };
 		BF4DCF1D12EB230E0005E01C /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCF0612EB230E0005E01C /* CJSONSerializer.m */; };
-		BFF2CB3612EC85020078B3F9 /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CB2D12EC85020078B3F9 /* DemoAppDelegate.m */; };
-		BFF2CB3712EC85020078B3F9 /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CB2F12EC85020078B3F9 /* DemoProviders.m */; };
-		BFF2CB3812EC85020078B3F9 /* DemoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CB3112EC85020078B3F9 /* DemoViews.m */; };
-		BFF2CB3912EC85020078B3F9 /* InventorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CB3312EC85020078B3F9 /* InventorDetailViewController.m */; };
-		BFF2CB3A12EC85020078B3F9 /* TablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CB3512EC85020078B3F9 /* TablesViewController.m */; };
+		BFF2CC7812EC965B0078B3F9 /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CC6D12EC965B0078B3F9 /* DemoAppDelegate.m */; };
+		BFF2CC7912EC965B0078B3F9 /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CC6F12EC965B0078B3F9 /* DemoProviders.m */; };
+		BFF2CC7A12EC965B0078B3F9 /* DemoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CC7112EC965B0078B3F9 /* DemoViews.m */; };
+		BFF2CC7B12EC965B0078B3F9 /* InventorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CC7312EC965B0078B3F9 /* InventorDetailViewController.m */; };
+		BFF2CC7C12EC965B0078B3F9 /* InventorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CC7512EC965B0078B3F9 /* InventorsViewController.m */; };
+		BFF2CC7D12EC965B0078B3F9 /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CC7712EC965B0078B3F9 /* ReferenceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -233,16 +234,18 @@
 		BF4DCF0512EB230E0005E01C /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		BF4DCF0612EB230E0005E01C /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		BF4DCF0712EB230E0005E01C /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
-		BFF2CB2C12EC85020078B3F9 /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
-		BFF2CB2D12EC85020078B3F9 /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
-		BFF2CB2E12EC85020078B3F9 /* DemoProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProviders.h; sourceTree = "<group>"; };
-		BFF2CB2F12EC85020078B3F9 /* DemoProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoProviders.m; sourceTree = "<group>"; };
-		BFF2CB3012EC85020078B3F9 /* DemoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViews.h; sourceTree = "<group>"; };
-		BFF2CB3112EC85020078B3F9 /* DemoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViews.m; sourceTree = "<group>"; };
-		BFF2CB3212EC85020078B3F9 /* InventorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventorDetailViewController.h; sourceTree = "<group>"; };
-		BFF2CB3312EC85020078B3F9 /* InventorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventorDetailViewController.m; sourceTree = "<group>"; };
-		BFF2CB3412EC85020078B3F9 /* TablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TablesViewController.h; sourceTree = "<group>"; };
-		BFF2CB3512EC85020078B3F9 /* TablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TablesViewController.m; sourceTree = "<group>"; };
+		BFF2CC6C12EC965B0078B3F9 /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
+		BFF2CC6D12EC965B0078B3F9 /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
+		BFF2CC6E12EC965B0078B3F9 /* DemoProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProviders.h; sourceTree = "<group>"; };
+		BFF2CC6F12EC965B0078B3F9 /* DemoProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoProviders.m; sourceTree = "<group>"; };
+		BFF2CC7012EC965B0078B3F9 /* DemoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViews.h; sourceTree = "<group>"; };
+		BFF2CC7112EC965B0078B3F9 /* DemoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViews.m; sourceTree = "<group>"; };
+		BFF2CC7212EC965B0078B3F9 /* InventorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventorDetailViewController.h; sourceTree = "<group>"; };
+		BFF2CC7312EC965B0078B3F9 /* InventorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventorDetailViewController.m; sourceTree = "<group>"; };
+		BFF2CC7412EC965B0078B3F9 /* InventorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventorsViewController.h; sourceTree = "<group>"; };
+		BFF2CC7512EC965B0078B3F9 /* InventorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventorsViewController.m; sourceTree = "<group>"; };
+		BFF2CC7612EC965B0078B3F9 /* ReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceViewController.h; sourceTree = "<group>"; };
+		BFF2CC7712EC965B0078B3F9 /* ReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +289,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				BFF2CB2B12EC85020078B3F9 /* Generated */,
+				BFF2CC6B12EC965B0078B3F9 /* Generated */,
 				BF4DCBFF12EA6E870005E01C /* Tests */,
 				BF4DC9A412EA6A310005E01C /* runtime */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -548,19 +551,21 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		BFF2CB2B12EC85020078B3F9 /* Generated */ = {
+		BFF2CC6B12EC965B0078B3F9 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				BFF2CB2C12EC85020078B3F9 /* DemoAppDelegate.h */,
-				BFF2CB2D12EC85020078B3F9 /* DemoAppDelegate.m */,
-				BFF2CB2E12EC85020078B3F9 /* DemoProviders.h */,
-				BFF2CB2F12EC85020078B3F9 /* DemoProviders.m */,
-				BFF2CB3012EC85020078B3F9 /* DemoViews.h */,
-				BFF2CB3112EC85020078B3F9 /* DemoViews.m */,
-				BFF2CB3212EC85020078B3F9 /* InventorDetailViewController.h */,
-				BFF2CB3312EC85020078B3F9 /* InventorDetailViewController.m */,
-				BFF2CB3412EC85020078B3F9 /* TablesViewController.h */,
-				BFF2CB3512EC85020078B3F9 /* TablesViewController.m */,
+				BFF2CC6C12EC965B0078B3F9 /* DemoAppDelegate.h */,
+				BFF2CC6D12EC965B0078B3F9 /* DemoAppDelegate.m */,
+				BFF2CC6E12EC965B0078B3F9 /* DemoProviders.h */,
+				BFF2CC6F12EC965B0078B3F9 /* DemoProviders.m */,
+				BFF2CC7012EC965B0078B3F9 /* DemoViews.h */,
+				BFF2CC7112EC965B0078B3F9 /* DemoViews.m */,
+				BFF2CC7212EC965B0078B3F9 /* InventorDetailViewController.h */,
+				BFF2CC7312EC965B0078B3F9 /* InventorDetailViewController.m */,
+				BFF2CC7412EC965B0078B3F9 /* InventorsViewController.h */,
+				BFF2CC7512EC965B0078B3F9 /* InventorsViewController.m */,
+				BFF2CC7612EC965B0078B3F9 /* ReferenceViewController.h */,
+				BFF2CC7712EC965B0078B3F9 /* ReferenceViewController.m */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -698,11 +703,12 @@
 				BF4DCF1012EB230E0005E01C /* CJSONDeserializer.m in Sources */,
 				BF4DCF1112EB230E0005E01C /* CJSONScanner.m in Sources */,
 				BF4DCF1212EB230E0005E01C /* CJSONSerializer.m in Sources */,
-				BFF2CB3612EC85020078B3F9 /* DemoAppDelegate.m in Sources */,
-				BFF2CB3712EC85020078B3F9 /* DemoProviders.m in Sources */,
-				BFF2CB3812EC85020078B3F9 /* DemoViews.m in Sources */,
-				BFF2CB3912EC85020078B3F9 /* InventorDetailViewController.m in Sources */,
-				BFF2CB3A12EC85020078B3F9 /* TablesViewController.m in Sources */,
+				BFF2CC7812EC965B0078B3F9 /* DemoAppDelegate.m in Sources */,
+				BFF2CC7912EC965B0078B3F9 /* DemoProviders.m in Sources */,
+				BFF2CC7A12EC965B0078B3F9 /* DemoViews.m in Sources */,
+				BFF2CC7B12EC965B0078B3F9 /* InventorDetailViewController.m in Sources */,
+				BFF2CC7C12EC965B0078B3F9 /* InventorsViewController.m in Sources */,
+				BFF2CC7D12EC965B0078B3F9 /* ReferenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
