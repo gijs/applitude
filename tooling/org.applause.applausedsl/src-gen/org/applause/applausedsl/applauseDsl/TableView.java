@@ -101,7 +101,7 @@ public interface TableView extends View
 
   /**
    * Returns the value of the '<em><b>Sections</b></em>' containment reference list.
-   * The list contents are of type {@link org.applause.applausedsl.applauseDsl.ViewSection}.
+   * The list contents are of type {@link org.applause.applausedsl.applauseDsl.Section}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Sections</em>' containment reference list isn't clear,
@@ -113,6 +113,6 @@ public interface TableView extends View
    * @model containment="true"
    * @generated
    */
-  EList<ViewSection> getSections();
+  EList<Section> getSections();
 
 } // TableView

@@ -7,7 +7,7 @@ package org.applause.applausedsl.applauseDsl.impl;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.ObjectReference;
-import org.applause.applausedsl.applauseDsl.VariableDeclaration;
+import org.applause.applausedsl.applauseDsl.PropertyPathPart;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -41,7 +41,7 @@ public class ObjectReferenceImpl extends ExpressionImpl implements ObjectReferen
    * @generated
    * @ordered
    */
-  protected VariableDeclaration object;
+  protected PropertyPathPart object;
 
   /**
    * The cached value of the '{@link #getTail() <em>Tail</em>}' containment reference.
@@ -79,12 +79,12 @@ public class ObjectReferenceImpl extends ExpressionImpl implements ObjectReferen
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableDeclaration getObject()
+  public PropertyPathPart getObject()
   {
     if (object != null && object.eIsProxy())
     {
       InternalEObject oldObject = (InternalEObject)object;
-      object = (VariableDeclaration)eResolveProxy(oldObject);
+      object = (PropertyPathPart)eResolveProxy(oldObject);
       if (object != oldObject)
       {
         if (eNotificationRequired())
@@ -99,7 +99,7 @@ public class ObjectReferenceImpl extends ExpressionImpl implements ObjectReferen
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableDeclaration basicGetObject()
+  public PropertyPathPart basicGetObject()
   {
     return object;
   }
@@ -109,9 +109,9 @@ public class ObjectReferenceImpl extends ExpressionImpl implements ObjectReferen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setObject(VariableDeclaration newObject)
+  public void setObject(PropertyPathPart newObject)
   {
-    VariableDeclaration oldObject = object;
+    PropertyPathPart oldObject = object;
     object = newObject;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.OBJECT_REFERENCE__OBJECT, oldObject, object));
@@ -211,7 +211,7 @@ public class ObjectReferenceImpl extends ExpressionImpl implements ObjectReferen
     switch (featureID)
     {
       case ApplauseDslPackage.OBJECT_REFERENCE__OBJECT:
-        setObject((VariableDeclaration)newValue);
+        setObject((PropertyPathPart)newValue);
         return;
       case ApplauseDslPackage.OBJECT_REFERENCE__TAIL:
         setTail((ObjectReference)newValue);
@@ -231,7 +231,7 @@ public class ObjectReferenceImpl extends ExpressionImpl implements ObjectReferen
     switch (featureID)
     {
       case ApplauseDslPackage.OBJECT_REFERENCE__OBJECT:
-        setObject((VariableDeclaration)null);
+        setObject((PropertyPathPart)null);
         return;
       case ApplauseDslPackage.OBJECT_REFERENCE__TAIL:
         setTail((ObjectReference)null);

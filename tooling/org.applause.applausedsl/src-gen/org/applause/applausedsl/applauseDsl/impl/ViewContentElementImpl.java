@@ -6,8 +6,8 @@
 package org.applause.applausedsl.applauseDsl.impl;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
-import org.applause.applausedsl.applauseDsl.CollectionExpression;
 import org.applause.applausedsl.applauseDsl.CollectionIterator;
+import org.applause.applausedsl.applauseDsl.ViewContentElement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -16,38 +16,39 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Collection Iterator</b></em>'.
+ * An implementation of the model object '<em><b>View Content Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CollectionIteratorImpl#getCollection <em>Collection</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ViewContentElementImpl#getIterator <em>Iterator</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CollectionIteratorImpl extends PropertyPathPartImpl implements CollectionIterator
+public class ViewContentElementImpl extends MinimalEObjectImpl.Container implements ViewContentElement
 {
   /**
-   * The cached value of the '{@link #getCollection() <em>Collection</em>}' containment reference.
+   * The cached value of the '{@link #getIterator() <em>Iterator</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCollection()
+   * @see #getIterator()
    * @generated
    * @ordered
    */
-  protected CollectionExpression collection;
+  protected CollectionIterator iterator;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CollectionIteratorImpl()
+  protected ViewContentElementImpl()
   {
     super();
   }
@@ -60,7 +61,7 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
   @Override
   protected EClass eStaticClass()
   {
-    return ApplauseDslPackage.Literals.COLLECTION_ITERATOR;
+    return ApplauseDslPackage.Literals.VIEW_CONTENT_ELEMENT;
   }
 
   /**
@@ -68,9 +69,9 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
    * <!-- end-user-doc -->
    * @generated
    */
-  public CollectionExpression getCollection()
+  public CollectionIterator getIterator()
   {
-    return collection;
+    return iterator;
   }
 
   /**
@@ -78,13 +79,13 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCollection(CollectionExpression newCollection, NotificationChain msgs)
+  public NotificationChain basicSetIterator(CollectionIterator newIterator, NotificationChain msgs)
   {
-    CollectionExpression oldCollection = collection;
-    collection = newCollection;
+    CollectionIterator oldIterator = iterator;
+    iterator = newIterator;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION, oldCollection, newCollection);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR, oldIterator, newIterator);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -95,20 +96,20 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCollection(CollectionExpression newCollection)
+  public void setIterator(CollectionIterator newIterator)
   {
-    if (newCollection != collection)
+    if (newIterator != iterator)
     {
       NotificationChain msgs = null;
-      if (collection != null)
-        msgs = ((InternalEObject)collection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION, null, msgs);
-      if (newCollection != null)
-        msgs = ((InternalEObject)newCollection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION, null, msgs);
-      msgs = basicSetCollection(newCollection, msgs);
+      if (iterator != null)
+        msgs = ((InternalEObject)iterator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR, null, msgs);
+      if (newIterator != null)
+        msgs = ((InternalEObject)newIterator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR, null, msgs);
+      msgs = basicSetIterator(newIterator, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION, newCollection, newCollection));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR, newIterator, newIterator));
   }
 
   /**
@@ -121,8 +122,8 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION:
-        return basicSetCollection(null, msgs);
+      case ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR:
+        return basicSetIterator(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +138,8 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION:
-        return getCollection();
+      case ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR:
+        return getIterator();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +154,8 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION:
-        setCollection((CollectionExpression)newValue);
+      case ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR:
+        setIterator((CollectionIterator)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +171,8 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION:
-        setCollection((CollectionExpression)null);
+      case ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR:
+        setIterator((CollectionIterator)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,10 +188,10 @@ public class CollectionIteratorImpl extends PropertyPathPartImpl implements Coll
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.COLLECTION_ITERATOR__COLLECTION:
-        return collection != null;
+      case ApplauseDslPackage.VIEW_CONTENT_ELEMENT__ITERATOR:
+        return iterator != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //CollectionIteratorImpl
+} //ViewContentElementImpl

@@ -38,7 +38,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getModelElementAccess().getAlternatives(), "rule__ModelElement__Alternatives");
-					put(grammarAccess.getVariableDeclarationAccess().getAlternatives(), "rule__VariableDeclaration__Alternatives");
+					put(grammarAccess.getPropertyPathPartAccess().getAlternatives(), "rule__PropertyPathPart__Alternatives");
 					put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
 					put(grammarAccess.getScalarExpressionAccess().getAlternatives(), "rule__ScalarExpression__Alternatives");
 					put(grammarAccess.getCollectionExpressionAccess().getAlternatives(), "rule__CollectionExpression__Alternatives");
@@ -48,6 +48,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getContentProviderImplementationAccess().getAlternatives(), "rule__ContentProviderImplementation__Alternatives");
 					put(grammarAccess.getProviderConstructionAccess().getAlternatives(), "rule__ProviderConstruction__Alternatives");
 					put(grammarAccess.getViewAccess().getAlternatives(), "rule__View__Alternatives");
+					put(grammarAccess.getViewContentElementAccess().getAlternatives(), "rule__ViewContentElement__Alternatives");
 					put(grammarAccess.getViewActionAccess().getAlternatives(), "rule__ViewAction__Alternatives");
 					put(grammarAccess.getSerializationFormatAccess().getAlternatives(), "rule__SerializationFormat__Alternatives");
 					put(grammarAccess.getTableViewStyleAccess().getAlternatives(), "rule__TableViewStyle__Alternatives");
@@ -92,15 +93,14 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTableViewAccess().getGroup_5_1(), "rule__TableView__Group_5_1__0");
 					put(grammarAccess.getCustomViewAccess().getGroup(), "rule__CustomView__Group__0");
 					put(grammarAccess.getCustomViewAccess().getGroup_2(), "rule__CustomView__Group_2__0");
-					put(grammarAccess.getViewSectionAccess().getGroup(), "rule__ViewSection__Group__0");
-					put(grammarAccess.getViewSectionAccess().getGroup_2(), "rule__ViewSection__Group_2__0");
-					put(grammarAccess.getSectionCellAccess().getGroup(), "rule__SectionCell__Group__0");
-					put(grammarAccess.getSectionCellAccess().getGroup_2(), "rule__SectionCell__Group_2__0");
-					put(grammarAccess.getSectionCellAccess().getGroup_4_0(), "rule__SectionCell__Group_4_0__0");
-					put(grammarAccess.getSectionCellAccess().getGroup_4_1(), "rule__SectionCell__Group_4_1__0");
-					put(grammarAccess.getSectionCellAccess().getGroup_4_2(), "rule__SectionCell__Group_4_2__0");
-					put(grammarAccess.getSectionCellAccess().getGroup_4_3(), "rule__SectionCell__Group_4_3__0");
-					put(grammarAccess.getSectionCellAccess().getGroup_4_4(), "rule__SectionCell__Group_4_4__0");
+					put(grammarAccess.getSectionAccess().getGroup(), "rule__Section__Group__0");
+					put(grammarAccess.getSectionAccess().getGroup_3(), "rule__Section__Group_3__0");
+					put(grammarAccess.getCellAccess().getGroup(), "rule__Cell__Group__0");
+					put(grammarAccess.getCellAccess().getGroup_4_0(), "rule__Cell__Group_4_0__0");
+					put(grammarAccess.getCellAccess().getGroup_4_1(), "rule__Cell__Group_4_1__0");
+					put(grammarAccess.getCellAccess().getGroup_4_2(), "rule__Cell__Group_4_2__0");
+					put(grammarAccess.getCellAccess().getGroup_4_3(), "rule__Cell__Group_4_3__0");
+					put(grammarAccess.getCellAccess().getGroup_4_4(), "rule__Cell__Group_4_4__0");
 					put(grammarAccess.getCollectionIteratorAccess().getGroup(), "rule__CollectionIterator__Group__0");
 					put(grammarAccess.getSelectorNameAccess().getGroup(), "rule__SelectorName__Group__0");
 					put(grammarAccess.getSelectorNameAccess().getGroup_1(), "rule__SelectorName__Group_1__0");
@@ -169,17 +169,18 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCustomViewAccess().getNameAssignment_1(), "rule__CustomView__NameAssignment_1");
 					put(grammarAccess.getCustomViewAccess().getContentAssignment_2_1(), "rule__CustomView__ContentAssignment_2_1");
 					put(grammarAccess.getCustomViewAccess().getClassNameAssignment_4(), "rule__CustomView__ClassNameAssignment_4");
-					put(grammarAccess.getViewSectionAccess().getTitleAssignment_2_1(), "rule__ViewSection__TitleAssignment_2_1");
-					put(grammarAccess.getViewSectionAccess().getCellsAssignment_3(), "rule__ViewSection__CellsAssignment_3");
-					put(grammarAccess.getSectionCellAccess().getTypeAssignment_1(), "rule__SectionCell__TypeAssignment_1");
-					put(grammarAccess.getSectionCellAccess().getIteratorAssignment_2_1(), "rule__SectionCell__IteratorAssignment_2_1");
-					put(grammarAccess.getSectionCellAccess().getTextAssignment_4_0_1(), "rule__SectionCell__TextAssignment_4_0_1");
-					put(grammarAccess.getSectionCellAccess().getDetailsAssignment_4_1_1(), "rule__SectionCell__DetailsAssignment_4_1_1");
-					put(grammarAccess.getSectionCellAccess().getImageAssignment_4_2_1(), "rule__SectionCell__ImageAssignment_4_2_1");
-					put(grammarAccess.getSectionCellAccess().getActionAssignment_4_3_1(), "rule__SectionCell__ActionAssignment_4_3_1");
-					put(grammarAccess.getSectionCellAccess().getAccessoryAssignment_4_4_1(), "rule__SectionCell__AccessoryAssignment_4_4_1");
-					put(grammarAccess.getCollectionIteratorAccess().getCollectionAssignment_0(), "rule__CollectionIterator__CollectionAssignment_0");
-					put(grammarAccess.getCollectionIteratorAccess().getNameAssignment_2(), "rule__CollectionIterator__NameAssignment_2");
+					put(grammarAccess.getSectionAccess().getIteratorAssignment_1(), "rule__Section__IteratorAssignment_1");
+					put(grammarAccess.getSectionAccess().getTitleAssignment_3_1(), "rule__Section__TitleAssignment_3_1");
+					put(grammarAccess.getSectionAccess().getCellsAssignment_4(), "rule__Section__CellsAssignment_4");
+					put(grammarAccess.getCellAccess().getTypeAssignment_1(), "rule__Cell__TypeAssignment_1");
+					put(grammarAccess.getCellAccess().getIteratorAssignment_2(), "rule__Cell__IteratorAssignment_2");
+					put(grammarAccess.getCellAccess().getTextAssignment_4_0_1(), "rule__Cell__TextAssignment_4_0_1");
+					put(grammarAccess.getCellAccess().getDetailsAssignment_4_1_1(), "rule__Cell__DetailsAssignment_4_1_1");
+					put(grammarAccess.getCellAccess().getImageAssignment_4_2_1(), "rule__Cell__ImageAssignment_4_2_1");
+					put(grammarAccess.getCellAccess().getActionAssignment_4_3_1(), "rule__Cell__ActionAssignment_4_3_1");
+					put(grammarAccess.getCellAccess().getAccessoryAssignment_4_4_1(), "rule__Cell__AccessoryAssignment_4_4_1");
+					put(grammarAccess.getCollectionIteratorAccess().getNameAssignment_1(), "rule__CollectionIterator__NameAssignment_1");
+					put(grammarAccess.getCollectionIteratorAccess().getCollectionAssignment_3(), "rule__CollectionIterator__CollectionAssignment_3");
 					put(grammarAccess.getSelectorAccess().getNameAssignment_2(), "rule__Selector__NameAssignment_2");
 					put(grammarAccess.getExternalOpenAccess().getUrlAssignment(), "rule__ExternalOpen__UrlAssignment");
 					put(grammarAccess.getViewCallAccess().getViewAssignment_0(), "rule__ViewCall__ViewAssignment_0");
@@ -188,7 +189,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getApplicationAccess().getUnorderedGroup(), "rule__Application__UnorderedGroup");
 					put(grammarAccess.getTabAccess().getUnorderedGroup(), "rule__Tab__UnorderedGroup");
 					put(grammarAccess.getTableViewAccess().getUnorderedGroup_5(), "rule__TableView__UnorderedGroup_5");
-					put(grammarAccess.getSectionCellAccess().getUnorderedGroup_4(), "rule__SectionCell__UnorderedGroup_4");
+					put(grammarAccess.getCellAccess().getUnorderedGroup_4(), "rule__Cell__UnorderedGroup_4");
 				}
 			};
 		}

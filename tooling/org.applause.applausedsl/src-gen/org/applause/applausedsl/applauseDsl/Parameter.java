@@ -23,7 +23,7 @@ package org.applause.applausedsl.applauseDsl;
  * @model
  * @generated
  */
-public interface Parameter extends VariableDeclaration
+public interface Parameter extends PropertyPathPart
 {
   /**
    * Returns the value of the '<em><b>Description</b></em>' containment reference.

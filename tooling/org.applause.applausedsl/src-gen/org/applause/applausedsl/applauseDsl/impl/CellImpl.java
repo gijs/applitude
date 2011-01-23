@@ -6,11 +6,10 @@
 package org.applause.applausedsl.applauseDsl.impl;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
+import org.applause.applausedsl.applauseDsl.Cell;
 import org.applause.applausedsl.applauseDsl.CellAccessory;
 import org.applause.applausedsl.applauseDsl.CellType;
-import org.applause.applausedsl.applauseDsl.CollectionIterator;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
-import org.applause.applausedsl.applauseDsl.SectionCell;
 import org.applause.applausedsl.applauseDsl.ViewAction;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,28 +19,26 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Section Cell</b></em>'.
+ * An implementation of the model object '<em><b>Cell</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getIterator <em>Iterator</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getText <em>Text</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getDetails <em>Details</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getImage <em>Image</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getAction <em>Action</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionCellImpl#getAccessory <em>Accessory</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CellImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CellImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CellImpl#getDetails <em>Details</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CellImpl#getImage <em>Image</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CellImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.CellImpl#getAccessory <em>Accessory</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SectionCellImpl extends MinimalEObjectImpl.Container implements SectionCell
+public class CellImpl extends ViewContentElementImpl implements Cell
 {
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -62,16 +59,6 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * @ordered
    */
   protected CellType type = TYPE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getIterator() <em>Iterator</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIterator()
-   * @generated
-   * @ordered
-   */
-  protected CollectionIterator iterator;
 
   /**
    * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -138,7 +125,7 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SectionCellImpl()
+  protected CellImpl()
   {
     super();
   }
@@ -151,7 +138,7 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
   @Override
   protected EClass eStaticClass()
   {
-    return ApplauseDslPackage.Literals.SECTION_CELL;
+    return ApplauseDslPackage.Literals.CELL;
   }
 
   /**
@@ -174,55 +161,7 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     CellType oldType = type;
     type = newType == null ? TYPE_EDEFAULT : newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__TYPE, oldType, type));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CollectionIterator getIterator()
-  {
-    return iterator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetIterator(CollectionIterator newIterator, NotificationChain msgs)
-  {
-    CollectionIterator oldIterator = iterator;
-    iterator = newIterator;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__ITERATOR, oldIterator, newIterator);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIterator(CollectionIterator newIterator)
-  {
-    if (newIterator != iterator)
-    {
-      NotificationChain msgs = null;
-      if (iterator != null)
-        msgs = ((InternalEObject)iterator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__ITERATOR, null, msgs);
-      if (newIterator != null)
-        msgs = ((InternalEObject)newIterator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__ITERATOR, null, msgs);
-      msgs = basicSetIterator(newIterator, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__ITERATOR, newIterator, newIterator));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__TYPE, oldType, type));
   }
 
   /**
@@ -246,7 +185,7 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     text = newText;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__TEXT, oldText, newText);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__TEXT, oldText, newText);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -263,14 +202,14 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     {
       NotificationChain msgs = null;
       if (text != null)
-        msgs = ((InternalEObject)text).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__TEXT, null, msgs);
+        msgs = ((InternalEObject)text).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CELL__TEXT, null, msgs);
       if (newText != null)
-        msgs = ((InternalEObject)newText).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__TEXT, null, msgs);
+        msgs = ((InternalEObject)newText).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CELL__TEXT, null, msgs);
       msgs = basicSetText(newText, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__TEXT, newText, newText));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__TEXT, newText, newText));
   }
 
   /**
@@ -294,7 +233,7 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     details = newDetails;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__DETAILS, oldDetails, newDetails);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__DETAILS, oldDetails, newDetails);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -311,14 +250,14 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     {
       NotificationChain msgs = null;
       if (details != null)
-        msgs = ((InternalEObject)details).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__DETAILS, null, msgs);
+        msgs = ((InternalEObject)details).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CELL__DETAILS, null, msgs);
       if (newDetails != null)
-        msgs = ((InternalEObject)newDetails).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__DETAILS, null, msgs);
+        msgs = ((InternalEObject)newDetails).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CELL__DETAILS, null, msgs);
       msgs = basicSetDetails(newDetails, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__DETAILS, newDetails, newDetails));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__DETAILS, newDetails, newDetails));
   }
 
   /**
@@ -342,7 +281,7 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     image = newImage;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__IMAGE, oldImage, newImage);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__IMAGE, oldImage, newImage);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -359,14 +298,14 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     {
       NotificationChain msgs = null;
       if (image != null)
-        msgs = ((InternalEObject)image).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__IMAGE, null, msgs);
+        msgs = ((InternalEObject)image).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CELL__IMAGE, null, msgs);
       if (newImage != null)
-        msgs = ((InternalEObject)newImage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__IMAGE, null, msgs);
+        msgs = ((InternalEObject)newImage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CELL__IMAGE, null, msgs);
       msgs = basicSetImage(newImage, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__IMAGE, newImage, newImage));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__IMAGE, newImage, newImage));
   }
 
   /**
@@ -390,7 +329,7 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     action = newAction;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__ACTION, oldAction, newAction);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__ACTION, oldAction, newAction);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -407,14 +346,14 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     {
       NotificationChain msgs = null;
       if (action != null)
-        msgs = ((InternalEObject)action).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__ACTION, null, msgs);
+        msgs = ((InternalEObject)action).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CELL__ACTION, null, msgs);
       if (newAction != null)
-        msgs = ((InternalEObject)newAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__ACTION, null, msgs);
+        msgs = ((InternalEObject)newAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.CELL__ACTION, null, msgs);
       msgs = basicSetAction(newAction, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__ACTION, newAction, newAction));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__ACTION, newAction, newAction));
   }
 
   /**
@@ -437,7 +376,7 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     CellAccessory oldAccessory = accessory;
     accessory = newAccessory == null ? ACCESSORY_EDEFAULT : newAccessory;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__ACCESSORY, oldAccessory, accessory));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.CELL__ACCESSORY, oldAccessory, accessory));
   }
 
   /**
@@ -450,15 +389,13 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.SECTION_CELL__ITERATOR:
-        return basicSetIterator(null, msgs);
-      case ApplauseDslPackage.SECTION_CELL__TEXT:
+      case ApplauseDslPackage.CELL__TEXT:
         return basicSetText(null, msgs);
-      case ApplauseDslPackage.SECTION_CELL__DETAILS:
+      case ApplauseDslPackage.CELL__DETAILS:
         return basicSetDetails(null, msgs);
-      case ApplauseDslPackage.SECTION_CELL__IMAGE:
+      case ApplauseDslPackage.CELL__IMAGE:
         return basicSetImage(null, msgs);
-      case ApplauseDslPackage.SECTION_CELL__ACTION:
+      case ApplauseDslPackage.CELL__ACTION:
         return basicSetAction(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -474,19 +411,17 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.SECTION_CELL__TYPE:
+      case ApplauseDslPackage.CELL__TYPE:
         return getType();
-      case ApplauseDslPackage.SECTION_CELL__ITERATOR:
-        return getIterator();
-      case ApplauseDslPackage.SECTION_CELL__TEXT:
+      case ApplauseDslPackage.CELL__TEXT:
         return getText();
-      case ApplauseDslPackage.SECTION_CELL__DETAILS:
+      case ApplauseDslPackage.CELL__DETAILS:
         return getDetails();
-      case ApplauseDslPackage.SECTION_CELL__IMAGE:
+      case ApplauseDslPackage.CELL__IMAGE:
         return getImage();
-      case ApplauseDslPackage.SECTION_CELL__ACTION:
+      case ApplauseDslPackage.CELL__ACTION:
         return getAction();
-      case ApplauseDslPackage.SECTION_CELL__ACCESSORY:
+      case ApplauseDslPackage.CELL__ACCESSORY:
         return getAccessory();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -502,25 +437,22 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.SECTION_CELL__TYPE:
+      case ApplauseDslPackage.CELL__TYPE:
         setType((CellType)newValue);
         return;
-      case ApplauseDslPackage.SECTION_CELL__ITERATOR:
-        setIterator((CollectionIterator)newValue);
-        return;
-      case ApplauseDslPackage.SECTION_CELL__TEXT:
+      case ApplauseDslPackage.CELL__TEXT:
         setText((ScalarExpression)newValue);
         return;
-      case ApplauseDslPackage.SECTION_CELL__DETAILS:
+      case ApplauseDslPackage.CELL__DETAILS:
         setDetails((ScalarExpression)newValue);
         return;
-      case ApplauseDslPackage.SECTION_CELL__IMAGE:
+      case ApplauseDslPackage.CELL__IMAGE:
         setImage((ScalarExpression)newValue);
         return;
-      case ApplauseDslPackage.SECTION_CELL__ACTION:
+      case ApplauseDslPackage.CELL__ACTION:
         setAction((ViewAction)newValue);
         return;
-      case ApplauseDslPackage.SECTION_CELL__ACCESSORY:
+      case ApplauseDslPackage.CELL__ACCESSORY:
         setAccessory((CellAccessory)newValue);
         return;
     }
@@ -537,25 +469,22 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.SECTION_CELL__TYPE:
+      case ApplauseDslPackage.CELL__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case ApplauseDslPackage.SECTION_CELL__ITERATOR:
-        setIterator((CollectionIterator)null);
-        return;
-      case ApplauseDslPackage.SECTION_CELL__TEXT:
+      case ApplauseDslPackage.CELL__TEXT:
         setText((ScalarExpression)null);
         return;
-      case ApplauseDslPackage.SECTION_CELL__DETAILS:
+      case ApplauseDslPackage.CELL__DETAILS:
         setDetails((ScalarExpression)null);
         return;
-      case ApplauseDslPackage.SECTION_CELL__IMAGE:
+      case ApplauseDslPackage.CELL__IMAGE:
         setImage((ScalarExpression)null);
         return;
-      case ApplauseDslPackage.SECTION_CELL__ACTION:
+      case ApplauseDslPackage.CELL__ACTION:
         setAction((ViewAction)null);
         return;
-      case ApplauseDslPackage.SECTION_CELL__ACCESSORY:
+      case ApplauseDslPackage.CELL__ACCESSORY:
         setAccessory(ACCESSORY_EDEFAULT);
         return;
     }
@@ -572,19 +501,17 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.SECTION_CELL__TYPE:
+      case ApplauseDslPackage.CELL__TYPE:
         return type != TYPE_EDEFAULT;
-      case ApplauseDslPackage.SECTION_CELL__ITERATOR:
-        return iterator != null;
-      case ApplauseDslPackage.SECTION_CELL__TEXT:
+      case ApplauseDslPackage.CELL__TEXT:
         return text != null;
-      case ApplauseDslPackage.SECTION_CELL__DETAILS:
+      case ApplauseDslPackage.CELL__DETAILS:
         return details != null;
-      case ApplauseDslPackage.SECTION_CELL__IMAGE:
+      case ApplauseDslPackage.CELL__IMAGE:
         return image != null;
-      case ApplauseDslPackage.SECTION_CELL__ACTION:
+      case ApplauseDslPackage.CELL__ACTION:
         return action != null;
-      case ApplauseDslPackage.SECTION_CELL__ACCESSORY:
+      case ApplauseDslPackage.CELL__ACCESSORY:
         return accessory != ACCESSORY_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -609,4 +536,4 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     return result.toString();
   }
 
-} //SectionCellImpl
+} //CellImpl

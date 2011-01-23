@@ -70,7 +70,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
     {
       case ApplauseDslPackage.MODEL: return createModel();
       case ApplauseDslPackage.MODEL_ELEMENT: return createModelElement();
-      case ApplauseDslPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
+      case ApplauseDslPackage.PROPERTY_PATH_PART: return createPropertyPathPart();
       case ApplauseDslPackage.TYPE_DESCRIPTION: return createTypeDescription();
       case ApplauseDslPackage.PARAMETER: return createParameter();
       case ApplauseDslPackage.OBJECT_REFERENCE: return createObjectReference();
@@ -96,8 +96,9 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.TAB: return createTab();
       case ApplauseDslPackage.TABLE_VIEW: return createTableView();
       case ApplauseDslPackage.CUSTOM_VIEW: return createCustomView();
-      case ApplauseDslPackage.VIEW_SECTION: return createViewSection();
-      case ApplauseDslPackage.SECTION_CELL: return createSectionCell();
+      case ApplauseDslPackage.VIEW_CONTENT_ELEMENT: return createViewContentElement();
+      case ApplauseDslPackage.SECTION: return createSection();
+      case ApplauseDslPackage.CELL: return createCell();
       case ApplauseDslPackage.COLLECTION_ITERATOR: return createCollectionIterator();
       case ApplauseDslPackage.VIEW_ACTION: return createViewAction();
       case ApplauseDslPackage.SELECTOR: return createSelector();
@@ -188,10 +189,10 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableDeclaration createVariableDeclaration()
+  public PropertyPathPart createPropertyPathPart()
   {
-    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
-    return variableDeclaration;
+    PropertyPathPartImpl propertyPathPart = new PropertyPathPartImpl();
+    return propertyPathPart;
   }
 
   /**
@@ -474,10 +475,10 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ViewSection createViewSection()
+  public ViewContentElement createViewContentElement()
   {
-    ViewSectionImpl viewSection = new ViewSectionImpl();
-    return viewSection;
+    ViewContentElementImpl viewContentElement = new ViewContentElementImpl();
+    return viewContentElement;
   }
 
   /**
@@ -485,10 +486,21 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public SectionCell createSectionCell()
+  public Section createSection()
   {
-    SectionCellImpl sectionCell = new SectionCellImpl();
-    return sectionCell;
+    SectionImpl section = new SectionImpl();
+    return section;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Cell createCell()
+  {
+    CellImpl cell = new CellImpl();
+    return cell;
   }
 
   /**

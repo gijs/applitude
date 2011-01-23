@@ -5,31 +5,29 @@
  */
 package org.applause.applausedsl.applauseDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Section Cell</b></em>'.
+ * A representation of the model object '<em><b>Cell</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getType <em>Type</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getIterator <em>Iterator</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getText <em>Text</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getDetails <em>Details</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getImage <em>Image</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getAction <em>Action</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.SectionCell#getAccessory <em>Accessory</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Cell#getType <em>Type</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Cell#getText <em>Text</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Cell#getDetails <em>Details</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Cell#getImage <em>Image</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Cell#getAction <em>Action</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.Cell#getAccessory <em>Accessory</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell()
+ * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCell()
  * @model
  * @generated
  */
-public interface SectionCell extends EObject
+public interface Cell extends ViewContentElement
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -43,14 +41,14 @@ public interface SectionCell extends EObject
    * @return the value of the '<em>Type</em>' attribute.
    * @see org.applause.applausedsl.applauseDsl.CellType
    * @see #setType(CellType)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell_Type()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCell_Type()
    * @model
    * @generated
    */
   CellType getType();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.SectionCell#getType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Cell#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' attribute.
@@ -59,32 +57,6 @@ public interface SectionCell extends EObject
    * @generated
    */
   void setType(CellType value);
-
-  /**
-   * Returns the value of the '<em><b>Iterator</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Iterator</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Iterator</em>' containment reference.
-   * @see #setIterator(CollectionIterator)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell_Iterator()
-   * @model containment="true"
-   * @generated
-   */
-  CollectionIterator getIterator();
-
-  /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.SectionCell#getIterator <em>Iterator</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Iterator</em>' containment reference.
-   * @see #getIterator()
-   * @generated
-   */
-  void setIterator(CollectionIterator value);
 
   /**
    * Returns the value of the '<em><b>Text</b></em>' containment reference.
@@ -96,14 +68,14 @@ public interface SectionCell extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Text</em>' containment reference.
    * @see #setText(ScalarExpression)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell_Text()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCell_Text()
    * @model containment="true"
    * @generated
    */
   ScalarExpression getText();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.SectionCell#getText <em>Text</em>}' containment reference.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Cell#getText <em>Text</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Text</em>' containment reference.
@@ -122,14 +94,14 @@ public interface SectionCell extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Details</em>' containment reference.
    * @see #setDetails(ScalarExpression)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell_Details()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCell_Details()
    * @model containment="true"
    * @generated
    */
   ScalarExpression getDetails();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.SectionCell#getDetails <em>Details</em>}' containment reference.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Cell#getDetails <em>Details</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Details</em>' containment reference.
@@ -148,14 +120,14 @@ public interface SectionCell extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Image</em>' containment reference.
    * @see #setImage(ScalarExpression)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell_Image()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCell_Image()
    * @model containment="true"
    * @generated
    */
   ScalarExpression getImage();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.SectionCell#getImage <em>Image</em>}' containment reference.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Cell#getImage <em>Image</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Image</em>' containment reference.
@@ -174,14 +146,14 @@ public interface SectionCell extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Action</em>' containment reference.
    * @see #setAction(ViewAction)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell_Action()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCell_Action()
    * @model containment="true"
    * @generated
    */
   ViewAction getAction();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.SectionCell#getAction <em>Action</em>}' containment reference.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Cell#getAction <em>Action</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Action</em>' containment reference.
@@ -202,14 +174,14 @@ public interface SectionCell extends EObject
    * @return the value of the '<em>Accessory</em>' attribute.
    * @see org.applause.applausedsl.applauseDsl.CellAccessory
    * @see #setAccessory(CellAccessory)
-   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getSectionCell_Accessory()
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getCell_Accessory()
    * @model
    * @generated
    */
   CellAccessory getAccessory();
 
   /**
-   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.SectionCell#getAccessory <em>Accessory</em>}' attribute.
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.Cell#getAccessory <em>Accessory</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Accessory</em>' attribute.
@@ -219,4 +191,4 @@ public interface SectionCell extends EObject
    */
   void setAccessory(CellAccessory value);
 
-} // SectionCell
+} // Cell

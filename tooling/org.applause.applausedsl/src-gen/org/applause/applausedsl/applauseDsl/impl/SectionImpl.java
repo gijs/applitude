@@ -8,9 +8,9 @@ package org.applause.applausedsl.applauseDsl.impl;
 import java.util.Collection;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
+import org.applause.applausedsl.applauseDsl.Cell;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
-import org.applause.applausedsl.applauseDsl.SectionCell;
-import org.applause.applausedsl.applauseDsl.ViewSection;
+import org.applause.applausedsl.applauseDsl.Section;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -21,26 +21,25 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>View Section</b></em>'.
+ * An implementation of the model object '<em><b>Section</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ViewSectionImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.ViewSectionImpl#getCells <em>Cells</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.SectionImpl#getCells <em>Cells</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ViewSectionImpl extends MinimalEObjectImpl.Container implements ViewSection
+public class SectionImpl extends ViewContentElementImpl implements Section
 {
   /**
    * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
@@ -60,14 +59,14 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
    * @generated
    * @ordered
    */
-  protected EList<SectionCell> cells;
+  protected EList<Cell> cells;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ViewSectionImpl()
+  protected SectionImpl()
   {
     super();
   }
@@ -80,7 +79,7 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
   @Override
   protected EClass eStaticClass()
   {
-    return ApplauseDslPackage.Literals.VIEW_SECTION;
+    return ApplauseDslPackage.Literals.SECTION;
   }
 
   /**
@@ -104,7 +103,7 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
     title = newTitle;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.VIEW_SECTION__TITLE, oldTitle, newTitle);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION__TITLE, oldTitle, newTitle);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -121,14 +120,14 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
     {
       NotificationChain msgs = null;
       if (title != null)
-        msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.VIEW_SECTION__TITLE, null, msgs);
+        msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION__TITLE, null, msgs);
       if (newTitle != null)
-        msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.VIEW_SECTION__TITLE, null, msgs);
+        msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION__TITLE, null, msgs);
       msgs = basicSetTitle(newTitle, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.VIEW_SECTION__TITLE, newTitle, newTitle));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION__TITLE, newTitle, newTitle));
   }
 
   /**
@@ -136,11 +135,11 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SectionCell> getCells()
+  public EList<Cell> getCells()
   {
     if (cells == null)
     {
-      cells = new EObjectContainmentEList<SectionCell>(SectionCell.class, this, ApplauseDslPackage.VIEW_SECTION__CELLS);
+      cells = new EObjectContainmentEList<Cell>(Cell.class, this, ApplauseDslPackage.SECTION__CELLS);
     }
     return cells;
   }
@@ -155,9 +154,9 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VIEW_SECTION__TITLE:
+      case ApplauseDslPackage.SECTION__TITLE:
         return basicSetTitle(null, msgs);
-      case ApplauseDslPackage.VIEW_SECTION__CELLS:
+      case ApplauseDslPackage.SECTION__CELLS:
         return ((InternalEList<?>)getCells()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -173,9 +172,9 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VIEW_SECTION__TITLE:
+      case ApplauseDslPackage.SECTION__TITLE:
         return getTitle();
-      case ApplauseDslPackage.VIEW_SECTION__CELLS:
+      case ApplauseDslPackage.SECTION__CELLS:
         return getCells();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -192,12 +191,12 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VIEW_SECTION__TITLE:
+      case ApplauseDslPackage.SECTION__TITLE:
         setTitle((ScalarExpression)newValue);
         return;
-      case ApplauseDslPackage.VIEW_SECTION__CELLS:
+      case ApplauseDslPackage.SECTION__CELLS:
         getCells().clear();
-        getCells().addAll((Collection<? extends SectionCell>)newValue);
+        getCells().addAll((Collection<? extends Cell>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,10 +212,10 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VIEW_SECTION__TITLE:
+      case ApplauseDslPackage.SECTION__TITLE:
         setTitle((ScalarExpression)null);
         return;
-      case ApplauseDslPackage.VIEW_SECTION__CELLS:
+      case ApplauseDslPackage.SECTION__CELLS:
         getCells().clear();
         return;
     }
@@ -233,12 +232,12 @@ public class ViewSectionImpl extends MinimalEObjectImpl.Container implements Vie
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VIEW_SECTION__TITLE:
+      case ApplauseDslPackage.SECTION__TITLE:
         return title != null;
-      case ApplauseDslPackage.VIEW_SECTION__CELLS:
+      case ApplauseDslPackage.SECTION__CELLS:
         return cells != null && !cells.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ViewSectionImpl
+} //SectionImpl

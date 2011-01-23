@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class PropertyImpl extends VariableDeclarationImpl implements Property
+public class PropertyImpl extends PropertyPathPartImpl implements Property
 {
   /**
    * The default value of the '{@link #isDerived() <em>Derived</em>}' attribute.

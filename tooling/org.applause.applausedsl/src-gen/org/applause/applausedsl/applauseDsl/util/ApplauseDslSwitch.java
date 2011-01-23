@@ -109,10 +109,10 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ApplauseDslPackage.VARIABLE_DECLARATION:
+      case ApplauseDslPackage.PROPERTY_PATH_PART:
       {
-        VariableDeclaration variableDeclaration = (VariableDeclaration)theEObject;
-        T result = caseVariableDeclaration(variableDeclaration);
+        PropertyPathPart propertyPathPart = (PropertyPathPart)theEObject;
+        T result = casePropertyPathPart(propertyPathPart);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -127,7 +127,7 @@ public class ApplauseDslSwitch<T>
       {
         Parameter parameter = (Parameter)theEObject;
         T result = caseParameter(parameter);
-        if (result == null) result = caseVariableDeclaration(parameter);
+        if (result == null) result = casePropertyPathPart(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -235,7 +235,7 @@ public class ApplauseDslSwitch<T>
       {
         Property property = (Property)theEObject;
         T result = caseProperty(property);
-        if (result == null) result = caseVariableDeclaration(property);
+        if (result == null) result = casePropertyPathPart(property);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -319,17 +319,26 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ApplauseDslPackage.VIEW_SECTION:
+      case ApplauseDslPackage.VIEW_CONTENT_ELEMENT:
       {
-        ViewSection viewSection = (ViewSection)theEObject;
-        T result = caseViewSection(viewSection);
+        ViewContentElement viewContentElement = (ViewContentElement)theEObject;
+        T result = caseViewContentElement(viewContentElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ApplauseDslPackage.SECTION_CELL:
+      case ApplauseDslPackage.SECTION:
       {
-        SectionCell sectionCell = (SectionCell)theEObject;
-        T result = caseSectionCell(sectionCell);
+        Section section = (Section)theEObject;
+        T result = caseSection(section);
+        if (result == null) result = caseViewContentElement(section);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.CELL:
+      {
+        Cell cell = (Cell)theEObject;
+        T result = caseCell(cell);
+        if (result == null) result = caseViewContentElement(cell);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -337,7 +346,7 @@ public class ApplauseDslSwitch<T>
       {
         CollectionIterator collectionIterator = (CollectionIterator)theEObject;
         T result = caseCollectionIterator(collectionIterator);
-        if (result == null) result = caseVariableDeclaration(collectionIterator);
+        if (result == null) result = casePropertyPathPart(collectionIterator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -472,17 +481,17 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Property Path Part</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Declaration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Property Path Part</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVariableDeclaration(VariableDeclaration object)
+  public T casePropertyPathPart(PropertyPathPart object)
   {
     return null;
   }
@@ -888,33 +897,49 @@ public class ApplauseDslSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>View Section</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>View Content Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>View Section</em>'.
+   * @return the result of interpreting the object as an instance of '<em>View Content Element</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseViewSection(ViewSection object)
+  public T caseViewContentElement(ViewContentElement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Section Cell</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Section</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Section Cell</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Section</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSectionCell(SectionCell object)
+  public T caseSection(Section object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Cell</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Cell</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCell(Cell object)
   {
     return null;
   }

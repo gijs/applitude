@@ -23,7 +23,7 @@ package org.applause.applausedsl.applauseDsl;
  * @model
  * @generated
  */
-public interface Property extends VariableDeclaration
+public interface Property extends PropertyPathPart
 {
   /**
    * Returns the value of the '<em><b>Derived</b></em>' attribute.

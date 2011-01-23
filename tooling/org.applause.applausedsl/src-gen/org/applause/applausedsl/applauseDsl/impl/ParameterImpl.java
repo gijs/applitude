@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ParameterImpl extends VariableDeclarationImpl implements Parameter
+public class ParameterImpl extends PropertyPathPartImpl implements Parameter
 {
   /**
    * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.

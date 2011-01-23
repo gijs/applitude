@@ -88,9 +88,9 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createModelElementAdapter();
       }
       @Override
-      public Adapter caseVariableDeclaration(VariableDeclaration object)
+      public Adapter casePropertyPathPart(PropertyPathPart object)
       {
-        return createVariableDeclarationAdapter();
+        return createPropertyPathPartAdapter();
       }
       @Override
       public Adapter caseTypeDescription(TypeDescription object)
@@ -218,14 +218,19 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createCustomViewAdapter();
       }
       @Override
-      public Adapter caseViewSection(ViewSection object)
+      public Adapter caseViewContentElement(ViewContentElement object)
       {
-        return createViewSectionAdapter();
+        return createViewContentElementAdapter();
       }
       @Override
-      public Adapter caseSectionCell(SectionCell object)
+      public Adapter caseSection(Section object)
       {
-        return createSectionCellAdapter();
+        return createSectionAdapter();
+      }
+      @Override
+      public Adapter caseCell(Cell object)
+      {
+        return createCellAdapter();
       }
       @Override
       public Adapter caseCollectionIterator(CollectionIterator object)
@@ -340,16 +345,16 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.VariableDeclaration <em>Variable Declaration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.PropertyPathPart <em>Property Path Part</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.VariableDeclaration
+   * @see org.applause.applausedsl.applauseDsl.PropertyPathPart
    * @generated
    */
-  public Adapter createVariableDeclarationAdapter()
+  public Adapter createPropertyPathPartAdapter()
   {
     return null;
   }
@@ -730,31 +735,46 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.ViewSection <em>View Section</em>}'.
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.ViewContentElement <em>View Content Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.ViewSection
+   * @see org.applause.applausedsl.applauseDsl.ViewContentElement
    * @generated
    */
-  public Adapter createViewSectionAdapter()
+  public Adapter createViewContentElementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.SectionCell <em>Section Cell</em>}'.
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Section <em>Section</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.applause.applausedsl.applauseDsl.SectionCell
+   * @see org.applause.applausedsl.applauseDsl.Section
    * @generated
    */
-  public Adapter createSectionCellAdapter()
+  public Adapter createSectionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.applausedsl.applauseDsl.Cell <em>Cell</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.applausedsl.applauseDsl.Cell
+   * @generated
+   */
+  public Adapter createCellAdapter()
   {
     return null;
   }

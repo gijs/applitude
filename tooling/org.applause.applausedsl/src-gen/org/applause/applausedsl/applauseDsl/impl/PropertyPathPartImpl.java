@@ -6,7 +6,7 @@
 package org.applause.applausedsl.applauseDsl.impl;
 
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
-import org.applause.applausedsl.applauseDsl.VariableDeclaration;
+import org.applause.applausedsl.applauseDsl.PropertyPathPart;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -17,18 +17,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Variable Declaration</b></em>'.
+ * An implementation of the model object '<em><b>Property Path Part</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.applausedsl.applauseDsl.impl.VariableDeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.PropertyPathPartImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implements VariableDeclaration
+public class PropertyPathPartImpl extends MinimalEObjectImpl.Container implements PropertyPathPart
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -55,7 +55,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VariableDeclarationImpl()
+  protected PropertyPathPartImpl()
   {
     super();
   }
@@ -68,7 +68,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return ApplauseDslPackage.Literals.VARIABLE_DECLARATION;
+    return ApplauseDslPackage.Literals.PROPERTY_PATH_PART;
   }
 
   /**
@@ -91,7 +91,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.VARIABLE_DECLARATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.PROPERTY_PATH_PART__NAME, oldName, name));
   }
 
   /**
@@ -104,7 +104,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VARIABLE_DECLARATION__NAME:
+      case ApplauseDslPackage.PROPERTY_PATH_PART__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -120,7 +120,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VARIABLE_DECLARATION__NAME:
+      case ApplauseDslPackage.PROPERTY_PATH_PART__NAME:
         setName((String)newValue);
         return;
     }
@@ -137,7 +137,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VARIABLE_DECLARATION__NAME:
+      case ApplauseDslPackage.PROPERTY_PATH_PART__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -154,7 +154,7 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.VARIABLE_DECLARATION__NAME:
+      case ApplauseDslPackage.PROPERTY_PATH_PART__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -177,4 +177,4 @@ public class VariableDeclarationImpl extends MinimalEObjectImpl.Container implem
     return result.toString();
   }
 
-} //VariableDeclarationImpl
+} //PropertyPathPartImpl

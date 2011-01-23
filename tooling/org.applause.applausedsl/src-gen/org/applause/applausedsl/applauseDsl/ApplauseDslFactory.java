@@ -44,13 +44,13 @@ public interface ApplauseDslFactory extends EFactory
   ModelElement createModelElement();
 
   /**
-   * Returns a new object of class '<em>Variable Declaration</em>'.
+   * Returns a new object of class '<em>Property Path Part</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Declaration</em>'.
+   * @return a new object of class '<em>Property Path Part</em>'.
    * @generated
    */
-  VariableDeclaration createVariableDeclaration();
+  PropertyPathPart createPropertyPathPart();
 
   /**
    * Returns a new object of class '<em>Type Description</em>'.
@@ -278,22 +278,31 @@ public interface ApplauseDslFactory extends EFactory
   CustomView createCustomView();
 
   /**
-   * Returns a new object of class '<em>View Section</em>'.
+   * Returns a new object of class '<em>View Content Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>View Section</em>'.
+   * @return a new object of class '<em>View Content Element</em>'.
    * @generated
    */
-  ViewSection createViewSection();
+  ViewContentElement createViewContentElement();
 
   /**
-   * Returns a new object of class '<em>Section Cell</em>'.
+   * Returns a new object of class '<em>Section</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Section Cell</em>'.
+   * @return a new object of class '<em>Section</em>'.
    * @generated
    */
-  SectionCell createSectionCell();
+  Section createSection();
+
+  /**
+   * Returns a new object of class '<em>Cell</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cell</em>'.
+   * @generated
+   */
+  Cell createCell();
 
   /**
    * Returns a new object of class '<em>Collection Iterator</em>'.

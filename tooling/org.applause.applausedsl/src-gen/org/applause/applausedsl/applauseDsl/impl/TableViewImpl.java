@@ -10,9 +10,9 @@ import java.util.Collection;
 import org.applause.applausedsl.applauseDsl.ApplauseDslPackage;
 import org.applause.applausedsl.applauseDsl.Parameter;
 import org.applause.applausedsl.applauseDsl.ScalarExpression;
+import org.applause.applausedsl.applauseDsl.Section;
 import org.applause.applausedsl.applauseDsl.TableView;
 import org.applause.applausedsl.applauseDsl.TableViewStyle;
-import org.applause.applausedsl.applauseDsl.ViewSection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -93,7 +93,7 @@ public class TableViewImpl extends ViewImpl implements TableView
    * @generated
    * @ordered
    */
-  protected EList<ViewSection> sections;
+  protected EList<Section> sections;
 
   /**
    * <!-- begin-user-doc -->
@@ -206,11 +206,11 @@ public class TableViewImpl extends ViewImpl implements TableView
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ViewSection> getSections()
+  public EList<Section> getSections()
   {
     if (sections == null)
     {
-      sections = new EObjectContainmentEList<ViewSection>(ViewSection.class, this, ApplauseDslPackage.TABLE_VIEW__SECTIONS);
+      sections = new EObjectContainmentEList<Section>(Section.class, this, ApplauseDslPackage.TABLE_VIEW__SECTIONS);
     }
     return sections;
   }
@@ -280,7 +280,7 @@ public class TableViewImpl extends ViewImpl implements TableView
         return;
       case ApplauseDslPackage.TABLE_VIEW__SECTIONS:
         getSections().clear();
-        getSections().addAll((Collection<? extends ViewSection>)newValue);
+        getSections().addAll((Collection<? extends Section>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
