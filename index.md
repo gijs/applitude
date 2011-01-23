@@ -13,9 +13,9 @@ iApplause is a runtime framework accompanied by a DSL for developing data-centri
 
 ## Overview
 
-iApplause provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way. For example, this application loads data from a URL, parses a [JSON document](https://github.com/ralfebert/iApplause/blob/gh-pages/demo/devices.json) and shows it using generated `UITableViewController` classes:
+iApplause provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way. For example, this application loads data from a URL, parses a [JSON document](https://github.com/ralfebert/iApplause/blob/gh-pages/demo/devices.json) and shows it using generated table view controllers:
 
-![Screenshots iApplause demo application](demo.png)
+![Screenshots Inventors demo application](demo.png)
 
 This application can be generated from [`demo.applause`](https://github.com/ralfebert/iApplause/blob/master/examples/demo/demo.applause):
 
@@ -23,56 +23,53 @@ This application can be generated from [`demo.applause`](https://github.com/ralf
 		view:Tabs()
 	}
 
-	type String mapsTo "NSString"
-
-	entity Speaker {
-		String speaker
-		String speakerUri
-	}
-
-	entity Presentation {
-		String title
-		Speaker[] speakers
-	}
-
-	contentprovider AllPresentations
-		returns Presentation[]
-		fetches JSON from "http://cfp.devoxx.com/rest/v1/events/1/presentations"
-		selects ""
-
 	tabview Tabs {
 		tab {
-			title: "Schedule"
-			view: Schedule()
+			title: "Inventors"
+			view: Inventors()
 		}
 	}
 
-	tableview Schedule {
-		Presentation[] allPresentations = AllPresentations()
+	type String mapsTo "NSString"
 
-		title: "Schedule"
+	entity Inventor {
+		String name
+		Invention[] inventions
+	}
+
+	entity Invention {
+		String name
+	}
+
+	contentprovider AllInventors returns Inventor[] fetches JSON
+		from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
+
+	tableview Inventors {
+		Inventor[] inventors = AllInventors()
+
+		title: "Inventors"
+		style: Plain
+
 		section {
-			cell Default foreach allPresentations as presentation {
-				text: presentation.title
+			cell Default for inventor in inventors {
+				text: inventor.name
 				accessory: Link
-				action: PresentationDetails(presentation)
+				action: InventorDetail(inventor)
 			}
 		}
 	}
 
-	tableview PresentationDetails(Presentation presentation) {
-		title: presentation.title
+	tableview InventorDetail(Inventor inventor) {
+		title: inventor.name
 		style: Grouped
-
 		section {
-			title:"Speakers"
-			cell Default foreach presentation.speakers as speaker {
-				text: speaker.speaker
+			cell Default for invention in inventor.inventions {
+				text: invention.name
 			}
 		}
 	}
 
-iApplause is based on the marvelous [Xtext language development framework](http://www.eclipse.org/Xtext/), and as such, it comes with an Eclipse IDE plug-in:
+iApplause is based on the [Xtext language development framework](http://www.eclipse.org/Xtext/), and as such, it comes with an Eclipse IDE plug-in:
 
 ![iApplause demo application editor](demo_ide.png)
 
@@ -80,7 +77,7 @@ And there is a code generator which generates iPhone applications from such DSL 
 
 ## Words of warning
 
-The project currently is very much work in progress and therefore not very well documented; you will find loose ends and corners. You'll only get something out of it if you're seriously into Xtext DSLs and iPhone development with Objective C.
+The project currently is very much work in progress and therefore not fully documented; you will find loose ends and corners. You'll only get something out of it if you're seriously into Xtext DSLs and iPhone development with Objective C.
 
 ## Getting started
 
@@ -88,19 +85,15 @@ The project currently is very much work in progress and therefore not very well 
 * I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for iApplause.
 * Import the example projects in Eclipse, inspect the `*.applause` documents, run the projects from Xcode, inspect the generated code.
 
-## Example projects
+## Demo Example project
 
-### Demo
+[`examples/demo/`](https://github.com/ralfebert/iApplause/tree/master/examples/demo) contains the Inventors example which fetches JSON content via HTTP and shows it using table views:
 
-[`examples/demo/`](https://github.com/ralfebert/iApplause/tree/master/examples/demo) is a working example project demonstrating how to fetch JSON content via HTTP and how to show it using table views:
+![Screenshots demo application: Inventors](demo.png)
 
-![Screenshots iApplause demo application](demo.png)
+It also contains a reference part showing the language features and the [GHUnit](https://github.com/gabriel/gh-unit/) test suite (target Tests):
 
-### TestApp, Running unit tests
-
-[`examples/testapp/`](https://github.com/ralfebert/iApplause/tree/master/examples/testapp) is a reference application showing the language features (target testapp). It also contains a [GHUnit](https://github.com/gabriel/gh-unit/) test suite (target Tests):
-
-![testapp Screenshots](testapp.png)
+![Screenshots demo application: reference and unit tests](demo_reference.png)
 
 
 
