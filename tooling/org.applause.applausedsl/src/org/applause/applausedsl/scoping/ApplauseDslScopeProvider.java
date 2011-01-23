@@ -18,11 +18,11 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  */
 public class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
 	
-	public IScope scope_VariableDeclaration(EObject context, EReference ref) {
+	public IScope scope_PropertyPathPart(EObject context, EReference ref) {
 		if(context.eContainer() instanceof ObjectReference)
 			return new NestedDeclarationScope((ObjectReference) context.eContainer());
 		else
-			return new VariableDeclarationScope(context);
+			return new PropertyPathPartScope(context);
 	}
 	
 

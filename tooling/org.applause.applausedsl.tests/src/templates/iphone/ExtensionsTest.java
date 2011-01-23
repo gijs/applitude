@@ -4,9 +4,9 @@
 package templates.iphone;
 
 import org.applause.applausedsl.ApplauseDslStandaloneSetup;
+import org.applause.applausedsl.applauseDsl.Cell;
 import org.applause.applausedsl.applauseDsl.CollectionIterator;
 import org.applause.applausedsl.applauseDsl.Model;
-import org.applause.applausedsl.applauseDsl.SectionCell;
 import org.applause.applausedsl.applauseDsl.TableView;
 import org.eclipse.xtend.XtendFacade;
 import org.eclipse.xtend.type.impl.java.JavaBeansMetaModel;
@@ -45,7 +45,7 @@ public class ExtensionsTest extends AbstractXtextTests {
 	}
 
 	private void assertProviderExpression(String expectedExpression, int cellIndex) {
-		SectionCell cell = tableView.getSections().get(0).getCells().get(cellIndex);
+		Cell cell = tableView.getSections().get(0).getCells().get(cellIndex);
 		CollectionIterator iterator = cell.getIterator();
 		assertEquals(expectedExpression, xtend.call("providerExpression", iterator.getCollection()));
 	}

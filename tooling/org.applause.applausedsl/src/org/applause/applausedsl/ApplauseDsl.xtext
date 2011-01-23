@@ -15,7 +15,7 @@ ModelElement:
 // General
 
 // common supertype to allow variableReferences
-VariableDeclaration:
+PropertyPathPart:
 	Parameter | Property | CollectionIterator;
 
 TypeDescription:
@@ -28,14 +28,14 @@ Variable returns Parameter:
 	description=TypeDescription name=ID '=' value=ProviderConstruction;
 
 ObjectReference:
-	object=[VariableDeclaration] tail=NestedObjectReference?;
+	object=[PropertyPathPart] tail=NestedObjectReference?;
 	
 //workaround: NestedObjectReference as separate rule to guide the content 
 //   assist parser technically could have been include in ObjectReference like
 //   ObjectReference:
-//     object=[VariableDeclaration] ('.' tail=ObjectReference)?;
+//     object=[PropertyPathPart] ('.' tail=ObjectReference)?;
 NestedObjectReference returns ObjectReference:
-	'.' object=[VariableDeclaration] tail=NestedObjectReference?;
+	'.' object=[PropertyPathPart] tail=NestedObjectReference?;
 
 //TODO: could this be ScalarExpression | CollectionExpression? and simplify rootParameter extension
 Expression:
@@ -143,20 +143,23 @@ TableView:
 		( ('title:' title=ScalarExpression)?
 		& ('style:' style=TableViewStyle)?     )
 		
-		(sections+=ViewSection)*
+		(sections+=Section)*
 	'}';
 	
 CustomView:
 	'customview' name=ID ('(' content=Parameter ')')? 'class' className=STRING;
 
-ViewSection:
-	'section' '{'
+ViewContentElement:
+	Section | Cell;
+
+Section:
+	'section' iterator=CollectionIterator? '{'
 		('title:' title=ScalarExpression)?
-		(cells+=SectionCell)+
+		(cells+=Cell)+
 	'}';
 	
-SectionCell:
-	'cell' type=CellType ('foreach' iterator=CollectionIterator)? '{'
+Cell:
+	'cell' type=CellType iterator=CollectionIterator? '{'
 		( ('text:' text=ScalarExpression)?
 		& ('details:' details=ScalarExpression)?
 		& ('image:' image=ScalarExpression)?
@@ -174,7 +177,7 @@ enum CellAccessory:
 	None | Link | Detail | Check;
 
 CollectionIterator:
-	collection=CollectionExpression 'as' name=ID;
+	'for' name=ID 'in' collection=CollectionExpression;
 	
 ViewAction:
 	ViewCall | ExternalOpen | Selector;

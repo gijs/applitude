@@ -115,7 +115,7 @@ constant(CellAccessory ac):
 		default : 'UITableViewCellAccessoryNone'
 	};
 
-idname(SectionCell cell):
+idname(Cell cell):
 	cell.iterator != null
 		? cell.iterator.name
 		// TODO: using the text is a hack, find a better way to derive a
@@ -125,23 +125,14 @@ idname(SectionCell cell):
 				: "<none>");
 
 //TOOD: cell is handed in to calculate unique cell selector name for ViewCall - there has to be a better way
-action(ViewAction action, SectionCell cell):
-	"<Abstract " + action + ">";
+action(ViewAction this, Cell cell):
+	throwError("action not supported for " + this);
 
-action(ViewCall call, SectionCell cell):
+action(ViewCall call, Cell cell):
 	'[' + "SelectorAction".use() + ' actionWithObject:self selector:@selector(' + cell.idname() + 'CellSelected:)]';
 
-action(Selector sel, SectionCell cell):
+action(Selector sel, Cell cell):
 	'[' + "SelectorAction".use() + ' actionWithObject:self selector:@selector(' + sel.name + ')]';
-
-constructStatements(SectionCell cell, String kvcTarget):
-	{
-	 use('BoxCell') + ' *cell = [[BoxCell alloc] initWithStyle:' + cell.type.constant() + ' reuseIdentifier:nil]',
-	 cell.text.assignment('cell.textLabel', 'text', kvcTarget),
-	 cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget),
-	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null,
-	 (cell.action != null) ? 'cell.onTouch = ' + action(cell.action, cell) : null
-	};
 
 providers(View view):
 	view.parameters();
@@ -163,6 +154,23 @@ ivar(Parameter param):
 
 
 
+// Construction of content elements
+
+List[String] constructionStatements(ViewContentElement this, String kvcTarget):
+	throwError("constructionStatements not supported for " + this);
+
+constructionStatements(Cell cell, String kvcTarget):
+	{
+	 use('BoxCell') + ' *cell = [[BoxCell alloc] initWithStyle:' + cell.type.constant() + ' reuseIdentifier:nil]',
+	 cell.text.assignment('cell.textLabel', 'text', kvcTarget),
+	 cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget),
+	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null,
+	 (cell.action != null) ? 'cell.onTouch = ' + action(cell.action, cell) : null
+	};
+
+
+
+
 
 // providerExpression returns the obj c code to resolve an expression
 // to a content provider that contains the expression result. This is work
@@ -178,7 +186,7 @@ providerExpression(ObjectReference expr):
 		: silentUse("ContentProvider+Nested") + "[ContentProvider nestedContentProviderWithContentProvider:" + expr.object.providerExpression() +
 		                  " keyPath:@\"" + expr.tail.keyPath().toString(".") + "\"]";
 
-providerExpression(VariableDeclaration declaration):
+providerExpression(PropertyPathPart declaration):
 	throwError("providerExpression not supported for " + declaration);
 
 providerExpression(Parameter parameter):
@@ -193,11 +201,11 @@ providerExpression(Parameter parameter):
 // that truly resolve the expression, like expression or providerExpression
 // should be used instead
 
-Parameter rootParameter(CollectionExpression expr):
-	throwError("abstract " + expr);
+Parameter rootParameter(CollectionExpression this):
+	throwError("rootParameter not supported for " + this);
 
-Parameter rootParameter(ScalarExpression expr):
-	throwError("abstract " + expr);
+Parameter rootParameter(ScalarExpression this):
+	throwError("rootParameter not supported for " + this);
 
 Parameter rootParameter(StringLiteral expr):
 	null;
@@ -205,8 +213,8 @@ Parameter rootParameter(StringLiteral expr):
 Parameter rootParameter(ObjectReference ref):
  	ref.object.rootParameter();
 
-Parameter rootParameter(VariableDeclaration this):
-	throwError("rootParameter not supported " + this);
+Parameter rootParameter(PropertyPathPart this):
+	throwError("rootParameter not supported for " + this);
 
 Parameter rootParameter(Parameter param):
  	param;
@@ -227,8 +235,8 @@ resolve(ScalarExpression expr):
 assignment(Void expr, String targetObject, String targetProperty, String kvcTarget):
 	null;
 
-assignment(ScalarExpression expr, String targetObject, String targetProperty, String kvcTarget):
-	throwError("Abstract " + expr);
+assignment(ScalarExpression this, String targetObject, String targetProperty, String kvcTarget):
+	throwError("assignment not supported for " + this);
 
 assignment(StringLiteral expr, String targetObject, String targetProperty, String kvcTarget):
 	targetObject + "." + targetProperty + " = " + expr.expression(kvcTarget, '');
@@ -264,8 +272,8 @@ ivar(ContentProvider provider):
 
 
 
-objcType(Type type):
-	throwError("Abstract: " + type);
+objcType(Type this):
+	throwError("objcType not supported for " + this);
 
 objcType(SimpleType type):
 	type.platformType;
@@ -276,7 +284,7 @@ objcType(Entity type):
 
 
 
-type(SectionCell this):
+type(Cell this):
 	type.toString().toFirstUpper();
 	
 firstCell(TableView this):
@@ -342,7 +350,7 @@ contentProvider(ComplexProviderConstruction this, String kvcTarget, String kvcPr
 		(argument == null ? '' : ': ' + argument.expression(kvcTarget, kvcPrefix) )
 	+ ']';
 	
-rowCount(SectionCell this):
+rowCount(Cell this):
 	iterator == null ? 1 : '[[' + iterator.collection.expression('contentProvider', 'content') +' asArray] count]'; 
 	
 methodSignature(ContentProvider p):

@@ -6,37 +6,20 @@ import org.applause.applausedsl.applauseDsl.CollectionLiteral;
 import org.applause.applausedsl.applauseDsl.ObjectReference;
 import org.applause.applausedsl.applauseDsl.Parameter;
 import org.applause.applausedsl.applauseDsl.Property;
+import org.applause.applausedsl.applauseDsl.PropertyPathPart;
 import org.applause.applausedsl.applauseDsl.Type;
 import org.applause.applausedsl.applauseDsl.TypeDescription;
-import org.applause.applausedsl.applauseDsl.VariableDeclaration;
 import org.applause.applausedsl.applauseDsl.util.ApplauseDslSwitch;
 import org.eclipse.emf.ecore.EObject;
 
 public class TypeUtil {
 	
-//	public class TypeDesc {
-//		private final Type type;
-//		private final boolean many;
-//		
-//		public TypeDesc(Type type, boolean many) {
-//			this.type = type;
-//			this.many = many;
-//		}
-//		
-//		public Type getType() {
-//			return type;
-//		}
-//		public boolean isMany() {
-//			return many;
-//		}
-//	}
-
 	public static ApplauseDslSwitch<TypeDescription> typeOf = new ApplauseDslSwitch<TypeDescription>() {
 		public TypeDescription caseProperty(Property object) {
 			return object.getDescription();
 		};
 		
-		public TypeDescription caseVariableDeclaration(VariableDeclaration object) {
+		public TypeDescription casePropertyPathPart(PropertyPathPart object) {
 			return null;
 		};
 
@@ -66,7 +49,6 @@ public class TypeUtil {
 	};
 	
 	private static TypeDescription doGetTypeOf(EObject object) {
-//		System.out.println("doGetTypeOf: " + object.eClass().getName());
 		TypeDescription result = typeOf.doSwitch(object);
 		if(result == null) {
 			typeOf.doSwitch(object);
@@ -74,12 +56,8 @@ public class TypeUtil {
 		return result;
 	}
 	
-	public static TypeDescription getTypeOf(VariableDeclaration declaration) {
+	public static TypeDescription getTypeOf(PropertyPathPart declaration) {
 		return doGetTypeOf(declaration);
 	}
 	
-	public static String hello(String test) {
-		return "";
-	}
-
 }

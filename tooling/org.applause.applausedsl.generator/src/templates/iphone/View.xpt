@@ -59,7 +59,7 @@
 		cell.loadingCurtainItems = [NSArray arrayWithObject:[«use('ActivityCell')» activityCell]];
 		cell.errorMapping = [«use('SelectorAction')» actionWithObject:[«use('CommonCells')» class] selector:@selector(textCellWithError:)];
 «ELSE-»
-		«cell.constructStatements(null).statements("\n\t\t")»
+		«cell.constructionStatements(null).statements("\n\t\t")»
 «ENDIF-»
 		[table cell:cell];
 		[cell release];
@@ -78,10 +78,10 @@
 
 
 
-«DEFINE cellProviderMethod FOR SectionCell-»
+«DEFINE cellProviderMethod FOR ViewContentElement-»
 «LET this.iterator AS it-»
 - (UITableViewCell *) «it.name»Cell:(«it.rootParameter().description.type.objcType()» *)«it.name» {
-	«this.constructStatements(it.name).statements("\n\t")»
+	«this.constructionStatements(it.name).statements("\n\t")»
 	cell.data = «it.name»;
 	return [cell autorelease];
 }
@@ -90,14 +90,14 @@
 
 
 
-«DEFINE cellActionMethod FOR SectionCell-»
+«DEFINE cellActionMethod FOR Cell-»
 «EXPAND cellActionMethod(this) FOR this.action-»
 «ENDDEFINE»
 
-«DEFINE cellActionMethod(SectionCell cell) FOR ViewAction-»
+«DEFINE cellActionMethod(Cell cell) FOR ViewAction-»
 «ENDDEFINE»
 
-«DEFINE cellActionMethod(SectionCell cell) FOR ViewCall-»
+«DEFINE cellActionMethod(Cell cell) FOR ViewCall-»
 «LET cell.iterator AS it-»
 - (void) «cell.idname()»CellSelected:(BoxCell *)cell {
 «IF it!=null-»
