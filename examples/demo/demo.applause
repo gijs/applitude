@@ -1,56 +1,69 @@
-// © 2010 Ralf Ebert
+// © 2011 Ralf Ebert
 // Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
 
 application Demo {
 	view:Tabs()
 }
 
-type String mapsTo "NSString"
-
-entity Speaker {
-	String speaker
-	String speakerUri
-}
-
-entity Presentation {
-	String title
-	Speaker[] speakers
-}
-
-contentprovider AllPresentations
-	returns Presentation[]
-	fetches JSON from "http://cfp.devoxx.com/rest/v1/events/1/presentations"
-	selects ""
-
 tabview Tabs {
 	tab {
-		title: "Schedule"
-		icon: "calendar.png"
-		view: Schedule()
+		title: "Tables"
+		view: Tables()
 	}
 }
 
-tableview Schedule {
-	Presentation[] allPresentations = AllPresentations()
+type String mapsTo "NSString"
 
-	title: "Schedule"
+entity Inventor {
+	String name
+	Invention[] inventions
+}
+
+entity Invention {
+	String name
+}
+
+contentprovider AllInventors returns Inventor[] fetches JSON from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
+contentprovider AllErrorneousInventors returns Inventor[] fetches JSON from "http://localhost/none.json" selects ""
+
+tableview Tables {
+	Inventor[] inventors = AllInventors()
+	Inventor[] errorInventors = AllErrorneousInventors()
+	
+	title: "Tables"
+	style: Grouped
 	section {
-		cell Default foreach allPresentations as presentation {
-			text: presentation.title
+		title: "Cell styles"
+		cell Default { text: "Style Default" }
+		cell Subtitle { text: "Style" details: "Subtitle" }
+		cell Value1 { text: "Style" details: "Value1" }
+		cell Value2 { text: "Style" details: "Value2" }
+	}
+	
+	section {
+		title: "cell ... for ... in ..."
+		cell Default for inventor in inventors {
+			text: inventor.name
 			accessory: Link
-			action: PresentationDetails(presentation)
+			action: InventorDetail(inventor)
+		}	
+	}
+
+	section {
+		title: "error handling"
+		cell Default for inventor2 in errorInventors {
+			text: inventor2.name
 		}
 	}
+
 }
 
-tableview PresentationDetails(Presentation presentation) {
-	title: presentation.title
+tableview InventorDetail(Inventor inventor) {
+	title: inventor.name
 	style: Grouped
-
 	section {
-		title:"Speakers"
-		cell Default foreach presentation.speakers as speaker {
-			text: speaker.speaker
+		cell Default for invention in inventor.inventions {
+			text: invention.name
 		}
 	}
 }

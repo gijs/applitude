@@ -1,14 +1,14 @@
 #import "ContentProvider.h"
-#import "PresentationDetailsViewController.h"
-#import "ScheduleViewController.h"
+#import "InventorDetailViewController.h"
+#import "TablesViewController.h"
 
 @interface DemoViews : NSObject {
 
 }
 
 + (UITabBarController *) createTabs;
-+ (ScheduleViewController *) createSchedule;
-+ (PresentationDetailsViewController *) createPresentationDetailsWithPresentation:(ContentProvider *)presentation;
++ (TablesViewController *) createTables;
++ (InventorDetailViewController *) createInventorDetailWithInventor:(ContentProvider *)inventor;
 
 
 @end

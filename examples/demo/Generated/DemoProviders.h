@@ -6,6 +6,7 @@
 
 + (DemoProviders *) sharedProviders;
 
-- (ContentProvider *) providerForAllPresentations;
+- (ContentProvider *) providerForAllInventors;
+- (ContentProvider *) providerForAllErrorneousInventors;
 
 @end

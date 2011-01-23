@@ -3,11 +3,11 @@
 #import "BoxCell.h"
 #import "CommonCells.h"
 #import "ContentProviderPlaceholder.h"
+#import "DemoProviders.h"
+#import "DemoViews.h"
 #import "SelectorAction.h"
 #import "SimpleContentProvider.h"
 #import "TableBuilder.h"
-#import "TestProviders.h"
-#import "TestViews.h"
 
 @implementation TablesViewController
 
@@ -16,8 +16,8 @@
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
 		
-		fInventors = [[[TestProviders sharedProviders] providerForAllInventors] retain];
-		fErrorInventors = [[[TestProviders sharedProviders] providerForAllErrorneousInventors] retain];
+		fInventors = [[[DemoProviders sharedProviders] providerForAllInventors] retain];
+		fErrorInventors = [[[DemoProviders sharedProviders] providerForAllErrorneousInventors] retain];
 	}
 	return self;
 }
@@ -58,7 +58,7 @@
 		[cell release];
 	}
 
-	[table section:@"cell foreach"];
+	[table section:@"cell ... for ... in ..."];
 	{
 		ContentProvider *content = fInventors;
 		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventorCell:)]];
@@ -98,7 +98,7 @@
 
 - (void) inventorCellSelected:(BoxCell *)cell {
 	NSDictionary *inventor = cell.data;
-	UIViewController *controller = [TestViews createInventorDetailWithInventor:[SimpleContentProvider providerWithContent:inventor name:@""]];
+	UIViewController *controller = [DemoViews createInventorDetailWithInventor:[SimpleContentProvider providerWithContent:inventor name:@""]];
 	[self.navigationController pushViewController:controller animated:YES];
 }
 
