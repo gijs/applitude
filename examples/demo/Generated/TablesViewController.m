@@ -2,6 +2,7 @@
 #import "ActivityCell.h"
 #import "BoxCell.h"
 #import "CommonCells.h"
+#import "ContentProvider+Nested.h"
 #import "ContentProviderPlaceholder.h"
 #import "DemoProviders.h"
 #import "DemoViews.h"
@@ -15,7 +16,7 @@
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
-		
+
 		fInventors = [[[DemoProviders sharedProviders] providerForAllInventors] retain];
 		fErrorInventors = [[[DemoProviders sharedProviders] providerForAllErrorneousInventors] retain];
 	}
@@ -61,12 +62,25 @@
 	[table section:@"cell ... for ... in ..."];
 	{
 		ContentProvider *content = fInventors;
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventorCell:)]];
-		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
-		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
-		[table cell:cell];
-		[cell release];
+		ContentProviderPlaceholder *placeholder = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventorCell:)]];
+		placeholder.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
+		placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
+		// TODO: cell vs. cells, section, placeholder
+		[table cell:placeholder];
+		[placeholder release];
 	}
+
+	ContentProvider *content = fInventors;
+	ContentProviderPlaceholder *placeholder = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventorSection:)]];
+	// TODO: constructor method for curtain
+	StaticSection *curtain = [StaticSection section];
+	[curtain add:[ActivityCell activityCell]];
+	placeholder.loadingCurtainItems = [NSArray arrayWithObject:curtain];
+	placeholder.storeItems = YES;
+	// TODO: define error mapping
+	// placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
+	[table sections:placeholder];
+	[placeholder release];
 
 	[table section:@"error handling"];
 	{
@@ -86,6 +100,29 @@
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(inventorCellSelected:)];
 	cell.data = inventor;
+	return [cell autorelease];
+}
+
+- (StaticSection *) inventorSection:(NSDictionary *)inventor {
+	// TODO: TableBuilder above vs. static construction here
+	StaticSection *section = [StaticSection sectionWithTitle:[inventor valueForKey:@"name"]];
+	{
+		// TODO: constructing a SimpleContentProvider here vs. ContentProvider for [idx] ?
+		ContentProvider *content = [ContentProvider nestedContentProviderWithContentProvider:[SimpleContentProvider providerWithContent:inventor name:@"inventor"] keyPath:@"inventions"];
+		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventionCell:)]];
+		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
+		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
+		// TODO: add vs. cell
+		[section add:cell];
+		[cell release];
+	}
+	return section;
+}
+
+- (UITableViewCell *) inventionCell:(NSDictionary *)invention {
+	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+	cell.textLabel.text = [invention valueForKey:@"name"];
+	cell.data = invention;
 	return [cell autorelease];
 }
 

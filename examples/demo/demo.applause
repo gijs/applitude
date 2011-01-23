@@ -41,12 +41,19 @@ tableview Tables {
 	}
 	
 	section {
-		title: "cell ... for ... in ..."
+		title: "Inventors"
 		cell Default for inventor in inventors {
 			text: inventor.name
 			accessory: Link
 			action: InventorDetail(inventor)
 		}	
+	}
+
+	section for inv in inventors {
+		title: inv.name
+		cell Default for invention in inv.inventions {
+			text: invention.name
+		}
 	}
 
 	section {

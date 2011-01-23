@@ -177,8 +177,8 @@ constructionStatements(Cell cell, String kvcTarget):
 // in progress, currently only straightforward cases are supported.
 // See http://ralfebert.github.com/iApplause/#model_expressions
 
-providerExpression(CollectionExpression expr):
-	throwError("providerExpression not supported for " + expr);
+providerExpression(CollectionExpression this):
+	"<providerExpression is abstract for: " + this + ">";
 
 providerExpression(ObjectReference expr):
 	expr.tail == null
@@ -186,8 +186,8 @@ providerExpression(ObjectReference expr):
 		: silentUse("ContentProvider+Nested") + "[ContentProvider nestedContentProviderWithContentProvider:" + expr.object.providerExpression() +
 		                  " keyPath:@\"" + expr.tail.keyPath().toString(".") + "\"]";
 
-providerExpression(PropertyPathPart declaration):
-	throwError("providerExpression not supported for " + declaration);
+providerExpression(PropertyPathPart this):
+	"<providerExpression is abstract for: " + this + ">";
 
 providerExpression(Parameter parameter):
 	parameter.ivar();

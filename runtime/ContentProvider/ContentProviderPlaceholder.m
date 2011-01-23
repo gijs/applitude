@@ -35,6 +35,7 @@
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	[self updateLoadingView];
 	[fItemStore removeAllObjects];
+	// TODO: when is a table reloaded because of content provider changes, esp. with cell placeholder in section placeholder?
 	if ([fMapping.object isKindOfClass:[UITableViewController class]]) {
 		[((UITableViewController *)fMapping.object).tableView reloadData];
 	}
