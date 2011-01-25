@@ -4,13 +4,28 @@
 #import <UIKit/UIKit.h>
 
 #import "List.h"
+#import "Section.h"
+#import "ContentProvider.h"
 
 @interface BoxTableViewController : UITableViewController {
-	List *fSections;
+	List *fSectionList;
+
+	NSMutableArray *fSectionBag;
+	Section *fCellBag;
 }
+
+@property (nonatomic, retain) List *sectionList;
+@property (nonatomic, retain) NSMutableArray *sectionBag;
+@property (nonatomic, retain) Section *cellBag;
 
 - (void) update;
 
-@property (retain) List *sections;
+- (Section *) section;
+- (Section *) section:(NSString *) title;
+- (void) sections:(SEL)selector forContentProvider:(ContentProvider *)contentProvider;
+
+- (void) cell:(UITableViewCell *)cell;
+- (void) cells:(SEL)selector forContentProvider:(ContentProvider *)contentProvider;
+- (void) cells:(SEL)selector forList:(List *)list;
 
 @end

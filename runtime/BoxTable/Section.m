@@ -7,26 +7,19 @@
 
 @implementation Section
 
-- (id) initWithText:(NSString *)aText {
+@synthesize title = fTitle;
+
+- (id) init {
 	self = [super init];
 	if (self != nil) {
-		fText = [aText retain];
 		fRows = [[NSMutableArray alloc] init];
 		fPlaceholder = [[PlaceholderResolver alloc] initWithArray:fRows];
 	}
 	return self;
 }
 
-+ (Section *) sectionWithTitle:title {
-	return [[[self alloc] initWithText:title] autorelease];
-}
-
 + (Section *) section {
-	return [[[self alloc] initWithText:nil] autorelease];
-}
-
-- (NSString *) text {
-	return fText;
+	return [[[self alloc] init] autorelease];
 }
 
 - (List *) rows {
@@ -37,9 +30,8 @@
 	[fRows addObject:item];
 }
 
-- (void) dealloc
-{
-	[fText release];
+- (void) dealloc {
+	self.title = nil;
 	[fRows release];
 	[fPlaceholder release];
 	[super dealloc];

@@ -5,6 +5,7 @@
 
 #import "UIView+Coordinates.h"
 #import "ActivityCell.h"
+#import "CommonCells.h"
 
 @implementation CommonCells
 
@@ -24,6 +25,18 @@
 
 + (UITableViewCell *) textCellWithError:(NSError *)error {
 	return [self textCellWithString:[error localizedDescription]];
+}
+
++ (Section *) sectionWithError:(NSError *)error {
+	Section *section = [Section section];
+	[section add:[CommonCells textCellWithError:error]];
+	return section;
+}
+
++ (Section *) sectionActivity {
+	Section *section = [Section section];
+	[section add:[ActivityCell activityCell]];
+	return section;
 }
 
 @end

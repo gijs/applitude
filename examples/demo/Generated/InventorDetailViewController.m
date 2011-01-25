@@ -5,7 +5,6 @@
 #import "ContentProvider+Nested.h"
 #import "ContentProviderPlaceholder.h"
 #import "SelectorAction.h"
-#import "TableBuilder.h"
 #import "SimpleContentProvider.h"
 
 @implementation InventorDetailViewController
@@ -24,18 +23,11 @@
 	self.title = [fInventor valueForKeyPath:@"content.name"];
 	[fInventor request];
 
-	TableBuilder *table = [TableBuilder builder];
-
-	[table section];
+	[self section];
 	{
 		ContentProvider *inventions = [[[SimpleContentProvider alloc] initWithContent:[fInventor valueForKeyPath:@"content.inventions"] name:@""] autorelease];
-		ContentProviderPlaceholder *placeholder = [ContentProviderPlaceholder placeholderWithTableViewController:self contentProvider:inventions function:[SelectorAction actionWithObject:self selector:@selector(inventionCell:)]];
-		placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError)];
-		placeholder.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
-		[table cell:placeholder];
-
+		[self cells:@selector(inventionCell:) forContentProvider:inventions];
 	}
-	self.sections = table.sections;
 }
 
 - (UITableViewCell *) inventionCell:(NSDictionary *)invention {

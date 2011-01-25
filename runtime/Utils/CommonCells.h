@@ -4,6 +4,7 @@
 #import <Foundation/Foundation.h>
 
 #import "BoxCell.h"
+#import "Section.h"
 
 @interface CommonCells : NSObject {
 
@@ -12,5 +13,7 @@
 + (UITableViewCell *) activityIndicator;
 + (UITableViewCell *) textCellWithString:(NSString *)error;
 + (UITableViewCell *) textCellWithError:(NSError *)error;
++ (Section *) sectionWithError:(NSError *)error;
++ (Section *) sectionActivity;
 
 @end

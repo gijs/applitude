@@ -15,4 +15,6 @@
 @property (nonatomic, retain) NSObject<Action> *onTouch;
 @property (nonatomic, retain) id data;
 
+- (void) didSelect;
+
 @end

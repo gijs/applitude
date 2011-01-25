@@ -6,14 +6,14 @@
 #import "BoxCell.h"
 #import "CommonCells.h"
 #import "SelectorAction.h"
-#import "StaticSection.h"
+#import "Section.h"
 #import "BrandedUIFactory.h"
 #import "MappedList.h"
 #import "CachedList.h"
 
 @implementation ContentProviderPlaceholder
 
-@synthesize loadingCurtainItems = fLoadingCurtainItems, loadingView = fLoadingView,
+@synthesize loadingCurtain = fLoadingCurtain, loadingView = fLoadingView,
 	errorMapping = fErrorMapping, storeItems = fStoreItems;
 
 - (id) initWithTableViewController:(UITableViewController *)controller contentProvider:(ContentProvider *)contentProvider function:(SelectorAction *)function {
@@ -24,7 +24,7 @@
 		fContentProvider = [contentProvider retain];
 		[fContentProvider addObserver:self];
 		[fContentProvider request];
-		self.loadingCurtainItems = [NSArray array];
+		self.loadingCurtain = [NSArray array];
 	}
 	return self;
 }
@@ -42,7 +42,7 @@
 		self.object = [fErrorMapping performWithObject:fContentProvider.error];
 	}
 	else if (fContentProvider.content == nil) {
-		self.object = self.loadingCurtainItems;
+		self.object = self.loadingCurtain;
 	}
 	else {
 		List *list = [[[MappedList alloc] initWithList:fContentProvider.content function:fMapping] autorelease];
@@ -73,7 +73,7 @@
 	[fContentProvider removeObserver:self];
 	[fMapping release];
 	self.loadingView = nil;
-	self.loadingCurtainItems = nil;
+	self.loadingCurtain = nil;
 	[fContentProvider release];
 	[super dealloc];
 }

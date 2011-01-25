@@ -45,7 +45,7 @@
 }
 
 - (void) testLoading {
-	placeholder.loadingCurtainItems = [NSArray arrayWithObjects:@"wait", @"wait more", nil];
+	placeholder.loadingCurtain = [NSArray arrayWithObjects:@"wait", @"wait more", nil];
 	placeholder.loadingView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
 
 	GHAssertEquals(2, [placeholder count], nil);

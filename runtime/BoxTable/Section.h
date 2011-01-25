@@ -7,16 +7,16 @@
 
 @interface Section : NSObject {
 
-	NSString *fText;
+	NSString *fTitle;
 	NSMutableArray *fRows;
 	PlaceholderResolver *fPlaceholder;
 
 }
 
-- (id) initWithText:(NSString *)aText;
 + (Section *) section;
-+ (Section *) sectionWithTitle:title;
 - (List *) rows;
 - (void) add:(id) item;
+
+@property (nonatomic, copy) NSString *title;
 
 @end

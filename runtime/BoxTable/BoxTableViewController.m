@@ -4,36 +4,34 @@
 #import "BoxTableViewController.h"
 #import "Section.h"
 #import "PlaceholderResolver.h"
-#import "Cell.h"
 #import "BrandedUIFactory.h"
 #import "LogUtils.h"
+#import "BoxCell.h"
+#import "TextFieldCell.h"
+#import "ContentProvider.h"
+#import "ContentProviderPlaceholder.h"
+#import "CommonCells.h"
+#import "ActivityCell.h"
+#import "MappedList.h"
 
 @implementation BoxTableViewController
 
-@synthesize sections = fSections;
-
-- (void) setSections:(List *)sections {
-	if (sections != fSections) {
-		[fSections release];
-		fSections = [sections retain];
-		[self.tableView reloadData];
-	}
-}
+@synthesize sectionList = fSectionList, sectionBag = fSectionBag, cellBag = fCellBag;
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-	return [self.sections count];
+	return [fSectionList count];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex {
-	return [[self.sections objectAtIndex:sectionIndex] text];
+	return [[fSectionList objectAtIndex:sectionIndex] title];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)i {
-	return [[[self.sections objectAtIndex:i] rows] count];
+	return [[[fSectionList objectAtIndex:i] rows] count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSObject<Section> *section = [self.sections objectAtIndex:indexPath.section];
+	Section *section = [fSectionList objectAtIndex:indexPath.section];
 	UITableViewCell *cell = [[section rows] objectAtIndex:indexPath.row];
 	[BrandedUIFactory brandCell:cell tableView:tableView indexPath:indexPath];
 	return cell;
@@ -41,30 +39,99 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-	if ([cell conformsToProtocol:@protocol(Cell)]) {
-		[(NSObject<Cell> *)cell didSelect];
+	if ([cell isKindOfClass:[BoxCell class]]) {
+		[(BoxCell *)cell didSelect];
 	}
 }
 
 - (void) update {
-	// should be overwritten, call setSection to fill table with data
+	// should be overwritten to build the table
 }
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
+
+	self.sectionBag = [NSMutableArray array];
 	[self update];
+	self.sectionList = [[PlaceholderResolver alloc] initWithObject:fSectionBag];
+	self.sectionBag = nil;
+	self.cellBag = nil;
 }
 
 - (void) viewDidUnload {
 	LogDebug(@"[%@ viewDidUnload]", [self class]);
 	[super viewDidUnload];
-	self.sections = nil;
+
+	self.sectionList = nil;
+	self.sectionBag = nil;
+	self.cellBag = nil;
 }
 
 - (void) dealloc {
 	LogDealloc;
-	self.sections = nil;
+	[self viewDidUnload];
 	[super dealloc];
+}
+
+
+
+#pragma mark -
+#pragma mark Table construction helpers
+
+- (Section *) section {
+	Section *section = [Section section];
+	self.cellBag = section;
+	[self.sectionBag addObject:section];
+	return section;
+}
+
+- (Section *) section:(NSString *) title {
+	Section *section = [self section];
+	section.title = title;
+	return section;
+}
+
+- (void) sections:(SEL)selector forContentProvider:(ContentProvider *)contentProvider {
+	SelectorAction *sectionFunction = [SelectorAction actionWithObject:self selector:selector];
+	ContentProviderPlaceholder *placeholder = [ContentProviderPlaceholder placeholderWithTableViewController:self contentProvider:contentProvider function:sectionFunction];
+	placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(sectionWithError:)];
+	placeholder.loadingCurtain = [CommonCells sectionActivity];
+	placeholder.storeItems = YES;
+
+	self.cellBag = nil;
+	[self.sectionBag addObject:placeholder];
+}
+
+- (void) cell:(UITableViewCell *)cell {
+	if (!self.cellBag) {
+		LogError(@"No section to put the cell into, did you created a section already?");
+		return;
+	}
+	[self.cellBag add:cell];
+}
+
+- (void) cells:(SEL)selector forContentProvider:(ContentProvider *)contentProvider {
+	if (!self.cellBag) {
+		LogError(@"No section to put the cell into, did you created a section already?");
+		return;
+	}
+
+	SelectorAction *cellFunction = [SelectorAction actionWithObject:self selector:selector];
+	ContentProviderPlaceholder *placeholder = [ContentProviderPlaceholder placeholderWithTableViewController:self contentProvider:contentProvider function:cellFunction];
+	placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
+	placeholder.loadingCurtain = [ActivityCell activityCell];
+
+	[self.cellBag add:placeholder];
+}
+
+- (void) cells:(SEL)selector forList:(List *)list {
+	if (!self.cellBag) {
+		LogError(@"No section to put the cell into, did you created a section already?");
+		return;
+	}
+
+	SelectorAction *cellFunction = [SelectorAction actionWithObject:self selector:selector];
+	[self.cellBag add:[[[MappedList alloc] initWithList:list function:cellFunction] autorelease]];
 }
 
 @end
