@@ -6,6 +6,7 @@
 #import "ContentProviderPlaceholder.h"
 #import "SelectorAction.h"
 #import "TableBuilder.h"
+#import "SimpleContentProvider.h"
 
 @implementation InventorDetailViewController
 
@@ -14,7 +15,7 @@
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
 		fInventor = [inventor retain];
-		
+
 	}
 	return self;
 }
@@ -27,14 +28,14 @@
 
 	[table section];
 	{
-		ContentProvider *content = [ContentProvider nestedContentProviderWithContentProvider:fInventor keyPath:@"inventions"];
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventionCell:)]];
-		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
-		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
-		[table cell:cell];
-		[cell release];
+		ContentProvider *inventions = [[[SimpleContentProvider alloc] initWithContent:[fInventor valueForKeyPath:@"content.inventions"] name:@""] autorelease];
+		ContentProviderPlaceholder *placeholder = [ContentProviderPlaceholder placeholderWithTableViewController:self contentProvider:inventions function:[SelectorAction actionWithObject:self selector:@selector(inventionCell:)]];
+		placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError)];
+		placeholder.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
+		[table cell:placeholder];
+
 	}
-	[self setSections:table.sections];
+	self.sections = table.sections;
 }
 
 - (UITableViewCell *) inventionCell:(NSDictionary *)invention {

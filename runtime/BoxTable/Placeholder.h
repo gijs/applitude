@@ -3,6 +3,7 @@
 
 #import <UIKit/UIKit.h>
 
+//TODO: deprecated
 @protocol Placeholder
 
 - (int) count;

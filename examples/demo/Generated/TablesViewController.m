@@ -25,8 +25,6 @@
 
 - (void) update {
 	self.title = @"Tables";
-	[fInventors request];
-	[fErrorInventors request];
 
 	TableBuilder *table = [TableBuilder builder];
 
@@ -61,37 +59,33 @@
 
 	[table section:@"cell ... for ... in ..."];
 	{
-		ContentProvider *content = fInventors;
-		ContentProviderPlaceholder *placeholder = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventorCell:)]];
+		ContentProviderPlaceholder *placeholder = [ContentProviderPlaceholder placeholderWithTableViewController:self contentProvider:fInventors function:[SelectorAction actionWithObject:self selector:@selector(inventorCell:)]];
+		placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError)];
 		placeholder.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
-		placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
-		// TODO: cell vs. cells, section, placeholder
 		[table cell:placeholder];
-		[placeholder release];
 	}
 
-	ContentProvider *content = fInventors;
-	ContentProviderPlaceholder *placeholder = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventorSection:)]];
-	// TODO: constructor method for curtain
-	StaticSection *curtain = [StaticSection section];
-	[curtain add:[ActivityCell activityCell]];
-	placeholder.loadingCurtainItems = [NSArray arrayWithObject:curtain];
-	placeholder.storeItems = YES;
-	// TODO: define error mapping
-	// placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
-	[table sections:placeholder];
-	[placeholder release];
+	//ContentProvider *content = fInventors;
+//	ContentProviderPlaceholder *placeholder = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventorSection:)]];
+//	// TODO: constructor method for curtain
+//	StaticSection *curtain = [StaticSection section];
+//	[curtain add:[ActivityCell activityCell]];
+//	placeholder.loadingCurtainItems = [NSArray arrayWithObject:curtain];
+//	placeholder.storeItems = YES;
+//	// TODO: define error mapping
+//	// placeholder.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
+//	//[table sections:placeholder];
+//	[placeholder release];
 
 	[table section:@"error handling"];
 	{
-		ContentProvider *content = fErrorInventors;
-		ContentProviderPlaceholder *cell = [[ContentProviderPlaceholder alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(inventor2Cell:)]];
-		cell.loadingCurtainItems = [NSArray arrayWithObject:[ActivityCell activityCell]];
-		cell.errorMapping = [SelectorAction actionWithObject:[CommonCells class] selector:@selector(textCellWithError:)];
-		[table cell:cell];
-		[cell release];
+		//TODO:[table cell:[CellList cellsWithTableViewController:self contentProvider:fErrorInventors cellFunction:[SelectorAction actionWithObject:self selector:@selector(inventor2Cell:)]]];
 	}
-	[self setSections:table.sections];
+
+	self.sections = table.sections;
+
+	[fInventors request];
+	[fErrorInventors request];
 }
 
 - (UITableViewCell *) inventorCell:(NSDictionary *)inventor {

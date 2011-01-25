@@ -9,39 +9,32 @@
 #import "BrandedUIFactory.h"
 #import "LogUtils.h"
 
-@interface BoxTableViewController ()
-@property (retain) NSObject<Placeholder> *sectionPlaceholder;
-@end
-
 @implementation BoxTableViewController
 
-@synthesize sectionPlaceholder = fSectionPlaceholder;
+@synthesize sections = fSections;
 
-- (void) setSections:(NSArray *)sections {
-	if (sections == nil) {
-		self.sectionPlaceholder = nil;
+- (void) setSections:(List *)sections {
+	if (sections != fSections) {
+		[fSections release];
+		fSections = [sections retain];
+		[self.tableView reloadData];
 	}
-	else {
-		self.sectionPlaceholder = [[PlaceholderResolver alloc] initWithArray:sections];
-		[self.sectionPlaceholder release];
-	}
-	[self.tableView reloadData];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
-	return [self.sectionPlaceholder count];
+	return [self.sections count];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex {
-	return [[self.sectionPlaceholder objectAtIndex:sectionIndex] text];
+	return [[self.sections objectAtIndex:sectionIndex] text];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)i {
-	return [[[self.sectionPlaceholder objectAtIndex:i] rows] count];
+	return [[[self.sections objectAtIndex:i] rows] count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSObject<Section> *section = [self.sectionPlaceholder objectAtIndex:indexPath.section];
+	NSObject<Section> *section = [self.sections objectAtIndex:indexPath.section];
 	UITableViewCell *cell = [[section rows] objectAtIndex:indexPath.row];
 	[BrandedUIFactory brandCell:cell tableView:tableView indexPath:indexPath];
 	return cell;
@@ -66,12 +59,12 @@
 - (void) viewDidUnload {
 	LogDebug(@"[%@ viewDidUnload]", [self class]);
 	[super viewDidUnload];
-	self.sectionPlaceholder = nil;
+	self.sections = nil;
 }
 
 - (void) dealloc {
 	LogDealloc;
-	self.sectionPlaceholder = nil;
+	self.sections = nil;
 	[super dealloc];
 }
 

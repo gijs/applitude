@@ -7,22 +7,25 @@
 #import "Placeholder.h"
 #import "ContentProvider.h"
 #import "SelectorAction.h"
+#import "PlaceholderResolver.h"
 
 // A ContentProviderPlaceholder maps content from a content provider to
 // objects obtained on demand by calling factorySelector on the delegate.
 // Such placeholders can be used together with BoxTableViewController
 // to provide sections or cells as needed.
 
-@interface ContentProviderPlaceholder : NSObject<Placeholder> {
+@interface ContentProviderPlaceholder : PlaceholderResolver {
+	UITableViewController *fController;
 	ContentProvider *fContentProvider;
 	SelectorAction *fMapping;
 	SelectorAction *fErrorMapping;
-	NSMutableDictionary *fItemStore;
+	BOOL fStoreItems;
 	NSArray *fLoadingCurtainItems;
 	UIView *fLoadingView;
 }
 
-- (id) initWithContentProvider:(ContentProvider *)contentProvider mapping:(SelectorAction *)mapping;
+- (id) initWithTableViewController:(UITableViewController *)controller contentProvider:(ContentProvider *)contentProvider function:(SelectorAction *)function;
++ (id) placeholderWithTableViewController:(UITableViewController *)controller contentProvider:(ContentProvider *)contentProvider function:(SelectorAction *)function;
 
 // While the content provider has no content / is loading its content,
 // ContentProviderPlaceholder will return the loadingCurtainItems (like

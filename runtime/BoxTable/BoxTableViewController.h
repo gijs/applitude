@@ -4,12 +4,14 @@
 #import <UIKit/UIKit.h>
 
 #import "Placeholder.h";
+#import "List.h"
 
 @interface BoxTableViewController : UITableViewController {
-	NSObject<Placeholder> *fSectionPlaceholder;
+	List *fSections;
 }
 
-- (void) setSections:(NSArray *)sections;
 - (void) update;
+
+@property (retain) List *sections;
 
 @end

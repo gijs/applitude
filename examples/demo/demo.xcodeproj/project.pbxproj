@@ -96,6 +96,12 @@
 		BF4DCF1B12EB230E0005E01C /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCF0212EB230E0005E01C /* CJSONDeserializer.m */; };
 		BF4DCF1C12EB230E0005E01C /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCF0412EB230E0005E01C /* CJSONScanner.m */; };
 		BF4DCF1D12EB230E0005E01C /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCF0612EB230E0005E01C /* CJSONSerializer.m */; };
+		BF505FD012EF29FF001171CA /* ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF505FCE12EF29F6001171CA /* ListTests.m */; };
+		BF5060A812EF3049001171CA /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5060A712EF3049001171CA /* List.m */; };
+		BF5061AA12EF52C0001171CA /* MappedList.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5061A912EF52C0001171CA /* MappedList.m */; };
+		BF5061D812EF5628001171CA /* CachedList.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5061D712EF5628001171CA /* CachedList.m */; };
+		BF50624112EF62E4001171CA /* MappedList.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5061A912EF52C0001171CA /* MappedList.m */; };
+		BF5063D212EF8A0E001171CA /* CachedList.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5061D712EF5628001171CA /* CachedList.m */; };
 		BFF2CB3612EC85020078B3F9 /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CB2D12EC85020078B3F9 /* DemoAppDelegate.m */; };
 		BFF2CB3712EC85020078B3F9 /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CB2F12EC85020078B3F9 /* DemoProviders.m */; };
 		BFF2CB3812EC85020078B3F9 /* DemoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF2CB3112EC85020078B3F9 /* DemoViews.m */; };
@@ -233,6 +239,13 @@
 		BF4DCF0512EB230E0005E01C /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		BF4DCF0612EB230E0005E01C /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		BF4DCF0712EB230E0005E01C /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		BF505FCE12EF29F6001171CA /* ListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTests.m; sourceTree = "<group>"; };
+		BF5060A612EF3049001171CA /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		BF5060A712EF3049001171CA /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		BF5061A812EF52C0001171CA /* MappedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappedList.h; sourceTree = "<group>"; };
+		BF5061A912EF52C0001171CA /* MappedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappedList.m; sourceTree = "<group>"; };
+		BF5061D612EF5628001171CA /* CachedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedList.h; sourceTree = "<group>"; };
+		BF5061D712EF5628001171CA /* CachedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedList.m; sourceTree = "<group>"; };
 		BFF2CB2C12EC85020078B3F9 /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
 		BFF2CB2D12EC85020078B3F9 /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
 		BFF2CB2E12EC85020078B3F9 /* DemoProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProviders.h; sourceTree = "<group>"; };
@@ -364,6 +377,12 @@
 				BF4DC9C912EA6A310005E01C /* TableBuilder.m */,
 				BF4DC9CA12EA6A310005E01C /* TextFieldCell.h */,
 				BF4DC9CB12EA6A310005E01C /* TextFieldCell.m */,
+				BF5060A612EF3049001171CA /* List.h */,
+				BF5060A712EF3049001171CA /* List.m */,
+				BF5061A812EF52C0001171CA /* MappedList.h */,
+				BF5061A912EF52C0001171CA /* MappedList.m */,
+				BF5061D612EF5628001171CA /* CachedList.h */,
+				BF5061D712EF5628001171CA /* CachedList.m */,
 			);
 			path = BoxTable;
 			sourceTree = "<group>";
@@ -445,6 +464,7 @@
 				BF4DCC0012EA6E870005E01C /* ContentProvider */,
 				BF4DCC0212EA6E870005E01C /* GHUnitIOSTestMain.m */,
 				BF4DCC0312EA6E870005E01C /* Utils */,
+				BF505FCE12EF29F6001171CA /* ListTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -703,6 +723,8 @@
 				BFF2CB3812EC85020078B3F9 /* DemoViews.m in Sources */,
 				BFF2CB3912EC85020078B3F9 /* InventorDetailViewController.m in Sources */,
 				BFF2CB3A12EC85020078B3F9 /* TablesViewController.m in Sources */,
+				BF50624112EF62E4001171CA /* MappedList.m in Sources */,
+				BF5063D212EF8A0E001171CA /* CachedList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +761,10 @@
 				BF4DCF1B12EB230E0005E01C /* CJSONDeserializer.m in Sources */,
 				BF4DCF1C12EB230E0005E01C /* CJSONScanner.m in Sources */,
 				BF4DCF1D12EB230E0005E01C /* CJSONSerializer.m in Sources */,
+				BF505FD012EF29FF001171CA /* ListTests.m in Sources */,
+				BF5060A812EF3049001171CA /* List.m in Sources */,
+				BF5061AA12EF52C0001171CA /* MappedList.m in Sources */,
+				BF5061D812EF5628001171CA /* CachedList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,6 +865,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
@@ -853,6 +880,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;

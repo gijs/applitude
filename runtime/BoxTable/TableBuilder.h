@@ -11,7 +11,7 @@
 @interface TableBuilder : NSObject {
 
 	StaticSection *lastSection;
-	NSMutableArray *fSections;
+	id fSections;
 
 }
 
@@ -19,9 +19,9 @@
 
 + (TableBuilder *) builder;
 
-- (void) section:(NSString *) text;
 - (void) section;
-- (void) sections:(NSObject<Placeholder> *)placeholder;
+- (void) section:(NSString *) text;
+- (void) sections:(List *)sections;
 
 - (void) cell:(id)cell;
 - (void) cells:(NSObject<Placeholder> *)placeholder;

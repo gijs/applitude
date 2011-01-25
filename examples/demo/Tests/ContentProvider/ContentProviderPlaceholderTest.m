@@ -17,8 +17,9 @@
 @implementation ContentProviderPlaceholderTest
 
 - (void) setUp {
+	UITableViewController *controller = [[[UITableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
 	provider = [SimpleContentProvider providerWithContent:nil name:@"test"];
-	placeholder = [[[ContentProviderPlaceholder alloc] initWithContentProvider:provider mapping:[SelectorAction actionWithObject:self selector:@selector(brackets:)]] autorelease];
+	placeholder = [[[ContentProviderPlaceholder alloc] initWithTableViewController:controller contentProvider:provider function:[SelectorAction actionWithObject:self selector:@selector(brackets:)]] autorelease];
 	items = [NSArray arrayWithObjects:@"one", @"two", @"three", nil];
 }
 
@@ -43,12 +44,6 @@
 	GHAssertEqualStrings(@"{three}", [placeholder objectAtIndex:2], nil);
 }
 
-- (void) testSingleItem {
-	provider.content = @"one";
-	GHAssertEquals(1, [placeholder count], nil);
-	GHAssertEqualStrings(@"{one}", [placeholder objectAtIndex:0], nil);
-}
-
 - (void) testLoading {
 	placeholder.loadingCurtainItems = [NSArray arrayWithObjects:@"wait", @"wait more", nil];
 	placeholder.loadingView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
@@ -69,11 +64,8 @@
 }
 
 - (void) testStoreItems {
-	provider.content = items;
-
-	GHAssertNotEquals([placeholder objectAtIndex:0], [placeholder objectAtIndex:0], nil);
-
 	placeholder.storeItems = YES;
+	provider.content = items;
 
 	GHAssertEquals([placeholder objectAtIndex:0], [placeholder objectAtIndex:0], nil);
 	[self assertItems];

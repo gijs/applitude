@@ -4,13 +4,28 @@
 #import <Foundation/Foundation.h>
 
 #import "Placeholder.h"
+#import "List.h"
 
-@interface PlaceholderResolver : NSObject<Placeholder> {
+@interface DynamicComposite : NSObject<Placeholder, ListProtocol> {
+}
 
-	NSArray *fArray;
+@property (nonatomic, retain, readonly) id object;
+
+@end
+
+
+
+// -> StaticComposite
+@interface PlaceholderResolver : DynamicComposite {
+
+	id fObject;
 
 }
 
+//TODO: deprecated
 - (id) initWithArray:(NSArray *)array;
+- (id) initWithObject:(id)array;
+
+@property (nonatomic, retain, readwrite) id object;
 
 @end

@@ -9,8 +9,6 @@
 
 @implementation TableBuilder
 
-@synthesize sections = fSections;
-
 - (id) init {
 	self = [super init];
 	if (self != nil) {
@@ -23,6 +21,10 @@
 	return [[[TableBuilder alloc] init] autorelease];
 }
 
+- (List *) sections {
+	return [[[PlaceholderResolver alloc] initWithArray:fSections] autorelease];
+}
+
 - (void) section:(NSString *) text {
 	lastSection = [StaticSection sectionWithTitle:text];
 	[fSections addObject:lastSection];
@@ -33,9 +35,9 @@
 	[fSections addObject:lastSection];
 }
 
-- (void) sections:(NSObject<Placeholder> *)placeholder {
+- (void) sections:(List *)sections {
 	lastSection = nil;
-	[fSections addObject:placeholder];
+	[fSections addObject:sections];
 }
 
 - (void) cell:(id)cell {

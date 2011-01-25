@@ -8,16 +8,19 @@
 #import "SelectorAction.h"
 #import "StaticSection.h"
 #import "BrandedUIFactory.h"
+#import "MappedList.h"
+#import "CachedList.h"
 
 @implementation ContentProviderPlaceholder
 
 @synthesize loadingCurtainItems = fLoadingCurtainItems, loadingView = fLoadingView,
-	errorMapping = fErrorMapping;
+	errorMapping = fErrorMapping, storeItems = fStoreItems;
 
-- (id) initWithContentProvider:(ContentProvider *)contentProvider mapping:(SelectorAction *)mapping {
+- (id) initWithTableViewController:(UITableViewController *)controller contentProvider:(ContentProvider *)contentProvider function:(SelectorAction *)function {
 	self = [super init];
 	if (self != nil) {
-		fMapping = [mapping retain];
+		fController = [controller retain];
+		fMapping = [function retain];
 		fContentProvider = [contentProvider retain];
 		[fContentProvider addObserver:self];
 		[fContentProvider request];
@@ -26,82 +29,51 @@
 	return self;
 }
 
-- (void) updateLoadingView {
++ (id) placeholderWithTableViewController:(UITableViewController *)controller contentProvider:(ContentProvider *)contentProvider function:(SelectorAction *)function {
+	return [[[ContentProviderPlaceholder alloc] initWithTableViewController:controller contentProvider:contentProvider function:function] autorelease];
+}
+
+- (void) update {
 	if (fLoadingView) {
 		fLoadingView.hidden = !(fContentProvider.content == nil && fContentProvider.error == nil);
 	}
+
+	if (fContentProvider.error) {
+		self.object = [fErrorMapping performWithObject:fContentProvider.error];
+	}
+	else if (fContentProvider.content == nil) {
+		self.object = self.loadingCurtainItems;
+	}
+	else {
+		List *list = [[[MappedList alloc] initWithList:fContentProvider.content function:fMapping] autorelease];
+		if (self.storeItems) {
+			list = [[[CachedList alloc] initWithList:list] autorelease];
+		}
+		self.object = list;
+	}
+
+	[fController.tableView reloadData];
+}
+
+- (id) object {
+	id obj = [super object];
+	if (!obj) {
+		[self update];
+		obj = [super object];
+	}
+	return obj;
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	[self updateLoadingView];
-	[fItemStore removeAllObjects];
-	// TODO: when is a table reloaded because of content provider changes, esp. with cell placeholder in section placeholder?
-	if ([fMapping.object isKindOfClass:[UITableViewController class]]) {
-		[((UITableViewController *)fMapping.object).tableView reloadData];
-	}
-}
-
-- (int) count {
-	[self updateLoadingView];
-	id error = fContentProvider.error;
-	if (error != nil)
-		return fErrorMapping ? 1 : 0;
-	id content = fContentProvider.content;
-	if (content == nil)
-		return [fLoadingCurtainItems count];
-	if ([content isKindOfClass:[NSArray class]])
-		return [content count];
-	return 1;
-}
-
-- (id) objectAtIndex:(int) index {
-	id error = fContentProvider.error;
-	if (error) {
-		return [fErrorMapping performWithObject:error];
-	}
-
-	id content = fContentProvider.content;
-
-	if (!content)
-		return [fLoadingCurtainItems objectAtIndex:index];
-
-	NSNumber *key = [NSNumber numberWithInt:index];
-	id result = nil;
-
-	if (fItemStore) {
-		result = [fItemStore objectForKey:key];
-		if (result)
-			return result;
-	}
-
-	content = [content isKindOfClass:[NSArray class]] ? [content objectAtIndex:index] : content;
-	result = [fMapping performWithObject:content];
-
-	if (fItemStore)
-		[fItemStore setObject:result forKey:key];
-
-	return result;
-}
-
-- (BOOL) storeItems {
-	return fItemStore != nil;
-}
-
-- (void) setStoreItems:(BOOL) store {
-	if (store && fItemStore == nil) {
-		fItemStore = [[NSMutableDictionary alloc] init];
-	} else {
-		[fItemStore release];
-		fItemStore = nil;
-	}
+	[self update];
 }
 
 - (void) dealloc {
+	[fController release];
 	[fContentProvider removeObserver:self];
 	[fMapping release];
 	self.loadingView = nil;
 	self.loadingCurtainItems = nil;
-	[fItemStore release];
 	[fContentProvider release];
 	[super dealloc];
 }
