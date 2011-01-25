@@ -4,7 +4,6 @@
 #import <Foundation/Foundation.h>
 
 #import "StaticSection.h"
-#import "Placeholder.h"
 #import "TextFieldCell.h"
 #import "BoxCell.h"
 
@@ -24,7 +23,7 @@
 - (void) sections:(List *)sections;
 
 - (void) cell:(id)cell;
-- (void) cells:(NSObject<Placeholder> *)placeholder;
+- (void) cells:(List *)placeholder;
 
 - (BoxCell *) text:(NSString *) text;
 - (BoxCell *) link:(NSString *) text;

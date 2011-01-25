@@ -3,11 +3,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Placeholder.h"
+#import "List.h"
 
 @protocol Section
 
 - (NSString *) text;
-- (NSObject<Placeholder> *) rows;
+- (List *) rows;
 
 @end

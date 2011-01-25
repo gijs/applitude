@@ -29,7 +29,7 @@
 	return fText;
 }
 
-- (NSObject<Placeholder> *) rows {
+- (List *) rows {
 	return fPlaceholder;
 }
 

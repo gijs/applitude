@@ -4,7 +4,6 @@
 #import <Foundation/Foundation.h>
 
 #import "BoxTableViewController.h"
-#import "Placeholder.h"
 #import "ContentProvider.h"
 #import "SelectorAction.h"
 #import "PlaceholderResolver.h"

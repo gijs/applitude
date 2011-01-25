@@ -3,10 +3,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Placeholder.h"
 #import "List.h"
 
-@interface DynamicComposite : NSObject<Placeholder, ListProtocol> {
+@interface DynamicComposite : List {
 }
 
 @property (nonatomic, retain, readonly) id object;

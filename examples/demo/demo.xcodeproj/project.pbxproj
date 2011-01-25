@@ -124,7 +124,6 @@
 		BF4DC9BF12EA6A310005E01C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		BF4DC9C012EA6A310005E01C /* CustomCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellBackgroundView.h; sourceTree = "<group>"; };
 		BF4DC9C112EA6A310005E01C /* CustomCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellBackgroundView.m; sourceTree = "<group>"; };
-		BF4DC9C212EA6A310005E01C /* Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Placeholder.h; sourceTree = "<group>"; };
 		BF4DC9C312EA6A310005E01C /* PlaceholderResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderResolver.h; sourceTree = "<group>"; };
 		BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderResolver.m; sourceTree = "<group>"; };
 		BF4DC9C512EA6A310005E01C /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
@@ -367,7 +366,6 @@
 				BF4DC9BF12EA6A310005E01C /* Cell.h */,
 				BF4DC9C012EA6A310005E01C /* CustomCellBackgroundView.h */,
 				BF4DC9C112EA6A310005E01C /* CustomCellBackgroundView.m */,
-				BF4DC9C212EA6A310005E01C /* Placeholder.h */,
 				BF4DC9C312EA6A310005E01C /* PlaceholderResolver.h */,
 				BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */,
 				BF4DC9C512EA6A310005E01C /* Section.h */,

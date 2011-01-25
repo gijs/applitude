@@ -3,7 +3,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Placeholder.h";
 #import "List.h"
 
 @interface BoxTableViewController : UITableViewController {

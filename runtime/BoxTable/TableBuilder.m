@@ -48,7 +48,7 @@
 	[lastSection add:cell];
 }
 
-- (void) cells:(NSObject<Placeholder> *)placeholder {
+- (void) cells:(List *)placeholder {
 	if (!lastSection) {
 		LogError(@"No section!");
 		return;

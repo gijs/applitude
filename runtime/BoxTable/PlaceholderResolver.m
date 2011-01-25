@@ -22,7 +22,7 @@
 	if ([obj conformsToProtocol:@protocol(NSFastEnumeration)]) {
 		int count = 0;
 		for (id item in obj) {
-			if ([item conformsToProtocol:@protocol(ListProtocol)] || [item conformsToProtocol:@protocol(Placeholder)]) {
+			if ([item conformsToProtocol:@protocol(ListProtocol)]) {
 				count += [item count];
 			} else {
 				count++;
@@ -44,7 +44,7 @@
 	if ([obj conformsToProtocol:@protocol(NSFastEnumeration)]) {
 		int i = 0;
 		for (id item in obj) {
-			if ([item conformsToProtocol:@protocol(ListProtocol)] || [item conformsToProtocol:@protocol(Placeholder)]) {
+			if ([item conformsToProtocol:@protocol(ListProtocol)]) {
 				int count = [item count];
 
 				// Item in this placeholder?
