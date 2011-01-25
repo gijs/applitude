@@ -3,13 +3,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "StaticSection.h"
+#import "Section.h"
 #import "TextFieldCell.h"
 #import "BoxCell.h"
 
 @interface TableBuilder : NSObject {
 
-	StaticSection *lastSection;
+	Section *lastSection;
 	id fSections;
 
 }

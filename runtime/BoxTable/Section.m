@@ -1,11 +1,11 @@
 // © 2010 Ralf Ebert
 // Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
 
-#import "StaticSection.h"
+#import "Section.h"
 
 #import "PlaceholderResolver.h"
 
-@implementation StaticSection
+@implementation Section
 
 - (id) initWithText:(NSString *)aText {
 	self = [super init];
@@ -17,11 +17,11 @@
 	return self;
 }
 
-+ (StaticSection *) sectionWithTitle:title {
++ (Section *) sectionWithTitle:title {
 	return [[[self alloc] initWithText:title] autorelease];
 }
 
-+ (StaticSection *) section {
++ (Section *) section {
 	return [[[self alloc] initWithText:nil] autorelease];
 }
 

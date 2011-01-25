@@ -1,13 +1,22 @@
 // © 2010 Ralf Ebert
 // Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-#import "List.h"
+#import "PlaceholderResolver.h"
 
-@protocol Section
+@interface Section : NSObject {
 
-- (NSString *) text;
+	NSString *fText;
+	NSMutableArray *fRows;
+	PlaceholderResolver *fPlaceholder;
+
+}
+
+- (id) initWithText:(NSString *)aText;
++ (Section *) section;
++ (Section *) sectionWithTitle:title;
 - (List *) rows;
+- (void) add:(id) item;
 
 @end

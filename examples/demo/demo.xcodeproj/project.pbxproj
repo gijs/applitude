@@ -15,7 +15,7 @@
 		BF4DCA5412EA6A310005E01C /* BoxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9BE12EA6A310005E01C /* BoxTableViewController.m */; };
 		BF4DCA5512EA6A310005E01C /* CustomCellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C112EA6A310005E01C /* CustomCellBackgroundView.m */; };
 		BF4DCA5612EA6A310005E01C /* PlaceholderResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */; };
-		BF4DCA5712EA6A310005E01C /* StaticSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C712EA6A310005E01C /* StaticSection.m */; };
+		BF4DCA5712EA6A310005E01C /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C712EA6A310005E01C /* Section.m */; };
 		BF4DCA5812EA6A310005E01C /* TableBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C912EA6A310005E01C /* TableBuilder.m */; };
 		BF4DCA5912EA6A310005E01C /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9CB12EA6A310005E01C /* TextFieldCell.m */; };
 		BF4DCA5A12EA6A310005E01C /* BaseContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9CE12EA6A310005E01C /* BaseContentProvider.m */; };
@@ -44,7 +44,7 @@
 		BF4DCC1412EA6EBD0005E01C /* ContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9D312EA6A310005E01C /* ContentProvider.m */; };
 		BF4DCC1512EA6EBD0005E01C /* ContentProviderPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9D512EA6A310005E01C /* ContentProviderPlaceholder.m */; };
 		BF4DCC1612EA6EBD0005E01C /* SimpleContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9D812EA6A310005E01C /* SimpleContentProvider.m */; };
-		BF4DCC1912EA6ECC0005E01C /* StaticSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C712EA6A310005E01C /* StaticSection.m */; };
+		BF4DCC1912EA6ECC0005E01C /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C712EA6A310005E01C /* Section.m */; };
 		BF4DCC1A12EA6ECC0005E01C /* CommonCells.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCABE12EA6B2E0005E01C /* CommonCells.m */; };
 		BF4DCC1D12EA6ED80005E01C /* BoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9BC12EA6A310005E01C /* BoxCell.m */; };
 		BF4DCC1E12EA6ED80005E01C /* PlaceholderResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */; };
@@ -121,14 +121,12 @@
 		BF4DC9BC12EA6A310005E01C /* BoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCell.m; sourceTree = "<group>"; };
 		BF4DC9BD12EA6A310005E01C /* BoxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxTableViewController.h; sourceTree = "<group>"; };
 		BF4DC9BE12EA6A310005E01C /* BoxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxTableViewController.m; sourceTree = "<group>"; };
-		BF4DC9BF12EA6A310005E01C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		BF4DC9C012EA6A310005E01C /* CustomCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellBackgroundView.h; sourceTree = "<group>"; };
 		BF4DC9C112EA6A310005E01C /* CustomCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellBackgroundView.m; sourceTree = "<group>"; };
 		BF4DC9C312EA6A310005E01C /* PlaceholderResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderResolver.h; sourceTree = "<group>"; };
 		BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderResolver.m; sourceTree = "<group>"; };
-		BF4DC9C512EA6A310005E01C /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
-		BF4DC9C612EA6A310005E01C /* StaticSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticSection.h; sourceTree = "<group>"; };
-		BF4DC9C712EA6A310005E01C /* StaticSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticSection.m; sourceTree = "<group>"; };
+		BF4DC9C612EA6A310005E01C /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		BF4DC9C712EA6A310005E01C /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		BF4DC9C812EA6A310005E01C /* TableBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableBuilder.h; sourceTree = "<group>"; };
 		BF4DC9C912EA6A310005E01C /* TableBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableBuilder.m; sourceTree = "<group>"; };
 		BF4DC9CA12EA6A310005E01C /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
@@ -363,14 +361,12 @@
 				BF4DC9BC12EA6A310005E01C /* BoxCell.m */,
 				BF4DC9BD12EA6A310005E01C /* BoxTableViewController.h */,
 				BF4DC9BE12EA6A310005E01C /* BoxTableViewController.m */,
-				BF4DC9BF12EA6A310005E01C /* Cell.h */,
 				BF4DC9C012EA6A310005E01C /* CustomCellBackgroundView.h */,
 				BF4DC9C112EA6A310005E01C /* CustomCellBackgroundView.m */,
 				BF4DC9C312EA6A310005E01C /* PlaceholderResolver.h */,
 				BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */,
-				BF4DC9C512EA6A310005E01C /* Section.h */,
-				BF4DC9C612EA6A310005E01C /* StaticSection.h */,
-				BF4DC9C712EA6A310005E01C /* StaticSection.m */,
+				BF4DC9C612EA6A310005E01C /* Section.h */,
+				BF4DC9C712EA6A310005E01C /* Section.m */,
 				BF4DC9C812EA6A310005E01C /* TableBuilder.h */,
 				BF4DC9C912EA6A310005E01C /* TableBuilder.m */,
 				BF4DC9CA12EA6A310005E01C /* TextFieldCell.h */,
@@ -672,7 +668,7 @@
 				BF4DCA5412EA6A310005E01C /* BoxTableViewController.m in Sources */,
 				BF4DCA5512EA6A310005E01C /* CustomCellBackgroundView.m in Sources */,
 				BF4DCA5612EA6A310005E01C /* PlaceholderResolver.m in Sources */,
-				BF4DCA5712EA6A310005E01C /* StaticSection.m in Sources */,
+				BF4DCA5712EA6A310005E01C /* Section.m in Sources */,
 				BF4DCA5812EA6A310005E01C /* TableBuilder.m in Sources */,
 				BF4DCA5912EA6A310005E01C /* TextFieldCell.m in Sources */,
 				BF4DCA5A12EA6A310005E01C /* BaseContentProvider.m in Sources */,
@@ -738,7 +734,7 @@
 				BF4DCC1412EA6EBD0005E01C /* ContentProvider.m in Sources */,
 				BF4DCC1512EA6EBD0005E01C /* ContentProviderPlaceholder.m in Sources */,
 				BF4DCC1612EA6EBD0005E01C /* SimpleContentProvider.m in Sources */,
-				BF4DCC1912EA6ECC0005E01C /* StaticSection.m in Sources */,
+				BF4DCC1912EA6ECC0005E01C /* Section.m in Sources */,
 				BF4DCC1A12EA6ECC0005E01C /* CommonCells.m in Sources */,
 				BF4DCC1D12EA6ED80005E01C /* BoxCell.m in Sources */,
 				BF4DCC1E12EA6ED80005E01C /* PlaceholderResolver.m in Sources */,

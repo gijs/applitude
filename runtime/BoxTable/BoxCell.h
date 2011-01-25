@@ -4,9 +4,8 @@
 #import <Foundation/Foundation.h>
 
 #import "Action.h"
-#import "Cell.h"
 
-@interface BoxCell : UITableViewCell<Cell> {
+@interface BoxCell : UITableViewCell {
 
 	NSObject<Action> *fOnTouch;
 	id fData;

@@ -3,7 +3,7 @@
 
 #import "TableBuilder.h"
 
-#import "StaticSection.h"
+#import "Section.h"
 #import "TextFieldCell.h"
 #import "LogUtils.h"
 
@@ -26,12 +26,12 @@
 }
 
 - (void) section:(NSString *) text {
-	lastSection = [StaticSection sectionWithTitle:text];
+	lastSection = [Section sectionWithTitle:text];
 	[fSections addObject:lastSection];
 }
 
 - (void) section {
-	lastSection = [StaticSection section];
+	lastSection = [Section section];
 	[fSections addObject:lastSection];
 }
 

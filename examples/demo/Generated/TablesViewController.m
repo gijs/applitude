@@ -97,9 +97,9 @@
 	return [cell autorelease];
 }
 
-- (StaticSection *) inventorSection:(NSDictionary *)inventor {
+- (Section *) inventorSection:(NSDictionary *)inventor {
 	// TODO: TableBuilder above vs. static construction here
-	StaticSection *section = [StaticSection sectionWithTitle:[inventor valueForKey:@"name"]];
+	Section *section = [Section sectionWithTitle:[inventor valueForKey:@"name"]];
 	{
 		// TODO: constructing a SimpleContentProvider here vs. ContentProvider for [idx] ?
 		ContentProvider *content = [ContentProvider nestedContentProviderWithContentProvider:[SimpleContentProvider providerWithContent:inventor name:@"inventor"] keyPath:@"inventions"];
