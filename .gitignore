@@ -5,3 +5,4 @@ build
 *.pbxuser
 *.perspectivev3
 xcuserdata
+*.xml_gen
