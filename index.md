@@ -4,7 +4,7 @@ layout: default
 ---
 
 [Source](https://github.com/ralfebert/applitude/) |
-[Issues](http://ralfebert.lighthouseapp.com/projects/67904-iapplause/tickets) |
+[Issues](http://ralfebert.lighthouseapp.com/projects/67904/) |
 [Downloads](#downloads)
 
 # applitude
