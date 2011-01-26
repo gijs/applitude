@@ -17,7 +17,10 @@ static DemoProviders *sharedProviders = nil;
 - (ContentProvider *) providerForAllInventors {
 	UrlContentProvider *provider = [[UrlContentProvider alloc] initWithURL:[NSURL URLWithString:@"http://ralfebert.github.com/iApplause/demo/inventors.json"]];
 	[provider addFilter:[CommonFilters filterForJSON]];
-	return [provider autorelease];
+	if (!fAllInventors) {
+		fAllInventors = provider;
+	}
+	return fAllInventors;
 }
 
 - (ContentProvider *) providerForAllErrorneousInventors {

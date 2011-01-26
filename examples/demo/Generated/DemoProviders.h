@@ -1,7 +1,7 @@
 #import "ContentProvider.h"
 
 @interface DemoProviders : NSObject {
-	
+	ContentProvider *fAllInventors;
 }
 
 + (DemoProviders *) sharedProviders;

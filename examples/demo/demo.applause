@@ -28,7 +28,7 @@ entity Invention {
 	String name
 }
 
-contentprovider AllInventors returns Inventor[] fetches JSON from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
+contentprovider AllInventors stores Inventor[] fetches JSON from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
 contentprovider AllErrorneousInventors returns Inventor[] fetches JSON from "http://localhost/none.json" selects ""
 
 tableview Inventors {
