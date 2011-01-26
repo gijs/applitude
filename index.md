@@ -4,7 +4,7 @@ layout: default
 ---
 
 [GitHub](https://github.com/ralfebert/applitude/) |
-[Issues](http://ralfebert.lighthouseapp.com/projects/67904/) |
+[Issues](http://ralfebert.lighthouseapp.com/projects/67904/)
 
 # ![applitude](applitude.png)
 
