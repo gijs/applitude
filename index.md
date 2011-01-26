@@ -13,11 +13,15 @@ applitude is a runtime framework and a domain-specific language for iPhone appli
 
 ## Overview
 
-applitude comes with a DSL to describe common functionality of iPhone applications in a crisp and precise way. For example, this application loads [JSON data](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) from an URL:
+applitude comes with a domain specific language ("DSL") that allows to express frequently needed parts of iPhone applications in a very dense format. This language is made-to-measure to express iPhone apps, so instead of keywords like `if`, `then`, `while` for regular programming languages, it has keywords like `contentprovider`, `tableview`, `section` or `cell`.
+
+For example, this application displays [JSON data](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) data about inventors loaded from an URL:
 
 ![Screenshots Inventors demo application](demo.png)
 
-It was generated from [`demo.app`](https://github.com/ralfebert/applitude/blob/master/examples/demo/demo.app):
+Written manually, you would have to care about many aspects like doing the HTTP requests, parsing the JSON data, showing activity indicators while the app is loading, feeding the data into tables when it gets available, responding to the `UITableViewDataSource` protocol, handling errors, navigating between the views, caching the data, loading images in the background and so on and on.
+
+Instead, you could also write this [`demo.app`](https://github.com/ralfebert/applitude/blob/master/examples/demo/demo.app) document:
 
 	application Demo {
 		view:Tabs()
@@ -78,30 +82,31 @@ It was generated from [`demo.app`](https://github.com/ralfebert/applitude/blob/m
 		}
 	}
 
-
-applitude is based on the [Xtext language development framework](http://www.eclipse.org/Xtext/), and as such, it comes with an Eclipse IDE plug-in:
+You can edit this document in a convenient editor featuring code completion and instant error checking by installing the applitude plug-ins into the Eclipse IDE (these plug-ins are available because applitude's DSL is built using the marvelous [Xtext language development framework](http://www.eclipse.org/Xtext/)):
 
 ![applitude demo application editor](demo_ide.png)
 
-There is a code generator which writes Objectice C code from applitude documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [InventorDetailViewController](https://github.com/ralfebert/applitude/blob/master/examples/demo/Generated/InventorDetailViewController.m) for an example of the code generated for applitude apps. The runtime components to structure iPhone apps in such a way are not tied to the DSL at all and are meant to be utilized in hand-written code as well; the DSL just adds a very convenient layer on top.
+Then, as soon as you hit save, Objectice C code is generated for `demo.app`. The generated code is small and tidied up by making use of runtime components wherever possible. Have a look at [InventorDetailViewController](https://github.com/ralfebert/applitude/blob/master/examples/demo/Generated/InventorDetailViewController.m) for an example of the kind of code generated for applitude apps. As code style is a matter of taste, things might be different for you, but for me, this code is in no way different than what I would write without using a DSL.
 
-## Target audience
+Last but not least, the runtime components utilized by the generated code are not tied to the DSL at all and you can utilize them in hand-written code as well; the DSL just adds a very convenient layer on top. But why write boring code by hand if you can express it using a more appropriate language?
 
-The project is work in progress. In its current form it is only applicable if you have very good knowledge of iPhone development with Objective C and building DSLs with Eclipse Xtext.
+## Ok, where is the catch?
+
+The project is work in progress. You will encounter bugs and missing documentation and mostly you will need to help yourself there. applitude is not for building iPhone apps the lazy way, you will need to have good knowledge of iPhone development in Objective C and some knowledge of building DSLs with Eclipse Xtext to put this tool to use.
 
 ## Getting started
 
-* At first, learn about building DSLs with Xtext, for example by following the tutorial in the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
+* At first, I recommend to learn about Xtext DSLs, for example by following the tutorial in the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
 * I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for applitude.
 * Import the example projects in Eclipse, inspect the `*.app` documents, run the projects from Xcode, inspect the generated code.
 
 ## Demo Example project
 
-[`examples/demo/`](https://github.com/ralfebert/applitude/tree/master/examples/demo) contains the Inventors example which fetches JSON content via HTTP and shows it using table views:
+[`examples/demo/`](https://github.com/ralfebert/applitude/tree/master/examples/demo) contains the Inventors example which fetches JSON content via HTTP and shows it using tables:
 
 ![Screenshots demo application: Inventors](demo.png)
 
-It also contains a reference part showing the language features and the [GHUnit](https://github.com/gabriel/gh-unit/) test suite (target Tests):
+It also contains a reference part (showing the language features) and a test suite (based on [GHUnit](https://github.com/gabriel/gh-unit/), see the Tests target):
 
 ![Screenshots demo application: reference and unit tests](demo_reference.png)
 
@@ -140,7 +145,7 @@ Or get the source code on the [GitHub project page](http://github.com/ralfebert/
 
 applitude is licensed under the [Eclipse Public License v1.0](http://www.eclipse.org/legal/epl-v10.html).
 
-Some runtime components have differenter licenses:
+Some runtime components have different licenses:
 
 * ASIHTTPRequest, TouchXML, Reachability, parts of NSDate+Utils: BSD license
 * TouchJSON, GHUnit, TextFieldCell: MIT license
