@@ -5,7 +5,6 @@
 @interface InventorsViewController : BoxTableViewController {
 	BindingContext *fBindings;
 	ContentProvider *fInventors;
-	ContentProvider *fErrorInventors;
 }
 
 - (id) init;

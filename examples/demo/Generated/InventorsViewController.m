@@ -13,7 +13,6 @@
 		fBindings = [[BindingContext alloc] init];
 		
 		fInventors = [[[DemoProviders sharedProviders] providerForAllInventors] retain];
-		fErrorInventors = [[[DemoProviders sharedProviders] providerForAllErrorneousInventors] retain];
 	}
 	return self;
 }
@@ -21,7 +20,6 @@
 - (void) update {
 	self.title = @"Inventors";
 	[fInventors request];
-	[fErrorInventors request];
 
 	[self section];
 	{
@@ -49,7 +47,6 @@
 - (void) dealloc {
 	[fBindings release];
 	[fInventors release];
-	[fErrorInventors release];
 	[super dealloc];
 }
 

@@ -33,21 +33,42 @@ contentprovider AllErrorneousInventors returns Inventor[] fetches JSON from "htt
 
 tableview Inventors {
 	Inventor[] inventors = AllInventors()
-	Inventor[] errorInventors = AllErrorneousInventors()
 	
 	title: "Inventors"
-	style: Plain
 	
 	section {
 		cell Default for inventor in inventors {
 			text: inventor.name
 			image: inventor.imageUrl
-			accessory: Link
 			action: InventorDetail(inventor)
 		}	
 	}
 }
 
+tableview InventorDetail(Inventor inventor) {
+	title: inventor.name
+	style: Grouped
+	
+	section {
+		cell Value2 {
+			text: "Name"
+			details: inventor.name
+		}
+	}
+	
+	section {
+		title: "Inventions"
+		cell Default for invention in inventor.inventions {
+			text: invention.name
+			action: InventionDetail(invention)
+		}
+	}
+}
+
+tableview InventionDetail(Invention invention) {
+	title: invention.name
+	style: Grouped
+}
 
 tableview Reference {
 	title: "Reference"
@@ -136,30 +157,4 @@ tableview ReferenceErrorHandling {
 		}
 	}
 
-}
-
-
-tableview InventorDetail(Inventor inventor) {
-	title: inventor.name
-	style: Grouped
-	
-	section {
-		cell Value2 {
-			text: "Name"
-			details: inventor.name
-		}
-	}
-	
-	section {
-		title: "Inventions"
-		cell Default for invention in inventor.inventions {
-			text: invention.name
-			action: InventionDetail(invention)
-		}
-	}
-}
-
-tableview InventionDetail(Invention invention) {
-	title: invention.name
-	style: Grouped
 }

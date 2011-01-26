@@ -14,13 +14,13 @@
 
 + (UITabBarController *) createTabs;
 + (InventorsViewController *) createInventors;
++ (InventorDetailViewController *) createInventorDetailWithInventor:(ContentProvider *)inventor;
++ (InventionDetailViewController *) createInventionDetailWithInvention:(ContentProvider *)invention;
 + (ReferenceViewController *) createReference;
 + (ReferenceCellStylesViewController *) createReferenceCellStyles;
 + (ReferenceCellForeachViewController *) createReferenceCellForeach;
 + (ReferenceSectionCellForeachViewController *) createReferenceSectionCellForeach;
 + (ReferenceErrorHandlingViewController *) createReferenceErrorHandling;
-+ (InventorDetailViewController *) createInventorDetailWithInventor:(ContentProvider *)inventor;
-+ (InventionDetailViewController *) createInventionDetailWithInvention:(ContentProvider *)invention;
 
 
 @end

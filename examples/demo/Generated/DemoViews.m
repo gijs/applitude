@@ -21,6 +21,14 @@
 	return [[[InventorsViewController alloc] init] autorelease];
 }
 
++ (InventorDetailViewController *) createInventorDetailWithInventor:(ContentProvider *)inventor {
+	return [[[InventorDetailViewController alloc] initWithInventor:inventor] autorelease];
+}
+
++ (InventionDetailViewController *) createInventionDetailWithInvention:(ContentProvider *)invention {
+	return [[[InventionDetailViewController alloc] initWithInvention:invention] autorelease];
+}
+
 + (ReferenceViewController *) createReference {
 	return [[[ReferenceViewController alloc] init] autorelease];
 }
@@ -39,14 +47,6 @@
 
 + (ReferenceErrorHandlingViewController *) createReferenceErrorHandling {
 	return [[[ReferenceErrorHandlingViewController alloc] init] autorelease];
-}
-
-+ (InventorDetailViewController *) createInventorDetailWithInventor:(ContentProvider *)inventor {
-	return [[[InventorDetailViewController alloc] initWithInventor:inventor] autorelease];
-}
-
-+ (InventionDetailViewController *) createInventionDetailWithInvention:(ContentProvider *)invention {
-	return [[[InventionDetailViewController alloc] initWithInvention:invention] autorelease];
 }
 
 @end
