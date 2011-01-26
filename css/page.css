@@ -29,3 +29,15 @@ h2 {
 img {
 	max-width:750px;
 }
+
+a {
+  color:#6d7aaf;
+}
+
+h1 + p {
+  margin-top:0px;
+}
+
+h1 {
+  margin-bottom:5px;
+}

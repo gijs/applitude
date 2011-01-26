@@ -7,9 +7,9 @@ layout: default
 [Issues](http://ralfebert.lighthouseapp.com/projects/67904/) |
 [Downloads](#downloads)
 
-# applitude
+# ![applitude](applitude.png)
 
-applitude is a runtime framework accompanied by a DSL for developing data-centric iPhone applications. It is an iPhone-only version of the [Applause](http://code.google.com/p/applause/) Xtext DSL, extended and very much customized to my own needs.
+applitude is a runtime framework and a domain-specific language making iPhone application development easier. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project.
 
 ## Overview
 
@@ -66,15 +66,15 @@ This application can be generated from [`demo.app`](https://github.com/ralfebert
 	}
 
 
-As Applause, applitude is based on the [Xtext language development framework](http://www.eclipse.org/Xtext/), and as such, it comes with an Eclipse IDE plug-in:
+applitude is based on the [Xtext language development framework](http://www.eclipse.org/Xtext/), and as such, it comes with an Eclipse IDE plug-in:
 
 ![applitude demo application editor](demo_ide.png)
 
-And there is a code generator which generates iPhone applications from such DSL documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/applitude/tree/master/examples/demo/Generated) to see the generated code for `demo.app`.
+There is a code generator which generates Objectice C code from `.app` documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/applitude/tree/master/examples/demo/Generated) to see the generated code for `demo.app`.
 
-## Words of warning
+## Target audience
 
-The project currently is very much work in progress and therefore not fully documented; you will find loose ends and corners. You'll only get something out of it if you're seriously into Xtext DSLs and iPhone development with Objective C.
+The project is work in progress. In its current form it is only applicable if you have very good knowledge of iPhone development with Objective C and building DSLs with Eclipse Xtext.
 
 ## Getting started
 
@@ -95,7 +95,7 @@ It also contains a reference part showing the language features and the [GHUnit]
 
 
 
-<a name="download"/>
+<a name="download"> </a>
 
 ## Downloads
 
@@ -119,15 +119,15 @@ Or get the source code on the [GitHub project page](http://github.com/ralfebert/
 
 ### Expression Model Objects
 
-<a name="model_expressions"/>
+<a name="model_expressions"> </a>
 
 ![Expression Model Objects](reference_expressions.png)
 
 ## Licenses
 
-[Eclipse Public License v1.0](http://www.eclipse.org/legal/epl-v10.html)
+applitude is licensed under the [Eclipse Public License v1.0](http://www.eclipse.org/legal/epl-v10.html).
 
-Some runtime components have other licenses:
+Some runtime components have differenter licenses:
 
 * ASIHTTPRequest, TouchXML, Reachability, parts of NSDate+Utils: BSD license
 * TouchJSON, GHUnit, TextFieldCell: MIT license
