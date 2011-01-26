@@ -1,6 +1,7 @@
 [
 	{
 		"name" : "Thomas Edison",
+		"imageUrl" : "http://upload.wikimedia.org/wikipedia/commons/c/c9/Thomas_Alva_Edison_k.jpg",
 		"inventions" : [
 			{ "name" : "Light bulb" },
 			{ "name" : "Motion picture" },
@@ -9,12 +10,14 @@
 	},
 	{
 		"name" : "Alexander Graham Bell",
+		"imageUrl" : "http://upload.wikimedia.org/wikipedia/commons/1/10/Alexander_Graham_Bell.jpg",
 		"inventions" : [
 			{ "name" : "Telephone" }
 		]
 	},
 	{
 		"name" : "Nikola Tesla",
+		"imageUrl" : "http://upload.wikimedia.org/wikipedia/commons/7/7c/Tesla_photograph.jpg",
 		"inventions" : [
 			{ "name" : "Tesla coil" },
 			{ "name" : "Alternating current" }
