@@ -5,11 +5,14 @@ layout: default
 
 [GitHub](https://github.com/ralfebert/applitude/) |
 [Issues](http://ralfebert.lighthouseapp.com/projects/67904/) |
-[Downloads](#downloads)
 
 # ![applitude](applitude.png)
 
-applitude is a runtime framework and a domain-specific language for iPhone application development. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project.
+applitude is a runtime framework and a domain-specific language for iPhone application development. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project. You can get it from the [GitHub project page](http://github.com/ralfebert/applitude) or by running:
+
+	$ git clone git://github.com/ralfebert/applitude
+
+
 
 ## Overview
 
@@ -111,26 +114,6 @@ It also contains a reference part (showing the language features) and a test sui
 ![Screenshots demo application: reference and unit tests](demo_reference.png)
 
 
-
-
-<a name="download"> </a>
-
-## Downloads
-
-You can download the project in either:
-
-<div class="download">
-  <a href="http://github.com/ralfebert/applitude/zipball/master">
-    <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-  <a href="http://github.com/ralfebert/applitude/tarball/master">
-    <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-</div>
-
-You can also clone the project with [Git](http://git-scm.com) by running:
-
-	$ git clone git://github.com/ralfebert/applitude
-
-Or get the source code on the [GitHub project page](http://github.com/ralfebert/applitude)
 
 
 ## Appendix
