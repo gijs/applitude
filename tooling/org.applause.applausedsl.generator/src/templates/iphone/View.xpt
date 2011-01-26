@@ -47,29 +47,11 @@
 	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
 	«providers().collect(p|"[" + p.ivar() + " request]").statements("\n\t")»
 
-	«use('TableBuilder')» *table = [TableBuilder builder];
-«FOREACH sections AS section-»
-
-	[table section«section.title==null ? '' : ':' + section.title.expression('', '')»];
-«FOREACH section.cells AS cell ITERATOR i-»
-	{
-«IF cell.iterator!=null-»
-		ContentProvider *content = «cell.iterator.collection.providerExpression()»;
-		ContentProviderPlaceholder *cell = [[«use('ContentProviderPlaceholder')» alloc] initWithContentProvider:content mapping:[SelectorAction actionWithObject:self selector:@selector(«cell.iterator.name»Cell:)]];
-		cell.loadingCurtainItems = [NSArray arrayWithObject:[«use('ActivityCell')» activityCell]];
-		cell.errorMapping = [«use('SelectorAction')» actionWithObject:[«use('CommonCells')» class] selector:@selector(textCellWithError:)];
-«ELSE-»
-		«cell.constructionStatements(null).statements("\n\t\t")»
-«ENDIF-»
-		[table cell:cell];
-		[cell release];
-	}
-«ENDFOREACH-»
-«ENDFOREACH-»
-	[self setSections:table.sections];
+	«sections.constructionStatements(null).indent()»
 }
 
-«EXPAND cellProviderMethod FOREACH sections.cells.select(e|e.iterator!=null)-»
+«EXPAND providerMethod FOREACH sections.select(e|e.iterator!=null)-»
+«EXPAND providerMethod FOREACH sections.cells.select(e|e.iterator!=null)-»
 «EXPAND cellActionMethod FOREACH sections.cells.select(e|e.action!=null)-»
 «EXPAND dealloc-»
 @end
@@ -78,12 +60,11 @@
 
 
 
-«DEFINE cellProviderMethod FOR ViewContentElement-»
+«DEFINE providerMethod FOR ViewContentElement-»
 «LET this.iterator AS it-»
-- (UITableViewCell *) «it.name»Cell:(«it.rootParameter().description.type.objcType()» *)«it.name» {
-	«this.constructionStatements(it.name).statements("\n\t")»
-	cell.data = «it.name»;
-	return [cell autorelease];
+- («this.targetType()» *) «it.name»«this.shortName().toFirstUpper()»:(«it.rootParameter().description.type.objcType()» *)«it.name» {
+	«this.constructionStatements(it.name).indent().trim()»
+	return «this.shortName()»;
 }
 «ENDLET»
 «ENDDEFINE»

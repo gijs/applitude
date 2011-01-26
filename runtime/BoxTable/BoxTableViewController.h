@@ -21,7 +21,7 @@
 - (void) update;
 
 - (Section *) section;
-- (Section *) section:(NSString *) title;
+- (Section *) sectionWithTitle:(NSString *) title;
 - (void) sections:(SEL)selector forContentProvider:(ContentProvider *)contentProvider;
 
 - (void) cell:(UITableViewCell *)cell;

@@ -41,7 +41,7 @@ tableview Tables {
 	}
 	
 	section {
-		title: "Inventors"
+		title: "cell ... for ... in ..."
 		cell Default for inventor in inventors {
 			text: inventor.name
 			accessory: Link
@@ -68,6 +68,14 @@ tableview Tables {
 tableview InventorDetail(Inventor inventor) {
 	title: inventor.name
 	style: Grouped
+	
+	section {
+		cell Value2 {
+			text: "Name"
+			details: inventor.name
+		}
+	}
+	
 	section {
 		cell Default for invention in inventor.inventions {
 			text: invention.name

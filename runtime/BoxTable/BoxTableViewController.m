@@ -85,7 +85,7 @@
 	return section;
 }
 
-- (Section *) section:(NSString *) title {
+- (Section *) sectionWithTitle:(NSString *) title {
 	Section *section = [self section];
 	section.title = title;
 	return section;

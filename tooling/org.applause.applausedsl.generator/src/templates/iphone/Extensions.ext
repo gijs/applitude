@@ -57,6 +57,9 @@ statements(Collection[String] strings, String nl):
 pointer(ProjectClass class):
 	use(class) + " *";
 
+indent(String this):
+	this.trim().replaceAll("\n", "\n\t") + "\n";
+
 
 
 /* Views */
@@ -156,18 +159,45 @@ ivar(Parameter param):
 
 // Construction of content elements
 
-List[String] constructionStatements(ViewContentElement this, String kvcTarget):
+String constructionStatements(ViewContentElement this, String kvcTarget):
 	throwError("constructionStatements not supported for " + this);
 
 constructionStatements(Cell cell, String kvcTarget):
-	{
-	 use('BoxCell') + ' *cell = [[BoxCell alloc] initWithStyle:' + cell.type.constant() + ' reuseIdentifier:nil]',
-	 cell.text.assignment('cell.textLabel', 'text', kvcTarget),
-	 cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget),
-	 (cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() : null,
-	 (cell.action != null) ? 'cell.onTouch = ' + action(cell.action, cell) : null
-	};
+	 use('BoxCell') + ' *cell = [[[BoxCell alloc] initWithStyle:' + cell.type.constant() + " reuseIdentifier:nil] autorelease];\n"
+	 + cell.text.assignment('cell.textLabel', 'text', kvcTarget)
+	 + cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget)
+	 + ((cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() + ";\n" : "")
+	 + ((cell.action != null) ? 'cell.onTouch = ' + action(cell.action, cell) + ";\n" : "")
+	 + ((kvcTarget != null) ? 'cell.data = ' + kvcTarget + ';\n' : "[self cell:cell];\n");
 
+constructionStatements(Section section, String kvcTarget):
+	 (kvcTarget == null ? '' : use('Section') + ' *section = ')
+	 + '[self section' + (section.title == null ? '' : 'WithTitle:' + section.title.expression(kvcTarget, '')) + '];\n'
+	 + section.cells.constructionStatements(kvcTarget);
+
+
+String shortName(ViewContentElement this): "shortName undefined";
+String shortName(Cell this): "cell";
+String shortName(Section this): "section";
+
+String targetType(ViewContentElement this): "targetType undefined";
+String targetType(Cell this): "UITableViewCell";
+String targetType(Section this): "Section";
+
+
+iteratorConstructionStatement(ViewContentElement e, String kvcTarget):
+	"[self " + e.shortName() + "s:@selector(" + e.iterator.name + e.shortName().toFirstUpper() + ":) "+
+				((kvcTarget == null)
+					? "forContentProvider:" + e.iterator.collection.providerExpression()
+					: "forList:" + e.iterator.collection.expression(kvcTarget, ''))
+			  + "];\n";
+
+
+constructionStatements(List[ViewContentElement] elements, String kvcTarget):
+	elements.collect(e|
+		let code = (e.iterator == null ? e.constructionStatements(null) : e.iteratorConstructionStatement(kvcTarget))
+			: ((kvcTarget == null && Cell.isInstance(e)) ? "{\n\t" + code.indent() + "}\n" : code)	
+	 ).toString("\n");
 
 
 
@@ -233,17 +263,17 @@ resolve(ScalarExpression expr):
 
 
 assignment(Void expr, String targetObject, String targetProperty, String kvcTarget):
-	null;
+	'';
 
 assignment(ScalarExpression this, String targetObject, String targetProperty, String kvcTarget):
 	throwError("assignment not supported for " + this);
 
 assignment(StringLiteral expr, String targetObject, String targetProperty, String kvcTarget):
-	targetObject + "." + targetProperty + " = " + expr.expression(kvcTarget, '');
+	targetObject + "." + targetProperty + " = " + expr.expression(kvcTarget, '') + ";\n";
 
 assignment(ObjectReference expr, String targetObject, String targetProperty, String kvcTarget):
-	kvcTarget == null ? '[fBindings bind:' + expr.rootParameter().ivar() + ' property:@"' + expr.keyPath('content').toString('.') + '" to:' + targetObject + ' property:@"' + targetProperty + '"]'
-	                  : targetObject + "." + targetProperty + " = " + expr.expression(kvcTarget, '');
+	kvcTarget == null ? '[fBindings bind:' + expr.rootParameter().ivar() + ' property:@"' + expr.keyPath('content').toString('.') + '" to:' + targetObject + ' property:@"' + targetProperty + '"];\n'
+	                  : targetObject + "." + targetProperty + " = " + expr.expression(kvcTarget, '') + ";\n";
 
 
 

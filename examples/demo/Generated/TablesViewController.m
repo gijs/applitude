@@ -1,11 +1,8 @@
 #import "TablesViewController.h"
-#import "ActivityCell.h"
 #import "BoxCell.h"
-#import "CommonCells.h"
-#import "ContentProvider+Nested.h"
-#import "ContentProviderPlaceholder.h"
 #import "DemoProviders.h"
 #import "DemoViews.h"
+#import "Section.h"
 #import "SelectorAction.h"
 #import "SimpleContentProvider.h"
 
@@ -15,7 +12,7 @@
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
-
+		
 		fInventors = [[[DemoProviders sharedProviders] providerForAllInventors] retain];
 		fErrorInventors = [[[DemoProviders sharedProviders] providerForAllErrorneousInventors] retain];
 	}
@@ -24,81 +21,78 @@
 
 - (void) update {
 	self.title = @"Tables";
+	[fInventors request];
+	[fErrorInventors request];
 
-	[self section:@"Cell styles"];
+	[self sectionWithTitle:@"Cell styles"];
 	{
-		BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 		cell.textLabel.text = @"Style Default";
 		[self cell:cell];
-		[cell release];
 	}
+	
 	{
-		BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil] autorelease];
 		cell.textLabel.text = @"Style";
 		cell.detailTextLabel.text = @"Subtitle";
 		[self cell:cell];
-		[cell release];
 	}
+	
 	{
-		BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil] autorelease];
 		cell.textLabel.text = @"Style";
 		cell.detailTextLabel.text = @"Value1";
 		[self cell:cell];
-		[cell release];
 	}
+	
 	{
-		BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil];
+		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil] autorelease];
 		cell.textLabel.text = @"Style";
 		cell.detailTextLabel.text = @"Value2";
 		[self cell:cell];
-		[cell release];
 	}
-
-	[self section:@"cell ... for ... in ..."];
+	
+	[self sectionWithTitle:@"cell ... for ... in ..."];
 	{
 		[self cells:@selector(inventorCell:) forContentProvider:fInventors];
 	}
-
-	[self sections:@selector(inventorSection:) forContentProvider:fInventors];
-
-	[self section:@"error handling"];
+	
+	[self sections:@selector(invSection:) forContentProvider:fInventors];
+	
+	[self sectionWithTitle:@"error handling"];
 	{
 		[self cells:@selector(inventor2Cell:) forContentProvider:fErrorInventors];
 	}
 
-	[fInventors request];
-	[fErrorInventors request];
+}
+
+- (Section *) invSection:(NSDictionary *)inv {
+	Section *section = [self sectionWithTitle:[inv valueForKey:@"name"]];
+	[self cells:@selector(inventionCell:) forList:[inv valueForKey:@"inventions"]];
+	return section;
 }
 
 - (UITableViewCell *) inventorCell:(NSDictionary *)inventor {
-	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 	cell.textLabel.text = [inventor valueForKey:@"name"];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(inventorCellSelected:)];
 	cell.data = inventor;
-	return [cell autorelease];
-}
-
-- (Section *) inventorSection:(NSDictionary *)inventor {
-	Section *section = [self section:[inventor valueForKey:@"name"]];
-	{
-		[self cells:@selector(inventionCell:) forList:[inventor valueForKey:@"inventions"]];
-	}
-	return section;
+	return cell;
 }
 
 - (UITableViewCell *) inventionCell:(NSDictionary *)invention {
-	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 	cell.textLabel.text = [invention valueForKey:@"name"];
 	cell.data = invention;
-	return [cell autorelease];
+	return cell;
 }
 
 - (UITableViewCell *) inventor2Cell:(NSDictionary *)inventor2 {
-	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 	cell.textLabel.text = [inventor2 valueForKey:@"name"];
 	cell.data = inventor2;
-	return [cell autorelease];
+	return cell;
 }
 
 - (void) inventorCellSelected:(BoxCell *)cell {

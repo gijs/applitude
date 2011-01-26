@@ -1,11 +1,6 @@
 #import "InventorDetailViewController.h"
-#import "ActivityCell.h"
 #import "BoxCell.h"
-#import "CommonCells.h"
 #import "ContentProvider+Nested.h"
-#import "ContentProviderPlaceholder.h"
-#import "SelectorAction.h"
-#import "SimpleContentProvider.h"
 
 @implementation InventorDetailViewController
 
@@ -14,7 +9,7 @@
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
 		fInventor = [inventor retain];
-
+		
 	}
 	return self;
 }
@@ -25,16 +20,24 @@
 
 	[self section];
 	{
-		ContentProvider *inventions = [[[SimpleContentProvider alloc] initWithContent:[fInventor valueForKeyPath:@"content.inventions"] name:@""] autorelease];
-		[self cells:@selector(inventionCell:) forContentProvider:inventions];
+		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil] autorelease];
+		cell.textLabel.text = @"Name";
+		[fBindings bind:fInventor property:@"content.name" to:cell.detailTextLabel property:@"text"];
+		[self cell:cell];
 	}
+	
+	[self section];
+	{
+		[self cells:@selector(inventionCell:) forContentProvider:[ContentProvider nestedContentProviderWithContentProvider:fInventor keyPath:@"inventions"]];
+	}
+
 }
 
 - (UITableViewCell *) inventionCell:(NSDictionary *)invention {
-	BoxCell *cell = [[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 	cell.textLabel.text = [invention valueForKey:@"name"];
 	cell.data = invention;
-	return [cell autorelease];
+	return cell;
 }
 
 - (void) dealloc {
