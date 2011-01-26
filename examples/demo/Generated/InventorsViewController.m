@@ -1,7 +1,7 @@
 #import "InventorsViewController.h"
-#import "BoxCell.h"
 #import "DemoProviders.h"
 #import "DemoViews.h"
+#import "ImageCell.h"
 #import "SelectorAction.h"
 #import "SimpleContentProvider.h"
 
@@ -31,8 +31,9 @@
 }
 
 - (UITableViewCell *) inventorCell:(NSDictionary *)inventor {
-	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+	ImageCell *cell = [[[ImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 	cell.textLabel.text = [inventor valueForKey:@"name"];
+	cell.imageUrl = [inventor valueForKey:@"imageUrl"];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(inventorCellSelected:)];
 	cell.data = inventor;

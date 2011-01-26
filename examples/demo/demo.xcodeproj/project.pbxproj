@@ -112,6 +112,7 @@
 		BFAEE62612EFDBBC0013047D /* ReferenceErrorHandlingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61912EFDBBC0013047D /* ReferenceErrorHandlingViewController.m */; };
 		BFAEE62712EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61B12EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m */; };
 		BFAEE62812EFDBBC0013047D /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61D12EFDBBC0013047D /* ReferenceViewController.m */; };
+		BFAEE67112EFE56C0013047D /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE67012EFE56C0013047D /* ImageCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -268,6 +269,8 @@
 		BFAEE61B12EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceSectionCellForeachViewController.m; sourceTree = "<group>"; };
 		BFAEE61C12EFDBBC0013047D /* ReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceViewController.h; sourceTree = "<group>"; };
 		BFAEE61D12EFDBBC0013047D /* ReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceViewController.m; sourceTree = "<group>"; };
+		BFAEE66F12EFE56C0013047D /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCell.h; path = ../../../../jobs/teilauto_iphoneapp/code/teilAuto/src/cells/ImageCell.h; sourceTree = SOURCE_ROOT; };
+		BFAEE67012EFE56C0013047D /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCell.m; path = ../../../../jobs/teilauto_iphoneapp/code/teilAuto/src/cells/ImageCell.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +464,8 @@
 				BF4DCDE512EA931D0005E01C /* URLUtils.m */,
 				BF4DCE5D12EA94EC0005E01C /* UIView+Coordinates.h */,
 				BF4DCE5E12EA94EC0005E01C /* UIView+Coordinates.m */,
+				BFAEE66F12EFE56C0013047D /* ImageCell.h */,
+				BFAEE67012EFE56C0013047D /* ImageCell.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				BFAEE62612EFDBBC0013047D /* ReferenceErrorHandlingViewController.m in Sources */,
 				BFAEE62712EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m in Sources */,
 				BFAEE62812EFDBBC0013047D /* ReferenceViewController.m in Sources */,
+				BFAEE67112EFE56C0013047D /* ImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -889,6 +895,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					LOG_DEBUG,
+					LOG_INFO,
+				);
 				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -904,6 +914,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					LOG_DEBUG,
+					LOG_INFO,
+				);
 				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

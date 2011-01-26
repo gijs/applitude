@@ -20,6 +20,7 @@ type String mapsTo "NSString"
 
 entity Inventor {
 	String name
+	String imageUrl
 	Invention[] inventions
 }
 
@@ -40,6 +41,7 @@ tableview Inventors {
 	section {
 		cell Default for inventor in inventors {
 			text: inventor.name
+			image: inventor.imageUrl
 			accessory: Link
 			action: InventorDetail(inventor)
 		}	

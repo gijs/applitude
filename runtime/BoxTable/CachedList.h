@@ -1,10 +1,5 @@
-//
-//  CachedList.h
-//  demo
-//
-//  Created by Ralf Ebert on 25.01.11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
+// © 2010 Ralf Ebert
+// Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
 
 #import <Foundation/Foundation.h>
 
