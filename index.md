@@ -1,23 +1,23 @@
 ---
-title: iApplause
+title: applitude
 layout: default
 ---
 
-[Source](https://github.com/ralfebert/iApplause/) |
+[Source](https://github.com/ralfebert/applitude/) |
 [Issues](http://ralfebert.lighthouseapp.com/projects/67904-iapplause/tickets) |
 [Downloads](#downloads)
 
-# iApplause
+# applitude
 
-iApplause is a runtime framework accompanied by a DSL for developing data-centric iPhone applications. It is an iPhone-only version of the [Applause](http://code.google.com/p/applause/) Xtext DSL, extended and very much customized to my own needs.
+applitude is a runtime framework accompanied by a DSL for developing data-centric iPhone applications. It is an iPhone-only version of the [Applause](http://code.google.com/p/applause/) Xtext DSL, extended and very much customized to my own needs.
 
 ## Overview
 
-iApplause provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way. For example, this application loads data from a URL, parses a [JSON document](https://github.com/ralfebert/iApplause/blob/gh-pages/demo/devices.json) and shows it using generated table view controllers:
+applitude provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way. For example, this application loads data from a URL, parses a [JSON document](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) and shows it using generated table view controllers:
 
 ![Screenshots Inventors demo application](demo.png)
 
-This application can be generated from [`demo.app`](https://github.com/ralfebert/iApplause/blob/master/examples/demo/demo.app):
+This application can be generated from [`demo.app`](https://github.com/ralfebert/applitude/blob/master/examples/demo/demo.app):
 
 	entity Inventor {
 		String name
@@ -30,7 +30,7 @@ This application can be generated from [`demo.app`](https://github.com/ralfebert
 	}
 
 	contentprovider AllInventors returns Inventor[] fetches JSON from
-		"http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
+		"http://ralfebert.github.com/applitude/demo/inventors.json" selects ""
 
 	tableview Inventors {
 		Inventor[] inventors = AllInventors()
@@ -66,11 +66,11 @@ This application can be generated from [`demo.app`](https://github.com/ralfebert
 	}
 
 
-iApplause is based on the [Xtext language development framework](http://www.eclipse.org/Xtext/), and as such, it comes with an Eclipse IDE plug-in:
+As Applause, applitude is based on the [Xtext language development framework](http://www.eclipse.org/Xtext/), and as such, it comes with an Eclipse IDE plug-in:
 
-![iApplause demo application editor](demo_ide.png)
+![applitude demo application editor](demo_ide.png)
 
-And there is a code generator which generates iPhone applications from such DSL documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/iApplause/tree/master/examples/demo/Generated) to see the generated code for `demo.app`.
+And there is a code generator which generates iPhone applications from such DSL documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/applitude/tree/master/examples/demo/Generated) to see the generated code for `demo.app`.
 
 ## Words of warning
 
@@ -79,12 +79,12 @@ The project currently is very much work in progress and therefore not fully docu
 ## Getting started
 
 * At first, learn about building DSLs with Xtext, for example by following the tutorial in the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
-* I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for iApplause.
+* I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for applitude.
 * Import the example projects in Eclipse, inspect the `*.app` documents, run the projects from Xcode, inspect the generated code.
 
 ## Demo Example project
 
-[`examples/demo/`](https://github.com/ralfebert/iApplause/tree/master/examples/demo) contains the Inventors example which fetches JSON content via HTTP and shows it using table views:
+[`examples/demo/`](https://github.com/ralfebert/applitude/tree/master/examples/demo) contains the Inventors example which fetches JSON content via HTTP and shows it using table views:
 
 ![Screenshots demo application: Inventors](demo.png)
 
@@ -102,17 +102,17 @@ It also contains a reference part showing the language features and the [GHUnit]
 You can download the project in either:
 
 <div class="download">
-  <a href="http://github.com/ralfebert/iApplause/zipball/master">
+  <a href="http://github.com/ralfebert/applitude/zipball/master">
     <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-  <a href="http://github.com/ralfebert/iApplause/tarball/master">
+  <a href="http://github.com/ralfebert/applitude/tarball/master">
     <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
 </div>
 
 You can also clone the project with [Git](http://git-scm.com) by running:
 
-	$ git clone git://github.com/ralfebert/iApplause
+	$ git clone git://github.com/ralfebert/applitude
 
-Or get the source code on the [GitHub project page](http://github.com/ralfebert/iApplause)
+Or get the source code on the [GitHub project page](http://github.com/ralfebert/applitude)
 
 
 ## Appendix
