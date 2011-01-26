@@ -28,34 +28,34 @@ entity Invention {
 	String name
 }
 
-contentprovider AllInventors stores Inventor[] fetches JSON from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
+contentprovider AllInventors stores Inventor[] fetches JSON from "http://ralfebert.github.com/applitude/demo/inventors.json" selects ""
 contentprovider AllErrorneousInventors returns Inventor[] fetches JSON from "http://localhost/none.json" selects ""
 
 tableview Inventors {
 	Inventor[] inventors = AllInventors()
-	
+
 	title: "Inventors"
-	
+
 	section {
 		cell Default for inventor in inventors {
 			text: inventor.name
 			image: inventor.imageUrl
 			action: InventorDetail(inventor)
-		}	
+		}
 	}
 }
 
 tableview InventorDetail(Inventor inventor) {
 	title: inventor.name
 	style: Grouped
-	
+
 	section {
 		cell Value2 {
 			text: "Name"
 			details: inventor.name
 		}
 	}
-	
+
 	section {
 		title: "Inventions"
 		cell Default for invention in inventor.inventions {
@@ -110,22 +110,22 @@ tableview ReferenceCellForeach {
 	Inventor[] inventors = AllInventors()
 
 	title: "cell foreach"
-	
+
 	section {
 		cell Default for inventor in inventors {
 			text: inventor.name
 			accessory: Link
 			action: InventorDetail(inventor)
-		}	
+		}
 	}
 
 }
 
 tableview ReferenceSectionCellForeach {
 	Inventor[] inventors = AllInventors()
-	
+
 	title: "section/cell foreach"
-	
+
 	section for inv in inventors {
 		title: inv.name
 		cell Default for invention in inv.inventions {
@@ -139,7 +139,7 @@ tableview ReferenceSectionCellForeach {
 
 tableview ReferenceErrorHandling {
 	Inventor[] inventors = AllErrorneousInventors()
-	
+
 	title: "Error handling"
 	style: Grouped
 
