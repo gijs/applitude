@@ -6,7 +6,6 @@
 - (id) init {
 	self = [super initWithStyle:UITableViewStylePlain];
 	if (self != nil) {
-		fBindings = [[BindingContext alloc] init];
 		
 		
 	}
@@ -48,7 +47,6 @@
 }
 
 - (void) dealloc {
-	[fBindings release];
 	
 	[super dealloc];
 }

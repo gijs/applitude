@@ -325,6 +325,14 @@ type(Cell this):
 firstCell(TableView this):
 	sections.first().cells.first();
 	
+hasBindings(TableView this):
+	!this.sections.select(e|e.iterator == null)
+	     .cells.select(e|e.iterator == null)
+	     .select(e|ObjectReference.isInstance(e.text)
+	     || ObjectReference.isInstance(e.details)
+	     || ObjectReference.isInstance(e.image))
+	     .isEmpty;
+
 expression(Expression s, String kvcTarget, String kvcPrefix):
 	"<!ERROR!" + s.metaType + ">";
 	

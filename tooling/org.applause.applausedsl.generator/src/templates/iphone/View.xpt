@@ -17,7 +17,9 @@
 «EXPAND ObjC::Import FOREACH class().headerImports() ONFILECLOSE-»
 
 @interface «class().name» : «use("BoxTableViewController")» {
+«IF this.hasBindings()-»
 	«use('BindingContext')» *fBindings;
+«ENDIF-»
 «providers().collect(p|"\t" + p.type() + p.ivar()).statements()»
 }
 
@@ -36,7 +38,9 @@
 «initSignature()» {
 	self = [super initWithStyle:«style.constant()»];
 	if (self != nil) {
+«IF this.hasBindings()-»
 		fBindings = [[BindingContext alloc] init];
+«ENDIF-»
 		«parameters().collect(p|p.ivar() + " = [" + p.name + " retain]").statements()»
 		«variables.collect(p|p.ivar() + " = [" + p.value.contentProvider('', '') + " retain]").statements("\n\t\t")»
 	}
@@ -94,7 +98,9 @@
 
 «DEFINE dealloc FOR TableView-»
 - (void) dealloc {
+«IF this.hasBindings()-»
 	[fBindings release];
+«ENDIF-»
 	«providers().collect(p|"[" + p.ivar() + " release]").statements("\n\t")»
 	[super dealloc];
 }

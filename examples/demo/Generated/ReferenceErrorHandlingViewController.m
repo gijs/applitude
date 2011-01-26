@@ -11,7 +11,6 @@
 - (id) init {
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
-		fBindings = [[BindingContext alloc] init];
 		
 		fInventors = [[[DemoProviders sharedProviders] providerForAllErrorneousInventors] retain];
 	}
@@ -60,7 +59,6 @@
 }
 
 - (void) dealloc {
-	[fBindings release];
 	[fInventors release];
 	[super dealloc];
 }

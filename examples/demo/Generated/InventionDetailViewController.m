@@ -5,7 +5,6 @@
 - (id) initWithInvention:(ContentProvider *)invention {
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
-		fBindings = [[BindingContext alloc] init];
 		fInvention = [invention retain];
 		
 	}
@@ -21,7 +20,6 @@
 }
 
 - (void) dealloc {
-	[fBindings release];
 	[fInvention release];
 	[super dealloc];
 }
