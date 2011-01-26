@@ -1,5 +1,5 @@
 ---
-title: applitude
+title: applitude :: runtime and a DSL for iPhone development
 layout: default
 ---
 
@@ -8,7 +8,7 @@ layout: default
 
 # ![applitude](applitude.png)
 
-applitude is an Objetive C runtime framework and a domain-specific language for iPhone application development. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project. You can get it from the [GitHub project page](http://github.com/ralfebert/applitude) or by running:
+applitude is an Objective C runtime framework and a domain-specific language for iPhone application development. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project. You can get it from the [GitHub project page](http://github.com/ralfebert/applitude) or by running:
 
 	$ git clone git://github.com/ralfebert/applitude
 
