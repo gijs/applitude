@@ -19,21 +19,9 @@ iApplause provides a domain specific language to describe iPhone applications, e
 
 This application can be generated from [`demo.applause`](https://github.com/ralfebert/iApplause/blob/master/examples/demo/demo.applause):
 
-	application Demo {
-		view:Tabs()
-	}
-
-	tabview Tabs {
-		tab {
-			title: "Inventors"
-			view: Inventors()
-		}
-	}
-
-	type String mapsTo "NSString"
-
 	entity Inventor {
 		String name
+		String imageUrl
 		Invention[] inventions
 	}
 
@@ -41,19 +29,17 @@ This application can be generated from [`demo.applause`](https://github.com/ralf
 		String name
 	}
 
-	contentprovider AllInventors returns Inventor[] fetches JSON
-		from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
+	contentprovider AllInventors returns Inventor[] fetches JSON from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
 
 	tableview Inventors {
 		Inventor[] inventors = AllInventors()
 
 		title: "Inventors"
-		style: Plain
 
 		section {
 			cell Default for inventor in inventors {
 				text: inventor.name
-				accessory: Link
+				image: inventor.imageUrl
 				action: InventorDetail(inventor)
 			}
 		}
@@ -62,12 +48,22 @@ This application can be generated from [`demo.applause`](https://github.com/ralf
 	tableview InventorDetail(Inventor inventor) {
 		title: inventor.name
 		style: Grouped
+
 		section {
+			cell Value2 {
+				text: "Name"
+				details: inventor.name
+			}
+		}
+
+		section {
+			title: "Inventions"
 			cell Default for invention in inventor.inventions {
 				text: invention.name
 			}
 		}
 	}
+
 
 iApplause is based on the [Xtext language development framework](http://www.eclipse.org/Xtext/), and as such, it comes with an Eclipse IDE plug-in:
 
