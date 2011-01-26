@@ -15,7 +15,7 @@ applitude is a runtime framework and a domain-specific language for iPhone appli
 
 applitude comes with a domain specific language ("DSL") that allows to express frequently needed parts of iPhone applications in a very dense format. This language is made-to-measure to express iPhone apps, so instead of keywords like `if`, `then`, `while` for regular programming languages, it has keywords like `contentprovider`, `tableview`, `section` or `cell`.
 
-For example, this application displays [JSON data](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) data about inventors loaded from an URL:
+For example, this application displays [JSON data](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) about inventors loaded from an URL:
 
 ![Screenshots Inventors demo application](demo.png)
 
@@ -86,13 +86,13 @@ You can edit this document in a convenient editor featuring code completion and 
 
 ![applitude demo application editor](demo_ide.png)
 
-Then, as soon as you hit save, Objectice C code is generated for `demo.app`. The generated code is small and tidied up by making use of runtime components wherever possible. Have a look at [InventorDetailViewController](https://github.com/ralfebert/applitude/blob/master/examples/demo/Generated/InventorDetailViewController.m) for an example of the kind of code generated for applitude apps. As code style is a matter of taste, things might be different for you, but for me, this code is in no way different than what I would write without using a DSL.
+Then, as soon as you hit save, Objectice C code is generated for `demo.app`. The generated code is small and tidied up by making use of runtime components wherever possible. Have a look at [InventorDetailViewController](https://github.com/ralfebert/applitude/blob/master/examples/demo/Generated/InventorDetailViewController.m) for an example of the kind of code generated for applitude apps.
 
 Last but not least, the runtime components utilized by the generated code are not tied to the DSL at all and you can utilize them in hand-written code as well; the DSL just adds a very convenient layer on top. But why write boring code by hand if you can express it using a more appropriate language?
 
 ## Ok, where is the catch?
 
-The project is work in progress. You will encounter bugs and missing documentation and mostly you will need to help yourself there. applitude is not for building iPhone apps the lazy way, you will need to have good knowledge of iPhone development in Objective C and some knowledge of building DSLs with Eclipse Xtext to put this tool to use.
+The project is work in progress. Things will change without prior notice, you will encounter bugs and missing documentation and mostly you will need to help yourself. applitude is not for building iPhone apps the lazy way, you will need to have good knowledge of iPhone development in Objective C and some knowledge of building DSLs with Eclipse Xtext to put this tool to use.
 
 ## Getting started
 
