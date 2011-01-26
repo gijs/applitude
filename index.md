@@ -17,7 +17,7 @@ iApplause provides a domain specific language to describe iPhone applications, e
 
 ![Screenshots Inventors demo application](demo.png)
 
-This application can be generated from [`demo.applause`](https://github.com/ralfebert/iApplause/blob/master/examples/demo/demo.applause):
+This application can be generated from [`demo.app`](https://github.com/ralfebert/iApplause/blob/master/examples/demo/demo.app):
 
 	entity Inventor {
 		String name
@@ -70,7 +70,7 @@ iApplause is based on the [Xtext language development framework](http://www.ecli
 
 ![iApplause demo application editor](demo_ide.png)
 
-And there is a code generator which generates iPhone applications from such DSL documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/iApplause/tree/master/examples/demo/Generated) to see the generated code for `demo.applause`.
+And there is a code generator which generates iPhone applications from such DSL documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/iApplause/tree/master/examples/demo/Generated) to see the generated code for `demo.app`.
 
 ## Words of warning
 
@@ -80,7 +80,7 @@ The project currently is very much work in progress and therefore not fully docu
 
 * At first, learn about building DSLs with Xtext, for example by following the tutorial in the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
 * I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for iApplause.
-* Import the example projects in Eclipse, inspect the `*.applause` documents, run the projects from Xcode, inspect the generated code.
+* Import the example projects in Eclipse, inspect the `*.app` documents, run the projects from Xcode, inspect the generated code.
 
 ## Demo Example project
 
