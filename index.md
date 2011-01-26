@@ -83,7 +83,7 @@ applitude is based on the [Xtext language development framework](http://www.ecli
 
 ![applitude demo application editor](demo_ide.png)
 
-There is a code generator which writes Objectice C code from applitude documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/applitude/tree/master/examples/demo/Generated) to see the kind of code generated for applitude apps.
+There is a code generator which writes Objectice C code from applitude documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [InventorDetailViewController](https://github.com/ralfebert/applitude/blob/master/examples/demo/Generated/InventorDetailViewController.m) for an example of the code generated for applitude apps. The runtime components to structure iPhone apps in such a way are not tied to the DSL at all and are meant to be utilized in hand-written code as well; the DSL just adds a very convenient layer on top.
 
 ## Target audience
 
