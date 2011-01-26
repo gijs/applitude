@@ -29,7 +29,8 @@ This application can be generated from [`demo.applause`](https://github.com/ralf
 		String name
 	}
 
-	contentprovider AllInventors returns Inventor[] fetches JSON from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
+	contentprovider AllInventors returns Inventor[] fetches JSON from
+		"http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
 
 	tableview Inventors {
 		Inventor[] inventors = AllInventors()
