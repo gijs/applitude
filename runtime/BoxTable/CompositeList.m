@@ -1,13 +1,12 @@
 // © 2010 Ralf Ebert
 // Made available under Eclipse Public License v1.0, http://www.eclipse.org/legal/epl-v10.html
 
-#import "PlaceholderResolver.h"
+#import "CompositeList.h"
 
 #import "LogUtils.h"
 #import "List.h"
 
-
-@implementation DynamicComposite
+@implementation DynamicCompositeList
 
 - (id) object {
 	return nil;
@@ -76,17 +75,9 @@
 @end
 
 
-@implementation PlaceholderResolver
+@implementation CompositeList
 
 @synthesize object = fObject;
-
-- (id) initWithArray:(NSArray *)array {
-	self = [super init];
-	if (self != nil) {
-		self.object = [array retain];
-	}
-	return self;
-}
 
 - (id) initWithObject:(id)object {
 	self = [super init];

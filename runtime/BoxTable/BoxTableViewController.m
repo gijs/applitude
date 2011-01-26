@@ -3,7 +3,7 @@
 
 #import "BoxTableViewController.h"
 #import "Section.h"
-#import "PlaceholderResolver.h"
+#import "CompositeList.h"
 #import "BrandedUIFactory.h"
 #import "LogUtils.h"
 #import "BoxCell.h"
@@ -53,7 +53,7 @@
 
 	self.sectionBag = [NSMutableArray array];
 	[self update];
-	self.sectionList = [[PlaceholderResolver alloc] initWithObject:fSectionBag];
+	self.sectionList = [[CompositeList alloc] initWithObject:fSectionBag];
 	self.sectionBag = nil;
 	self.cellBag = nil;
 }

@@ -5,7 +5,7 @@
 
 #import "List.h"
 
-@interface DynamicComposite : List {
+@interface DynamicCompositeList : List {
 }
 
 @property (nonatomic, retain, readonly) id object;
@@ -14,15 +14,12 @@
 
 
 
-// -> StaticComposite
-@interface PlaceholderResolver : DynamicComposite {
+@interface CompositeList : DynamicCompositeList {
 
 	id fObject;
 
 }
 
-//TODO: deprecated
-- (id) initWithArray:(NSArray *)array;
 - (id) initWithObject:(id)array;
 
 @property (nonatomic, retain, readwrite) id object;

@@ -3,13 +3,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PlaceholderResolver.h"
+#import "CompositeList.h"
 
 @interface Section : NSObject {
 
 	NSString *fTitle;
 	NSMutableArray *fRows;
-	PlaceholderResolver *fPlaceholder;
+	CompositeList *fPlaceholder;
 
 }
 

@@ -4,7 +4,7 @@
 #import <GHUnit/GHUnit.h>
 
 #import "List.h"
-#import "PlaceholderResolver.h"
+#import "CompositeList.h"
 #import "MappedList.h"
 #import "CachedList.h"
 #import "SelectorAction.h"
@@ -42,7 +42,7 @@
 @implementation ListTests
 
 - (void) setUp {
-	list1to7 = [[PlaceholderResolver alloc] initWithArray:[NSArray arrayWithObjects:
+	list1to7 = [[CompositeList alloc] initWithObject:[NSArray arrayWithObjects:
 		  @"1",
 		  [NSArray arrayWithObjects:@"2", @"3", nil],
 		  @"4",
@@ -61,11 +61,11 @@
 }
 
 - (void) testCompositeNil {
-	[self assertList:[[PlaceholderResolver alloc] init] expected: nil];
+	[self assertList:[[CompositeList alloc] init] expected: nil];
 }
 
 - (void) testCompositeSingleObject {
-	List *composite = [[PlaceholderResolver alloc] initWithObject:@"1"];
+	List *composite = [[CompositeList alloc] initWithObject:@"1"];
 	[self assertList:composite expected:@"1", nil];
 }
 
@@ -74,7 +74,7 @@
 }
 
 - (void) testNested {
-	List *list = [[PlaceholderResolver alloc] initWithArray:
+	List *list = [[CompositeList alloc] initWithObject:
 				[NSArray arrayWithObjects:@"(", list1to7, @"-", list1to7, @")", nil]];
 
 	[self assertList:list expected:@"(", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"-", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @")", nil];

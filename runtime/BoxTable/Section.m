@@ -3,7 +3,7 @@
 
 #import "Section.h"
 
-#import "PlaceholderResolver.h"
+#import "CompositeList.h"
 
 @implementation Section
 
@@ -13,7 +13,7 @@
 	self = [super init];
 	if (self != nil) {
 		fRows = [[NSMutableArray alloc] init];
-		fPlaceholder = [[PlaceholderResolver alloc] initWithArray:fRows];
+		fPlaceholder = [[CompositeList alloc] initWithObject:fRows];
 	}
 	return self;
 }

@@ -6,14 +6,14 @@
 #import "BoxTableViewController.h"
 #import "ContentProvider.h"
 #import "SelectorAction.h"
-#import "PlaceholderResolver.h"
+#import "CompositeList.h"
 
 // A ContentProviderPlaceholder maps content from a content provider to
 // objects obtained on demand by calling factorySelector on the delegate.
 // Such placeholders can be used together with BoxTableViewController
 // to provide sections or cells as needed.
 
-@interface ContentProviderPlaceholder : PlaceholderResolver {
+@interface ContentProviderPlaceholder : CompositeList {
 	UITableViewController *fController;
 	ContentProvider *fContentProvider;
 	SelectorAction *fMapping;

@@ -14,7 +14,7 @@
 		BF4DCA5312EA6A310005E01C /* BoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9BC12EA6A310005E01C /* BoxCell.m */; };
 		BF4DCA5412EA6A310005E01C /* BoxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9BE12EA6A310005E01C /* BoxTableViewController.m */; };
 		BF4DCA5512EA6A310005E01C /* CustomCellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C112EA6A310005E01C /* CustomCellBackgroundView.m */; };
-		BF4DCA5612EA6A310005E01C /* PlaceholderResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */; };
+		BF4DCA5612EA6A310005E01C /* CompositeList.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C412EA6A310005E01C /* CompositeList.m */; };
 		BF4DCA5712EA6A310005E01C /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C712EA6A310005E01C /* Section.m */; };
 		BF4DCA5912EA6A310005E01C /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9CB12EA6A310005E01C /* TextFieldCell.m */; };
 		BF4DCA5A12EA6A310005E01C /* BaseContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9CE12EA6A310005E01C /* BaseContentProvider.m */; };
@@ -46,7 +46,7 @@
 		BF4DCC1912EA6ECC0005E01C /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C712EA6A310005E01C /* Section.m */; };
 		BF4DCC1A12EA6ECC0005E01C /* CommonCells.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCABE12EA6B2E0005E01C /* CommonCells.m */; };
 		BF4DCC1D12EA6ED80005E01C /* BoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9BC12EA6A310005E01C /* BoxCell.m */; };
-		BF4DCC1E12EA6ED80005E01C /* PlaceholderResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */; };
+		BF4DCC1E12EA6ED80005E01C /* CompositeList.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9C412EA6A310005E01C /* CompositeList.m */; };
 		BF4DCC1F12EA6ED80005E01C /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCACA12EA6BB70005E01C /* ActivityCell.m */; };
 		BF4DCC4112EA77E60005E01C /* ContentProviderPlaceholderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCC4012EA77E60005E01C /* ContentProviderPlaceholderTest.m */; };
 		BF4DCCFD12EA8A400005E01C /* SelectorAction.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DC9EA12EA6A310005E01C /* SelectorAction.m */; };
@@ -129,8 +129,8 @@
 		BF4DC9BE12EA6A310005E01C /* BoxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxTableViewController.m; sourceTree = "<group>"; };
 		BF4DC9C012EA6A310005E01C /* CustomCellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellBackgroundView.h; sourceTree = "<group>"; };
 		BF4DC9C112EA6A310005E01C /* CustomCellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellBackgroundView.m; sourceTree = "<group>"; };
-		BF4DC9C312EA6A310005E01C /* PlaceholderResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderResolver.h; sourceTree = "<group>"; };
-		BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderResolver.m; sourceTree = "<group>"; };
+		BF4DC9C312EA6A310005E01C /* CompositeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositeList.h; sourceTree = "<group>"; };
+		BF4DC9C412EA6A310005E01C /* CompositeList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositeList.m; sourceTree = "<group>"; };
 		BF4DC9C612EA6A310005E01C /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
 		BF4DC9C712EA6A310005E01C /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		BF4DC9CA12EA6A310005E01C /* TextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
@@ -381,8 +381,6 @@
 				BF4DC9BE12EA6A310005E01C /* BoxTableViewController.m */,
 				BF4DC9C012EA6A310005E01C /* CustomCellBackgroundView.h */,
 				BF4DC9C112EA6A310005E01C /* CustomCellBackgroundView.m */,
-				BF4DC9C312EA6A310005E01C /* PlaceholderResolver.h */,
-				BF4DC9C412EA6A310005E01C /* PlaceholderResolver.m */,
 				BF4DC9C612EA6A310005E01C /* Section.h */,
 				BF4DC9C712EA6A310005E01C /* Section.m */,
 				BF4DC9CA12EA6A310005E01C /* TextFieldCell.h */,
@@ -393,6 +391,8 @@
 				BF5061A912EF52C0001171CA /* MappedList.m */,
 				BF5061D612EF5628001171CA /* CachedList.h */,
 				BF5061D712EF5628001171CA /* CachedList.m */,
+				BF4DC9C312EA6A310005E01C /* CompositeList.h */,
+				BF4DC9C412EA6A310005E01C /* CompositeList.m */,
 			);
 			path = BoxTable;
 			sourceTree = "<group>";
@@ -697,7 +697,7 @@
 				BF4DCA5312EA6A310005E01C /* BoxCell.m in Sources */,
 				BF4DCA5412EA6A310005E01C /* BoxTableViewController.m in Sources */,
 				BF4DCA5512EA6A310005E01C /* CustomCellBackgroundView.m in Sources */,
-				BF4DCA5612EA6A310005E01C /* PlaceholderResolver.m in Sources */,
+				BF4DCA5612EA6A310005E01C /* CompositeList.m in Sources */,
 				BF4DCA5712EA6A310005E01C /* Section.m in Sources */,
 				BF4DCA5912EA6A310005E01C /* TextFieldCell.m in Sources */,
 				BF4DCA5A12EA6A310005E01C /* BaseContentProvider.m in Sources */,
@@ -773,7 +773,7 @@
 				BF4DCC1912EA6ECC0005E01C /* Section.m in Sources */,
 				BF4DCC1A12EA6ECC0005E01C /* CommonCells.m in Sources */,
 				BF4DCC1D12EA6ED80005E01C /* BoxCell.m in Sources */,
-				BF4DCC1E12EA6ED80005E01C /* PlaceholderResolver.m in Sources */,
+				BF4DCC1E12EA6ED80005E01C /* CompositeList.m in Sources */,
 				BF4DCC1F12EA6ED80005E01C /* ActivityCell.m in Sources */,
 				BF4DCC4112EA77E60005E01C /* ContentProviderPlaceholderTest.m in Sources */,
 				BF4DCCFD12EA8A400005E01C /* SelectorAction.m in Sources */,
