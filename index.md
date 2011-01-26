@@ -19,6 +19,19 @@ applitude comes with a DSL to describe common functionality of iPhone applicatio
 
 It was generated from [`demo.app`](https://github.com/ralfebert/applitude/blob/master/examples/demo/demo.app):
 
+	application Demo {
+		view:Tabs()
+	}
+
+	tabview Tabs {
+		tab {
+			title: "Inventors"
+			view: Inventors()
+		}
+	}
+
+	type String mapsTo "NSString"
+
 	entity Inventor {
 		String name
 		String imageUrl
