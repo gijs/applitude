@@ -9,7 +9,7 @@
             class="org.applause.applausedsl.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
-            extensions="applause"
+            extensions="app"
             id="org.applause.applausedsl.ApplauseDsl"
             name="ApplauseDsl Editor">
         </editor>
@@ -127,13 +127,13 @@
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
 			class="org.applause.applausedsl.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="applause">
+			type="app">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
         <resourceServiceProvider
             class="org.applause.applausedsl.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-            uriExtension="applause">
+            uriExtension="app">
         </resourceServiceProvider>
     </extension>
 

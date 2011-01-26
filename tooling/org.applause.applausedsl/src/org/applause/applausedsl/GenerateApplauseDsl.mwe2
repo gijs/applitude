@@ -5,7 +5,7 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 var grammarURI = "classpath:/org/applause/applausedsl/ApplauseDsl.xtext"
-var file.extensions = "applause"
+var file.extensions = "app"
 var projectName = "org.applause.applausedsl"
 var runtimeProject = "../${projectName}"
 
