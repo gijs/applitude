@@ -9,15 +9,15 @@ layout: default
 
 # ![applitude](applitude.png)
 
-applitude is a runtime framework and a domain-specific language making iPhone application development easier. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project.
+applitude is a runtime framework and a domain-specific language for iPhone application development. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project.
 
 ## Overview
 
-applitude provides a domain specific language to describe iPhone applications, esp. the boring parts which are manually coded over and over again, in a crisp and precise way. For example, this application loads data from a URL, parses a [JSON document](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) and shows it using generated table view controllers:
+applitude comes with a DSL to describe common functionality of iPhone applications in a crisp and precise way. For example, this application loads [JSON data](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) from an URL:
 
 ![Screenshots Inventors demo application](demo.png)
 
-This application can be generated from [`demo.app`](https://github.com/ralfebert/applitude/blob/master/examples/demo/demo.app):
+This application was generated from [`demo.app`](https://github.com/ralfebert/applitude/blob/master/examples/demo/demo.app):
 
 	entity Inventor {
 		String name
@@ -70,7 +70,7 @@ applitude is based on the [Xtext language development framework](http://www.ecli
 
 ![applitude demo application editor](demo_ide.png)
 
-There is a code generator which generates Objectice C code from `.app` documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/applitude/tree/master/examples/demo/Generated) to see the generated code for `demo.app`.
+There is a code generator which writes Objectice C code from such `.app` documents. The generated code is kept small and tidied up by making use of runtime components wherever possible. Have a look at [examples/demo/Generated](https://github.com/ralfebert/applitude/tree/master/examples/demo/Generated) to see the kind of code generated for applitude apps.
 
 ## Target audience
 
