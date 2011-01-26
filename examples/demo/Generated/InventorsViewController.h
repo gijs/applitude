@@ -2,7 +2,7 @@
 #import "BoxTableViewController.h"
 #import "ContentProvider.h"
 
-@interface TablesViewController : BoxTableViewController {
+@interface InventorsViewController : BoxTableViewController {
 	BindingContext *fBindings;
 	ContentProvider *fInventors;
 	ContentProvider *fErrorInventors;

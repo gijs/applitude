@@ -1,39 +1,35 @@
-#import "InventorDetailViewController.h"
+#import "ReferenceSectionCellForeachViewController.h"
 #import "BoxCell.h"
-#import "ContentProvider+Nested.h"
+#import "DemoProviders.h"
 #import "DemoViews.h"
+#import "Section.h"
 #import "SelectorAction.h"
 #import "SimpleContentProvider.h"
 
-@implementation InventorDetailViewController
+@implementation ReferenceSectionCellForeachViewController
 
-- (id) initWithInventor:(ContentProvider *)inventor {
-	self = [super initWithStyle:UITableViewStyleGrouped];
+- (id) init {
+	self = [super initWithStyle:UITableViewStylePlain];
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
-		fInventor = [inventor retain];
 		
+		fInventors = [[[DemoProviders sharedProviders] providerForAllInventors] retain];
 	}
 	return self;
 }
 
 - (void) update {
-	self.title = [fInventor valueForKeyPath:@"content.name"];
-	[fInventor request];
+	self.title = @"section/cell foreach";
+	[fInventors request];
 
-	[self section];
-	{
-		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil] autorelease];
-		cell.textLabel.text = @"Name";
-		[fBindings bind:fInventor property:@"content.name" to:cell.detailTextLabel property:@"text"];
-		[self cell:cell];
-	}
-	
-	[self sectionWithTitle:@"Inventions"];
-	{
-		[self cells:@selector(inventionCell:) forContentProvider:[ContentProvider nestedContentProviderWithContentProvider:fInventor keyPath:@"inventions"]];
-	}
+	[self sections:@selector(invSection:) forContentProvider:fInventors];
 
+}
+
+- (Section *) invSection:(NSDictionary *)inv {
+	Section *section = [self sectionWithTitle:[inv valueForKey:@"name"]];
+	[self cells:@selector(inventionCell:) forList:[inv valueForKey:@"inventions"]];
+	return section;
 }
 
 - (UITableViewCell *) inventionCell:(NSDictionary *)invention {
@@ -53,7 +49,7 @@
 
 - (void) dealloc {
 	[fBindings release];
-	[fInventor release];
+	[fInventors release];
 	[super dealloc];
 }
 

@@ -7,8 +7,12 @@ application Demo {
 
 tabview Tabs {
 	tab {
-		title: "Tables"
-		view: Tables()
+		title: "Inventors"
+		view: Inventors()
+	}
+	tab {
+		title: "Reference"
+		view: Reference()
 	}
 }
 
@@ -26,22 +30,65 @@ entity Invention {
 contentprovider AllInventors returns Inventor[] fetches JSON from "http://ralfebert.github.com/iApplause/demo/inventors.json" selects ""
 contentprovider AllErrorneousInventors returns Inventor[] fetches JSON from "http://localhost/none.json" selects ""
 
-tableview Tables {
+tableview Inventors {
 	Inventor[] inventors = AllInventors()
 	Inventor[] errorInventors = AllErrorneousInventors()
 	
-	title: "Tables"
-	style: Grouped
+	title: "Inventors"
+	style: Plain
+	
 	section {
-		title: "Cell styles"
+		cell Default for inventor in inventors {
+			text: inventor.name
+			accessory: Link
+			action: InventorDetail(inventor)
+		}	
+	}
+}
+
+
+tableview Reference {
+	title: "Reference"
+
+	section {
+		cell Default {
+			text: "Cell styles"
+			action: ReferenceCellStyles()
+		}
+		cell Default {
+			text: "cell foreach"
+			action: ReferenceCellForeach()
+		}
+		cell Default {
+			text: "section + cell foreach"
+			action: ReferenceSectionCellForeach()
+		}
+		cell Default {
+			text: "Error handling"
+			action: ReferenceErrorHandling()
+		}
+	}
+
+}
+
+tableview ReferenceCellStyles {
+	title: "Cell styles"
+
+	section {
 		cell Default { text: "Style Default" }
 		cell Subtitle { text: "Style" details: "Subtitle" }
 		cell Value1 { text: "Style" details: "Value1" }
 		cell Value2 { text: "Style" details: "Value2" }
 	}
+
+}
+
+tableview ReferenceCellForeach {
+	Inventor[] inventors = AllInventors()
+
+	title: "cell foreach"
 	
 	section {
-		title: "cell ... for ... in ..."
 		cell Default for inventor in inventors {
 			text: inventor.name
 			accessory: Link
@@ -49,21 +96,46 @@ tableview Tables {
 		}	
 	}
 
+}
+
+tableview ReferenceSectionCellForeach {
+	Inventor[] inventors = AllInventors()
+	
+	title: "section/cell foreach"
+	
 	section for inv in inventors {
 		title: inv.name
 		cell Default for invention in inv.inventions {
 			text: invention.name
-		}
-	}
-
-	section {
-		title: "error handling"
-		cell Default for inventor2 in errorInventors {
-			text: inventor2.name
+			action: InventionDetail(invention)
 		}
 	}
 
 }
+
+
+tableview ReferenceErrorHandling {
+	Inventor[] inventors = AllErrorneousInventors()
+	
+	title: "Error handling"
+	style: Grouped
+
+	section {
+		cell Default for inventor2 in inventors {
+			text: inventor2.name
+		}
+	}
+
+	section for inv in inventors {
+		title: inv.name
+		cell Default for invention in inv.inventions {
+			text: invention.name
+			action: InventionDetail(invention)
+		}
+	}
+
+}
+
 
 tableview InventorDetail(Inventor inventor) {
 	title: inventor.name
@@ -77,8 +149,15 @@ tableview InventorDetail(Inventor inventor) {
 	}
 	
 	section {
+		title: "Inventions"
 		cell Default for invention in inventor.inventions {
 			text: invention.name
+			action: InventionDetail(invention)
 		}
 	}
+}
+
+tableview InventionDetail(Invention invention) {
+	title: invention.name
+	style: Grouped
 }

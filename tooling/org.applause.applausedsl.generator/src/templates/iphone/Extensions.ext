@@ -124,7 +124,7 @@ idname(Cell cell):
 		// TODO: using the text is a hack, find a better way to derive a
 		// variable name for cells 
 		: ((StringLiteral.isInstance(cell.text))
-				? ((StringLiteral)cell.text).value.toLowerCase()
+				? ((StringLiteral)cell.text).value.toLowerCase().replaceAll("[^a-z]", "")
 				: "<none>");
 
 //TOOD: cell is handed in to calculate unique cell selector name for ViewCall - there has to be a better way
@@ -166,6 +166,7 @@ constructionStatements(Cell cell, String kvcTarget):
 	 use('BoxCell') + ' *cell = [[[BoxCell alloc] initWithStyle:' + cell.type.constant() + " reuseIdentifier:nil] autorelease];\n"
 	 + cell.text.assignment('cell.textLabel', 'text', kvcTarget)
 	 + cell.details.assignment('cell.detailTextLabel', 'text', kvcTarget)
+	 + ((cell.accessory.ordinal() == 0 && cell.action != null) ? 'cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;\n' : "")
 	 + ((cell.accessory.ordinal() > 0) ? 'cell.accessoryType = ' + cell.accessory.constant() + ";\n" : "")
 	 + ((cell.action != null) ? 'cell.onTouch = ' + action(cell.action, cell) + ";\n" : "")
 	 + ((kvcTarget != null) ? 'cell.data = ' + kvcTarget + ';\n' : "[self cell:cell];\n");

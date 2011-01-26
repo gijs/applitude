@@ -1,39 +1,47 @@
-#import "InventorDetailViewController.h"
+#import "ReferenceErrorHandlingViewController.h"
 #import "BoxCell.h"
-#import "ContentProvider+Nested.h"
+#import "DemoProviders.h"
 #import "DemoViews.h"
+#import "Section.h"
 #import "SelectorAction.h"
 #import "SimpleContentProvider.h"
 
-@implementation InventorDetailViewController
+@implementation ReferenceErrorHandlingViewController
 
-- (id) initWithInventor:(ContentProvider *)inventor {
+- (id) init {
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
-		fInventor = [inventor retain];
 		
+		fInventors = [[[DemoProviders sharedProviders] providerForAllErrorneousInventors] retain];
 	}
 	return self;
 }
 
 - (void) update {
-	self.title = [fInventor valueForKeyPath:@"content.name"];
-	[fInventor request];
+	self.title = @"Error handling";
+	[fInventors request];
 
 	[self section];
 	{
-		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil] autorelease];
-		cell.textLabel.text = @"Name";
-		[fBindings bind:fInventor property:@"content.name" to:cell.detailTextLabel property:@"text"];
-		[self cell:cell];
+		[self cells:@selector(inventor2Cell:) forContentProvider:fInventors];
 	}
 	
-	[self sectionWithTitle:@"Inventions"];
-	{
-		[self cells:@selector(inventionCell:) forContentProvider:[ContentProvider nestedContentProviderWithContentProvider:fInventor keyPath:@"inventions"]];
-	}
+	[self sections:@selector(invSection:) forContentProvider:fInventors];
 
+}
+
+- (Section *) invSection:(NSDictionary *)inv {
+	Section *section = [self sectionWithTitle:[inv valueForKey:@"name"]];
+	[self cells:@selector(inventionCell:) forList:[inv valueForKey:@"inventions"]];
+	return section;
+}
+
+- (UITableViewCell *) inventor2Cell:(NSDictionary *)inventor2 {
+	BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+	cell.textLabel.text = [inventor2 valueForKey:@"name"];
+	cell.data = inventor2;
+	return cell;
 }
 
 - (UITableViewCell *) inventionCell:(NSDictionary *)invention {
@@ -53,7 +61,7 @@
 
 - (void) dealloc {
 	[fBindings release];
-	[fInventor release];
+	[fInventors release];
 	[super dealloc];
 }
 
