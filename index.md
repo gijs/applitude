@@ -1,5 +1,5 @@
 ---
-title: applitude :: runtime and a DSL for iPhone development
+title: applitude - Runtime and a DSL for iPhone development
 layout: default
 ---
 
