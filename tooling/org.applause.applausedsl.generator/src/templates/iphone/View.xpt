@@ -4,12 +4,12 @@
 «EXTENSION templates::MetamodelExtensions»
 
 «DEFINE main FOR Application-»
-«EXPAND view FOREACH model().elements.typeSelect(TableView)»
+	«EXPAND view FOREACH model().elements.typeSelect(TableView)-»
 «ENDDEFINE»
 
 «DEFINE view FOR TableView»
-«EXPAND viewHeader»
-«EXPAND viewModule»
+	«EXPAND viewHeader-»
+	«EXPAND viewModule-»
 «ENDDEFINE»
 
 «DEFINE viewHeader FOR TableView»
@@ -17,10 +17,10 @@
 «EXPAND ObjC::Import FOREACH class().headerImports() ONFILECLOSE-»
 
 @interface «class().name» : «use("BoxTableViewController")» {
-«IF this.hasBindings()-»
-	«use('BindingContext')» *fBindings;
-«ENDIF-»
-«providers().collect(p|"\t" + p.type() + p.ivar()).statements()»
+	«IF this.hasBindings()-»
+		«use('BindingContext')» *fBindings;
+	«ENDIF-»
+	«providers().collect(p|p.type() + p.ivar()).statements()»
 }
 
 «initSignature()»;
@@ -28,6 +28,7 @@
 @end
 «ENDFILE»
 «ENDDEFINE»
+
 
 «DEFINE viewModule FOR TableView»
 «FILE class().m()-»
@@ -38,26 +39,26 @@
 «initSignature()» {
 	self = [super initWithStyle:«style.constant()»];
 	if (self != nil) {
-«IF this.hasBindings()-»
-		fBindings = [[BindingContext alloc] init];
-«ENDIF-»
+		«IF this.hasBindings()-»
+			fBindings = [[BindingContext alloc] init];
+		«ENDIF-»
 		«parameters().collect(p|p.ivar() + " = [" + p.name + " retain]").statements()»
-		«variables.collect(p|p.ivar() + " = [" + p.value.contentProvider('', '') + " retain]").statements("\n\t\t")»
+		«variables.collect(p|p.ivar() + " = [" + p.value.contentProvider('', '') + " retain]").statements()»
 	}
 	return self;
 }
 
 - (void) update {
 	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
-	«providers().collect(p|"[" + p.ivar() + " request]").statements("\n\t")»
+	«providers().collect(p|"[" + p.ivar() + " request]").statements()»
 
-	«sections.constructionStatements(null).indent()»
+	«sections.constructionStatements(null)»
 }
 
 «EXPAND providerMethod FOREACH sections.select(e|e.iterator!=null)-»
 «EXPAND providerMethod FOREACH sections.cells.select(e|e.iterator!=null)-»
 «EXPAND cellActionMethod FOREACH sections.cells.select(e|e.action!=null)-»
-«EXPAND dealloc-»
+«EXPAND dealloc»
 @end
 «ENDFILE»
 «ENDDEFINE»
@@ -65,44 +66,42 @@
 
 
 «DEFINE providerMethod FOR ViewContentElement-»
-«LET this.iterator AS it-»
-- («this.targetType()» *) «it.name»«this.shortName().toFirstUpper()»:(«it.rootParameter().description.type.objcType()» *)«it.name» {
-	«this.constructionStatements(it.name).indent().trim()»
-	return «this.shortName()»;
-}
-«ENDLET»
+	«LET this.iterator AS it-»
+		- («this.targetType()» *) «it.name»«this.shortName().toFirstUpper()»:(«it.rootParameter().description.type.objcType()» *)«it.name» {
+			«this.constructionStatements(it.name)-»
+			return «this.shortName()»;
+		}
+	«ENDLET»
 «ENDDEFINE»
 
 
 
 «DEFINE cellActionMethod FOR Cell-»
-«EXPAND cellActionMethod(this) FOR this.action-»
+	«EXPAND cellActionMethod(this) FOR this.action-»
 «ENDDEFINE»
 
 «DEFINE cellActionMethod(Cell cell) FOR ViewAction-»
 «ENDDEFINE»
 
 «DEFINE cellActionMethod(Cell cell) FOR ViewCall-»
-«LET cell.iterator AS it-»
-- (void) «cell.idname()»CellSelected:(BoxCell *)cell {
-«IF it!=null-»
-	«it.rootParameter().description.type.objcType()» *«cell.idname()» = cell.data;
-«ENDIF-»
-	UIViewController *controller = «this.factoryCall(cell.idname(), '')»;
-	[self.navigationController pushViewController:controller animated:YES];
-}
-«ENDLET»
+	«LET cell.iterator AS it-»
+		- (void) «cell.idname()»CellSelected:(BoxCell *)cell {
+			«IF it!=null-»
+				«it.rootParameter().description.type.objcType()» *«cell.idname()» = cell.data;
+			«ENDIF-»
+			UIViewController *controller = «this.factoryCall(cell.idname(), '')»;
+			[self.navigationController pushViewController:controller animated:YES];
+		}
+	«ENDLET»
 «ENDDEFINE»
 
 
-
 «DEFINE dealloc FOR TableView-»
-- (void) dealloc {
-«IF this.hasBindings()-»
-	[fBindings release];
-«ENDIF-»
-	«providers().collect(p|"[" + p.ivar() + " release]").statements("\n\t")»
-	[super dealloc];
-}
-
+	- (void) dealloc {
+		«IF this.hasBindings()-»
+			[fBindings release];
+		«ENDIF-»
+		«providers().collect(p|"[" + p.ivar() + " release]").statements()»
+		[super dealloc];
+	}
 «ENDDEFINE»

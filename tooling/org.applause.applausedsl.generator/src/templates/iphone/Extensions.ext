@@ -49,16 +49,7 @@ allocInit(ProjectClass class):
 	"[[" + use(class) + " alloc] init]";
 
 statements(Collection[String] strings):
-	strings.statements("\n");
-
-statements(Collection[String] strings, String nl):
-	strings.without({null}).collect(e|e + ";").toString(nl);
-
-pointer(ProjectClass class):
-	use(class) + " *";
-
-indent(String this):
-	this;
+	strings.without({null}).collect(e|e + ";").toString("\n");
 
 
 
@@ -150,7 +141,7 @@ signature(Parameter param):
 	param.name + ":(" + param.type() + ")" + param.name;
 
 type(Parameter param):
-	newProjectClass('ContentProvider').pointer();
+	'ContentProvider'.use() + " *";
 
 ivar(Parameter param):
 	"f" + param.name.toFirstUpper();
@@ -201,7 +192,7 @@ iteratorConstructionStatement(ViewContentElement e, String kvcTarget):
 constructionStatements(List[ViewContentElement] elements, String kvcTarget):
 	elements.collect(e|
 		let code = (e.iterator == null ? e.constructionStatements(null) : e.iteratorConstructionStatement(kvcTarget))
-			: ((kvcTarget == null && Cell.isInstance(e)) ? "{\n\t" + code.indent() + "}\n" : code)	
+			: ((kvcTarget == null && Cell.isInstance(e)) ? "{\n" + code + "}\n" : code)
 	 ).toString("\n");
 
 
@@ -392,9 +383,6 @@ contentProvider(ComplexProviderConstruction this, String kvcTarget, String kvcPr
 	'[' + this.application().sharedProviderFactory() + ' providerFor' + provider.name + 
 		(argument == null ? '' : ': ' + argument.expression(kvcTarget, kvcPrefix) )
 	+ ']';
-	
-rowCount(Cell this):
-	iterator == null ? 1 : '[[' + iterator.collection.expression('contentProvider', 'content') +' asArray] count]'; 
 	
 methodSignature(ContentProvider p):
 	'- (' + use('ContentProvider') + ' *) providerFor' + p.name + (
