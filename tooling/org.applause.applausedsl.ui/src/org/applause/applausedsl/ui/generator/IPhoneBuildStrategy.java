@@ -1,5 +1,8 @@
 package org.applause.applausedsl.ui.generator;
 
+import java.io.FileNotFoundException;
+
+import org.applause.applausedsl.ui.generator.formatter.UncrustifyFormatter;
 import org.eclipse.xpand2.output.Outlet;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant.IBuildContext;
 
@@ -21,7 +24,14 @@ public class IPhoneBuildStrategy extends AbstractBuildStrategy {
 
 	@Override
 	protected void configureOutlet(Outlet outlet) {
-		// do nothing
+		try {
+			UncrustifyFormatter formatter = new UncrustifyFormatter();
+			formatter.setUncrustifyPath("/usr/local/bin/uncrustify");
+			formatter.setConfigFile("/usr/local/share/uncrustify/defaults.cfg");
+			outlet.addPostprocessor(formatter);
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }

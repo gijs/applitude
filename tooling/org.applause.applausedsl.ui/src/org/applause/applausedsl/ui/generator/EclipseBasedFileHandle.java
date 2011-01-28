@@ -21,7 +21,7 @@ import org.eclipse.xpand2.output.FileHandle;
 import org.eclipse.xpand2.output.InsertionPointSupport;
 import org.eclipse.xpand2.output.Outlet;
 
-public class EclipseBasedFileHandle  implements FileHandle, InsertionPointSupport {
+public class EclipseBasedFileHandle implements FileHandle, InsertionPointSupport {
 	private final Log log =
 		LogFactory.getLog(getClass());
 
@@ -76,7 +76,7 @@ public class EclipseBasedFileHandle  implements FileHandle, InsertionPointSuppor
 	}
 	
 	public String getAbsolutePath() {
-		return getTargetFile().getAbsolutePath();
+		return targetFile.getFullPath().toOSString();
 	}
 	
 	public boolean isAppend() {
@@ -100,8 +100,10 @@ public class EclipseBasedFileHandle  implements FileHandle, InsertionPointSuppor
 				return;
 			}
 			if (log.isDebugEnabled()) {
-			log.debug("Opening file : " + targetFile);
+				log.debug("Opening file : " + targetFile);
 			}
+			
+			outlet.beforeWriteAndClose(this);
 			
 			InputStream contentStream = new ByteArrayInputStream(getBytes());
 			

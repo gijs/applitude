@@ -58,7 +58,7 @@ pointer(ProjectClass class):
 	use(class) + " *";
 
 indent(String this):
-	this.trim().replaceAll("\n", "\n\t") + "\n";
+	this;
 
 
 

@@ -8,15 +8,15 @@
 - (id) init {
 	self = [super initWithStyle:UITableViewStylePlain];
 	if (self != nil) {
-		
-		
+
+
 	}
 	return self;
 }
 
 - (void) update {
 	self.title = @"Reference";
-	
+
 
 	[self section];
 	{
@@ -26,7 +26,7 @@
 		cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(cellstylesCellSelected:)];
 		[self cell:cell];
 	}
-	
+
 	{
 		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 		cell.textLabel.text = @"cell foreach";
@@ -34,7 +34,7 @@
 		cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(cellforeachCellSelected:)];
 		[self cell:cell];
 	}
-	
+
 	{
 		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 		cell.textLabel.text = @"section + cell foreach";
@@ -42,7 +42,7 @@
 		cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(sectioncellforeachCellSelected:)];
 		[self cell:cell];
 	}
-	
+
 	{
 		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
 		cell.textLabel.text = @"Error handling";
@@ -74,7 +74,7 @@
 }
 
 - (void) dealloc {
-	
+
 	[super dealloc];
 }
 

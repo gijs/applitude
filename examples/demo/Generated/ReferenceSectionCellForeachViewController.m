@@ -11,7 +11,7 @@
 - (id) init {
 	self = [super initWithStyle:UITableViewStylePlain];
 	if (self != nil) {
-		
+
 		fInventors = [[[DemoProviders sharedProviders] providerForAllInventors] retain];
 	}
 	return self;

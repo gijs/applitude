@@ -6,7 +6,7 @@
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
 		fInvention = [invention retain];
-		
+
 	}
 	return self;
 }
@@ -15,7 +15,6 @@
 	self.title = [fInvention valueForKeyPath:@"content.name"];
 	[fInvention request];
 
-	
 
 }
 

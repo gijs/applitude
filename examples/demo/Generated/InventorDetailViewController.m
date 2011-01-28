@@ -12,7 +12,7 @@
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
 		fInventor = [inventor retain];
-		
+
 	}
 	return self;
 }
@@ -28,7 +28,7 @@
 		[fBindings bind:fInventor property:@"content.name" to:cell.detailTextLabel property:@"text"];
 		[self cell:cell];
 	}
-	
+
 	[self sectionWithTitle:@"Inventions"];
 	{
 		[self cells:@selector(inventionCell:) forContentProvider:[ContentProvider nestedContentProviderWithContentProvider:fInventor keyPath:@"inventions"]];
