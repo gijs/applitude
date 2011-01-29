@@ -119,6 +119,7 @@ The project is work in progress. Things will change without prior notice, you wi
 
 * Install "`Applitude iPhone DSL`" and restart Eclipse.
 * Download the [applitude source zip](https://github.com/ralfebert/applitude/zipball/master) (or clone the git repository).
+* It is recommended to install the [Uncrustify code formatter](http://uncrustify.sourceforge.net/) because Applitude uses it to format the generated code. You can install it using [MacPorts](http://www.macports.org/) or [homebrew](http://mxcl.github.com/homebrew/). Applitude should find the binary automatically, you can also configure it from `Eclipse Preferences > Applitude > Generator`.
 * Import the demo project from `examples/demo/` using `File > Import > Existing Projects into workspace`.
 * Open `demo.app` from the project.
 * Change something in demo.app and save it - you will see the code under `Generated/` getting updated.
