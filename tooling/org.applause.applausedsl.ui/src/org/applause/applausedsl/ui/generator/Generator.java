@@ -7,7 +7,7 @@ import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 public class Generator implements IXtextBuilderParticipant {
 
 	public void build(IBuildContext context, IProgressMonitor monitor) throws CoreException {
-		AbstractBuildStrategy buildStrategy = BuildStrategyFactory.getBuildStrategy(context);
+		AbstractBuildStrategy buildStrategy = new IPhoneBuildStrategy(context);
 		buildStrategy.build(monitor);
 	}
 }

@@ -11,7 +11,7 @@
             default="true"
             extensions="app"
             id="org.applause.applausedsl.ApplauseDsl"
-            name="ApplauseDsl Editor">
+            name="Applitude Editor">
         </editor>
     </extension>
     <extension
@@ -52,7 +52,7 @@
         <page
             class="org.applause.applausedsl.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="org.applause.applausedsl.ApplauseDsl"
-            name="ApplauseDsl">
+            name="Applitude">
             <keywordReference id="org.applause.applausedsl.ui.keyword_ApplauseDsl"/>
         </page>
         <page
@@ -197,8 +197,17 @@
             category="org.eclipse.xtext.projectwiz"
             class="org.applause.applausedsl.ui.ApplauseDslExecutableExtensionFactory:org.applause.applausedsl.ui.wizard.ApplauseDslNewProjectWizard"
             id="org.applause.applausedsl.ui.wizard.ApplauseDslNewProjectWizard"
-            name="ApplauseDsl Project"
+            name="Applitude Project"
             project="true">
       </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.applause.applausedsl.ApplauseDsl"
+            class="org.applause.applausedsl.ui.preferences.GeneratorPreferencePage"
+            id="org.applause.applausedsl.ui.prefs"
+            name="Generator">
+      </page>
    </extension>
 </plugin>

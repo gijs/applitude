@@ -7,4 +7,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit;bundle-version="4.8.1",
  org.applause.applausedsl.generator;bundle-version="1.0.0",
  org.applause.applausedsl;bundle-version="1.0.0",
- org.eclipse.xtext.junit;bundle-version="1.0.1"
+ org.eclipse.xtext.junit;bundle-version="1.0.1",
+ org.applause.applausedsl.ui;bundle-version="1.0.0",
+ org.apache.commons.io;bundle-version="1.4.0"
