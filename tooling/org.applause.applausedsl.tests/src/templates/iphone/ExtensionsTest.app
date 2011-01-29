@@ -21,8 +21,8 @@ tableview Table {
 	Inventor[] inventor = OneInventor()
 	
 	section {
-		cell Default foreach inventors as i1 { text: i1 }	
-		cell Default foreach inventor.knows as i2 { text: i2 }	
-		cell Default foreach inventor.inspiredBy.knows as i3 { text: i3 }	
+		cell Default for i1 in inventors { text: i1 }	
+		cell Default for i2 in inventor.knows { text: i2 }	
+		cell Default for i3 in inventor.inspiredBy.knows { text: i3 }	
 	}
 }

@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.applause.applausedsl.generator
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0
+Bundle-Vendor: Ralf Ebert
+Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: org.applause.applausedsl.generator; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.applause.applausedsl;bundle-version="1.0.0",
+Require-Bundle: org.applause.applausedsl,
  org.eclipse.xpand;visibility:=reexport,
  org.eclipse.xtend;visibility:=reexport,
  org.eclipse.xtext;visibility:=reexport,

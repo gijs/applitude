@@ -24,7 +24,7 @@ public class ExtensionsTest extends AbstractXtextTests {
 		with(ApplauseDslStandaloneSetup.class);
 		xtend = XtendFacade.create("templates::iphone::Extensions");
 		xtend.registerMetaModel(new JavaBeansMetaModel());
-		XtextResource resource = getResource(this.getClass().getResourceAsStream("ExtensionsTest.applause"));
+		XtextResource resource = getResource(this.getClass().getResourceAsStream("ExtensionsTest.app"));
 		Model model = (Model) resource.getContents().get(0);
 		tableView = (TableView) model.getApplication().getStartView().getView();
 	};
