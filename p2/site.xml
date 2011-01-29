@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.applitude.feature_0.2.0.201101291749.jar" id="org.applitude.feature" version="0.2.0.201101291749">
+      <category name="org.applitude.category"/>
+   </feature>
+   <category-def name="org.applitude.category" label="Applitude iPhone DSL"/>
+</site>
