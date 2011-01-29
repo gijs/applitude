@@ -115,13 +115,13 @@ The project is work in progress. Things will change without prior notice, you wi
 * Get Eclipse IDE 3.6.1 from the [Eclipse download page](http://www.eclipse.org/downloads/) (it doesn't matter which package you choose, Eclipse IDE for Java Developers is fine)
 * In Eclipse, click `Help > Install New Software` and enter this site:
 
-	http://applitude.org/p2
+		http://applitude.org/p2
 
-* Install `Applitude iPhone DSL` and restart Eclipse.
+* Install "`Applitude iPhone DSL`" and restart Eclipse.
 * Download the [applitude source zip](https://github.com/ralfebert/applitude/zipball/master) (or clone the git repository).
 * Import the demo project from `examples/demo/` using `File > Import > Existing Projects into workspace`.
 * Open `demo.app` from the project.
-* Try changing something in the demo application and save it - you will see the code under `Generated/` is immediately updated.
+* Change something in demo.app and save it - you will see the code under `Generated/` getting updated.
 * Open `demo.xcodeproj` in Xcode and run the application.
 
 ## Demo Example project
