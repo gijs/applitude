@@ -8,10 +8,15 @@ layout: default
 
 # ![applitude](applitude.png)
 
-applitude is an Objective C runtime framework and a domain-specific language for iPhone application development. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project. You can get it from the [GitHub project page](http://github.com/ralfebert/applitude) or by running:
+applitude is an Objective C runtime framework and a domain-specific language for iPhone application development. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project.
+
+You can get it from the [GitHub project page](http://github.com/ralfebert/applitude) or by running:
 
 	$ git clone git://github.com/ralfebert/applitude
 
+The Eclipse tooling can be installed from this p2 repository (see [Installation](#installation)):
+
+	http://applitude.org/p2/
 
 
 ## Overview
@@ -102,6 +107,22 @@ The project is work in progress. Things will change without prior notice, you wi
 * At first, I recommend to learn about Xtext DSLs, for example by following the tutorial in the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
 * I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for applitude.
 * Import the example projects in Eclipse, inspect the `*.app` documents, run the projects from Xcode, inspect the generated code.
+
+<a name="installation"> </a>
+
+## Installation
+
+* Get Eclipse IDE 3.6.1 from the [Eclipse download page](http://www.eclipse.org/downloads/) (it doesn't matter which package you choose, Eclipse IDE for Java Developers is fine)
+* In Eclipse, click `Help > Install New Software` and enter this site:
+
+	http://applitude.org/p2
+
+* Install `Applitude iPhone DSL` and restart Eclipse.
+* Download the [applitude source zip](https://github.com/ralfebert/applitude/zipball/master) (or clone the git repository).
+* Import the demo project from `examples/demo/` using `File > Import > Existing Projects into workspace`.
+* Open `demo.app` from the project.
+* Try changing something in the demo application and save it - you will see the code under `Generated/` is immediately updated.
+* Open `demo.xcodeproj` in Xcode and run the application.
 
 ## Demo Example project
 
