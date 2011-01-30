@@ -29,7 +29,6 @@ entity Invention {
 }
 
 contentprovider AllInventors stores Inventor[] fetches JSON from "http://applitude.org/demo/inventors.json" selects ""
-contentprovider AllErrorneousInventors returns Inventor[] fetches JSON from "http://localhost/none.json" selects ""
 
 tableview Inventors {
 	Inventor[] inventors = AllInventors()
@@ -70,6 +69,10 @@ tableview InventionDetail(Invention invention) {
 	style: Grouped
 }
 
+
+
+
+
 tableview Reference {
 	title: "Reference"
 
@@ -93,6 +96,10 @@ tableview Reference {
 		cell Default {
 			text: "Custom Content Providers"
 			action: ReferenceCustomContentProviders()
+		}
+		cell Default {
+			text: "Entity models"
+			action: ReferenceEntityModels()
 		}
 	}
 
@@ -140,9 +147,10 @@ tableview ReferenceSectionCellForeach {
 
 }
 
+contentprovider Error returns Inventor[] fetches JSON from "http://localhost/none.json" selects ""
 
 tableview ReferenceErrorHandling {
-	Inventor[] inventors = AllErrorneousInventors()
+	Inventor[] inventors = Error()
 
 	title: "Error handling"
 	style: Grouped
@@ -180,4 +188,23 @@ tableview ReferenceCustomContentProviders {
 		cell Default { text: storedDate }
 	}
 	
+}
+
+
+entity Login {
+	String username
+	String password
+}
+
+contentprovider MyLogin returns Login
+
+tableview ReferenceEntityModels {
+	Login login = MyLogin()
+
+	style: Grouped
+	title: "Login"
+	section {
+		cell Value1 { text: "Username" details:login.username }
+		cell Value1 { text: "Password" details:login.password }
+	}
 }

@@ -86,9 +86,7 @@
 		BF4DCF1C12EB230E0005E01C /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCF0412EB230E0005E01C /* CJSONScanner.m */; };
 		BF4DCF1D12EB230E0005E01C /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCF0612EB230E0005E01C /* CJSONSerializer.m */; };
 		BF505FD012EF29FF001171CA /* ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF505FCE12EF29F6001171CA /* ListTests.m */; };
-		BF87D7A212F4FAB000FE6643 /* ReferenceCustomContentProvidersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D7A112F4FAB000FE6643 /* ReferenceCustomContentProvidersViewController.m */; };
 		BF87D7A912F4FBC200FE6643 /* ContentProviderGenerationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D7A512F4FAC500FE6643 /* ContentProviderGenerationTest.m */; };
-		BF87D7AC12F4FBDF00FE6643 /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE60B12EFDBBC0013047D /* DemoProviders.m */; };
 		BF87D7C212F4FC2B00FE6643 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D7C012F4FC2B00FE6643 /* main.m */; };
 		BF87D7C712F4FC4000FE6643 /* DateContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D7C612F4FC4000FE6643 /* DateContentProvider.m */; };
 		BF87D7CC12F4FD0100FE6643 /* UrlContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCD5E12EA92C10005E01C /* UrlContentProvider.m */; };
@@ -110,17 +108,20 @@
 		BF87D81112F4FD8400FE6643 /* TTGlobalNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCDE412EA931D0005E01C /* TTGlobalNetwork.m */; };
 		BF87D81212F4FD8400FE6643 /* URLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4DCDE512EA931D0005E01C /* URLUtils.m */; };
 		BF87D8B212F5028A00FE6643 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D8B112F5028A00FE6643 /* ImageCell.m */; };
-		BFAEE61E12EFDBBC0013047D /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE60912EFDBBC0013047D /* DemoAppDelegate.m */; };
-		BFAEE61F12EFDBBC0013047D /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE60B12EFDBBC0013047D /* DemoProviders.m */; };
-		BFAEE62012EFDBBC0013047D /* DemoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE60D12EFDBBC0013047D /* DemoViews.m */; };
-		BFAEE62112EFDBBC0013047D /* InventionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE60F12EFDBBC0013047D /* InventionDetailViewController.m */; };
-		BFAEE62212EFDBBC0013047D /* InventorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61112EFDBBC0013047D /* InventorDetailViewController.m */; };
-		BFAEE62312EFDBBC0013047D /* InventorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61312EFDBBC0013047D /* InventorsViewController.m */; };
-		BFAEE62412EFDBBC0013047D /* ReferenceCellForeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61512EFDBBC0013047D /* ReferenceCellForeachViewController.m */; };
-		BFAEE62512EFDBBC0013047D /* ReferenceCellStylesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61712EFDBBC0013047D /* ReferenceCellStylesViewController.m */; };
-		BFAEE62612EFDBBC0013047D /* ReferenceErrorHandlingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61912EFDBBC0013047D /* ReferenceErrorHandlingViewController.m */; };
-		BFAEE62712EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61B12EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m */; };
-		BFAEE62812EFDBBC0013047D /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE61D12EFDBBC0013047D /* ReferenceViewController.m */; };
+		BF87D90412F50CE500FE6643 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D90312F50CE500FE6643 /* Login.m */; };
+		BF87D94D12F50EDB00FE6643 /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D93412F50EDB00FE6643 /* DemoAppDelegate.m */; };
+		BF87D94E12F50EDB00FE6643 /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D93612F50EDB00FE6643 /* DemoProviders.m */; };
+		BF87D94F12F50EDB00FE6643 /* DemoViews.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D93812F50EDB00FE6643 /* DemoViews.m */; };
+		BF87D95012F50EDB00FE6643 /* InventionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D93A12F50EDB00FE6643 /* InventionDetailViewController.m */; };
+		BF87D95112F50EDB00FE6643 /* InventorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D93C12F50EDB00FE6643 /* InventorDetailViewController.m */; };
+		BF87D95212F50EDB00FE6643 /* InventorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D93E12F50EDB00FE6643 /* InventorsViewController.m */; };
+		BF87D95312F50EDB00FE6643 /* ReferenceCellForeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94012F50EDB00FE6643 /* ReferenceCellForeachViewController.m */; };
+		BF87D95412F50EDB00FE6643 /* ReferenceCellStylesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94212F50EDB00FE6643 /* ReferenceCellStylesViewController.m */; };
+		BF87D95512F50EDB00FE6643 /* ReferenceCustomContentProvidersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94412F50EDB00FE6643 /* ReferenceCustomContentProvidersViewController.m */; };
+		BF87D95612F50EDB00FE6643 /* ReferenceEntityModelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94612F50EDB00FE6643 /* ReferenceEntityModelsViewController.m */; };
+		BF87D95712F50EDB00FE6643 /* ReferenceErrorHandlingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94812F50EDB00FE6643 /* ReferenceErrorHandlingViewController.m */; };
+		BF87D95812F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94A12F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.m */; };
+		BF87D95912F50EDB00FE6643 /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94C12F50EDB00FE6643 /* ReferenceViewController.m */; };
 		BFAEE78012F061610013047D /* BoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE76F12F061610013047D /* BoxCell.m */; };
 		BFAEE78112F061610013047D /* BoxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE77112F061610013047D /* BoxTableViewController.m */; };
 		BFAEE78212F061610013047D /* CachedList.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE77312F061610013047D /* CachedList.m */; };
@@ -251,36 +252,40 @@
 		BF4DCF0612EB230E0005E01C /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		BF4DCF0712EB230E0005E01C /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
 		BF505FCE12EF29F6001171CA /* ListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTests.m; sourceTree = "<group>"; };
-		BF87D7A012F4FAB000FE6643 /* ReferenceCustomContentProvidersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceCustomContentProvidersViewController.h; sourceTree = "<group>"; };
-		BF87D7A112F4FAB000FE6643 /* ReferenceCustomContentProvidersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceCustomContentProvidersViewController.m; sourceTree = "<group>"; };
 		BF87D7A512F4FAC500FE6643 /* ContentProviderGenerationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentProviderGenerationTest.m; sourceTree = "<group>"; };
 		BF87D7C012F4FC2B00FE6643 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF87D7C512F4FC4000FE6643 /* DateContentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateContentProvider.h; sourceTree = "<group>"; };
 		BF87D7C612F4FC4000FE6643 /* DateContentProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateContentProvider.m; sourceTree = "<group>"; };
 		BF87D8B012F5028A00FE6643 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
 		BF87D8B112F5028A00FE6643 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
-		BFAEE60812EFDBBC0013047D /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
-		BFAEE60912EFDBBC0013047D /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
-		BFAEE60A12EFDBBC0013047D /* DemoProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProviders.h; sourceTree = "<group>"; };
-		BFAEE60B12EFDBBC0013047D /* DemoProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoProviders.m; sourceTree = "<group>"; };
-		BFAEE60C12EFDBBC0013047D /* DemoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViews.h; sourceTree = "<group>"; };
-		BFAEE60D12EFDBBC0013047D /* DemoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViews.m; sourceTree = "<group>"; };
-		BFAEE60E12EFDBBC0013047D /* InventionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventionDetailViewController.h; sourceTree = "<group>"; };
-		BFAEE60F12EFDBBC0013047D /* InventionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventionDetailViewController.m; sourceTree = "<group>"; };
-		BFAEE61012EFDBBC0013047D /* InventorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventorDetailViewController.h; sourceTree = "<group>"; };
-		BFAEE61112EFDBBC0013047D /* InventorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventorDetailViewController.m; sourceTree = "<group>"; };
-		BFAEE61212EFDBBC0013047D /* InventorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventorsViewController.h; sourceTree = "<group>"; };
-		BFAEE61312EFDBBC0013047D /* InventorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventorsViewController.m; sourceTree = "<group>"; };
-		BFAEE61412EFDBBC0013047D /* ReferenceCellForeachViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceCellForeachViewController.h; sourceTree = "<group>"; };
-		BFAEE61512EFDBBC0013047D /* ReferenceCellForeachViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceCellForeachViewController.m; sourceTree = "<group>"; };
-		BFAEE61612EFDBBC0013047D /* ReferenceCellStylesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceCellStylesViewController.h; sourceTree = "<group>"; };
-		BFAEE61712EFDBBC0013047D /* ReferenceCellStylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceCellStylesViewController.m; sourceTree = "<group>"; };
-		BFAEE61812EFDBBC0013047D /* ReferenceErrorHandlingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceErrorHandlingViewController.h; sourceTree = "<group>"; };
-		BFAEE61912EFDBBC0013047D /* ReferenceErrorHandlingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceErrorHandlingViewController.m; sourceTree = "<group>"; };
-		BFAEE61A12EFDBBC0013047D /* ReferenceSectionCellForeachViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceSectionCellForeachViewController.h; sourceTree = "<group>"; };
-		BFAEE61B12EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceSectionCellForeachViewController.m; sourceTree = "<group>"; };
-		BFAEE61C12EFDBBC0013047D /* ReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceViewController.h; sourceTree = "<group>"; };
-		BFAEE61D12EFDBBC0013047D /* ReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceViewController.m; sourceTree = "<group>"; };
+		BF87D90212F50CE500FE6643 /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
+		BF87D90312F50CE500FE6643 /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
+		BF87D93312F50EDB00FE6643 /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
+		BF87D93412F50EDB00FE6643 /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
+		BF87D93512F50EDB00FE6643 /* DemoProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProviders.h; sourceTree = "<group>"; };
+		BF87D93612F50EDB00FE6643 /* DemoProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoProviders.m; sourceTree = "<group>"; };
+		BF87D93712F50EDB00FE6643 /* DemoViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViews.h; sourceTree = "<group>"; };
+		BF87D93812F50EDB00FE6643 /* DemoViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViews.m; sourceTree = "<group>"; };
+		BF87D93912F50EDB00FE6643 /* InventionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventionDetailViewController.h; sourceTree = "<group>"; };
+		BF87D93A12F50EDB00FE6643 /* InventionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventionDetailViewController.m; sourceTree = "<group>"; };
+		BF87D93B12F50EDB00FE6643 /* InventorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventorDetailViewController.h; sourceTree = "<group>"; };
+		BF87D93C12F50EDB00FE6643 /* InventorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventorDetailViewController.m; sourceTree = "<group>"; };
+		BF87D93D12F50EDB00FE6643 /* InventorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventorsViewController.h; sourceTree = "<group>"; };
+		BF87D93E12F50EDB00FE6643 /* InventorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventorsViewController.m; sourceTree = "<group>"; };
+		BF87D93F12F50EDB00FE6643 /* ReferenceCellForeachViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceCellForeachViewController.h; sourceTree = "<group>"; };
+		BF87D94012F50EDB00FE6643 /* ReferenceCellForeachViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceCellForeachViewController.m; sourceTree = "<group>"; };
+		BF87D94112F50EDB00FE6643 /* ReferenceCellStylesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceCellStylesViewController.h; sourceTree = "<group>"; };
+		BF87D94212F50EDB00FE6643 /* ReferenceCellStylesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceCellStylesViewController.m; sourceTree = "<group>"; };
+		BF87D94312F50EDB00FE6643 /* ReferenceCustomContentProvidersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceCustomContentProvidersViewController.h; sourceTree = "<group>"; };
+		BF87D94412F50EDB00FE6643 /* ReferenceCustomContentProvidersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceCustomContentProvidersViewController.m; sourceTree = "<group>"; };
+		BF87D94512F50EDB00FE6643 /* ReferenceEntityModelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceEntityModelsViewController.h; sourceTree = "<group>"; };
+		BF87D94612F50EDB00FE6643 /* ReferenceEntityModelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceEntityModelsViewController.m; sourceTree = "<group>"; };
+		BF87D94712F50EDB00FE6643 /* ReferenceErrorHandlingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceErrorHandlingViewController.h; sourceTree = "<group>"; };
+		BF87D94812F50EDB00FE6643 /* ReferenceErrorHandlingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceErrorHandlingViewController.m; sourceTree = "<group>"; };
+		BF87D94912F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceSectionCellForeachViewController.h; sourceTree = "<group>"; };
+		BF87D94A12F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceSectionCellForeachViewController.m; sourceTree = "<group>"; };
+		BF87D94B12F50EDB00FE6643 /* ReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceViewController.h; sourceTree = "<group>"; };
+		BF87D94C12F50EDB00FE6643 /* ReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceViewController.m; sourceTree = "<group>"; };
 		BFAEE76E12F061610013047D /* BoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCell.h; sourceTree = "<group>"; };
 		BFAEE76F12F061610013047D /* BoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCell.m; sourceTree = "<group>"; };
 		BFAEE77012F061610013047D /* BoxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxTableViewController.h; sourceTree = "<group>"; };
@@ -346,7 +351,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				BFAEE60712EFDBBC0013047D /* Generated */,
+				BF87D93212F50EDB00FE6643 /* Generated */,
 				BF4DCBFF12EA6E870005E01C /* Tests */,
 				BF4DC9A412EA6A310005E01C /* runtime */,
 				BF87D7BE12F4FC2B00FE6643 /* src */,
@@ -583,6 +588,7 @@
 			isa = PBXGroup;
 			children = (
 				BF87D7BF12F4FC2B00FE6643 /* app */,
+				BF87D90112F50CDA00FE6643 /* model */,
 				BF87D7C112F4FC2B00FE6643 /* provider */,
 			);
 			path = src;
@@ -606,33 +612,44 @@
 			path = provider;
 			sourceTree = "<group>";
 		};
-		BFAEE60712EFDBBC0013047D /* Generated */ = {
+		BF87D90112F50CDA00FE6643 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				BFAEE60812EFDBBC0013047D /* DemoAppDelegate.h */,
-				BFAEE60912EFDBBC0013047D /* DemoAppDelegate.m */,
-				BFAEE60A12EFDBBC0013047D /* DemoProviders.h */,
-				BFAEE60B12EFDBBC0013047D /* DemoProviders.m */,
-				BFAEE60C12EFDBBC0013047D /* DemoViews.h */,
-				BFAEE60D12EFDBBC0013047D /* DemoViews.m */,
-				BFAEE60E12EFDBBC0013047D /* InventionDetailViewController.h */,
-				BFAEE60F12EFDBBC0013047D /* InventionDetailViewController.m */,
-				BFAEE61012EFDBBC0013047D /* InventorDetailViewController.h */,
-				BFAEE61112EFDBBC0013047D /* InventorDetailViewController.m */,
-				BFAEE61212EFDBBC0013047D /* InventorsViewController.h */,
-				BFAEE61312EFDBBC0013047D /* InventorsViewController.m */,
-				BFAEE61412EFDBBC0013047D /* ReferenceCellForeachViewController.h */,
-				BFAEE61512EFDBBC0013047D /* ReferenceCellForeachViewController.m */,
-				BFAEE61612EFDBBC0013047D /* ReferenceCellStylesViewController.h */,
-				BFAEE61712EFDBBC0013047D /* ReferenceCellStylesViewController.m */,
-				BF87D7A012F4FAB000FE6643 /* ReferenceCustomContentProvidersViewController.h */,
-				BF87D7A112F4FAB000FE6643 /* ReferenceCustomContentProvidersViewController.m */,
-				BFAEE61812EFDBBC0013047D /* ReferenceErrorHandlingViewController.h */,
-				BFAEE61912EFDBBC0013047D /* ReferenceErrorHandlingViewController.m */,
-				BFAEE61A12EFDBBC0013047D /* ReferenceSectionCellForeachViewController.h */,
-				BFAEE61B12EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m */,
-				BFAEE61C12EFDBBC0013047D /* ReferenceViewController.h */,
-				BFAEE61D12EFDBBC0013047D /* ReferenceViewController.m */,
+				BF87D90212F50CE500FE6643 /* Login.h */,
+				BF87D90312F50CE500FE6643 /* Login.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BF87D93212F50EDB00FE6643 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				BF87D93312F50EDB00FE6643 /* DemoAppDelegate.h */,
+				BF87D93412F50EDB00FE6643 /* DemoAppDelegate.m */,
+				BF87D93512F50EDB00FE6643 /* DemoProviders.h */,
+				BF87D93612F50EDB00FE6643 /* DemoProviders.m */,
+				BF87D93712F50EDB00FE6643 /* DemoViews.h */,
+				BF87D93812F50EDB00FE6643 /* DemoViews.m */,
+				BF87D93912F50EDB00FE6643 /* InventionDetailViewController.h */,
+				BF87D93A12F50EDB00FE6643 /* InventionDetailViewController.m */,
+				BF87D93B12F50EDB00FE6643 /* InventorDetailViewController.h */,
+				BF87D93C12F50EDB00FE6643 /* InventorDetailViewController.m */,
+				BF87D93D12F50EDB00FE6643 /* InventorsViewController.h */,
+				BF87D93E12F50EDB00FE6643 /* InventorsViewController.m */,
+				BF87D93F12F50EDB00FE6643 /* ReferenceCellForeachViewController.h */,
+				BF87D94012F50EDB00FE6643 /* ReferenceCellForeachViewController.m */,
+				BF87D94112F50EDB00FE6643 /* ReferenceCellStylesViewController.h */,
+				BF87D94212F50EDB00FE6643 /* ReferenceCellStylesViewController.m */,
+				BF87D94312F50EDB00FE6643 /* ReferenceCustomContentProvidersViewController.h */,
+				BF87D94412F50EDB00FE6643 /* ReferenceCustomContentProvidersViewController.m */,
+				BF87D94512F50EDB00FE6643 /* ReferenceEntityModelsViewController.h */,
+				BF87D94612F50EDB00FE6643 /* ReferenceEntityModelsViewController.m */,
+				BF87D94712F50EDB00FE6643 /* ReferenceErrorHandlingViewController.h */,
+				BF87D94812F50EDB00FE6643 /* ReferenceErrorHandlingViewController.m */,
+				BF87D94912F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.h */,
+				BF87D94A12F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.m */,
+				BF87D94B12F50EDB00FE6643 /* ReferenceViewController.h */,
+				BF87D94C12F50EDB00FE6643 /* ReferenceViewController.m */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -787,17 +804,6 @@
 				BF4DCF1012EB230E0005E01C /* CJSONDeserializer.m in Sources */,
 				BF4DCF1112EB230E0005E01C /* CJSONScanner.m in Sources */,
 				BF4DCF1212EB230E0005E01C /* CJSONSerializer.m in Sources */,
-				BFAEE61E12EFDBBC0013047D /* DemoAppDelegate.m in Sources */,
-				BFAEE61F12EFDBBC0013047D /* DemoProviders.m in Sources */,
-				BFAEE62012EFDBBC0013047D /* DemoViews.m in Sources */,
-				BFAEE62112EFDBBC0013047D /* InventionDetailViewController.m in Sources */,
-				BFAEE62212EFDBBC0013047D /* InventorDetailViewController.m in Sources */,
-				BFAEE62312EFDBBC0013047D /* InventorsViewController.m in Sources */,
-				BFAEE62412EFDBBC0013047D /* ReferenceCellForeachViewController.m in Sources */,
-				BFAEE62512EFDBBC0013047D /* ReferenceCellStylesViewController.m in Sources */,
-				BFAEE62612EFDBBC0013047D /* ReferenceErrorHandlingViewController.m in Sources */,
-				BFAEE62712EFDBBC0013047D /* ReferenceSectionCellForeachViewController.m in Sources */,
-				BFAEE62812EFDBBC0013047D /* ReferenceViewController.m in Sources */,
 				BFAEE78012F061610013047D /* BoxCell.m in Sources */,
 				BFAEE78112F061610013047D /* BoxTableViewController.m in Sources */,
 				BFAEE78212F061610013047D /* CachedList.m in Sources */,
@@ -807,10 +813,23 @@
 				BFAEE78612F061610013047D /* MappedList.m in Sources */,
 				BFAEE78712F061610013047D /* Section.m in Sources */,
 				BFAEE78812F061610013047D /* TextFieldCell.m in Sources */,
-				BF87D7A212F4FAB000FE6643 /* ReferenceCustomContentProvidersViewController.m in Sources */,
 				BF87D7C212F4FC2B00FE6643 /* main.m in Sources */,
 				BF87D7C712F4FC4000FE6643 /* DateContentProvider.m in Sources */,
 				BF87D8B212F5028A00FE6643 /* ImageCell.m in Sources */,
+				BF87D90412F50CE500FE6643 /* Login.m in Sources */,
+				BF87D94D12F50EDB00FE6643 /* DemoAppDelegate.m in Sources */,
+				BF87D94E12F50EDB00FE6643 /* DemoProviders.m in Sources */,
+				BF87D94F12F50EDB00FE6643 /* DemoViews.m in Sources */,
+				BF87D95012F50EDB00FE6643 /* InventionDetailViewController.m in Sources */,
+				BF87D95112F50EDB00FE6643 /* InventorDetailViewController.m in Sources */,
+				BF87D95212F50EDB00FE6643 /* InventorsViewController.m in Sources */,
+				BF87D95312F50EDB00FE6643 /* ReferenceCellForeachViewController.m in Sources */,
+				BF87D95412F50EDB00FE6643 /* ReferenceCellStylesViewController.m in Sources */,
+				BF87D95512F50EDB00FE6643 /* ReferenceCustomContentProvidersViewController.m in Sources */,
+				BF87D95612F50EDB00FE6643 /* ReferenceEntityModelsViewController.m in Sources */,
+				BF87D95712F50EDB00FE6643 /* ReferenceErrorHandlingViewController.m in Sources */,
+				BF87D95812F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.m in Sources */,
+				BF87D95912F50EDB00FE6643 /* ReferenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,7 +871,6 @@
 				BFAEE79612F061A80013047D /* MappedList.m in Sources */,
 				BFAEE79712F061A80013047D /* Section.m in Sources */,
 				BF87D7A912F4FBC200FE6643 /* ContentProviderGenerationTest.m in Sources */,
-				BF87D7AC12F4FBDF00FE6643 /* DemoProviders.m in Sources */,
 				BF87D7CC12F4FD0100FE6643 /* UrlContentProvider.m in Sources */,
 				BF87D7CD12F4FD0700FE6643 /* DateContentProvider.m in Sources */,
 				BF87D7D412F4FD3000FE6643 /* ASIAuthenticationDialog.m in Sources */,

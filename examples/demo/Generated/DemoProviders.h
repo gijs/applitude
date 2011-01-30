@@ -8,8 +8,9 @@
 + (DemoProviders *) sharedProviders;
 
 - (ContentProvider *) providerForAllInventors;
-- (ContentProvider *) providerForAllErrorneousInventors;
+- (ContentProvider *) providerForError;
 - (ContentProvider *) providerForDate;
 - (ContentProvider *) providerForStoredDate;
+- (ContentProvider *) providerForMyLogin;
 
 @end

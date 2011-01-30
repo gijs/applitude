@@ -53,4 +53,8 @@
 	return [[[ReferenceCustomContentProvidersViewController alloc] init] autorelease];
 }
 
++ (ReferenceEntityModelsViewController *) createReferenceEntityModels {
+	return [[[ReferenceEntityModelsViewController alloc] init] autorelease];
+}
+
 @end

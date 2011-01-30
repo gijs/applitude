@@ -1,6 +1,8 @@
 #import "DemoProviders.h"
 #import "CommonFilters.h"
 #import "DateContentProvider.h"
+#import "Login.h"
+#import "SimpleContentProvider.h"
 #import "UrlContentProvider.h"
 
 @implementation DemoProviders
@@ -24,7 +26,7 @@ static DemoProviders *sharedProviders = nil;
 	return fAllInventors;
 }
 
-- (ContentProvider *) providerForAllErrorneousInventors {
+- (ContentProvider *) providerForError {
 	UrlContentProvider *provider = [[UrlContentProvider alloc] initWithURL:[NSURL URLWithString:@"http://localhost/none.json"]];
 	[provider addFilter:[CommonFilters filterForJSON]];
 	return [provider autorelease];
@@ -41,6 +43,11 @@ static DemoProviders *sharedProviders = nil;
 		fStoredDate = provider;
 	}
 	return fStoredDate;
+}
+
+- (ContentProvider *) providerForMyLogin {
+	SimpleContentProvider *provider = [[SimpleContentProvider alloc] initWithContent:[[[Login alloc] init] autorelease] name:@"MyLogin"];
+	return [provider autorelease];
 }
 
 @end

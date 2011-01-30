@@ -59,6 +59,14 @@
 		[self cell:cell];
 	}
 
+	{
+		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+		cell.textLabel.text = @"Entity models";
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(entitymodelsCellSelected:)];
+		[self cell:cell];
+	}
+
 }
 
 - (void) cellstylesCellSelected:(BoxCell *)cell {
@@ -83,6 +91,11 @@
 
 - (void) customcontentprovidersCellSelected:(BoxCell *)cell {
 	UIViewController *controller = [DemoViews createReferenceCustomContentProviders];
+	[self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void) entitymodelsCellSelected:(BoxCell *)cell {
+	UIViewController *controller = [DemoViews createReferenceEntityModels];
 	[self.navigationController pushViewController:controller animated:YES];
 }
 

@@ -12,7 +12,7 @@
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
 
-		fInventors = [[[DemoProviders sharedProviders] providerForAllErrorneousInventors] retain];
+		fInventors = [[[DemoProviders sharedProviders] providerForError] retain];
 	}
 	return self;
 }

@@ -69,7 +69,7 @@ static «use(providerFactory())» *sharedProviders = nil;
 
 «DEFINE constructProvider FOR ContentProvider-»
 «IF this.implementation == null-»
-	«use("SimpleContentProvider")» *provider = [SimpleContentProvider alloc] providerWithContent:[«type.class().allocInit()»];
+	«use("SimpleContentProvider")» *provider = [[SimpleContentProvider alloc] initWithContent:[«type.class().allocInit()» autorelease] name:@"«name»"];
 «ELSE-»
 	«EXPAND constructProvider(this) FOR this.implementation-»
 «ENDIF-»

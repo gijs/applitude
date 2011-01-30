@@ -5,6 +5,7 @@
 #import "ReferenceCellForeachViewController.h"
 #import "ReferenceCellStylesViewController.h"
 #import "ReferenceCustomContentProvidersViewController.h"
+#import "ReferenceEntityModelsViewController.h"
 #import "ReferenceErrorHandlingViewController.h"
 #import "ReferenceSectionCellForeachViewController.h"
 #import "ReferenceViewController.h"
@@ -23,6 +24,7 @@
 + (ReferenceSectionCellForeachViewController *) createReferenceSectionCellForeach;
 + (ReferenceErrorHandlingViewController *) createReferenceErrorHandling;
 + (ReferenceCustomContentProvidersViewController *) createReferenceCustomContentProviders;
++ (ReferenceEntityModelsViewController *) createReferenceEntityModels;
 
 
 @end
