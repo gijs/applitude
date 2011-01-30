@@ -41,6 +41,9 @@ NestedObjectReference returns ObjectReference:
 Expression:
 	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
 
+ImageExpression returns ScalarExpression:
+	ScalarExpression;
+
 ScalarExpression:
 	StringLiteral | StringFunction | ObjectReference;
 	
@@ -128,9 +131,9 @@ TabView:
 
 Tab:
 	'tab' '{'
-		('title:' title=ScalarExpression)
-		& ('icon:' icon=ScalarExpression)?
-		& ('view:' view=ViewCall)?
+		( ('title:' title=ScalarExpression)
+		& ('icon:' icon=ImageExpression)?
+		& ('view:' view=ViewCall)? )
 	'}';
 
 enum TableViewStyle:
@@ -141,7 +144,8 @@ TableView:
 		(variables += Variable)*
 		
 		( ('title:' title=ScalarExpression)?
-		& ('style:' style=TableViewStyle)?     )
+		& ('titleImage:' titleImage=ImageExpression)?
+		& ('style:' style=TableViewStyle)? )
 		
 		(sections+=Section)*
 	'}';

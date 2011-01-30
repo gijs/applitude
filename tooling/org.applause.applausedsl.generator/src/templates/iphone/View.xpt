@@ -49,8 +49,13 @@
 }
 
 - (void) update {
-	«IF title!=null»self.title = «title.resolve()»;«ENDIF»
 	«providers().collect(p|"[" + p.ivar() + " request]").statements()»
+	«IF title!=null-»
+		self.title = «title.resolve()»;
+	«ENDIF-»
+	«IF titleImage!=null-»
+		self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:«titleImage.resolve()»]] autorelease];
+	«ENDIF-»
 
 	«sections.constructionStatements(null)»
 }
