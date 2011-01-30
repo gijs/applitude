@@ -4,30 +4,23 @@ layout: default
 ---
 
 [GitHub](https://github.com/ralfebert/applitude/) |
-[Issues](http://ralfebert.lighthouseapp.com/projects/67904/)
+[Issues](http://ralfebert.lighthouseapp.com/projects/67904/) |
+[Installation](#installation)
 
 # ![applitude](applitude.png)
 
 applitude is an Objective C runtime framework and a domain-specific language for iPhone application development. It is an extended, iPhone-only version of the [Applause](http://code.google.com/p/applause/) project.
 
-You can get it from the [GitHub project page](http://github.com/ralfebert/applitude) or by running:
-
-	$ git clone git://github.com/ralfebert/applitude
-
-The Eclipse tooling can be installed from this p2 repository (see [Installation](#installation)):
-
-	http://applitude.org/p2/
-
 
 ## Overview
 
-applitude comes with a domain specific language ("DSL") that allows to express frequently needed parts of iPhone applications in a very dense format. This language is made-to-measure to express iPhone apps, so instead of keywords like `if`, `then`, `while` for regular programming languages, it has keywords like `contentprovider`, `tableview`, `section` or `cell`.
+applitude comes with a domain specific language ("DSL") that allows to express frequently needed parts of iPhone applications in a very dense format. This language is made-to-measure to express iPhone apps, so instead of keywords like `if`, `then`, `while` it has keywords like `contentprovider`, `tableview`, `section` or `cell`.
 
 For example, this application displays [JSON data](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) about inventors loaded from an URL:
 
 ![Screenshots Inventors demo application](demo.png)
 
-Written manually, you would have to care about many aspects like doing the HTTP requests, parsing the JSON data, showing activity indicators while the app is loading, feeding the data into tables when it gets available, responding to the `UITableViewDataSource` protocol, handling errors, navigating between the views, caching the data, loading images in the background and so on and on.
+Written manually, you would have to care about many aspects like doing the HTTP requests, parsing the JSON data, showing activity indicators while the app is loading, feeding the data into tables when it gets available, responding to the `UITableViewDataSource` protocol, handling errors, caching the data, loading images in the background, navigating between the views and so on and on.
 
 Instead, you could also write this [`demo.app`](https://github.com/ralfebert/applitude/blob/master/examples/demo/demo.app) document:
 
@@ -100,30 +93,41 @@ Last but not least, the runtime components utilized by the generated code are no
 
 ## Ok, where is the catch?
 
-The project is work in progress. Things will change without prior notice, you will encounter bugs and missing documentation and mostly you will need to help yourself. applitude is not for building iPhone apps the lazy way, you will need to have good knowledge of iPhone development in Objective C and some knowledge of building DSLs with Eclipse Xtext to put this tool to use.
-
-## Getting started
-
-* At first, I recommend to learn about Xtext DSLs, for example by following the tutorial in the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
-* I wrote a tutorial for the original Applause project which shows [how to install everything and create a project from scratch](http://www.ralfebert.de/blog/xtext/applause_new_app/). Almost everything still holds true for applitude.
-* Import the example projects in Eclipse, inspect the `*.app` documents, run the projects from Xcode, inspect the generated code.
+The project is work in progress. Things will change without prior notice, you will encounter bugs and missing documentation and mostly you will need to help yourself. You will need to have good knowledge of iPhone development in Objective C and some knowledge of building DSLs with Eclipse Xtext to put this tool to use.
 
 <a name="installation"> </a>
 
 ## Installation
 
 * Get Eclipse IDE 3.6.1 from the [Eclipse download page](http://www.eclipse.org/downloads/) (it doesn't matter which package you choose, Eclipse IDE for Java Developers is fine)
-* In Eclipse, click `Help > Install New Software` and enter this site:
+* In Eclipse, click `Help > Install New Software` and enter this p2 repository site:
 
 		http://applitude.org/p2/
 
 * Install "`Applitude iPhone DSL`" and restart Eclipse.
 * It is recommended to install the [Uncrustify code formatter](http://uncrustify.sourceforge.net/) because Applitude uses it to format the generated code. You can install it using [MacPorts](http://www.macports.org/) or [homebrew](http://mxcl.github.com/homebrew/). Applitude should find the binary automatically, you can also configure it from `Eclipse Preferences > Applitude > Generator`.
-* Download the [applitude source zip](https://github.com/ralfebert/applitude/zipball/master) (or clone the git repository).
+* Download the [applitude source zip](https://github.com/ralfebert/applitude/zipball/master) or clone the git repository:
+
+		$ git clone git://github.com/ralfebert/applitude
+
 * Import the demo project from `examples/demo/` using `File > Import > Existing Projects into workspace`.
 * Open `demo.app` from the project.
-* Change something in demo.app and save it - you will see the code under `Generated/` getting updated.
+* Change something in demo.app and save it - the code under `Generated/` will be re-generated.
 * Open `demo.xcodeproj` in Xcode and run the application.
+
+Next steps:
+
+* I recommend to learn about Xtext DSLs by following the tutorial in the [Xtext Getting started documentation](http://www.eclipse.org/Xtext/documentation/).
+* If you want to tinker with the DSL, clone the git repository and import the plug-in projects from the `tooling/` folder.
+* Create a new Eclipse Application launch configuration, using the default settings to launch an Eclipse IDE with your workspace plug-ins.
+* The best way to learn about applitude is to play with it, adopting the demo project to your needs, adding features to the DSL or the runtime libraries, etc.
+
+## Bugs / Support / Contributions
+
+* If something is not working or not documented, please check if there is already a ticket and if not, open a ticket in the [issue tracker](http://ralfebert.lighthouseapp.com/projects/67904).
+* Please understand that, while I use applitude in my own commercial projects, most of the work on it is done in my free time. This means, I can not provide any kind of free support for applitude; basically I will only fix/work on issues that I also care about myself.
+* I can provide commercial support and development services for the project, provided that the resulting work is licensed under open source licenses. If you're interested in such services, send me a message on GitHub.
+* Contributions to applitude under the Eclipse Public License (code) or the Creative Commons (documentation) are welcome. Just fork the project and send me a pull request on GitHub. I'll review every pull request within 3 business days.
 
 ## Demo Example project
 
