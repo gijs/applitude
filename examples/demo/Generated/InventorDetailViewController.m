@@ -18,8 +18,8 @@
 }
 
 - (void) update {
-	self.title = [fInventor valueForKeyPath:@"content.name"];
 	[fInventor request];
+	self.title = [fInventor valueForKeyPath:@"content.name"];
 
 	[self section];
 	{

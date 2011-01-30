@@ -17,8 +17,8 @@
 }
 
 - (void) update {
-	self.title = @"Inventors";
 	[fInventors request];
+	self.title = @"Inventors";
 
 	[self section];
 	{

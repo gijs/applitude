@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TableViewImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TableViewImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TableViewImpl#getTitleImage <em>Title Image</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TableViewImpl#getStyle <em>Style</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.impl.TableViewImpl#getSections <em>Sections</em>}</li>
  * </ul>
@@ -64,6 +65,16 @@ public class TableViewImpl extends ViewImpl implements TableView
    * @ordered
    */
   protected ScalarExpression title;
+
+  /**
+   * The cached value of the '{@link #getTitleImage() <em>Title Image</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTitleImage()
+   * @generated
+   * @ordered
+   */
+  protected ScalarExpression titleImage;
 
   /**
    * The default value of the '{@link #getStyle() <em>Style</em>}' attribute.
@@ -183,6 +194,54 @@ public class TableViewImpl extends ViewImpl implements TableView
    * <!-- end-user-doc -->
    * @generated
    */
+  public ScalarExpression getTitleImage()
+  {
+    return titleImage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTitleImage(ScalarExpression newTitleImage, NotificationChain msgs)
+  {
+    ScalarExpression oldTitleImage = titleImage;
+    titleImage = newTitleImage;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE, oldTitleImage, newTitleImage);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTitleImage(ScalarExpression newTitleImage)
+  {
+    if (newTitleImage != titleImage)
+    {
+      NotificationChain msgs = null;
+      if (titleImage != null)
+        msgs = ((InternalEObject)titleImage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE, null, msgs);
+      if (newTitleImage != null)
+        msgs = ((InternalEObject)newTitleImage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE, null, msgs);
+      msgs = basicSetTitleImage(newTitleImage, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE, newTitleImage, newTitleImage));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TableViewStyle getStyle()
   {
     return style;
@@ -229,6 +288,8 @@ public class TableViewImpl extends ViewImpl implements TableView
         return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
       case ApplauseDslPackage.TABLE_VIEW__TITLE:
         return basicSetTitle(null, msgs);
+      case ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE:
+        return basicSetTitleImage(null, msgs);
       case ApplauseDslPackage.TABLE_VIEW__SECTIONS:
         return ((InternalEList<?>)getSections()).basicRemove(otherEnd, msgs);
     }
@@ -249,6 +310,8 @@ public class TableViewImpl extends ViewImpl implements TableView
         return getVariables();
       case ApplauseDslPackage.TABLE_VIEW__TITLE:
         return getTitle();
+      case ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE:
+        return getTitleImage();
       case ApplauseDslPackage.TABLE_VIEW__STYLE:
         return getStyle();
       case ApplauseDslPackage.TABLE_VIEW__SECTIONS:
@@ -274,6 +337,9 @@ public class TableViewImpl extends ViewImpl implements TableView
         return;
       case ApplauseDslPackage.TABLE_VIEW__TITLE:
         setTitle((ScalarExpression)newValue);
+        return;
+      case ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE:
+        setTitleImage((ScalarExpression)newValue);
         return;
       case ApplauseDslPackage.TABLE_VIEW__STYLE:
         setStyle((TableViewStyle)newValue);
@@ -302,6 +368,9 @@ public class TableViewImpl extends ViewImpl implements TableView
       case ApplauseDslPackage.TABLE_VIEW__TITLE:
         setTitle((ScalarExpression)null);
         return;
+      case ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE:
+        setTitleImage((ScalarExpression)null);
+        return;
       case ApplauseDslPackage.TABLE_VIEW__STYLE:
         setStyle(STYLE_EDEFAULT);
         return;
@@ -326,6 +395,8 @@ public class TableViewImpl extends ViewImpl implements TableView
         return variables != null && !variables.isEmpty();
       case ApplauseDslPackage.TABLE_VIEW__TITLE:
         return title != null;
+      case ApplauseDslPackage.TABLE_VIEW__TITLE_IMAGE:
+        return titleImage != null;
       case ApplauseDslPackage.TABLE_VIEW__STYLE:
         return style != STYLE_EDEFAULT;
       case ApplauseDslPackage.TABLE_VIEW__SECTIONS:

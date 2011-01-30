@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.applause.applausedsl.applauseDsl.TableView#getVariables <em>Variables</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.TableView#getTitle <em>Title</em>}</li>
+ *   <li>{@link org.applause.applausedsl.applauseDsl.TableView#getTitleImage <em>Title Image</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.TableView#getStyle <em>Style</em>}</li>
  *   <li>{@link org.applause.applausedsl.applauseDsl.TableView#getSections <em>Sections</em>}</li>
  * </ul>
@@ -69,6 +70,32 @@ public interface TableView extends View
    * @generated
    */
   void setTitle(ScalarExpression value);
+
+  /**
+   * Returns the value of the '<em><b>Title Image</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Title Image</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Title Image</em>' containment reference.
+   * @see #setTitleImage(ScalarExpression)
+   * @see org.applause.applausedsl.applauseDsl.ApplauseDslPackage#getTableView_TitleImage()
+   * @model containment="true"
+   * @generated
+   */
+  ScalarExpression getTitleImage();
+
+  /**
+   * Sets the value of the '{@link org.applause.applausedsl.applauseDsl.TableView#getTitleImage <em>Title Image</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Title Image</em>' containment reference.
+   * @see #getTitleImage()
+   * @generated
+   */
+  void setTitleImage(ScalarExpression value);
 
   /**
    * Returns the value of the '<em><b>Style</b></em>' attribute.

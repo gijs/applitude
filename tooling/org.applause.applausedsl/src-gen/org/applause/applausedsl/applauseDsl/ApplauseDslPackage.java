@@ -997,13 +997,22 @@ public interface ApplauseDslPackage extends EPackage
   int TABLE_VIEW__TITLE = VIEW_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Title Image</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE_VIEW__TITLE_IMAGE = VIEW_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Style</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TABLE_VIEW__STYLE = VIEW_FEATURE_COUNT + 2;
+  int TABLE_VIEW__STYLE = VIEW_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Sections</b></em>' containment reference list.
@@ -1012,7 +1021,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TABLE_VIEW__SECTIONS = VIEW_FEATURE_COUNT + 3;
+  int TABLE_VIEW__SECTIONS = VIEW_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Table View</em>' class.
@@ -1021,7 +1030,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TABLE_VIEW_FEATURE_COUNT = VIEW_FEATURE_COUNT + 4;
+  int TABLE_VIEW_FEATURE_COUNT = VIEW_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.applause.applausedsl.applauseDsl.impl.CustomViewImpl <em>Custom View</em>}' class.
@@ -2325,6 +2334,17 @@ public interface ApplauseDslPackage extends EPackage
   EReference getTableView_Title();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.applause.applausedsl.applauseDsl.TableView#getTitleImage <em>Title Image</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Title Image</em>'.
+   * @see org.applause.applausedsl.applauseDsl.TableView#getTitleImage()
+   * @see #getTableView()
+   * @generated
+   */
+  EReference getTableView_TitleImage();
+
+  /**
    * Returns the meta object for the attribute '{@link org.applause.applausedsl.applauseDsl.TableView#getStyle <em>Style</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3420,6 +3440,14 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EReference TABLE_VIEW__TITLE = eINSTANCE.getTableView_Title();
+
+    /**
+     * The meta object literal for the '<em><b>Title Image</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TABLE_VIEW__TITLE_IMAGE = eINSTANCE.getTableView_TitleImage();
 
     /**
      * The meta object literal for the '<em><b>Style</b></em>' attribute feature.

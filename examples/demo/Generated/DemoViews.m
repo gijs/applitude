@@ -8,9 +8,11 @@
 
 	UINavigationController *tab1 = [BrandedUIFactory createUINavigationControllerWithRootViewController:[DemoViews createInventors]];
 	tab1.tabBarItem.title = @"Inventors";
+	tab1.tabBarItem.image = [UIImage imageNamed:@"lightbulb.png"];
 
 	UINavigationController *tab2 = [BrandedUIFactory createUINavigationControllerWithRootViewController:[DemoViews createReference]];
 	tab2.tabBarItem.title = @"Reference";
+	tab2.tabBarItem.image = [UIImage imageNamed:@"book.png"];
 
 	tabController.viewControllers = [NSArray arrayWithObjects:tab1, tab2, nil];
 

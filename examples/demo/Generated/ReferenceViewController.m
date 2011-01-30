@@ -15,8 +15,9 @@
 }
 
 - (void) update {
-	self.title = @"Reference";
 
+	self.title = @"Reference";
+	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"applitude.png"]] autorelease];
 
 	[self section];
 	{

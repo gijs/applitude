@@ -117,6 +117,8 @@
         eType="#//Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="titleImage" eType="#//ScalarExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="style" eType="#//TableViewStyle"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
         eType="#//Section" containment="true"/>

@@ -1108,9 +1108,19 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTableView_TitleImage()
+  {
+    return (EReference)tableViewEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getTableView_Style()
   {
-    return (EAttribute)tableViewEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)tableViewEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1120,7 +1130,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    */
   public EReference getTableView_Sections()
   {
-    return (EReference)tableViewEClass.getEStructuralFeatures().get(3);
+    return (EReference)tableViewEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1703,6 +1713,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     tableViewEClass = createEClass(TABLE_VIEW);
     createEReference(tableViewEClass, TABLE_VIEW__VARIABLES);
     createEReference(tableViewEClass, TABLE_VIEW__TITLE);
+    createEReference(tableViewEClass, TABLE_VIEW__TITLE_IMAGE);
     createEAttribute(tableViewEClass, TABLE_VIEW__STYLE);
     createEReference(tableViewEClass, TABLE_VIEW__SECTIONS);
 
@@ -1927,6 +1938,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEClass(tableViewEClass, TableView.class, "TableView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTableView_Variables(), this.getParameter(), null, "variables", null, 0, -1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTableView_Title(), this.getScalarExpression(), null, "title", null, 0, 1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTableView_TitleImage(), this.getScalarExpression(), null, "titleImage", null, 0, 1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTableView_Style(), this.getTableViewStyle(), "style", null, 0, 1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTableView_Sections(), this.getSection(), null, "sections", null, 0, -1, TableView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

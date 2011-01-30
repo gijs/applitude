@@ -17,8 +17,8 @@
 }
 
 - (void) update {
-	self.title = @"cell foreach";
 	[fInventors request];
+	self.title = @"cell foreach";
 
 	[self section];
 	{

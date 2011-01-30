@@ -18,8 +18,8 @@
 }
 
 - (void) update {
-	self.title = @"section/cell foreach";
 	[fInventors request];
+	self.title = @"section/cell foreach";
 
 	[self sections:@selector(invSection:) forContentProvider:fInventors];
 

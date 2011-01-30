@@ -18,8 +18,8 @@
 }
 
 - (void) update {
-	self.title = @"Error handling";
 	[fInventors request];
+	self.title = @"Error handling";
 
 	[self section];
 	{

@@ -12,8 +12,8 @@
 }
 
 - (void) update {
-	self.title = [fInvention valueForKeyPath:@"content.name"];
 	[fInvention request];
+	self.title = [fInvention valueForKeyPath:@"content.name"];
 
 
 }

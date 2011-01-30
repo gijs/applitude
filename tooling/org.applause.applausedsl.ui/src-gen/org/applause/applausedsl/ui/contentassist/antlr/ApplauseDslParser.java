@@ -82,15 +82,15 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProviderConstructionAccess().getGroup_1(), "rule__ProviderConstruction__Group_1__0");
 					put(grammarAccess.getTabViewAccess().getGroup(), "rule__TabView__Group__0");
 					put(grammarAccess.getTabViewAccess().getGroup_2(), "rule__TabView__Group_2__0");
-					put(grammarAccess.getTabAccess().getGroup_0(), "rule__Tab__Group_0__0");
-					put(grammarAccess.getTabAccess().getGroup_0_2(), "rule__Tab__Group_0_2__0");
-					put(grammarAccess.getTabAccess().getGroup_1(), "rule__Tab__Group_1__0");
-					put(grammarAccess.getTabAccess().getGroup_2(), "rule__Tab__Group_2__0");
+					put(grammarAccess.getTabAccess().getGroup(), "rule__Tab__Group__0");
 					put(grammarAccess.getTabAccess().getGroup_2_0(), "rule__Tab__Group_2_0__0");
+					put(grammarAccess.getTabAccess().getGroup_2_1(), "rule__Tab__Group_2_1__0");
+					put(grammarAccess.getTabAccess().getGroup_2_2(), "rule__Tab__Group_2_2__0");
 					put(grammarAccess.getTableViewAccess().getGroup(), "rule__TableView__Group__0");
 					put(grammarAccess.getTableViewAccess().getGroup_2(), "rule__TableView__Group_2__0");
 					put(grammarAccess.getTableViewAccess().getGroup_5_0(), "rule__TableView__Group_5_0__0");
 					put(grammarAccess.getTableViewAccess().getGroup_5_1(), "rule__TableView__Group_5_1__0");
+					put(grammarAccess.getTableViewAccess().getGroup_5_2(), "rule__TableView__Group_5_2__0");
 					put(grammarAccess.getCustomViewAccess().getGroup(), "rule__CustomView__Group__0");
 					put(grammarAccess.getCustomViewAccess().getGroup_2(), "rule__CustomView__Group_2__0");
 					put(grammarAccess.getSectionAccess().getGroup(), "rule__Section__Group__0");
@@ -157,14 +157,15 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTabViewAccess().getNameAssignment_1(), "rule__TabView__NameAssignment_1");
 					put(grammarAccess.getTabViewAccess().getContentAssignment_2_1(), "rule__TabView__ContentAssignment_2_1");
 					put(grammarAccess.getTabViewAccess().getTabsAssignment_4(), "rule__TabView__TabsAssignment_4");
-					put(grammarAccess.getTabAccess().getTitleAssignment_0_2_1(), "rule__Tab__TitleAssignment_0_2_1");
-					put(grammarAccess.getTabAccess().getIconAssignment_1_1(), "rule__Tab__IconAssignment_1_1");
-					put(grammarAccess.getTabAccess().getViewAssignment_2_0_1(), "rule__Tab__ViewAssignment_2_0_1");
+					put(grammarAccess.getTabAccess().getTitleAssignment_2_0_1(), "rule__Tab__TitleAssignment_2_0_1");
+					put(grammarAccess.getTabAccess().getIconAssignment_2_1_1(), "rule__Tab__IconAssignment_2_1_1");
+					put(grammarAccess.getTabAccess().getViewAssignment_2_2_1(), "rule__Tab__ViewAssignment_2_2_1");
 					put(grammarAccess.getTableViewAccess().getNameAssignment_1(), "rule__TableView__NameAssignment_1");
 					put(grammarAccess.getTableViewAccess().getContentAssignment_2_1(), "rule__TableView__ContentAssignment_2_1");
 					put(grammarAccess.getTableViewAccess().getVariablesAssignment_4(), "rule__TableView__VariablesAssignment_4");
 					put(grammarAccess.getTableViewAccess().getTitleAssignment_5_0_1(), "rule__TableView__TitleAssignment_5_0_1");
-					put(grammarAccess.getTableViewAccess().getStyleAssignment_5_1_1(), "rule__TableView__StyleAssignment_5_1_1");
+					put(grammarAccess.getTableViewAccess().getTitleImageAssignment_5_1_1(), "rule__TableView__TitleImageAssignment_5_1_1");
+					put(grammarAccess.getTableViewAccess().getStyleAssignment_5_2_1(), "rule__TableView__StyleAssignment_5_2_1");
 					put(grammarAccess.getTableViewAccess().getSectionsAssignment_6(), "rule__TableView__SectionsAssignment_6");
 					put(grammarAccess.getCustomViewAccess().getNameAssignment_1(), "rule__CustomView__NameAssignment_1");
 					put(grammarAccess.getCustomViewAccess().getContentAssignment_2_1(), "rule__CustomView__ContentAssignment_2_1");
@@ -187,7 +188,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getViewCallAccess().getProviderAssignment_2(), "rule__ViewCall__ProviderAssignment_2");
 					put(grammarAccess.getProjectClassAccess().getNameAssignment(), "rule__ProjectClass__NameAssignment");
 					put(grammarAccess.getApplicationAccess().getUnorderedGroup(), "rule__Application__UnorderedGroup");
-					put(grammarAccess.getTabAccess().getUnorderedGroup(), "rule__Tab__UnorderedGroup");
+					put(grammarAccess.getTabAccess().getUnorderedGroup_2(), "rule__Tab__UnorderedGroup_2");
 					put(grammarAccess.getTableViewAccess().getUnorderedGroup_5(), "rule__TableView__UnorderedGroup_5");
 					put(grammarAccess.getCellAccess().getUnorderedGroup_4(), "rule__Cell__UnorderedGroup_4");
 				}

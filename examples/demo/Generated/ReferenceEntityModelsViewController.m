@@ -15,8 +15,8 @@
 }
 
 - (void) update {
-	self.title = @"Login";
 	[fLogin request];
+	self.title = @"Login";
 
 	[self section];
 	{

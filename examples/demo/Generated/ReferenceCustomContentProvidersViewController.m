@@ -16,7 +16,6 @@
 }
 
 - (void) update {
-
 	[fDate request];
 	[fStoredDate request];
 

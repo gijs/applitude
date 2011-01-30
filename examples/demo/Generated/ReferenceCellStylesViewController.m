@@ -13,8 +13,8 @@
 }
 
 - (void) update {
-	self.title = @"Cell styles";
 
+	self.title = @"Cell styles";
 
 	[self section];
 	{
