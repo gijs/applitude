@@ -122,6 +122,8 @@
 		BF87D95712F50EDB00FE6643 /* ReferenceErrorHandlingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94812F50EDB00FE6643 /* ReferenceErrorHandlingViewController.m */; };
 		BF87D95812F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94A12F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.m */; };
 		BF87D95912F50EDB00FE6643 /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94C12F50EDB00FE6643 /* ReferenceViewController.m */; };
+		BF87D96A12F5114E00FE6643 /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D93612F50EDB00FE6643 /* DemoProviders.m */; };
+		BF87D96D12F5115600FE6643 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D90312F50CE500FE6643 /* Login.m */; };
 		BFAEE78012F061610013047D /* BoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE76F12F061610013047D /* BoxCell.m */; };
 		BFAEE78112F061610013047D /* BoxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE77112F061610013047D /* BoxTableViewController.m */; };
 		BFAEE78212F061610013047D /* CachedList.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE77312F061610013047D /* CachedList.m */; };
@@ -885,6 +887,8 @@
 				BF87D7F212F4FD5800FE6643 /* HTTPError.m in Sources */,
 				BF87D81112F4FD8400FE6643 /* TTGlobalNetwork.m in Sources */,
 				BF87D81212F4FD8400FE6643 /* URLUtils.m in Sources */,
+				BF87D96A12F5114E00FE6643 /* DemoProviders.m in Sources */,
+				BF87D96D12F5115600FE6643 /* Login.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
