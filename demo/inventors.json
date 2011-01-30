@@ -1,7 +1,7 @@
 [
 	{
 		"name" : "Thomas Edison",
-		"imageUrl" : "http://ralfebert.github.com/iApplause/demo/edison.jpg",
+		"imageUrl" : "http://applitude.org/demo/edison.jpg",
 		"inventions" : [
 			{ "name" : "Light bulb" },
 			{ "name" : "Motion picture" },
@@ -10,14 +10,14 @@
 	},
 	{
 		"name" : "Alexander Graham Bell",
-		"imageUrl" : "http://ralfebert.github.com/iApplause/demo/bell.jpg",
+		"imageUrl" : "http://applitude.org/demo/bell.jpg",
 		"inventions" : [
 			{ "name" : "Telephone" }
 		]
 	},
 	{
 		"name" : "Nikola Tesla",
-		"imageUrl" : "http://ralfebert.github.com/iApplause/demo/tesla.jpg",
+		"imageUrl" : "http://applitude.org/demo/tesla.jpg",
 		"inventions" : [
 			{ "name" : "Tesla coil" },
 			{ "name" : "Alternating current" }

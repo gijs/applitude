@@ -16,7 +16,7 @@ applitude is an Objective C runtime framework and a domain-specific language for
 
 applitude comes with a domain specific language ("DSL") that allows to express frequently needed parts of iPhone applications in a very dense format. This language is made-to-measure to express iPhone apps, so instead of keywords like `if`, `then`, `while` it has keywords like `contentprovider`, `tableview`, `section` or `cell`.
 
-For example, this application displays [JSON data](https://github.com/ralfebert/applitude/blob/gh-pages/demo/devices.json) about inventors loaded from an URL:
+For example, this application displays [JSON data](http://applitude.org/demo/inventors.json) about inventors loaded from an URL:
 
 ![Screenshots Inventors demo application](demo.png)
 
@@ -48,7 +48,7 @@ Instead, you could also write this [`demo.app`](https://github.com/ralfebert/app
 	}
 
 	contentprovider AllInventors returns Inventor[] fetches JSON from
-		"http://ralfebert.github.com/applitude/demo/inventors.json" selects ""
+		"http://applitude.org/demo/inventors.json" selects ""
 
 	tableview Inventors {
 		Inventor[] inventors = AllInventors()
