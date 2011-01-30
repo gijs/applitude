@@ -49,4 +49,8 @@
 	return [[[ReferenceErrorHandlingViewController alloc] init] autorelease];
 }
 
++ (ReferenceCustomContentProvidersViewController *) createReferenceCustomContentProviders {
+	return [[[ReferenceCustomContentProvidersViewController alloc] init] autorelease];
+}
+
 @end

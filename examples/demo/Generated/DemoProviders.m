@@ -1,5 +1,6 @@
 #import "DemoProviders.h"
 #import "CommonFilters.h"
+#import "DateContentProvider.h"
 #import "UrlContentProvider.h"
 
 @implementation DemoProviders
@@ -15,9 +16,9 @@ static DemoProviders *sharedProviders = nil;
 }
 
 - (ContentProvider *) providerForAllInventors {
-	UrlContentProvider *provider = [[UrlContentProvider alloc] initWithURL:[NSURL URLWithString:@"http://ralfebert.github.com/applitude/demo/inventors.json"]];
-	[provider addFilter:[CommonFilters filterForJSON]];
 	if (!fAllInventors) {
+		UrlContentProvider *provider = [[UrlContentProvider alloc] initWithURL:[NSURL URLWithString:@"http://applitude.org/demo/inventors.json"]];
+		[provider addFilter:[CommonFilters filterForJSON]];
 		fAllInventors = provider;
 	}
 	return fAllInventors;
@@ -27,6 +28,19 @@ static DemoProviders *sharedProviders = nil;
 	UrlContentProvider *provider = [[UrlContentProvider alloc] initWithURL:[NSURL URLWithString:@"http://localhost/none.json"]];
 	[provider addFilter:[CommonFilters filterForJSON]];
 	return [provider autorelease];
+}
+
+- (ContentProvider *) providerForDate {
+	DateContentProvider *provider = [[DateContentProvider alloc] init];
+	return [provider autorelease];
+}
+
+- (ContentProvider *) providerForStoredDate {
+	if (!fStoredDate) {
+		DateContentProvider *provider = [[DateContentProvider alloc] init];
+		fStoredDate = provider;
+	}
+	return fStoredDate;
 }
 
 @end

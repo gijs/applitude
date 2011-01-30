@@ -4,6 +4,7 @@
 #import "InventorsViewController.h"
 #import "ReferenceCellForeachViewController.h"
 #import "ReferenceCellStylesViewController.h"
+#import "ReferenceCustomContentProvidersViewController.h"
 #import "ReferenceErrorHandlingViewController.h"
 #import "ReferenceSectionCellForeachViewController.h"
 #import "ReferenceViewController.h"
@@ -21,6 +22,7 @@
 + (ReferenceCellForeachViewController *) createReferenceCellForeach;
 + (ReferenceSectionCellForeachViewController *) createReferenceSectionCellForeach;
 + (ReferenceErrorHandlingViewController *) createReferenceErrorHandling;
++ (ReferenceCustomContentProvidersViewController *) createReferenceCustomContentProviders;
 
 
 @end

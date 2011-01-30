@@ -51,6 +51,14 @@
 		[self cell:cell];
 	}
 
+	{
+		BoxCell *cell = [[[BoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+		cell.textLabel.text = @"Custom Content Providers";
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(customcontentprovidersCellSelected:)];
+		[self cell:cell];
+	}
+
 }
 
 - (void) cellstylesCellSelected:(BoxCell *)cell {
@@ -70,6 +78,11 @@
 
 - (void) errorhandlingCellSelected:(BoxCell *)cell {
 	UIViewController *controller = [DemoViews createReferenceErrorHandling];
+	[self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void) customcontentprovidersCellSelected:(BoxCell *)cell {
+	UIViewController *controller = [DemoViews createReferenceCustomContentProviders];
 	[self.navigationController pushViewController:controller animated:YES];
 }
 

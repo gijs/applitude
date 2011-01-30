@@ -28,7 +28,7 @@ entity Invention {
 	String name
 }
 
-contentprovider AllInventors stores Inventor[] fetches JSON from "http://ralfebert.github.com/applitude/demo/inventors.json" selects ""
+contentprovider AllInventors stores Inventor[] fetches JSON from "http://applitude.org/demo/inventors.json" selects ""
 contentprovider AllErrorneousInventors returns Inventor[] fetches JSON from "http://localhost/none.json" selects ""
 
 tableview Inventors {
@@ -89,6 +89,10 @@ tableview Reference {
 		cell Default {
 			text: "Error handling"
 			action: ReferenceErrorHandling()
+		}
+		cell Default {
+			text: "Custom Content Providers"
+			action: ReferenceCustomContentProviders()
 		}
 	}
 
@@ -157,4 +161,23 @@ tableview ReferenceErrorHandling {
 		}
 	}
 
+}
+
+contentprovider Date returns String class DateContentProvider
+contentprovider StoredDate stores String class DateContentProvider
+
+tableview ReferenceCustomContentProviders {
+	Inventor[] date = Date()
+	Inventor[] storedDate = StoredDate()
+	
+	section {
+		title: "Custom Content"
+		cell Default { text: date }
+	}
+
+	section {
+		title: "Custom Content (stored)"
+		cell Default { text: storedDate }
+	}
+	
 }
