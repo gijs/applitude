@@ -124,6 +124,12 @@
 		BF87D95912F50EDB00FE6643 /* ReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D94C12F50EDB00FE6643 /* ReferenceViewController.m */; };
 		BF87D96A12F5114E00FE6643 /* DemoProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D93612F50EDB00FE6643 /* DemoProviders.m */; };
 		BF87D96D12F5115600FE6643 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = BF87D90312F50CE500FE6643 /* Login.m */; };
+		BF87D99E12F527BE00FE6643 /* lightbulb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF87D99D12F527BE00FE6643 /* lightbulb@2x.png */; };
+		BF87D9B912F528F500FE6643 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = BF87D9B812F528F500FE6643 /* lightbulb.png */; };
+		BF87D9CB12F52BC100FE6643 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = BF87D9C912F52BC100FE6643 /* book.png */; };
+		BF87D9CC12F52BC100FE6643 /* book@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF87D9CA12F52BC100FE6643 /* book@2x.png */; };
+		BF87D9F212F5355800FE6643 /* applitude.png in Resources */ = {isa = PBXBuildFile; fileRef = BF87D9F112F5355800FE6643 /* applitude.png */; };
+		BF87DA0112F5383D00FE6643 /* applitude@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF87DA0012F5383D00FE6643 /* applitude@2x.png */; };
 		BFAEE78012F061610013047D /* BoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE76F12F061610013047D /* BoxCell.m */; };
 		BFAEE78112F061610013047D /* BoxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE77112F061610013047D /* BoxTableViewController.m */; };
 		BFAEE78212F061610013047D /* CachedList.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAEE77312F061610013047D /* CachedList.m */; };
@@ -288,6 +294,12 @@
 		BF87D94A12F50EDB00FE6643 /* ReferenceSectionCellForeachViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceSectionCellForeachViewController.m; sourceTree = "<group>"; };
 		BF87D94B12F50EDB00FE6643 /* ReferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceViewController.h; sourceTree = "<group>"; };
 		BF87D94C12F50EDB00FE6643 /* ReferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferenceViewController.m; sourceTree = "<group>"; };
+		BF87D99D12F527BE00FE6643 /* lightbulb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightbulb@2x.png"; sourceTree = "<group>"; };
+		BF87D9B812F528F500FE6643 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
+		BF87D9C912F52BC100FE6643 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		BF87D9CA12F52BC100FE6643 /* book@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book@2x.png"; sourceTree = "<group>"; };
+		BF87D9F112F5355800FE6643 /* applitude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applitude.png; sourceTree = "<group>"; };
+		BF87DA0012F5383D00FE6643 /* applitude@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "applitude@2x.png"; sourceTree = "<group>"; };
 		BFAEE76E12F061610013047D /* BoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCell.h; sourceTree = "<group>"; };
 		BFAEE76F12F061610013047D /* BoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCell.m; sourceTree = "<group>"; };
 		BFAEE77012F061610013047D /* BoxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxTableViewController.h; sourceTree = "<group>"; };
@@ -358,6 +370,7 @@
 				BF4DC9A412EA6A310005E01C /* runtime */,
 				BF87D7BE12F4FC2B00FE6643 /* src */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				BF87D99212F5275B00FE6643 /* Images */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -656,6 +669,19 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		BF87D99212F5275B00FE6643 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BF87D9F112F5355800FE6643 /* applitude.png */,
+				BF87DA0012F5383D00FE6643 /* applitude@2x.png */,
+				BF87D9C912F52BC100FE6643 /* book.png */,
+				BF87D9CA12F52BC100FE6643 /* book@2x.png */,
+				BF87D9B812F528F500FE6643 /* lightbulb.png */,
+				BF87D99D12F527BE00FE6643 /* lightbulb@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		BFAEE76D12F061610013047D /* Tables */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,6 +774,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF87D99E12F527BE00FE6643 /* lightbulb@2x.png in Resources */,
+				BF87D9B912F528F500FE6643 /* lightbulb.png in Resources */,
+				BF87D9CB12F52BC100FE6643 /* book.png in Resources */,
+				BF87D9CC12F52BC100FE6643 /* book@2x.png in Resources */,
+				BF87D9F212F5355800FE6643 /* applitude.png in Resources */,
+				BF87DA0112F5383D00FE6643 /* applitude@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

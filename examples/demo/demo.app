@@ -9,10 +9,12 @@ tabview Tabs {
 	tab {
 		title: "Inventors"
 		view: Inventors()
+		icon: "lightbulb.png"
 	}
 	tab {
 		title: "Reference"
 		view: Reference()
+		icon: "book.png"
 	}
 }
 
@@ -75,6 +77,7 @@ tableview InventionDetail(Invention invention) {
 
 tableview Reference {
 	title: "Reference"
+	titleImage: "applitude.png"
 
 	section {
 		cell Default {
