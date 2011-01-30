@@ -11,7 +11,6 @@
 - (id) init {
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self != nil) {
-
 		fInventors = [[[DemoProviders sharedProviders] providerForError] retain];
 	}
 	return self;
@@ -27,7 +26,6 @@
 	}
 
 	[self sections:@selector(invSection:) forContentProvider:fInventors];
-
 }
 
 - (Section *) invSection:(NSDictionary *)inv {

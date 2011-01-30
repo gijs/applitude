@@ -32,7 +32,6 @@
 		[fBindings bind:fStoredDate property:@"content" to:cell.textLabel property:@"text"];
 		[self cell:cell];
 	}
-
 }
 
 - (void) dealloc {

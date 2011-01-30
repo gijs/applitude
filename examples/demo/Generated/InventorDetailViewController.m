@@ -12,7 +12,6 @@
 	if (self != nil) {
 		fBindings = [[BindingContext alloc] init];
 		fInventor = [inventor retain];
-
 	}
 	return self;
 }
@@ -33,7 +32,6 @@
 	{
 		[self cells:@selector(inventionCell:) forContentProvider:[ContentProvider nestedContentProviderWithContentProvider:fInventor keyPath:@"inventions"]];
 	}
-
 }
 
 - (UITableViewCell *) inventionCell:(NSDictionary *)invention {

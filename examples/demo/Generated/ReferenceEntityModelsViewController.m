@@ -32,7 +32,6 @@
 		[fBindings bind:fLogin property:@"content.password" to:cell.detailTextLabel property:@"text"];
 		[self cell:cell];
 	}
-
 }
 
 - (void) dealloc {

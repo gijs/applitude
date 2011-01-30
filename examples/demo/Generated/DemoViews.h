@@ -11,7 +11,6 @@
 #import "ReferenceViewController.h"
 
 @interface DemoViews : NSObject {
-
 }
 
 + (UITabBarController *) createTabs;

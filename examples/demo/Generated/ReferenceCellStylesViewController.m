@@ -6,14 +6,11 @@
 - (id) init {
 	self = [super initWithStyle:UITableViewStylePlain];
 	if (self != nil) {
-
-
 	}
 	return self;
 }
 
 - (void) update {
-
 	self.title = @"Cell styles";
 
 	[self section];
@@ -43,11 +40,9 @@
 		cell.detailTextLabel.text = @"Value2";
 		[self cell:cell];
 	}
-
 }
 
 - (void) dealloc {
-
 	[super dealloc];
 }
 

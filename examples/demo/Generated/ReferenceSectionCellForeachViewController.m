@@ -11,7 +11,6 @@
 - (id) init {
 	self = [super initWithStyle:UITableViewStylePlain];
 	if (self != nil) {
-
 		fInventors = [[[DemoProviders sharedProviders] providerForAllInventors] retain];
 	}
 	return self;
@@ -22,7 +21,6 @@
 	self.title = @"section/cell foreach";
 
 	[self sections:@selector(invSection:) forContentProvider:fInventors];
-
 }
 
 - (Section *) invSection:(NSDictionary *)inv {

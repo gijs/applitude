@@ -8,14 +8,11 @@
 - (id) init {
 	self = [super initWithStyle:UITableViewStylePlain];
 	if (self != nil) {
-
-
 	}
 	return self;
 }
 
 - (void) update {
-
 	self.title = @"Reference";
 	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"applitude.png"]] autorelease];
 
@@ -67,7 +64,6 @@
 		cell.onTouch = [SelectorAction actionWithObject:self selector:@selector(entitymodelsCellSelected:)];
 		[self cell:cell];
 	}
-
 }
 
 - (void) cellstylesCellSelected:(BoxCell *)cell {
@@ -101,7 +97,6 @@
 }
 
 - (void) dealloc {
-
 	[super dealloc];
 }
 
